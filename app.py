@@ -16,9 +16,11 @@ Next steps:
 
 - Improve tags (relate them to their parents)
 - Visually organise tags according to their associated category
-- Filter the graph in function of the filters or at least some filters
+- Filter the graph in function of the filters or at least some filters 
+  (what the plot would look like for outdoor applications only?)
 - Add a tab (or a radio element) that retrieve the associated tags for a given installation
 - Display the total number of installations for the study
+- Add a tab with a Wenn Diagram showing all potential relation between categories
 """
 
 
@@ -38,6 +40,8 @@ IN.initiateArray()
 data = SD.data
 labellist = AI.labels[11:] + IN.labels[7:] + SD.labels[11:]
 IDlist = AI.df['ids'][11:].tolist() + IN.df['ids'][7:].tolist() + SD.df['ids'][11:].tolist()
+parentlist = AI.parentslabels[11:] + IN.parentslabels[7:] + SD.parentslabels[11:]
+print(parentlist)
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -105,7 +109,12 @@ app.layout = html.Div(children=[
     html.Div([
         dcc.Dropdown(
             id='dropdown_cat',
-            options=[{'label': re.sub('<br>', ' ', i), 'value': i} for i in labellist],
+            options = [
+                {
+                'label': re.sub('<br>', ' ', parentlist[i]) + ' | ' + re.sub('<br>', ' ', labellist[i]),
+                'value': labellist[i]
+                } for i in range(0, len(labellist))
+                ],
             multi=True,
             placeholder="Select one or more categories",
             style={
@@ -127,11 +136,11 @@ def update_figure(input_value):
         dframe = AI.df
         colorscale = 'Burg'
     elif input_value == 'SD':
-       dframe = SD.df
-       colorscale = 'Greens'
+        dframe = SD.df
+        colorscale = 'Greens'
     elif input_value == 'IN':
-       dframe = IN.df
-       colorscale = 'Blues'
+        dframe = IN.df
+        colorscale = 'Blues'
     fig = go.Figure()
     fig.add_trace(go.Sunburst(
             ids = dframe['ids'], 
@@ -158,29 +167,53 @@ def update_figure(input_value):
     [Input('sunburst', 'clickData'),
     Input('dropdown_cat', 'value')])
 def display_list(clickData, values):
-    rows = [] 
+    rows = []
+    parents = []
+    str_values = []
+
     if values is None or values == []:
         if clickData is None or len(clickData['points'][0]['id']) <= 6:
-            return 'Click on a sub-category or choose it from the dropdown menu to get a list of the concerned installations.'
+            return 'Click on a sub-category or choose it from the dropdown menu to get a list of the corresponding installations.'
         elif len(clickData['points'][0]['id']) > 6:
             values = [clickData['points'][0]['label']]
+            parent = clickData['points'][0]['parent']
+            parents.append(parent)
             rows = make_list(values)
 
-    elif values is not None and (clickData is None or len(clickData['points'][0]['id']) <= 6):
-        rows = make_list(values)
-        if rows == []:
-            return 'No installation belong to those categories.'
-
-    elif values is not None and clickData is not None:
-        if len(clickData['points'][0]['id']) > 6:
-            values.append(clickData['points'][0]['label'])
+    elif values is not None:
+        if clickData is None or len(clickData['points'][0]['id']) <= 6:
+            for value in values:
+                parents.append(parentlist[labellist.index(value)])     
             rows = make_list(values)
+
+        elif clickData is not None:
+            for value in values:
+                parents.append(parentlist[labellist.index(value)])
+            if len(clickData['points'][0]['id']) > 6:
+                parent = clickData['points'][0]['parent']
+                parents.append(parent)
+                values.append(clickData['points'][0]['label'])
+                rows = make_list(values)
         if rows == []:
-            return 'No installation belong to those categories.'
+            return 'No installation belongs to all those categories.'
     
+
+    for i in range(0, len(parents)):
+            str_values.append([re.sub('<br>', ' ', parents[i]) + ' | ' 
+                + re.sub('<br>', ' ', values[i])])
+    
+    if len(values) > 1:
+        return  [
+            html.H5('Chosen tags: '),
+            html.H3([str_values[i][0] + ' ― ' for i in range(0, len(str_values)-1)] + [str_values[-1][0]]),
+            html.Table(
+                    [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
+                    + rows
+                    )
+                ]
     return  [
         html.H5('Chosen tags: '),
-        html.H3([' | ' + re.sub('<br>', ' ', value) for value in values]),
+        html.H3([value[0] for value in str_values]),
         html.Table(
                 [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
                 + rows
