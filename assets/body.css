@@ -1,0 +1,28 @@
+
+@font-face {
+    font-family: 'FontHeader';
+    src: url("fonts/Montserrat-ExtraLight.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'FontNormal';
+    src: url("fonts/Montserrat-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'FontBold';
+    font-weight: bold;
+    src: url("fonts/Montserrat-Bold.otf") format("opentype");
+}
+
+
+
+body {
+    font-family: 'FontNormal';
+    margin: 30px 75px 75px 75px; 
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'FontHeader';
+    color: #4D4D4D
+}
+
