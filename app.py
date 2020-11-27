@@ -1,4 +1,5 @@
 import re
+import os
 import dash
 import pandas as pd
 import numpy as np
@@ -9,7 +10,7 @@ import plotly.graph_objects as go
 from sunburst import appObj
 
 """
-Run this file, then visit http://127.0.0.1:8050/ in your web browser.
+After downloading this repository, run this file, then visit http://127.0.0.1:8050/ in your web browser.
 For an offline check, run plot(fig).
 Components required: python and the following librairies: dash, pandas and plotly
 Next steps: 
@@ -19,15 +20,16 @@ Next steps:
 - Filter the graph in function of the filters or at least some filters 
   (what the plot would look like for outdoor applications only?)
 - Add a tab (or a radio element) that retrieve the associated tags for a given installation
-- Display the total number of installations for the study
 - Add a tab with a Wenn Diagram showing all potential relation between categories
+- Add an absolute path with OS
+- World map indicating the location of each installation
+- Find a way to sort the list
 """
 
 
-root = 'D:/Files/OneDrive - McGill University/Classes/MUMT 609 - Project/ScriptAnimation/data/installationsList.csv'
+
+root = os.getcwd() + '\data\installationsList.csv'
 data = pd.read_csv(root)
-
-
 
 AI = appObj(data, 'Artistic Intention')
 SD = appObj(data, 'System Design')
@@ -38,10 +40,9 @@ SD.initiateArray()
 IN.initiateArray()
 
 data = SD.data
-labellist = AI.labels[11:] + IN.labels[7:] + SD.labels[11:]
-IDlist = AI.df['ids'][11:].tolist() + IN.df['ids'][7:].tolist() + SD.df['ids'][11:].tolist()
-parentlist = AI.parentslabels[11:] + IN.parentslabels[7:] + SD.parentslabels[11:]
-print(parentlist)
+labellist = AI.labels[11:] + IN.labels[7:] + SD.labels[18:]
+IDlist = AI.df['ids'][11:].tolist() + IN.df['ids'][7:].tolist() + SD.df['ids'][18:].tolist()
+parentlist = AI.parentslabels[11:] + IN.parentslabels[7:] + SD.parentslabels[18:]
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -74,7 +75,7 @@ def make_list(values):
             for col2 in data.columns[[1, 2, 6, 5, 3]]:
                 value = data.iloc[i][col2]
                 if col2 == 'Hyperlink':
-                    cell = html.Td(html.A(href=doi_to_url(value), children=doi_to_url(value)))                    
+                    cell = html.Td(html.A(href=doi_to_url(value), children='Click Here'))                    
                 else:
                     cell = html.Td(children=value)
                 row.append(cell)
@@ -85,6 +86,10 @@ def make_list(values):
 app.layout = html.Div(children=[
 
     html.H1(children='Interactive Sound Installations Database'),
+
+    html.H5(children=str(len(AI.data)) + ' installations are currently implemented'),
+
+    html.P(style={'padding-bottom': '0.5cm'}),  
             
     html.Div([
         dcc.RadioItems(
@@ -206,6 +211,7 @@ def display_list(clickData, values):
         return  [
             html.H5('Chosen tags: '),
             html.H3([str_values[i][0] + ' ― ' for i in range(0, len(str_values)-1)] + [str_values[-1][0]]),
+            html.H5(str(len(rows)) + ' results'),
             html.Table(
                     [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
                     + rows
@@ -214,6 +220,7 @@ def display_list(clickData, values):
     return  [
         html.H5('Chosen tags: '),
         html.H3([value[0] for value in str_values]),
+        html.H6(str(len(rows)) + ' results'),
         html.Table(
                 [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
                 + rows

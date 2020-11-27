@@ -21,46 +21,58 @@ class appObj:
             self.IDs = ["AI", "CO", "AU", "IV", "LS", "LP", "SD", "LI", "RS", "SD_Mat", "LS_Dyn"]
             self.parents = ["", "AI", "AI", "AI", "AI", "AI", "AI", "AI", "AI", "SD", "LS"]
             self.labels = ["Artistic<br>Intention", "Context", "Audience", "Intervention<br>Visibility",
-            "Listening<br>Spot", "Lifespan", "Sound<br>Design", "Lighting<br>Design",
-            "Role of<br>Sound", "Materials", "Dynamic", "Exhibition", "Outdoor", "Indoor",
-            "School", "Prototype", "Adults", "Children", "Both", "None", "Non-Sonic<br>Elements",
-             "Visual<br>interface", "Sonic<br>Elements", "Pathway", "No Specific<br>Path", "Sweet<br>Spot", "Ephemeral", 
+             "Listening<br>Position", "Lifespan", "Sound<br>Design", "Lighting<br>Design",
+             "Role of<br>Sound", "Materials", "Dynamic", "Exhibition", "Outdoor", "Indoor",
+             "School", "Prototype", "Transportation", "Care<br>Center", "Adults", "Children",
+             "Both", "Non<br>Visible", "Non-Sonic<br>Elements", "Visual<br>interface", "Sonic<br>Elements",
+             "Pathway", "No Specific<br>Path", "Sweet<br>Spot", "Ephemeral", 
              "Temporary", "Semi-Permanent", "Abstract", "Referential", "Sonification", "Local<br>Recordings", 
-             "Pre-existing<br>Materials", "Auto-Generative", "Site's Acoustics<br>Involved",
-             "None", "Spotlights", "Dynamic", "Expressive", "Informational", "Didactic"]
-            self.values = [372, 40, 38, 62, 38, 37, 80, 34, 43, 73, 23]
+             "Pre-existing<br>Materials", "Feedback<br>Generated", "Auto-Generative", "Infrasounds",
+             "Noise<br>Cancellation", "Site's Acoustics<br>Involved", "No<br>Lights", "Spotlights", "Dynamic",
+            "Expressive", "Informational", "Didactic", "Therapeutic"]
+            self.values = [1819, 232, 193, 323, 195, 194, 297, 175, 210, 286, 108]
             self.subs = ["SD_Mat", "LS_Dyn"]
-            self.parentslabels = self.labels[:11]
             
         elif self.name == 'System Design':
-            self.IDs = ["SyD", "TS", "SP", "SG", "TS_Env", "SP_Num", "SP_Hea", "SP_Pnt", "SP_Cnt", "SP_Dir", "SG_Obj"]
-            self.parents = ["", "SyD", "SyD", "SyD", "TS", "SP", "SP", "SP", "SP", "SP", "SG"]
-            self.values = [219, 43, 122, 54, 4, 28, 8, 34, 22, 30, 16]
-            self.subs = ["TS_Env", "SP_Num", "SP_Hea", "SP_Pnt", "SP_Cnt", "SP_Dir", "SG_Obj"]
-            self.labels = ["System<br>Design", "Type of<br>Input Device", "Spatialization", "Sound<br>Generation", "Environment",
+            self.IDs = ["SyD", "TS", "SP", "SG", "TS_Ele", "TS_Mec", "TS_Ide", "TS_Mic", "TS_Ima",
+              "TS_Bio", "TS_Con", "TS_Det", "TS_Env", "SP_Num", "SP_Hea", "SP_Pnt", "SP_Cnt", "SP_Dir", "SG_Obj"]
+            self.parents = ["", "SyD", "SyD", "SyD", "TS", "TS", "TS", "TS", "TS", "TS", "TS", "TS", "TS", "SP",
+             "SP", "SP", "SP", "SP", "SG"]
+            self.values = [987, 225, 541, 221, 7, 15, 5, 53, 67, 3, 27, 24, 8, 132, 18, 138, 110, 143, 44]
+            self.subs = ["TS_Ele", "TS_Mec", "TS_Ide", "TS_Mic", "TS_Ima", "TS_Bio", "TS_Con", "TS_Det", 
+            "TS_Env", "SP_Num", "SP_Hea", "SP_Pnt", "SP_Cnt", "SP_Dir", "SG_Obj"]
+            self.labels = ["System<br>Design", "Type of<br>Input Device", "Spatialization", "Sound<br>Generation",
+              "Electric,<br>Magnetic Sensors", "Mechanical<br>Sensors", "Identification", "Microphones",
+              "Image<br>Sensors", "Bio-signals<br>Sensors", "Controllers", "Detectors", "Environment",
               "Number of<br>Sources", "Headphones", "Diffusion<br>Orientation", "Control",
-              "Directivity", "Sound<br>Object", "Pressure<br>Pad", "Piezoelectric<br>Sensor", 
-              "Accelerometer", "Microphone", "Camera", "Motion<br>Sensing<br>Device", "Proximity<br>Sensor",
-              "Server", "Touch-Sensitive<br>Device", "Torque<br>Sensor", "Potentiometer", "Solar<br>Panel",
-              "Heat<br>Sensor", "Wind<br>Sensor", "One", "Two", "Multiple", "Stereo", "Towards the<br>Same Point",
-              "Towards<br>Different Points", "Dynamic", "Channel-Based", "Algorithm-Based", "Directive", "Omnidirective",
+              "Directivity", "Sound<br>Object", 
+
+              "Server", "Cartridge,<br>Tape Reader", "Voltage<br>Sensor", "Capacitance<br>Sensor",
+              "Accelerometer,<br> Gyroscope", "Pressure<br>Sensor", "Bend<br>Sensor", "Torque<br>Sensor",
+              "Potentiometer", "Radio-Frequency<br>Identification", "Barcode<br>Scanner", "Coin<br>Detector",
+              "Piezoelectric<br>Sensor", "Microphone", "Camera", "Motion<br>Sensing<br>Device",
+              "Fingerprint<br>Sensor", "Eletromyograph", "Electroencephalograph", "Remote Motion<br>Tracker",
+              "Novint<br>Falcon", "Game<br>Controller", "Touch-Sensitive<br>Device", "Mouse and<br>Keyboard", 
+              "Pressure<br>Pad", "Proximity<br>Sensor", "Light<br>Sensor", "Heat<br>Sensor", "Wind<br>Sensor", "Seismograph", 
+              "One Source", "Two Sources", "Multiple<br>Sources", "Stereo", "Towards the<br>Same Point",
+              "Towards<br>Different Points", "Evolving", "Channel-Based", "Algorithm-Based", "Directive", "Non<br>Directive",
               "Speakers", "Electronic", "Mechanical", "Resonant", "Musical<br>Instrument"]
-            self.parentslabels = self.labels[:11]
             
         elif self.name == 'Interaction':
             self.IDs = ["IN", "IA", "IDof", "ODof", "FT", "MC", "IT"]
             self.parents = ["", "IN", "IN", "IN", "IN", "IN", "IN"]
-            self.values =  [264, 40, 39, 37, 58, 37, 53]
+            self.values =  [1351, 227, 190, 191, 316, 183, 244]
             self.subs = ["rien"]
             self.labels = ["Interaction", "Inter-Actors", "Input Degrees<br>Of Freedom", "Output Degrees<br>Of Freedom",
-              "Feedback<br>Type", "Musical<br>Control", "Interaction<br>Type", "Many", "Few", "One", "None",
-              "One", "Several", "One", "Two", "Three or<br>More", "Visual", "Haptic", "Sonic", "Heat",
-              "Process", "Note-Level", "Timbral", "Global<br>Activity", "Network", "Embodied", "Visitor's<br>Motion", 
-              "Visitor's<br>Sounds", "Natural<br>Elements"]
-            self.parentslabels = self.labels[:11]
+              "Feedback<br>Type", "Musical<br>Control", "Interaction<br>Type", "Many", "Few", "One Actor", "None",
+              "One Degree", "Two Degrees", "Three or<br>More Degrees", "One ", "Two", "Three or<br>More", "Visual", "Haptic", "Sonic",
+              "Heat", "Taste", "Smell", "Process", "Note-Level", "Timbral", "Global<br>Activity", "Network", "Embodied",
+              "Visitor's<br>Motion", "Visitor's<br>Sounds", "Eyes'<br>Movements", "Facial<br>Expression", "Brain<br>Activity",
+              "Natural<br>Elements"]
             
             
         self.len = len(self.IDs)
+        self.parentslabels = self.labels[:len(self.IDs)]
         self.df = pd.DataFrame(dict(
                     ids = self.IDs, 
                     parents = self.parents,
