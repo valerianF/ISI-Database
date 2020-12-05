@@ -23,31 +23,47 @@ Next steps:
 - Add a tab with a Wenn Diagram showing all potential relation between categories
 - Add an absolute path with OS
 - World map indicating the location of each installation
-- Find a way to sort the list
 """
 
 
-
-root = os.getcwd() + '\data\installationsList.csv'
+""" Accessing the csv located in root, importing it to a pandas dataframe."""
+root = os.getcwd() + '\\MUMT 609 - Project\\ScriptAnimation\\data\\installationsList.csv'
 data = pd.read_csv(root)
 
+""" Defining the sunburst objects."""
 AI = appObj(data, 'Artistic Intention')
 SD = appObj(data, 'System Design')
 IN = appObj(data, 'Interaction')
+FI = appObj(data, 'Field')
 
-AI.initiateArray()
-SD.initiateArray()
-IN.initiateArray()
+""" Initiate respective sunburst arrays."""
+AI.initiate_arrays()
+SD.initiate_arrays()
+IN.initiate_arrays()
+FI.initiate_arrays()
 
-data = SD.data
 labellist = AI.labels[11:] + IN.labels[7:] + SD.labels[18:]
 IDlist = AI.df['ids'][11:].tolist() + IN.df['ids'][7:].tolist() + SD.df['ids'][18:].tolist()
 parentlist = AI.parentslabels[11:] + IN.parentslabels[7:] + SD.parentslabels[18:]
 
+""" Import external CSS style sheet. 
+Note than CSS files in /asset subfolder are automaticaly imported.
+"""
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
+""" Initiate the dash application """
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
+""" Local functions """
 def doi_to_url(link):
+    """ Converts the doi into a proper url.
+    If the input is a link, returns it unchanged.
+
+    Parameters
+    ----------
+    link : str
+        Doi number.
+    """
     if re.match('10.', link):
         return 'https://doi.org/' + link
     elif re.match('DOI:', link):
@@ -58,6 +74,15 @@ def doi_to_url(link):
         return link
 
 def make_list(values):
+    """Creates a html list containing publications belonging
+    to the input categories.
+
+    Parameters
+    ----------
+    values : list
+        Category or categories selected.
+    """
+
     sections = []
     rows = []
     for value in values:
@@ -82,7 +107,7 @@ def make_list(values):
             rows.append(html.Tr(row))
     return rows
 
-
+""" Creation of the html app layout."""
 app.layout = html.Div(children=[
 
     html.H1(children='Interactive Sound Installations Database'),
@@ -97,9 +122,10 @@ app.layout = html.Div(children=[
             options=[
                 {'label': 'Artistic Intention', 'value': 'AI'},
                 {'label': 'Interaction', 'value': 'IN'},
-                {'label': 'System Design', 'value': 'SD'}
+                {'label': 'System Design', 'value': 'SD'},
+                {'label': 'Subject Area', 'value': 'FI'}
                 ],
-            value='SD',
+            value='AI', # Initial Sunburst: Artistic Intention
             labelStyle={'display': 'inline-block', 'cursor': 'pointer', 'margin-left':'1cm', 'font-size': '20px'}
 
             )
@@ -120,7 +146,7 @@ app.layout = html.Div(children=[
                 'value': labellist[i]
                 } for i in range(0, len(labellist))
                 ],
-            multi=True,
+            multi=True, # Makes in sort that several categories can be selected
             placeholder="Select one or more categories",
             style={
                     'height': '200%',
@@ -137,6 +163,13 @@ app.layout = html.Div(children=[
 @app.callback(Output("sunburst", "figure"), 
               [Input("select_plot", "value")])
 def update_figure(input_value):
+    """ Updates the sunburst chart in function of the radio button selected.
+
+    Parameters
+    ----------
+    input_value : str
+        Type of radio button selected.
+    """
     if input_value == 'AI':
         dframe = AI.df
         colorscale = 'Burg'
@@ -146,6 +179,15 @@ def update_figure(input_value):
     elif input_value == 'IN':
         dframe = IN.df
         colorscale = 'Blues'
+    elif input_value == 'FI':
+        dframe = FI.df
+        colorscale = 'GnBu_r'
+        marker = None
+    if input_value != 'FI':
+        marker = dict(
+        colors = np.log(dframe['values']),
+        colorscale = colorscale
+        )
     fig = go.Figure()
     fig.add_trace(go.Sunburst(
             ids = dframe['ids'], 
@@ -156,89 +198,99 @@ def update_figure(input_value):
             hovertemplate='<b>%{label} </b> <br>Elements concerned: %{value}<br>',
             maxdepth=3,
             name = '',
-            insidetextorientation='radial',
-            marker = dict(
-                colors = np.log(dframe['values']),
-                colorscale = colorscale
-                )
+            # insidetextorientation='radial',
+            marker = marker
         ))
     fig.update_layout(margin = dict(t=20, l=20, r=0, b=0))
 
     return fig
 
-
+""" Callback functions."""
 @app.callback(
     Output('list_inst', 'children'),
     [Input('sunburst', 'clickData'),
-    Input('dropdown_cat', 'value')])
-def display_list(clickData, values):
+    Input('dropdown_cat', 'value'),
+    Input('select_plot', 'value')])
+def display_list(clickData, values, plotType):
+    """ Displays the html list in fuction of the callback inputs.
+    No list is (yet) displayed for the Field sunburst.
+
+    Parameters
+    ----------
+
+    clickData : list
+        Data about the sunburt's clicked section.
+    values : list
+        Selected data from the dropdown list.
+    plotType : str
+        Type of sunburst selected on the radio buttons.
+    """
     rows = []
     parents = []
     str_values = []
 
-    if values is None or values == []:
-        if clickData is None or len(clickData['points'][0]['id']) <= 6:
-            return 'Click on a sub-category or choose it from the dropdown menu to get a list of the corresponding installations.'
-        elif len(clickData['points'][0]['id']) > 6:
-            values = [clickData['points'][0]['label']]
-            parent = clickData['points'][0]['parent']
-            parents.append(parent)
-            rows = make_list(values)
-
-    elif values is not None:
-        if clickData is None or len(clickData['points'][0]['id']) <= 6:
-            for value in values:
-                parents.append(parentlist[labellist.index(value)])     
-            rows = make_list(values)
-
-        elif clickData is not None:
-            for value in values:
-                parents.append(parentlist[labellist.index(value)])
-            if len(clickData['points'][0]['id']) > 6:
+    if plotType != 'FI':
+        if values is None or values == []:
+            if clickData is None or len(clickData['points'][0]['id']) <= 6:
+                return 'Click on a sub-category or choose it from the dropdown menu to get a list of the corresponding installations.'
+            elif len(clickData['points'][0]['id']) > 6:
+                values = [clickData['points'][0]['label']]
                 parent = clickData['points'][0]['parent']
                 parents.append(parent)
-                values.append(clickData['points'][0]['label'])
-                rows = make_list(values)
-        if rows == []:
-            return 'No installation belongs to all those categories.'
-    
+                try:
+                    rows = make_list(values)
+                except ValueError:
+                    return
 
-    for i in range(0, len(parents)):
-            str_values.append([re.sub('<br>', ' ', parents[i]) + ' | ' 
-                + re.sub('<br>', ' ', values[i])])
-    
-    if len(values) > 1:
+        elif values is not None:
+            if clickData is None or len(clickData['points'][0]['id']) <= 6:
+                for value in values:
+                    parents.append(parentlist[labellist.index(value)])     
+                try:
+                    rows = make_list(values)
+                except ValueError:
+                    return
+
+            elif clickData is not None:
+                for value in values:
+                    parents.append(parentlist[labellist.index(value)])
+                if len(clickData['points'][0]['id']) > 6:
+                    parent = clickData['points'][0]['parent']
+                    parents.append(parent)
+                    values.append(clickData['points'][0]['label'])
+                try:
+                    rows = make_list(values)
+                except ValueError:
+                    return
+
+            if rows == []:
+                return 'No installation belongs to all those categories.'
+        
+
+        for i in range(0, len(parents)):
+                str_values.append([re.sub('<br>', ' ', parents[i]) + ' | ' 
+                    + re.sub('<br>', ' ', values[i])])
+        
+        if len(values) > 1:
+            return  [
+                html.H5('Chosen tags: '),
+                html.H3([str_values[i][0] + ' ― ' for i in range(0, len(str_values)-1)] + [str_values[-1][0]]),
+                html.H5(str(len(rows)) + ' results'),
+                html.Table(
+                        [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
+                        + rows
+                        )
+                    ]
         return  [
             html.H5('Chosen tags: '),
-            html.H3([str_values[i][0] + ' ― ' for i in range(0, len(str_values)-1)] + [str_values[-1][0]]),
-            html.H5(str(len(rows)) + ' results'),
+            html.H3([value[0] for value in str_values]),
+            html.H6(str(len(rows)) + ' results'),
             html.Table(
                     [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
                     + rows
                     )
                 ]
-    return  [
-        html.H5('Chosen tags: '),
-        html.H3([value[0] for value in str_values]),
-        html.H6(str(len(rows)) + ' results'),
-        html.Table(
-                [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
-                + rows
-                )
-            ]
 
-
+""" Run the app."""
 if __name__ == "__main__":
-    app.run_server(debug=True, use_reloader=False)  
-    
-
-
-            
-            
-            
-        
-            
-            
-            
-        
-
+    app.run_server(debug=True, use_reloader=False) 
