@@ -3,6 +3,7 @@ import os
 import dash
 import pandas as pd
 import numpy as np
+import webbrowser
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
@@ -10,7 +11,7 @@ import plotly.graph_objects as go
 from sunburst import appObj
 
 """
-After downloading this repository, run this file, then visit http://127.0.0.1:8050/ in your web browser.
+After downloading this repository, run this file.
 For an offline check, run plot(fig).
 Components required: python and the following librairies: dash, pandas and plotly
 Next steps: 
@@ -27,7 +28,7 @@ Next steps:
 
 
 """ Accessing the csv located in root, importing it to a pandas dataframe."""
-root = os.getcwd() + '\\MUMT 609 - Project\\ScriptAnimation\\data\\installationsList.csv'
+root = os.getcwd() + '\\data\\installationsList.csv'
 data = pd.read_csv(root)
 
 """ Defining the sunburst objects."""
@@ -291,6 +292,7 @@ def display_list(clickData, values, plotType):
                     )
                 ]
 
-""" Run the app."""
+""" Run the app. Launch the web page."""
 if __name__ == "__main__":
+    webbrowser.open("http://127.0.0.1:8050/", new=2)
     app.run_server(debug=True, use_reloader=False) 
