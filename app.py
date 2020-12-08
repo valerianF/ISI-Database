@@ -28,7 +28,7 @@ Next steps:
 
 
 """ Accessing the csv located in root, importing it to a pandas dataframe."""
-root = os.getcwd() + '\\data\\installationsList.csv'
+root = os.path.join(os.getcwd(), 'data', 'installationsList.csv')
 data = pd.read_csv(root)
 
 """ Defining the sunburst objects."""
