@@ -152,23 +152,30 @@ app.layout = html.Div(children=[
                     'height': '200%',
                     'width' : '500px'
                     }
-        )
-    ]),
+        ),
+        html.Button('Take a Snapshot', id='snap-button', n_clicks=0, style={'margin-left': '30px'}),
+    ], style={'display': 'flex'
+            }),
 
     html.P(style={'padding-bottom': '0.5cm'}),  
 
     html.Div(id='list_inst')
 ])
-            
+
+""" Callback functions."""          
 @app.callback(Output("sunburst", "figure"), 
-              [Input("select_plot", "value")])
-def update_figure(input_value):
+              [Input("select_plot", "value"),
+              Input('snap-button', 'n_clicks')])
+def update_figure(input_value, n_clicks):
     """ Updates the sunburst chart in function of the radio button selected.
+    If the snapshot html button is triggered, saves a svg plot of the corresponding dimension.
 
     Parameters
     ----------
     input_value : str
         Type of radio button selected.
+    n_clicks : int
+        Number of clicks for the snapshot html button.
     """
     if input_value == 'AI':
         dframe = AI.df
@@ -203,9 +210,15 @@ def update_figure(input_value):
         ))
     fig.update_layout(margin = dict(t=20, l=20, r=0, b=0))
 
+    changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
+    if 'snap-button' in changed_id:
+        im_name = 'snapshot_' + input_value + '.svg'
+        if not os.path.exists("snapshots"):
+            os.mkdir("snapshots")
+        fig.write_image(os.path.join('snapshots', im_name))
+
     return fig
 
-""" Callback functions."""
 @app.callback(
     Output('list_inst', 'children'),
     [Input('sunburst', 'clickData'),
@@ -289,7 +302,7 @@ def display_list(clickData, values, plotType):
                     [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
                     + rows
                     )
-                ]
+                ]       
 
 """ Run the app. Launch the web page."""
 if __name__ == "__main__":
