@@ -21,8 +21,7 @@ Next steps:
 - Filter the graph in function of the filters or at least some filters 
   (what the plot would look like for outdoor applications only?)
 - Add a tab (or a radio element) that retrieve the associated tags for a given installation
-- Add a tab with a Wenn Diagram showing all potential relation between categories
-- Add an absolute path with OS
+- Add a tab with a Venn Diagram showing all potential relation between categories
 - World map indicating the location of each installation
 """
 
