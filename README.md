@@ -13,4 +13,5 @@ You need the following up-to-date python libraries:
 - numpy
 
 Then run app.py. 
+
 The application should open in your web browser (if not, you can visit the local host http://127.0.0.1:8050/).
