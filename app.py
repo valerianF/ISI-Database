@@ -53,6 +53,7 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 """ Initiate the dash application """
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 
 """ Local functions """
 def doi_to_url(link):
@@ -306,5 +307,4 @@ def display_list(clickData, values, plotType):
 
 """ Run the app. Launch the web page."""
 if __name__ == "__main__":
-    webbrowser.open("http://127.0.0.1:8050/", new=2)
     app.run_server(debug=True, use_reloader=False) 
