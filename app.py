@@ -113,7 +113,7 @@ app.layout = html.Div(children=[
 
     html.H1(children='Interactive Sound Installations Database'),
 
-    html.H5(children=str(len(AI.data)) + ' installations are currently implemented'),
+    html.H5(children=str(len(AI.data)) + ' installations are currently reviewed'),
 
     html.P(style={'padding-bottom': '0.5cm'}),  
             
@@ -154,9 +154,8 @@ app.layout = html.Div(children=[
                     'width' : '500px'
                     }
         ),
-        html.Button('Take a Snapshot', id='snap-button', n_clicks=0, style={'margin-left': '30px'}),
-    ], style={'display': 'flex'
-            }),
+        # html.Button('Take a Snapshot', id='snap-button', n_clicks=0, style={'margin-left': '30px'}),
+    ], style={'display': 'flex'}),
 
     html.P(style={'padding-bottom': '0.5cm'}),  
 
@@ -165,11 +164,11 @@ app.layout = html.Div(children=[
 
 """ Callback functions."""          
 @app.callback(Output("sunburst", "figure"), 
-              [Input("select_plot", "value"),
-              Input('snap-button', 'n_clicks')])
-def update_figure(input_value, n_clicks):
+              [Input("select_plot", "value")])
+            #   Input('snap-button', 'n_clicks')])
+def update_figure(input_value):
     """ Updates the sunburst chart in function of the radio button selected.
-    If the snapshot html button is triggered, saves a svg plot of the corresponding dimension.
+    If the snapshot html button is triggered (currently deactivated), saves a svg plot of the corresponding dimension.
 
     Parameters
     ----------
@@ -211,12 +210,12 @@ def update_figure(input_value, n_clicks):
         ))
     fig.update_layout(margin = dict(t=20, l=20, r=0, b=0))
 
-    changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
-    if 'snap-button' in changed_id:
-        im_name = 'snapshot_' + input_value + '.svg'
-        if not os.path.exists("snapshots"):
-            os.mkdir("snapshots")
-        fig.write_image(os.path.join('snapshots', im_name))
+    # changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
+    # if 'snap-button' in changed_id:
+    #     im_name = 'snapshot_' + input_value + '.svg'
+    #     if not os.path.exists("snapshots"):
+    #         os.mkdir("snapshots")
+    #     fig.write_image(os.path.join('snapshots', im_name))
 
     return fig
 
