@@ -86,17 +86,9 @@ def make_list(values):
 
     sections = []
     rows = []
-    for value in values:
-        section = IDlist[labellist.index(value)]
-        sections.append(section)
-    for i in range(0, len(data)):
-        verif = np.zeros(len(sections))
-        for s in range(0, len(sections)):              
-            if data.iloc[i][sections[s]] == 1:
-                verif[s] = 1
-            elif data.iloc[i][sections[s]] != 1:
-                continue
-        if 0 not in verif:              
+
+    if values is None or values == []:
+        for i in range(0, len(data)):
             row = []
             for col2 in data.columns[[1, 2, 6, 5, 3]]:
                 value = data.iloc[i][col2]
@@ -106,6 +98,28 @@ def make_list(values):
                     cell = html.Td(children=value)
                 row.append(cell)
             rows.append(html.Tr(row))
+
+    else:        
+        for value in values:
+            section = IDlist[labellist.index(value)]
+            sections.append(section)
+        for i in range(0, len(data)):
+            verif = np.zeros(len(sections))
+            for s in range(0, len(sections)):              
+                if data.iloc[i][sections[s]] == 1:
+                    verif[s] = 1
+                elif data.iloc[i][sections[s]] != 1:
+                    continue
+            if 0 not in verif:              
+                row = []
+                for col2 in data.columns[[1, 2, 6, 5, 3]]:
+                    value = data.iloc[i][col2]
+                    if col2 == 'Hyperlink':
+                        cell = html.Td(html.A(href=doi_to_url(value), children='Click Here'))                    
+                    else:
+                        cell = html.Td(children=value)
+                    row.append(cell)
+                rows.append(html.Tr(row))
     return rows
 
 """ Creation of the html app layout."""
@@ -245,17 +259,21 @@ def display_list(clickData, values, plotType):
     if plotType != 'FI':
         if values is None or values == []:
             if clickData is None or len(clickData['points'][0]['id']) <= 6:
-                return 'Click on a sub-category or choose it from the dropdown menu to get a list of the corresponding installations.'
-            elif len(clickData['points'][0]['id']) > 6:
+                rows = make_list(values)
+                return  [
+                    html.H6('Click on a sub-category or choose it from the dropdown menu to filter the list below.'),
+                    html.Table(
+                            [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
+                            + rows
+                            )
+                        ]  
+            else:
                 values = [clickData['points'][0]['label']]
                 parent = clickData['points'][0]['parent']
                 parents.append(parent)
-                try:
-                    rows = make_list(values)
-                except ValueError:
-                    return
+                rows = make_list(values)
 
-        elif values is not None:
+        else:
             if clickData is None or len(clickData['points'][0]['id']) <= 6:
                 for value in values:
                     parents.append(parentlist[labellist.index(value)])     
@@ -264,25 +282,24 @@ def display_list(clickData, values, plotType):
                 except ValueError:
                     return
 
-            elif clickData is not None:
+            else:
                 for value in values:
                     parents.append(parentlist[labellist.index(value)])
-                if len(clickData['points'][0]['id']) > 6:
-                    parent = clickData['points'][0]['parent']
-                    parents.append(parent)
-                    values.append(clickData['points'][0]['label'])
+                parent = clickData['points'][0]['parent']
+                parents.append(parent)
+                values.append(clickData['points'][0]['label'])
                 try:
                     rows = make_list(values)
                 except ValueError:
                     return
 
-            if rows == []:
-                return 'No installation belongs to all those categories.'
+        if rows == []:
+            return 'No installation belongs to all those categories.'
         
 
         for i in range(0, len(parents)):
-                str_values.append([re.sub('<br>', ' ', parents[i]) + ' | ' 
-                    + re.sub('<br>', ' ', values[i])])
+            str_values.append([re.sub('<br>', ' ', parents[i]) + ' | ' 
+                + re.sub('<br>', ' ', values[i])])
         
         if len(values) > 1:
             return  [
@@ -294,16 +311,17 @@ def display_list(clickData, values, plotType):
                         + rows
                         )
                     ]
-        return  [
-            html.H5('Chosen tags: '),
-            html.H3([value[0] for value in str_values]),
-            html.H6(str(len(rows)) + ' results'),
-            html.Table(
-                    [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
-                    + rows
-                    )
-                ]       
-
+        elif len(values) == 1:
+            return  [
+                html.H5('Chosen tag: '),
+                html.H3([value[0] for value in str_values]),
+                html.H6(str(len(rows)) + ' results'),
+                html.Table(
+                        [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
+                        + rows
+                        )
+                    ]   
+   
 """ Run the app. Launch the web page."""
 if __name__ == "__main__":
     app.run_server(debug=True, use_reloader=False) 
