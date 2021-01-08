@@ -99,7 +99,7 @@ def make_list(values):
                 row.append(cell)
             rows.append(html.Tr(row))
 
-    else:        
+    else:  
         for value in values:
             section = IDlist[labellist.index(value)]
             sections.append(section)
@@ -258,7 +258,7 @@ def display_list(clickData, values, plotType):
 
     if plotType != 'FI':
         if values is None or values == []:
-            if clickData is None or len(clickData['points'][0]['id']) <= 6:
+            if clickData is None or len(clickData['points'][0]['id']) <= 6 or clickData['points'][0]['id'] not in IDlist:    
                 rows = make_list(values)
                 return  [
                     html.H6('Click on a sub-category or choose it from the dropdown menu to filter the list below.'),
@@ -266,7 +266,7 @@ def display_list(clickData, values, plotType):
                             [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
                             + rows
                             )
-                        ]  
+                        ] 
             else:
                 values = [clickData['points'][0]['label']]
                 parent = clickData['points'][0]['parent']
@@ -320,7 +320,18 @@ def display_list(clickData, values, plotType):
                         [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
                         + rows
                         )
-                    ]   
+                    ]
+
+    else: 
+        clickData = None
+        rows = make_list(values)
+        return  [
+            html.Table(
+                    [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
+                    + rows
+                    )
+                ]
+
    
 """ Run the app. Launch the web page."""
 if __name__ == "__main__":
