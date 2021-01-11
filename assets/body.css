@@ -20,9 +20,77 @@
 body {
     font-family: 'FontNormal';
     margin: 30px 75px 75px 75px; 
+    color: black;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'FontHeader';
     color: #4D4D4D
 }
 
+.tree-nav__item {
+    display: block;
+    white-space: nowrap;
+    position: relative;
+}
+.tree-nav__item.is-expandable::before {
+    border-left: 1px solid #333;
+    content: "";
+    height: 100%;
+    left: 0.8rem;
+    position: absolute;
+    top: 2.4rem;
+    height: calc(100% - 2.4rem);
+}
+.tree-nav__item .tree-nav__item {
+    margin-left: 2.4rem;
+}
+.tree-nav__item.is-expandable[open] > .tree-nav__item-title::before {
+    font-family: "Ionicons";
+    transform: rotate(90deg);
+}
+.tree-nav__item.is-expandable > .tree-nav__item-title {
+    padding-left: 2.4rem;
+}
+.tree-nav__item.is-expandable > .tree-nav__item-title::before {
+    position: absolute;
+    will-change: transform;
+    transition: transform 300ms ease;
+    font-family: "Ionicons";
+    font-size: 1.1rem;
+    content: "\f125";
+    left: 0;
+    display: inline-block;
+    width: 1.6rem;
+    text-align: center;
+    color: black;
+}
+  
+.tree-nav__item-title {
+    cursor: pointer;
+    display: block;
+    outline: 0;
+    font-size: 2.5rem;
+    line-height: 3.2rem;
+    font-family: 'FontHeader';
+}
+.tree-nav__item-title .icon {
+    display: inline;
+    padding-left: 1.6rem;
+    margin-right: 0.8rem;
+    color: #333;
+    font-size: 1.4rem;
+    position: relative;
+}
+.tree-nav__item-title .icon::before {
+    top: 0;
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    width: 1.6rem;
+    text-align: center;
+}
+  
+.tree-nav__item-title::-webkit-details-marker {
+    display: none;
+}
+  

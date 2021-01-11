@@ -49,8 +49,10 @@ parentlist = AI.parentslabels[11:] + IN.parentslabels[7:] + SD.parentslabels[18:
 
 """ Import external CSS style sheet. 
 Note than CSS files in /asset subfolder are automaticaly imported.
+
 """
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css',
+    'https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css']
 
 """ Initiate the dash application """
 app = dash.Dash(__name__, suppress_callback_exceptions=True, external_stylesheets=external_stylesheets)
@@ -96,7 +98,7 @@ def make_list(values, plotType):
             for col2 in data.columns[[1, 2, 6, 5, 3]]:
                 value = data.iloc[i][col2]
                 if col2 == 'Hyperlink':
-                    cell = html.Td(html.A(href=doi_to_url(value), children='Click Here'))                    
+                    cell = html.Td(html.A(href=doi_to_url(value), children='URL'))                    
                 else:
                     cell = html.Td(value)
                 row.append(cell)
@@ -115,8 +117,7 @@ def make_list(values, plotType):
             for s in range(0, len(sections)):
                 field = str(data.iloc[i]['Field']).split('; ')
                 for f in range(0, len(field)):
-                    field[f] = re.sub(' ', '<br>', field[f])
-                    if field[f] == sections[s]:
+                    if re.sub(' ', '<br>', field[f]) == sections[s]:
                         verif[s] = 1
                     else:
                         continue 
