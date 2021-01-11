@@ -4,7 +4,7 @@ from dash.dependencies import Input, Output
 
 # Glossary page layout
 layout = html.Div([
-    html.H5('Glossary.'),
+    html.H5('Glossary'),
 
     dcc.Link('Navigate to main Page', href='/'),
 
