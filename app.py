@@ -3,7 +3,6 @@ import os
 import dash
 import pandas as pd
 import numpy as np
-import webbrowser
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
@@ -19,10 +18,11 @@ Next steps:
 - Improve tags (relate them to their parents)
 - Visually organise tags according to their associated category
 - Filter the graph in function of the filters or at least some filters 
-  (what the plot would look like for outdoor applications only?)
+  (e.g. what the plot would look like for outdoor applications only?)
 - Add a tab (or a radio element) that retrieve the associated tags for a given installation
 - Add a tab with a Venn Diagram showing all potential relation between categories
 - World map indicating the location of each installation
+- Export local functions to external file (too many rows in the app)
 """
 
 
@@ -42,9 +42,9 @@ SD.initiate_arrays()
 IN.initiate_arrays()
 FI.initiate_arrays()
 
-labellist = AI.labels[11:] + IN.labels[7:] + SD.labels[18:]
-IDlist = AI.df['ids'][11:].tolist() + IN.df['ids'][7:].tolist() + SD.df['ids'][18:].tolist()
-parentlist = AI.parentslabels[11:] + IN.parentslabels[7:] + SD.parentslabels[18:]
+labellist = AI.labels[11:] + IN.labels[7:] + SD.labels[18:] + FI.labels[13:]
+IDlist = AI.df['ids'][11:].tolist() + IN.df['ids'][7:].tolist() + SD.df['ids'][18:].tolist() + FI.labels[13:]
+parentlist = AI.parentslabels[11:] + IN.parentslabels[7:] + SD.parentslabels[18:] + FI.parents[13:]
 
 """ Import external CSS style sheet. 
 Note than CSS files in /asset subfolder are automaticaly imported.
@@ -74,7 +74,7 @@ def doi_to_url(link):
     else:
         return link
 
-def make_list(values):
+def make_list(values, plotType):
     """Creates a html list containing publications belonging
     to the input categories.
 
@@ -82,6 +82,8 @@ def make_list(values):
     ----------
     values : list
         Category or categories selected.
+    plotType : str
+        Type of Sunburst plot. 
     """
 
     sections = []
@@ -99,17 +101,32 @@ def make_list(values):
                 row.append(cell)
             rows.append(html.Tr(row))
 
-    else:        
+    else:  
         for value in values:
-            section = IDlist[labellist.index(value)]
-            sections.append(section)
+            try:
+                section = IDlist[labellist.index(value)]
+                sections.append(section)
+            except ValueError:
+                sections.append(value)
+
         for i in range(0, len(data)):
             verif = np.zeros(len(sections))
-            for s in range(0, len(sections)):              
-                if data.iloc[i][sections[s]] == 1:
-                    verif[s] = 1
-                elif data.iloc[i][sections[s]] != 1:
+            for s in range(0, len(sections)):
+                field = str(data.iloc[i]['Field']).split('; ')
+                for f in range(0, len(field)):
+                    field[f] = re.sub(' ', '<br>', field[f])
+                    if field[f] == sections[s]:
+                        verif[s] = 1
+                    else:
+                        continue 
+                try:                           
+                    if data.iloc[i][sections[s]] == 1:
+                        verif[s] = 1
+                    elif data.iloc[i][sections[s]] != 1:
+                        continue
+                except KeyError:
                     continue
+
             if 0 not in verif:              
                 row = []
                 for col2 in data.columns[[1, 2, 6, 5, 3]]:
@@ -240,7 +257,6 @@ def update_figure(input_value):
     Input('select_plot', 'value')])
 def display_list(clickData, values, plotType):
     """ Displays the html list in fuction of the callback inputs.
-    No list is (yet) displayed for the Field sunburst.
 
     Parameters
     ----------
@@ -256,72 +272,72 @@ def display_list(clickData, values, plotType):
     parents = []
     str_values = []
 
-    if plotType != 'FI':
-        if values is None or values == []:
-            if clickData is None or len(clickData['points'][0]['id']) <= 6:
-                rows = make_list(values)
-                return  [
-                    html.H6('Click on a sub-category or choose it from the dropdown menu to filter the list below.'),
-                    html.Table(
-                            [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
-                            + rows
-                            )
-                        ]  
-            else:
-                values = [clickData['points'][0]['label']]
-                parent = clickData['points'][0]['parent']
-                parents.append(parent)
-                rows = make_list(values)
+    if values is None or values == []:
+        if clickData is None or (len(clickData['points'][0]['id']) <= 6 and plotType != 'FI') or clickData['points'][0]['id'] in parentlist:    
+            rows = make_list(values, plotType)
+            return  [
+                html.H6('Click on a sub-category or choose it from the dropdown menu to filter the list below.'),
+                html.Table(
+                        [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
+                        + rows
+                        )
+                    ]  
+        else:
+            values = [clickData['points'][0]['label']]
+            parent = clickData['points'][0]['parent']
+            parents.append(parent)
+            rows = make_list(values, plotType)
+
+    else:
+        if clickData is None or (len(clickData['points'][0]['id']) <= 6 and plotType != 'FI') or clickData['points'][0]['id'] in parentlist:
+            for value in values:
+                parents.append(parentlist[labellist.index(value)])     
+            try:
+                rows = make_list(values, plotType)
+            except ValueError:
+                return
 
         else:
-            if clickData is None or len(clickData['points'][0]['id']) <= 6:
-                for value in values:
-                    parents.append(parentlist[labellist.index(value)])     
-                try:
-                    rows = make_list(values)
-                except ValueError:
-                    return
+            for value in values:
+                parents.append(parentlist[labellist.index(value)])
+            parent = clickData['points'][0]['parent']
+            parents.append(parent)
+            values.append(clickData['points'][0]['label'])
+            try:
+                rows = make_list(values, plotType)
+            except ValueError:
+                return
 
-            else:
-                for value in values:
-                    parents.append(parentlist[labellist.index(value)])
-                parent = clickData['points'][0]['parent']
-                parents.append(parent)
-                values.append(clickData['points'][0]['label'])
-                try:
-                    rows = make_list(values)
-                except ValueError:
-                    return
+    if rows == []:
+        return 'No installation belongs to all those categories.'
+    
 
-        if rows == []:
-            return 'No installation belongs to all those categories.'
-        
+    for i in range(0, len(parents)):
+        str_values.append([re.sub('<br>', ' ', parents[i]) + ' | ' 
+            + re.sub('<br>', ' ', values[i])])
+    
+    if len(values) > 1:
+        return  [
+            html.H5('Chosen tags: '),
+            html.H3([str_values[i][0] + ' ― ' for i in range(0, len(str_values)-1)] + [str_values[-1][0]]),
+            html.H5(str(len(rows)) + ' results'),
+            html.Table(
+                    [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
+                    + rows
+                    )
+                ]
+    elif len(values) == 1:
+        return  [
+            html.H5('Chosen tag: '),
+            html.H3([value[0] for value in str_values]),
+            html.H6(str(len(rows)) + ' results'),
+            html.Table(
+                    [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
+                    + rows
+                    )
+                ]   
 
-        for i in range(0, len(parents)):
-            str_values.append([re.sub('<br>', ' ', parents[i]) + ' | ' 
-                + re.sub('<br>', ' ', values[i])])
-        
-        if len(values) > 1:
-            return  [
-                html.H5('Chosen tags: '),
-                html.H3([str_values[i][0] + ' ― ' for i in range(0, len(str_values)-1)] + [str_values[-1][0]]),
-                html.H5(str(len(rows)) + ' results'),
-                html.Table(
-                        [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
-                        + rows
-                        )
-                    ]
-        elif len(values) == 1:
-            return  [
-                html.H5('Chosen tag: '),
-                html.H3([value[0] for value in str_values]),
-                html.H6(str(len(rows)) + ' results'),
-                html.Table(
-                        [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
-                        + rows
-                        )
-                    ]   
    
-""" Run the app. Launch the web page."""
+""" Run the app. """
 if __name__ == "__main__":
     app.run_server(debug=True, use_reloader=False) 
