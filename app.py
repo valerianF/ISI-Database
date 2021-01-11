@@ -52,7 +52,7 @@ Note than CSS files in /asset subfolder are automaticaly imported.
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 """ Initiate the dash application """
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__, suppress_callback_exceptions=True, external_stylesheets=external_stylesheets)
 server = app.server
 
 """ Local functions """
@@ -139,12 +139,25 @@ def make_list(values, plotType):
                 rows.append(html.Tr(row))
     return rows
 
-""" Creation of the html app layout."""
-app.layout = html.Div([
+""" Application layout."""
+# Index layout
+url_and_content_div = html.Div([
+
+    # represents the url bar, doesn't render anything
+    dcc.Location(id='url', refresh=False),
 
     html.H1('Interactive Sound Installations Database'),
 
+    html.Div(id='page-content')
+
+])
+
+# Main page layout
+layout_main = html.Div([
+
     html.H5(str(len(AI.data)) + ' installations are currently reviewed'),
+
+    dcc.Link('Glossary', href='/glossary'),
 
     html.P(style={'paddingBottom': '0.5cm'}),  
             
@@ -193,7 +206,45 @@ app.layout = html.Div([
     html.Div(id='list_inst')
 ])
 
-""" Callback functions."""          
+# Glossary page layout
+layout_glossary = html.Div([
+    html.H5('Glossary.'),
+
+    dcc.Link('Main Page', href='/')
+])
+
+# Initial layout
+app.layout = url_and_content_div
+
+# "complete" layout
+app.validation_layout = html.Div([
+    url_and_content_div,
+    layout_main, 
+    layout_glossary,
+])
+
+""" Callback functions."""  
+
+# Index callbacks
+@app.callback(Output('page-content', 'children'),
+                [Input('url', 'pathname')])
+def display_page(pathname):
+    """ Updates page content in function of chosen url.
+
+    Parameters
+    ----------
+    pathname : str 
+        Page to redirect to. 
+    """
+    if pathname == '/':
+        return layout_main
+    if pathname == '/glossary':
+        return layout_glossary
+    else:
+        return layout_main
+
+
+# Main page callbacks
 @app.callback(Output("sunburst", "figure"), 
               [Input("select_plot", "value")])
             #   Input('snap-button', 'n_clicks')])
