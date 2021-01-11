@@ -97,7 +97,7 @@ def make_list(values, plotType):
                 if col2 == 'Hyperlink':
                     cell = html.Td(html.A(href=doi_to_url(value), children='Click Here'))                    
                 else:
-                    cell = html.Td(children=value)
+                    cell = html.Td(value)
                 row.append(cell)
             rows.append(html.Tr(row))
 
@@ -134,19 +134,19 @@ def make_list(values, plotType):
                     if col2 == 'Hyperlink':
                         cell = html.Td(html.A(href=doi_to_url(value), children='Click Here'))                    
                     else:
-                        cell = html.Td(children=value)
+                        cell = html.Td(value)
                     row.append(cell)
                 rows.append(html.Tr(row))
     return rows
 
 """ Creation of the html app layout."""
-app.layout = html.Div(children=[
+app.layout = html.Div([
 
-    html.H1(children='Interactive Sound Installations Database'),
+    html.H1('Interactive Sound Installations Database'),
 
-    html.H5(children=str(len(AI.data)) + ' installations are currently reviewed'),
+    html.H5(str(len(AI.data)) + ' installations are currently reviewed'),
 
-    html.P(style={'padding-bottom': '0.5cm'}),  
+    html.P(style={'paddingBottom': '0.5cm'}),  
             
     html.Div([
         dcc.RadioItems(
@@ -158,16 +158,16 @@ app.layout = html.Div(children=[
                 {'label': 'Subject Area', 'value': 'FI'}
                 ],
             value='AI', # Initial Sunburst: Artistic Intention
-            labelStyle={'display': 'inline-block', 'cursor': 'pointer', 'margin-left':'1cm', 'font-size': '20px'}
+            labelStyle={'display': 'inline-block', 'cursor': 'pointer', 'marginLeft':'1cm', 'fontSize': '20px'}
 
             )
     ]),
 
-    html.P(style={'padding-bottom': '0.5cm'}),  
+    html.P(style={'paddingBottom': '0.5cm'}),  
             
     dcc.Graph(id='sunburst'),
 
-    html.P(style={'padding-bottom': '1cm'}),     
+    html.P(style={'paddingBottom': '1cm'}),     
 
     html.Div([
         dcc.Dropdown(
@@ -185,10 +185,10 @@ app.layout = html.Div(children=[
                     'width' : '500px'
                     }
         ),
-        # html.Button('Take a Snapshot', id='snap-button', n_clicks=0, style={'margin-left': '30px'}),
+        # html.Button('Take a Snapshot', id='snap-button', n_clicks=0, style={'marginLeft': '30px'}),
     ], style={'display': 'flex'}),
 
-    html.P(style={'padding-bottom': '0.5cm'}),  
+    html.P(style={'paddingBottom': '0.5cm'}),  
 
     html.Div(id='list_inst')
 ])
@@ -278,8 +278,8 @@ def display_list(clickData, values, plotType):
             return  [
                 html.H6('Click on a sub-category or choose it from the dropdown menu to filter the list below.'),
                 html.Table(
-                        [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
-                        + rows
+                        [html.Thead([html.Tr([html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]])])]
+                        + [html.Tbody(rows)]
                         )
                     ]  
         else:
