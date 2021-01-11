@@ -7,7 +7,9 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
-from sunburst import appObj
+
+from apps import glossary
+from apps.sunburst import appObj
 
 """
 After downloading this repository, run this file.
@@ -24,7 +26,6 @@ Next steps:
 - World map indicating the location of each installation
 - Export local functions to external file (too many rows in the app)
 """
-
 
 """ Accessing the csv located in root, importing it to a pandas dataframe."""
 root = os.path.join(os.getcwd(), 'data', 'installationsList.csv')
@@ -52,7 +53,7 @@ Note than CSS files in /asset subfolder are automaticaly imported.
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 """ Initiate the dash application """
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__, suppress_callback_exceptions=True, external_stylesheets=external_stylesheets)
 server = app.server
 
 """ Local functions """
@@ -139,12 +140,25 @@ def make_list(values, plotType):
                 rows.append(html.Tr(row))
     return rows
 
-""" Creation of the html app layout."""
+""" Application layout."""
+# Index layout
 app.layout = html.Div([
+
+    # represents the url bar, doesn't render anything
+    dcc.Location(id='url', refresh=False),
 
     html.H1('Interactive Sound Installations Database'),
 
+    html.Div(id='page-content')
+
+])
+
+# Main page layout
+layout_main = html.Div([
+
     html.H5(str(len(AI.data)) + ' installations are currently reviewed'),
+
+    dcc.Link('Navigate to glossary', href='/glossary'),
 
     html.P(style={'paddingBottom': '0.5cm'}),  
             
@@ -193,7 +207,28 @@ app.layout = html.Div([
     html.Div(id='list_inst')
 ])
 
-""" Callback functions."""          
+""" Callback functions."""  
+
+# Index callbacks
+@app.callback(Output('page-content', 'children'),
+                [Input('url', 'pathname')])
+def display_page(pathname):
+    """ Updates page content in function of chosen url.
+
+    Parameters
+    ----------
+    pathname : str 
+        Page to redirect to. 
+    """
+    if pathname == '/':
+        return layout_main
+    if pathname == '/glossary':
+        return glossary.layout
+    else:
+        return layout_main
+
+
+# Main page callbacks
 @app.callback(Output("sunburst", "figure"), 
               [Input("select_plot", "value")])
             #   Input('snap-button', 'n_clicks')])
