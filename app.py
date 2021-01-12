@@ -1,5 +1,4 @@
-import re
-import os
+import os, re
 import dash
 import pandas as pd
 import numpy as np
@@ -8,7 +7,8 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 
-from apps import glossary
+from apps import glossary, lists
+from apps.lists import doi_to_url
 from apps.sunburst import appObj
 
 """
@@ -57,24 +57,6 @@ app = dash.Dash(__name__, suppress_callback_exceptions=True, external_stylesheet
 server = app.server
 
 """ Local functions """
-def doi_to_url(link):
-    """ Converts the doi into a proper url.
-    If the input is a link, returns it unchanged.
-
-    Parameters
-    ----------
-    link : str
-        Doi number.
-    """
-    if re.match('10.', link):
-        return 'https://doi.org/' + link
-    elif re.match('DOI:', link):
-        return re.sub('DOI:', 'https://doi.org/', link)
-    elif re.match('doi:', link):
-        return re.sub('doi:', 'https://doi.org/', link)
-    else:
-        return link
-
 def make_list(values, plotType):
     """Creates a html list containing publications belonging
     to the input categories.
@@ -89,54 +71,41 @@ def make_list(values, plotType):
 
     sections = []
     rows = []
+  
+    for value in values:
+        try:
+            section = IDlist[labellist.index(value)]
+            sections.append(section)
+        except ValueError:
+            sections.append(value)
 
-    if values is None or values == []:
-        for i in range(0, len(data)):
+    for i in range(0, len(data)):
+        verif = np.zeros(len(sections))
+        for s in range(0, len(sections)):
+            field = str(data.iloc[i]['Field']).split('; ')
+            for f in range(0, len(field)):
+                if re.sub(' ', '<br>', field[f]) == sections[s]:
+                    verif[s] = 1
+                else:
+                    continue 
+            try:                           
+                if data.iloc[i][sections[s]] == 1:
+                    verif[s] = 1
+                elif data.iloc[i][sections[s]] != 1:
+                    continue
+            except KeyError:
+                continue
+
+        if 0 not in verif:              
             row = []
             for col2 in data.columns[[1, 2, 6, 5, 3]]:
                 value = data.iloc[i][col2]
                 if col2 == 'Hyperlink':
-                    cell = html.Td(html.A(href=doi_to_url(value), children='URL'))                    
+                    cell = html.Td(html.A(href=doi_to_url(value), children='Click Here'))                    
                 else:
                     cell = html.Td(value)
                 row.append(cell)
             rows.append(html.Tr(row))
-
-    else:  
-        for value in values:
-            try:
-                section = IDlist[labellist.index(value)]
-                sections.append(section)
-            except ValueError:
-                sections.append(value)
-
-        for i in range(0, len(data)):
-            verif = np.zeros(len(sections))
-            for s in range(0, len(sections)):
-                field = str(data.iloc[i]['Field']).split('; ')
-                for f in range(0, len(field)):
-                    if re.sub(' ', '<br>', field[f]) == sections[s]:
-                        verif[s] = 1
-                    else:
-                        continue 
-                try:                           
-                    if data.iloc[i][sections[s]] == 1:
-                        verif[s] = 1
-                    elif data.iloc[i][sections[s]] != 1:
-                        continue
-                except KeyError:
-                    continue
-
-            if 0 not in verif:              
-                row = []
-                for col2 in data.columns[[1, 2, 6, 5, 3]]:
-                    value = data.iloc[i][col2]
-                    if col2 == 'Hyperlink':
-                        cell = html.Td(html.A(href=doi_to_url(value), children='Click Here'))                    
-                    else:
-                        cell = html.Td(value)
-                    row.append(cell)
-                rows.append(html.Tr(row))
     return rows
 
 """ Application layout."""
@@ -155,9 +124,14 @@ app.layout = html.Div([
 # Main page layout
 layout_main = html.Div([
 
-    html.H5(str(len(AI.data)) + ' installations are currently reviewed'),
+    html.H5(str(len(data)) + ' installations are currently reviewed'),
 
     dcc.Link('Navigate to glossary', href='/glossary'),
+
+    dcc.Link('List of installations', 
+        href='/lists',
+        style={'paddingLeft': '0.5cm'}
+    ),
 
     html.P(style={'paddingBottom': '0.5cm'}),  
             
@@ -222,6 +196,8 @@ def display_page(pathname):
         return layout_main
     if pathname == '/glossary':
         return glossary.layout
+    if pathname == '/lists':
+        return lists.layout
     else:
         return layout_main
 
@@ -307,14 +283,7 @@ def display_list(clickData, values, plotType):
 
     if values is None or values == []:
         if clickData is None or (len(clickData['points'][0]['id']) <= 6 and plotType != 'FI') or clickData['points'][0]['id'] in parentlist:    
-            rows = make_list(values, plotType)
-            return  [
-                html.H6('Click on a sub-category or choose it from the dropdown menu to filter the list below.'),
-                html.Table(
-                        [html.Thead([html.Tr([html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]])])]
-                        + [html.Tbody(rows)]
-                        )
-                    ]  
+            return  [html.H6('Click on a sub-category or choose it from the dropdown menu to get a list of the corresponding installations.')] 
         else:
             values = [clickData['points'][0]['label']]
             parent = clickData['points'][0]['parent']
@@ -325,10 +294,7 @@ def display_list(clickData, values, plotType):
         if clickData is None or (len(clickData['points'][0]['id']) <= 6 and plotType != 'FI') or clickData['points'][0]['id'] in parentlist:
             for value in values:
                 parents.append(parentlist[labellist.index(value)])     
-            try:
-                rows = make_list(values, plotType)
-            except ValueError:
-                return
+            rows = make_list(values, plotType)
 
         else:
             for value in values:
@@ -336,10 +302,7 @@ def display_list(clickData, values, plotType):
             parent = clickData['points'][0]['parent']
             parents.append(parent)
             values.append(clickData['points'][0]['label'])
-            try:
-                rows = make_list(values, plotType)
-            except ValueError:
-                return
+            rows = make_list(values, plotType)
 
     if rows == []:
         return 'No installation belongs to all those categories.'

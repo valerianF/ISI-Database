@@ -30,15 +30,28 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Details and summary styling */
 
+@keyframes slideDown {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
 details {
     font-family: 'FontNormal';
-    padding-left: 5rem;
+    padding-left: 4.5rem;
 }
-
 
 details[open] > summary::before {
     font-family: "FontNormal";
     transform: rotate(90deg);
+}
+
+details[open] summary ~ * {
+    animation: slideDown .5s ease-in-out;
+    padding-left: 2rem;
 }
 
 details > summary::before {
@@ -68,7 +81,7 @@ summary {
 summary::-webkit-details-marker {
     display: none;
 }
-  
+ 
 /* Radio buttons styling */
 
 .radiobutton-group > label {
