@@ -84,17 +84,13 @@ layout = html.Div([
             the Australian Sound Design Project’s Online Gallery and Database.” Organised Sound
             10 (2): 129–40.)"""), 
             html.Details([
-                html.Summary('Adults'),
-                html.P("""Though children may or may not be able to access it, they are not 
-                the primary target of the concerned installation.""")
+                html.Summary('Ephemeral')
             ]),
             html.Details([
-                html.Summary('Children'),
-                html.P('The concerned installation is specifically made for a young audience.')
+                html.Summary('Temporary')
             ]),
             html.Details([
-                html.Summary('Both'),
-                html.P('The concerned installation can be equally approched by all audiences.')
+                html.Summary('Semi-permanent')
             ])      
         ])
     ], style={'maxWidth' : '800px'})
