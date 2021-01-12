@@ -1,3 +1,4 @@
+/* Import local fonts */
 
 @font-face {
     font-family: 'FontHeader';
@@ -6,91 +7,74 @@
 
 @font-face {
     font-family: 'FontNormal';
-    src: url("fonts/Montserrat-Regular.otf") format("opentype");
+    src: url("fonts/Montserrat-Light.otf") format("opentype");
 }
 
 @font-face {
     font-family: 'FontBold';
     font-weight: bold;
-    src: url("fonts/Montserrat-Bold.otf") format("opentype");
+    src: url("fonts/Montserrat-Regular.otf") format("opentype");
 }
 
-
+/* Headers and body styling */
 
 body {
     font-family: 'FontNormal';
     margin: 30px 75px 75px 75px; 
-    color: black;
+    color: rgb(31, 31, 31);
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'FontHeader';
-    color: #4D4D4D
+    color: #383838
 }
 
-.tree-nav__item {
-    display: block;
-    white-space: nowrap;
-    position: relative;
+/* Details and summary styling */
+
+details {
+    font-family: 'FontNormal';
+    padding-left: 5rem;
 }
-.tree-nav__item.is-expandable::before {
-    border-left: 1px solid #333;
-    content: "";
-    height: 100%;
-    left: 0.8rem;
-    position: absolute;
-    top: 2.4rem;
-    height: calc(100% - 2.4rem);
-}
-.tree-nav__item .tree-nav__item {
-    margin-left: 2.4rem;
-}
-.tree-nav__item.is-expandable[open] > .tree-nav__item-title::before {
-    font-family: "Ionicons";
+
+
+details[open] > summary::before {
+    font-family: "FontNormal";
     transform: rotate(90deg);
 }
-.tree-nav__item.is-expandable > .tree-nav__item-title {
-    padding-left: 2.4rem;
-}
-.tree-nav__item.is-expandable > .tree-nav__item-title::before {
-    position: absolute;
+
+details > summary::before {
+    position: relative;
     will-change: transform;
     transition: transform 300ms ease;
-    font-family: "Ionicons";
-    font-size: 1.1rem;
-    content: "\f125";
-    left: 0;
+    font-family: "FontNormal";
+    font-size: 3.1rem;
+    content: "+";
+    left: -1rem;
     display: inline-block;
     width: 1.6rem;
     text-align: center;
-    color: black;
+    color: rgb(34, 34, 34);
 }
   
-.tree-nav__item-title {
+summary {
     cursor: pointer;
     display: block;
     outline: 0;
     font-size: 2.5rem;
-    line-height: 3.2rem;
+    line-height: 3.5rem;
     font-family: 'FontHeader';
 }
-.tree-nav__item-title .icon {
-    display: inline;
-    padding-left: 1.6rem;
-    margin-right: 0.8rem;
-    color: #333;
-    font-size: 1.4rem;
-    position: relative;
-}
-.tree-nav__item-title .icon::before {
-    top: 0;
-    position: absolute;
-    left: 0;
-    display: inline-block;
-    width: 1.6rem;
-    text-align: center;
-}
   
-.tree-nav__item-title::-webkit-details-marker {
+summary::-webkit-details-marker {
     display: none;
 }
   
+/* Radio buttons styling */
+
+.radiobutton-group > label {
+    padding: .25em .5em;
+    cursor: pointer;
+    margin-right: -1px;
+    color: rgb(31, 31, 31);
+    display: inline-block;
+    font-size: 20px
+}
