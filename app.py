@@ -51,8 +51,7 @@ parentlist = AI.parentslabels[11:] + IN.parentslabels[7:] + SD.parentslabels[18:
 Note than CSS files in /asset subfolder are automaticaly imported.
 
 """
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css']
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 """ Initiate the dash application """
 app = dash.Dash(__name__, suppress_callback_exceptions=True, external_stylesheets=external_stylesheets)
@@ -173,8 +172,7 @@ layout_main = html.Div([
                 {'label': 'Subject Area', 'value': 'FI'}
                 ],
             value='AI', # Initial Sunburst: Artistic Intention
-            labelStyle={'display': 'inline-block', 'cursor': 'pointer', 'marginLeft':'1cm', 'fontSize': '20px'}
-
+            className='radiobutton-group'
             )
     ]),
 
