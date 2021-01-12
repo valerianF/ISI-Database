@@ -1,9 +1,8 @@
-import dash_core_components as dcc
+import os
+import pandas as pd
 import dash_html_components as html
-from dash.dependencies import Input, Output
+import dash_core_components as dcc
 
-def make_details(dataframe):
-    return
 
 # Glossary page layout
 layout = html.Div([

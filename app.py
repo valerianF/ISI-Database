@@ -27,9 +27,8 @@ Next steps:
 - Export local functions to external file (too many rows in the app)
 """
 
-""" Accessing the csv located in root, importing it to a pandas dataframe."""
-root = os.path.join(os.getcwd(), 'data', 'installationsList.csv')
-data = pd.read_csv(root)
+""" Accessing the csv located in repo, importing it to a pandas dataframe."""
+data = pd.read_csv(os.path.join(os.getcwd(), 'data', 'installationsList.csv'))
 
 """ Defining the sunburst objects."""
 AI = appObj(data, 'Artistic Intention')
