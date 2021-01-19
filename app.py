@@ -124,7 +124,7 @@ app.layout = html.Div([
 # Main page layout
 layout_main = html.Div([
 
-    html.H5(str(len(data)) + ' installations are currently reviewed. All the terms below are defined in the glossary.'),
+    html.H5(str(len(data)) + ' installations are currently reviewed. All the terms below are explained in the glossary.'),
 
     dcc.Link('Navigate to glossary', href='/glossary'),
 
