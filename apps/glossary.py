@@ -7,7 +7,8 @@ import dash_core_components as dcc
 # Glossary page layout
 layout = html.Div([
 
-    html.H5('Click on a term to display its definition.'),
+    html.H5("""Glossary. Click on a theme to display the associated terms and their definition.
+        Categories with no associated reference are inferred from the database's installations."""),
 
     dcc.Link('Navigate to main page', href='/'),
 
@@ -21,9 +22,10 @@ layout = html.Div([
 
     html.Details([
         html.Summary('Artistic Intention', style={'fontSize': 35, 'fontFamily': 'FontBold'}),
-        html.P("""Pictures the overall context informing the design process. Most of its 
-        elements are often thought by the designer or the artist prior to the implementation 
-        of an Interactive Sound Installation. """),
+        html.P(["""Relates to all the considerations and contextual aspects that are taken prior to
+                the design process. It is the most conceptual theme and concerns the top-level reflections that occurs
+                before implementation. From a protagonist metaphor, this aspect would relate to the Designer. """,
+                html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='(le Prado and Natkin 2014)')]),
         html.Details([
             html.Summary('Context', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
             html.P("""Information about the overall type of space in which the installation is built. 
@@ -76,22 +78,151 @@ layout = html.Div([
         ]),
         html.Details([
             html.Summary('Lifespan', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
-            html.P("""Duration in which the installation was or is planned to remain
+            html.P(["""Duration in which the installation was or is planned to remain
             active. It is a common approach to categorize sounding artwork, since it is determinant for
-            the design process. 
-            
-            (Bandt, R. 2005. “Designing Sound in Public Space in Australia: A Comparative Study Based on
-            the Australian Sound Design Project’s Online Gallery and Database.” Organised Sound
-            10 (2): 129–40.)"""), 
+            the design process. """,
+            html.A(href='https://doi.org/10.1017/s1355771805000774', children='(Bandt 2005)')]), 
             html.Details([
-                html.Summary('Ephemeral')
+                html.Summary('Ephemeral'),
+                html.P('No more than several months, for example in a temporary exhibition.')
             ]),
             html.Details([
-                html.Summary('Temporary')
+                html.Summary('Temporary'),
+                html.P('Can last several years while not being permanently integrated to urban infrastructures.')
             ]),
             html.Details([
-                html.Summary('Semi-permanent')
+                html.Summary('Semi-permanent'),
+                html.P('Permanent integration to urban infrastructures.')
             ])      
-        ])
+        ]),
+        html.Details([
+            html.Summary('Role of Sound', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.P(["""Inspired from Pressing's categories for sound roles in electronic media. """,
+            html.A(href='https://doi.org/10.1162/pres.1997.6.4.482', children='(Pressing 1997)')]), 
+            html.Details([
+                html.Summary('Expressive'),
+                html.P('Expressive or artistic purposes. Can also consist in Pressing\'s environmental category.')
+            ]),
+            html.Details([
+                html.Summary('Informational'),
+                html.P('Sound emphasizes information transfer such as speech.')
+            ]),
+            html.Details([
+                html.Summary('Didactic'),
+                html.P('The sound implies not only an information transfer but aims in bringing knowledge or skills to the user.')
+            ]),
+            html.Details([
+                html.Summary('Therapeutic'),
+                html.P('For reeducation or musical therapy pursposes.')
+            ])      
+        ]),
+        html.Details([
+            html.Summary('Visitor\'s Position', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.P(["""Concerns the visitor's potential motion around or inside the installation."""]), 
+            html.Details([
+                html.Summary('Sweet Spot'),
+                html.P('The visitor is required to have a static position.')
+            ]),
+            html.Details([
+                html.Summary('Dynamic'),
+                html.P('The visitor is free to move inside or around the installation with no specific path.')
+            ]),
+            html.Details([
+                html.Summary('Sound Pathway'),
+                html.P('The visitor is able to move across a path determined by the installation\'s creator.')
+            ])  
+        ]),
+        html.Details([
+            html.Summary('Intervention Visibility', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.P(["""Gives detail about what can or can't be seen from an installation."""]), 
+            html.Details([
+                html.Summary('Sonic Elements'),
+                html.P('Sound-emitting devices can be clearly seen by the visitor.')
+            ]),
+            html.Details([
+                html.Summary('Non-sonic Elements'),
+                html.P('Parts of the installation that do not emit sounds can be clearly seen by the visitor.')
+            ]),
+            html.Details([
+                html.Summary('Visual Interface'),
+                html.P("""A visible component of the installation from which visual properties can be altered through 
+                    interaction. Typically consists of a screen but is not limited to it.""")
+            ]),
+            html.Details([
+                html.Summary('Non visible'),
+                html.P('The installation can\'t be seen by the visitor.')
+            ]) 
+        ]),
+        html.Details([
+            html.Summary('Sound Design Approach', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.P(["""Materials and technics used for sound design."""]), 
+            html.Details([
+                html.Summary('Materials'),
+                html.P(['Relate to the nature of the sound contents and their origin, and is mostly inspired from Landy\'s framework.',
+                html.A(href='https://mitpress.mit.edu/books/understanding-art-sound-organization#:~:text=The%20art%20of%20sound%20organization%2C%20also%20known%20as%20electroacoustic%20music,%2C%20synthesized%2C%20and%20processed%20sounds.&text=He%20proposes%20a%20%E2%80%9Csound%2Dbased,as%20art%20and%20pop%20music.',
+                    children='(Landy 2007)')]),
+                html.Details([
+                    html.Summary('Abstract'),
+                    html.P('Sounds that can\'t be ascribed to any real or imaginary provenance.')
+                ]),
+                html.Details([
+                    html.Summary('Referential'),
+                    html.P('Recorded sounds that suggest or at least don\'t hide the source to which they belong.')
+                ]),
+                html.Details([
+                    html.Summary('Sonification'),
+                    html.P('Refers to a mapping process for representation of non-sonic data through sound.')
+                ]),
+                html.Details([
+                    html.Summary('Feedback Generated'),
+                    html.P(['Artificial generation of acoustic feedback through a combination of microphones and loudspeakers.',
+                    html.A(href='https://www.bloomsbury.com/uk/between-air-and-electricity-9781501327605/', children='(Eck 2013)')])
+                ]),
+                html.Details([
+                    html.Summary('Pre-existing Materials'),
+                    html.P(["""Named samples in Landy\'s Framework. Sound Materials that existed before the creation of the
+                        installation and where created in a different context."""])
+                ]),
+                html.Details([
+                    html.Summary('Local Recordings'),
+                    html.P(["""Sound recordings taken in proximity of the installation, or recordings from
+                        local residents.""",
+                    html.A(href='https://doi.org/10.1017/S1355771809000089', children='(Tittel 2009)')])
+                ]),
+                html.Details([
+                    html.Summary('Auto-generated'),
+                    html.P(["""Sound materials are emitted in the absence of interaction. In other words, the installation
+                        can generate sounds autonomously."""])
+                ]),
+                html.Details([
+                    html.Summary('Infrasounds'),
+                    html.P(["""Sound materials from whitch frequency content is below the auditory threshold."""])
+                ])
+            ]),
+            html.Details([
+                html.Summary('Site\'s Acoustics Involved'),
+                html.P('Acoustic properties of the space surrounding the installation are explicitely used.')
+            ]),
+            html.Details([
+                html.Summary('Noise Cancellation'),
+                html.P("""Specific use of noise cancellation technology.""")
+            ])
+        ]),
+        html.Details([
+            html.Summary('Lighting Design', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.P(["""Refers to specific lighting involved by the installation."""]), 
+            html.Details([
+                html.Summary('Spotlights'),
+                html.P('Spotlights or similar structures are used to emit static rays of light.')
+            ]),
+            html.Details([
+                html.Summary('Dynamic'),
+                html.P('The lighting involved by the installation is dynamic and typically reacts to the user.')
+            ]),
+            html.Details([
+                html.Summary('No Lights'),
+                html.P('There is no specific lighting involved by the installation.')
+            ])  
+        ]),
     ], style={'maxWidth' : '800px'})
 ])
