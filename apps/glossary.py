@@ -224,5 +224,39 @@ layout = html.Div([
                 html.P('There is no specific lighting involved by the installation.')
             ])  
         ]),
-    ], style={'maxWidth' : '800px'})
+    ], style={'maxWidth' : '800px'}),
+
+    html.Details([
+        html.Summary('Interaction', style={'fontSize': 35, 'fontFamily': 'FontBold'}),
+        html.P(["""Aims at situating the specific relation between the interactor - being a visitor, 
+            a user, or the surrounding environment - and the installation. It is inspired from Birnbaum et al.'s 
+            dimension space for musical devices.""",
+                html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
+                    children='(Birnbaum et al. 2005)')]),
+        html.Details([
+            html.Summary('Inter-Actors', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.P("""Number of people simultaneously involved in the musical interaction."""),
+                html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
+                    children='(Birnbaum et al. 2005,'), 
+                html.A(href='https://www.doi.org/10.1080/07494460600761021',
+                    children='Bandt 2006)'),
+            html.Details([
+                html.Summary('One'),
+                html.P('One user is required for the interaction.')
+            ]),
+            html.Details([
+                html.Summary('Several'),
+                html.P('Between two and ten people can simultaneously interact with the installation.')
+            ]),
+            html.Details([
+                html.Summary('Many'),
+                html.P('More than ten people can simultaneously interact with the installation.')
+            ]),
+            html.Details([
+                html.Summary('None'),
+                html.P("""The installation does not require an user for the interaction. In some cases, concerns 
+                installations in which the number of people that can interact with the installation is countless.""")
+            ]),
+        ]),
+    ], style = {'maxWidth': '800px'})
 ])
