@@ -158,7 +158,7 @@ layout = html.Div([
             html.P(["""Materials and technics used for sound design."""]), 
             html.Details([
                 html.Summary('Materials'),
-                html.P(['Relate to the nature of the sound contents and their origin, and is mostly inspired from Landy\'s framework.',
+                html.P(['Relate to the nature of the sound contents and their origin, and is mostly inspired from Landy\'s framework. ',
                 html.A(href='https://mitpress.mit.edu/books/understanding-art-sound-organization#:~:text=The%20art%20of%20sound%20organization%2C%20also%20known%20as%20electroacoustic%20music,%2C%20synthesized%2C%20and%20processed%20sounds.&text=He%20proposes%20a%20%E2%80%9Csound%2Dbased,as%20art%20and%20pop%20music.',
                     children='(Landy 2007)', target='_blank')]),
                 html.Details([
@@ -175,7 +175,7 @@ layout = html.Div([
                 ]),
                 html.Details([
                     html.Summary('Feedback Generated'),
-                    html.P(['Artificial generation of acoustic feedback through a combination of microphones and loudspeakers.',
+                    html.P(['Artificial generation of acoustic feedback through a combination of microphones and loudspeakers. ',
                     html.A(href='https://www.bloomsbury.com/uk/between-air-and-electricity-9781501327605/', children='(Eck 2013)', target='_blank')])
                 ]),
                 html.Details([
@@ -186,7 +186,7 @@ layout = html.Div([
                 html.Details([
                     html.Summary('Local Recordings'),
                     html.P(["""Sound recordings taken in proximity of the installation, or recordings from
-                        local residents.""",
+                        local residents. """,
                     html.A(href='https://doi.org/10.1017/S1355771809000089', children='(Tittel 2009)', target='_blank')])
                 ]),
                 html.Details([
@@ -230,16 +230,16 @@ layout = html.Div([
         html.Summary('Interaction', style={'fontSize': 35, 'fontFamily': 'FontBold'}),
         html.P(["""Aims at situating the specific relation between the interactor - being a visitor, 
             a user, or the surrounding environment - and the installation. It is inspired from Birnbaum et al.'s 
-            dimension space for musical devices.""",
+            dimension space for musical devices. """,
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
                     children='(Birnbaum et al. 2005)', target='_blank')]),
         html.Details([
             html.Summary('Inter-Actors', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
-            html.P("""Number of people simultaneously involved in the musical interaction."""),
+            html.P([("""Number of people simultaneously involved in the musical interaction. """),
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
-                    children='(Birnbaum et al. 2005,', target='_blank'), 
+                    children='(Birnbaum et al. 2005, ', target='_blank'), 
                 html.A(href='https://www.doi.org/10.1080/07494460600761021',
-                    children='Bandt 2006)', target='_blank'),
+                    children='Bandt 2006)', target='_blank')]),
             html.Details([
                 html.Summary('One'),
                 html.P('One user is required for the interaction.')
@@ -257,6 +257,85 @@ layout = html.Div([
                 html.P("""The installation does not require an user for the interaction. In some cases, concerns 
                 installations in which the number of people that can interact with the installation is countless.""")
             ]),
+        ]),
+        html.Details([
+            html.Summary('Interaction Type', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.P([("""Also named Type of Control, it refers to the specific nature of the relation between
+                the interactor and the installation. """),
+                html.A(href='https://www.researchgate.net/publication/308305196_ENGAGEMENT_AND_INTERACTION_IN_PARTICIPATORY_SOUND_ART',
+                    children='(Goudarzi and Gioti 2016)', target='_blank')]),
+            html.Details([
+                html.Summary('Embodied'),
+                html.P([('Possesses a physical embodiment or tangible interface for interaction. '),
+                html.A(href='https://www.researchgate.net/publication/308305196_ENGAGEMENT_AND_INTERACTION_IN_PARTICIPATORY_SOUND_ART',
+                    children='(Goudarzi and Gioti 2016)', target='_blank')]),
+            ]),
+            html.Details([
+                html.Summary('Visitor\'s Motion'),
+                html.P('The input for interaction is the visitor\'s or part of its body\'s motion.')
+            ]),
+            html.Details([
+                html.Summary('Visitor\'s Sounds'),
+                html.P('The input for interaction are the sounds emitted or that arise from the visitor.')
+            ]),
+            html.Details([
+                html.Summary('Network'),
+                html.P("""The installation queries information coming from visitor via contactless digital networks (GSM, Bluetooth, GPS, Internet).""")
+            ]),
+            html.Details([
+                html.Summary('Nature and Environment'),
+                html.P("""The installation queries information from the natural realm, for instance through a form of biomimetics or
+                through meteorological information.""")
+            ]),
+            html.Details([
+                html.Summary('Global Activity'),
+                html.P("""The installation records information from the surrounding human activity such as crowd
+                frequentation or roadway traffic.""")
+            ]),
+            html.Details([
+                html.Summary('Facial Expression'),
+                html.P("""The installation tracks facial expressions from the visitor(s) such as a smile.""")
+            ]),
+            html.Details([
+                html.Summary('Eye\'s Movement'),
+                html.P("""The installation tracks the visitor(s)\'s eye\'s movement by measuring the point of gaze
+                or the position of the eyes relative to the head.""")
+            ]),
+            html.Details([
+                html.Summary('Brain Activity'),
+                html.P("""The installation tracks the visitor(s)\'s brain activity, for instance through Electroencephalography.""")
+            ]),
+        ]),
+        html.Details([
+            html.Summary('Feedback Type', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.P([("""Refers to the output modalities regardless of the type output device, also called Feedback Modalities. """),
+                html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
+                    children='(Birnbaum et al. 2005)', target='_blank')]),
+            html.Details([
+                html.Summary('Sonic'),
+                html.P('Emission of sound.'),
+            ]),
+            html.Details([
+                html.Summary('Visual'),
+                html.P('Emission of visual information.')
+            ]),
+            html.Details([
+                html.Summary('Haptic'),
+                html.P('Conveys information related to the sense of touch. Can consist for instance in tactile feedback or force feedback.')
+            ]),
+            html.Details([
+                html.Summary('Heat'),
+                html.P("""Emission of information related to thermoception. Temperature is artificially regulated as a result of interaction.""")
+            ]),
+            html.Details([
+                html.Summary('Smell'),
+                html.P("""Emission of odorant fragrance as a result of interaction.""")
+            ]),
+            html.Details([
+                html.Summary('Taste'),
+                html.P("""Regulated alteration of taste, for example by delivering vibrations through 
+                the lips, tongue and teeth.""")
+            ])
         ]),
     ], style = {'maxWidth': '800px'})
 ])
