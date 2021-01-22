@@ -101,7 +101,7 @@ def make_list(values, plotType):
             for col2 in data.columns[[1, 2, 6, 5, 3]]:
                 value = data.iloc[i][col2]
                 if col2 == 'Hyperlink':
-                    cell = html.Td(html.A(href=doi_to_url(value), children='Click Here'))                    
+                    cell = html.Td(html.A(href=doi_to_url(value), children='Click Here', target='_blank'))                    
                 else:
                     cell = html.Td(value)
                 row.append(cell)

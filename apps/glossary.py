@@ -25,7 +25,7 @@ layout = html.Div([
         html.P(["""Relates to all the considerations and contextual aspects that are taken prior to
                 the design process. It is the most conceptual theme and concerns the top-level reflections that occurs
                 before implementation. From a protagonist metaphor, this aspect would relate to the Designer. """,
-                html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='(le Prado and Natkin 2014)')]),
+                html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='(le Prado and Natkin 2014)', target='_blank')]),
         html.Details([
             html.Summary('Context', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
             html.P("""Information about the overall type of space in which the installation is built. 
@@ -81,7 +81,7 @@ layout = html.Div([
             html.P(["""Duration in which the installation was or is planned to remain
             active. It is a common approach to categorize sounding artwork, since it is determinant for
             the design process. """,
-            html.A(href='https://doi.org/10.1017/s1355771805000774', children='(Bandt 2005)')]), 
+            html.A(href='https://doi.org/10.1017/s1355771805000774', children='(Bandt 2005)', target='_blank')]), 
             html.Details([
                 html.Summary('Ephemeral'),
                 html.P('No more than several months, for example in a temporary exhibition.')
@@ -98,7 +98,7 @@ layout = html.Div([
         html.Details([
             html.Summary('Role of Sound', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
             html.P(["""Inspired from Pressing's categories for sound roles in electronic media. """,
-            html.A(href='https://doi.org/10.1162/pres.1997.6.4.482', children='(Pressing 1997)')]), 
+            html.A(href='https://doi.org/10.1162/pres.1997.6.4.482', children='(Pressing 1997)', target='_blank')]), 
             html.Details([
                 html.Summary('Expressive'),
                 html.P('Expressive or artistic purposes. Can also consist in Pressing\'s environmental category.')
@@ -160,7 +160,7 @@ layout = html.Div([
                 html.Summary('Materials'),
                 html.P(['Relate to the nature of the sound contents and their origin, and is mostly inspired from Landy\'s framework.',
                 html.A(href='https://mitpress.mit.edu/books/understanding-art-sound-organization#:~:text=The%20art%20of%20sound%20organization%2C%20also%20known%20as%20electroacoustic%20music,%2C%20synthesized%2C%20and%20processed%20sounds.&text=He%20proposes%20a%20%E2%80%9Csound%2Dbased,as%20art%20and%20pop%20music.',
-                    children='(Landy 2007)')]),
+                    children='(Landy 2007)', target='_blank')]),
                 html.Details([
                     html.Summary('Abstract'),
                     html.P('Sounds that can\'t be ascribed to any real or imaginary provenance.')
@@ -176,7 +176,7 @@ layout = html.Div([
                 html.Details([
                     html.Summary('Feedback Generated'),
                     html.P(['Artificial generation of acoustic feedback through a combination of microphones and loudspeakers.',
-                    html.A(href='https://www.bloomsbury.com/uk/between-air-and-electricity-9781501327605/', children='(Eck 2013)')])
+                    html.A(href='https://www.bloomsbury.com/uk/between-air-and-electricity-9781501327605/', children='(Eck 2013)', target='_blank')])
                 ]),
                 html.Details([
                     html.Summary('Pre-existing Materials'),
@@ -187,7 +187,7 @@ layout = html.Div([
                     html.Summary('Local Recordings'),
                     html.P(["""Sound recordings taken in proximity of the installation, or recordings from
                         local residents.""",
-                    html.A(href='https://doi.org/10.1017/S1355771809000089', children='(Tittel 2009)')])
+                    html.A(href='https://doi.org/10.1017/S1355771809000089', children='(Tittel 2009)', target='_blank')])
                 ]),
                 html.Details([
                     html.Summary('Auto-generated'),
@@ -232,14 +232,14 @@ layout = html.Div([
             a user, or the surrounding environment - and the installation. It is inspired from Birnbaum et al.'s 
             dimension space for musical devices.""",
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
-                    children='(Birnbaum et al. 2005)')]),
+                    children='(Birnbaum et al. 2005)', target='_blank')]),
         html.Details([
             html.Summary('Inter-Actors', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
             html.P("""Number of people simultaneously involved in the musical interaction."""),
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
-                    children='(Birnbaum et al. 2005,'), 
+                    children='(Birnbaum et al. 2005,', target='_blank'), 
                 html.A(href='https://www.doi.org/10.1080/07494460600761021',
-                    children='Bandt 2006)'),
+                    children='Bandt 2006)', target='_blank'),
             html.Details([
                 html.Summary('One'),
                 html.P('One user is required for the interaction.')
