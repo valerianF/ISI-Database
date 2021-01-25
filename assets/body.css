@@ -41,17 +41,16 @@ h1, h2, h3, h4, h5, h6 {
 
 details {
     font-family: 'FontNormal';
-    padding-left: 4.5rem;
 }
 
 details[open] > summary::before {
     font-family: "FontNormal";
-    transform: rotate(90deg);
+    transform: rotate(45deg);
 }
 
 details[open] summary ~ * {
     animation: slideDown .5s ease-in-out;
-    padding-left: 2rem;
+    padding-left: 2.5rem;
 }
 
 details > summary::before {

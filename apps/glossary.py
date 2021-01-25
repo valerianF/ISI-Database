@@ -8,7 +8,8 @@ import dash_core_components as dcc
 layout = html.Div([
 
     html.H5("""Glossary. Click on a theme to display the associated terms and their definition.
-        Categories with no associated reference are inferred from the database's installations."""),
+        Categories with no associated reference are inferred from the database's installations.""",
+        style={'maxWidth': '800px'}),
 
     dcc.Link('Navigate to main page', href='/'),
 
@@ -20,12 +21,22 @@ layout = html.Div([
 
     html.P(style={'paddingBottom': '0.5cm'}),  
 
+    # ARTISTIC INTENTION
     html.Details([
-        html.Summary('Artistic Intention', style={'fontSize': 35, 'fontFamily': 'FontBold'}),
+        html.Summary('Artistic Intention', 
+            style={
+                'fontSize': 46,
+                'fontFamily': 'FontBold', 
+                'paddingBottom' : '3rem',
+                'borderTop': '1px solid grey',
+                'paddingTop': '2rem'
+                }
+        ),
         html.P(["""Relates to all the considerations and contextual aspects that are taken prior to
                 the design process. It is the most conceptual theme and concerns the top-level reflections that occurs
                 before implementation. From a protagonist metaphor, this aspect would relate to the Designer. """,
-                html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='(le Prado and Natkin 2014)', target='_blank')]),
+                html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='(le Prado and Natkin 2014)', target='_blank')],
+                style={'marginTop': '-2rem'}),
         html.Details([
             html.Summary('Context', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
             html.P("""Information about the overall type of space in which the installation is built. 
@@ -209,8 +220,9 @@ layout = html.Div([
             ])
         ]),
         html.Details([
-            html.Summary('Lighting Design', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
-            html.P(["""Refers to specific lighting involved by the installation."""]), 
+            html.Summary('Lighting Design', style={'fontSize': 25, 'fontFamily': 'FontBold', 'paddingBottom':'2rem'}),
+            html.P(["""Refers to specific lighting involved by the installation."""],
+                style={'marginTop': '-2rem'}), 
             html.Details([
                 html.Summary('Spotlights'),
                 html.P('Spotlights or similar structures are used to emit static rays of light.')
@@ -226,14 +238,24 @@ layout = html.Div([
         ]),
     ], style={'maxWidth' : '800px'}),
 
+    # INTERACTION
     html.Details([
-        html.Summary('Interaction', style={'fontSize': 35, 'fontFamily': 'FontBold'}),
+        html.Summary('Interaction', 
+            style={
+                'fontSize': 46,
+                'fontFamily': 'FontBold', 
+                'paddingBottom' : '3rem',
+                'borderTop': '1px solid grey',
+                'paddingTop': '2rem'
+                }
+        ),
         html.P(["""Aims at characterizing the mutual relation between the interactor - being a visitor, 
             a user, or the surrounding environment - and the installation. It is associated to the in-between reflections
             between the foremost intentions and the ultimate technical implementations and would relate to the interactor.""",
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
                     children='(Birnbaum et al. 2005, ', target='_blank'),
-                html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='le Prado and Natkin 2014)', target='_blank')]),
+                html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='le Prado and Natkin 2014)', target='_blank')],
+                style={'marginTop': '-2rem'}),
         html.Details([
             html.Summary('Inter-Actors', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
             html.P(["""Number of people simultaneously involved in the musical interaction. """,
@@ -358,20 +380,31 @@ layout = html.Div([
             ])
         ]),
         html.Details([
-            html.Summary('Input/Output Degrees of Freedom', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Input/Output Degrees of Freedom', style={'fontSize': 25, 'fontFamily': 'FontBold', 'paddingBottom':'2rem'}),
             html.P(["""Refers to the number of input and output modalities available to the user or visitor. It does 
             not represent the number of input and output controls as in birnbaum's dimension space. """,
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
-                    children='(Birnbaum et al. 2005)', target='_blank')])
+                    children='(Birnbaum et al. 2005)', target='_blank')],
+                style={'marginTop': '-2rem'})
         ]),
     ], style = {'maxWidth': '800px'}),
 
+    # SYSTEM DESIGN
     html.Details([
-        html.Summary('System Design', style={'fontSize': 35, 'fontFamily': 'FontBold'}),
+        html.Summary('System Design', 
+            style={
+                'fontSize': 46,
+                'fontFamily': 'FontBold', 
+                'paddingBottom' : '3rem',
+                'borderTop': '1px solid grey',
+                'paddingTop': '2rem'
+                }
+        ),
         html.P(["""Concerns the practical realization of the installation, from its components to its diffusion parameters.
             It emphasizes on the practical realization of artistic intentions as well as interaction design, and
             would relate to the System. """,
-            html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='(le Prado and Natkin 2014)', target='_blank')]),
+            html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='(le Prado and Natkin 2014)', target='_blank')],
+                style={'marginTop': '-2rem'}),
         html.Details([
             html.Summary('Spatialization', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
             html.P(["""Refers to the number of sources used, their spatial disposition as well as their diffusion and 
@@ -488,14 +521,15 @@ layout = html.Div([
             ])
         ]),
         html.Details([
-            html.Summary('Type of Input Device', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Type of Input Device', style={'fontSize': 25, 'fontFamily': 'FontBold', 'paddingBottom':'2rem'}),
             html.P(["""Describes the kind of device that receives information that is processed for 
             interaction. It can consist in a sensor or in a device containing several sensors. A classification
             is provided among the nature of the measurand along White's classification scheme for basic sensors, and 
             among the global nature of the device for others. Complex devices such as touch-sensitive devices may 
             rely on basic sensors such as capacitance sensors. However, for those types of input devices, only the 
             entire built-in device is accounted for, regardless of the sensors it is constitued from. """,
-            html.A(href='https://doi.org/10.1109/T-UFFC.1987.26922', children='(White 1987)', target='_blank')]),
+            html.A(href='https://doi.org/10.1109/T-UFFC.1987.26922', children='(White 1987)', target='_blank')],
+                style={'marginTop': '-2rem'}),
             html.Details([
                 html.Summary('Electric, Magnetic Sensors'),
                 html.P('Measures either eletric or magnetic information. '),
@@ -545,7 +579,7 @@ layout = html.Div([
                 ]),
                 html.Details([
                     html.Summary('Motion Sensing Device'),
-                    html.P(""""Detects complex motion through infrared sensors. Typically consists in a built-in device 
+                    html.P("""Detects complex motion through infrared sensors. Typically consists in a built-in device 
                     such as a kinect. """)
                 ])
             ]),
