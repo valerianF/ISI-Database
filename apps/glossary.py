@@ -705,6 +705,23 @@ layout = html.Div([
                 ])
             ])
         ])
-    ], style = {'maxWidth': '800px'})
+    ], style = {'maxWidth': '800px'}),
 
+    html.P(style={'paddingBottom': '2cm'}),
+
+    html.P(['Designed by ',
+        html.A(href='https://www.mcgill.ca/music/valerian-fraisse',
+            children='Valérian Fraisse', target='_blank'),
+        ' with the support of ',
+        html.A(href='https://www.mcgill.ca/sis/people/faculty/guastavino',
+            children='Catherine Guastavino', target='_blank'),
+        ' and ',
+        html.A(href='https://www.mcgill.ca/music/marcelo-m-wanderley',
+            children='Marcelo Wanderley', target='_blank'),
+            '.'], style={'fontSize': '12px'}),
+
+    html.P(['This work is licensed under a ',
+        html.A(rel='license', href='http://creativecommons.org/licenses/by/4.0/',
+            children='Creative Commons Attributions 4.0 International License'),
+        '.'], style={'fontSize': '12px'})
 ])
