@@ -5,7 +5,7 @@ It is a dynamic Sunburst visualisation of results from a literature review on In
 
 ## Visit the app online
 
-It is currently deployed on heroku: [link here](https://isi-database.herokuapp.com/)
+It is currently deployed on heroku ([link here](https://isi-database.herokuapp.com/)).
 
 ## To run the app as a standalone
 
@@ -17,7 +17,7 @@ You need the following up-to-date python libraries:
 
 Then run app.py. 
 
-Then visit the local host http://127.0.0.1:8050/
+Then visit the local host http://127.0.0.1:8050/.
 
 ## License
 
