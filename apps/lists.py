@@ -71,13 +71,16 @@ layout = html.Div([
         ' and ',
         html.A(href='https://www.mcgill.ca/music/marcelo-m-wanderley',
             children='Marcelo Wanderley', target='_blank'),
-        ' (',
+        '.',
+        html.Br(),
+        'The source code is available on ',
         html.A(href='https://github.com/valerianF/ISI-Database',
-            children='source code', target='_blank'),
-        ').'], style={'fontSize': '12px'}),
+            children='GitHub', target='_blank'),
+        '.'], style={'fontSize': '12px'}),
 
     html.P(['This work is licensed under a ',
-        html.A(rel='license', href='http://creativecommons.org/licenses/by/4.0/',
-            children='Creative Commons Attributions 4.0 International License'),
+        html.A(rel='license', href='http://creativecommons.org/licenses/by-nc-sa/4.0/',
+            children='Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License',
+            target='_blank'),
         '.'], style={'fontSize': '12px'})
 ])
