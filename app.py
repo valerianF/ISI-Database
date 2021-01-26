@@ -176,7 +176,25 @@ layout_main = html.Div([
 
     html.P(style={'paddingBottom': '0.5cm'}),  
 
-    html.Div(id='list_inst')
+    html.Div(id='list_inst'),
+
+    html.P(style={'paddingBottom': '2cm'}),
+
+    html.P(['Designed by ',
+        html.A(href='https://www.mcgill.ca/music/valerian-fraisse',
+            children='Valérian Fraisse'),
+        ' with the support of ',
+        html.A(href='https://www.mcgill.ca/sis/people/faculty/guastavino',
+            children='Catherine Guastavino'),
+        ' and ',
+        html.A(href='https://www.mcgill.ca/music/marcelo-m-wanderley',
+            children='Marcelo Wanderley'),
+            '.']),
+
+    html.P(['This work is licensed under a ',
+        html.A(rel='license', href='http://creativecommons.org/licenses/by/4.0/',
+            children='Creative Commons Attributions 4.0 International License'),
+        '.'])
 ])
 
 """ Callback functions."""  
