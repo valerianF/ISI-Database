@@ -60,14 +60,14 @@ class appObj:
             self.IDs = ["AI", "CO", "AU", "IV", "LS", "LP", "SD", "LI", "RS", "SD_Mat", "LS_Dyn"]
             self.parents = ["", "AI", "AI", "AI", "AI", "AI", "AI", "AI", "AI", "SD", "LS"]
             self.labels = ["Artistic<br>Intention", "Context", "Audience", "Intervention<br>Visibility",
-             "Listening<br>Position", "Lifespan", "Sound<br>Design", "Lighting<br>Design",
+             "Visitor\'s<br>Position", "Lifespan", "Sound<br>Design", "Lighting<br>Design",
              "Role of<br>Sound", "Materials", "Dynamic", "Exhibition", "Outdoor", "Indoor",
              "School", "Prototype", "Transportation", "Care<br>Center", "Adults", "Children",
              "Both", "Non<br>Visible", "Non-Sonic<br>Elements", "Visual<br>interface", "Sonic<br>Elements",
              "Pathway", "No Specific<br>Path", "Sweet<br>Spot", "Ephemeral", 
-             "Temporary", "Semi-Permanent", "Abstract", "Referential", "Sonification", "Local<br>Recordings", 
+             "Semi-Permanent", "Permanent", "Abstract", "Referential", "Sonification", "Local<br>Recordings", 
              "Pre-existing<br>Materials", "Feedback<br>Generated", "Auto-Generative", "Infrasounds",
-             "Noise<br>Cancellation", "Site's Acoustics<br>Involved", "No<br>Lights", "Spotlights", "Dynamic",
+             "Noise<br>Cancellation", "Site's Acoustics<br>Involved", "No<br>Lighting", "Static Lights", "Dynamic",
             "Expressive", "Informational", "Didactic", "Therapeutic"]
             self.subs = ["SD_Mat", "LS_Dyn"]
             
@@ -82,9 +82,9 @@ class appObj:
               "Electric,<br>Magnetic Sensors", "Mechanical<br>Sensors", "Identification", "Microphones",
               "Image<br>Sensors", "Bio-signals<br>Sensors", "Controllers", "Detectors", "Environment",
               "Number of<br>Sources", "Headphones", "Diffusion<br>Orientation", "Control",
-              "Directivity", "Sound<br>Object", 
+              "Directivity", "Other<br>Sound<br>Sources", 
 
-              "Server", "Cartridge,<br>Tape Reader", "Voltage<br>Sensor", "Capacitance<br>Sensor",
+              "Server-Client", "Cartridge,<br>Tape Reader", "Voltage<br>Sensor", "Capacitance<br>Sensor",
               "Accelerometer,<br> Gyroscope", "Pressure<br>Sensor", "Bend<br>Sensor", "Torque<br>Sensor",
               "Potentiometer", "Radio-Frequency<br>Identification", "Barcode<br>Scanner", "Coin<br>Detector",
               "Piezoelectric<br>Sensor", "Microphone", "Camera", "Motion<br>Sensing<br>Device",
@@ -92,7 +92,7 @@ class appObj:
               "Novint<br>Falcon", "Game<br>Controller", "Touch-Sensitive<br>Device", "Mouse and<br>Keyboard", 
               "Pressure<br>Pad", "Proximity<br>Sensor", "Light<br>Sensor", "Heat<br>Sensor", "Wind<br>Sensor", "Seismograph", 
               "One Source", "Two Sources", "Multiple<br>Sources", "Stereo", "Towards the<br>Same Point",
-              "Towards<br>Different Points", "Evolving", "Channel-Based", "Algorithm-Based", "Directive", "Non<br>Directive",
+              "Towards<br>Different Points", "Evolving", "Channel-Based", "Automated<br>Spatialization", "Directive", "Non<br>Directive",
               "Speakers", "Electronic", "Mechanical", "Resonant", "Musical<br>Instrument"]
             
         elif self.name == 'Interaction':
@@ -100,7 +100,7 @@ class appObj:
             self.parents = ["", "IN", "IN", "IN", "IN", "IN", "IN"]
             self.subs = []
             self.labels = ["Interaction", "Inter-Actors", "Input Degrees<br>Of Freedom", "Output Degrees<br>Of Freedom",
-              "Feedback<br>Type", "Musical<br>Control", "Interaction<br>Type", "Many", "Few", "One Actor", "None",
+              "Feedback<br>Type", "Musical<br>Control", "Interaction<br>Type", "Many", "Several", "One Actor", "None",
               "One Degree", "Two Degrees", "Three or<br>More Degrees", "One ", "Two", "Three or<br>More", "Visual", "Haptic", "Sonic",
               "Heat", "Taste", "Smell", "Process", "Note-Level", "Timbral", "Global<br>Activity", "Network", "Embodied",
               "Visitor's<br>Motion", "Visitor's<br>Sounds", "Eyes'<br>Movements", "Facial<br>Expression", "Brain<br>Activity",

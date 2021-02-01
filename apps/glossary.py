@@ -98,11 +98,11 @@ layout = html.Div([
                 html.P('No more than several months, for example in a temporary exhibition.')
             ]),
             html.Details([
-                html.Summary('Temporary'),
+                html.Summary('Semi-Permanent'),
                 html.P('Can last several years while not being permanently integrated to urban infrastructures.')
             ]),
             html.Details([
-                html.Summary('Semi-permanent'),
+                html.Summary('Permanent'),
                 html.P('Permanent integration to urban infrastructures.')
             ])      
         ]),
@@ -136,12 +136,16 @@ layout = html.Div([
             ]),
             html.Details([
                 html.Summary('Dynamic'),
-                html.P('The visitor is free to move inside or around the installation with no specific path.')
+                html.Details([
+                    html.Summary('No Specific Path'),
+                    html.P('The visitor is free to move inside or around the installation with no specific path.')
+                ]),
+                html.Details([
+                    html.Summary('Pathway'),
+                    html.P('The visitor is able to move across a path determined by the installation\'s creator.')
+                ]) 
             ]),
-            html.Details([
-                html.Summary('Sound Pathway'),
-                html.P('The visitor is able to move across a path determined by the installation\'s creator.')
-            ])  
+ 
         ]),
         html.Details([
             html.Summary('Intervention Visibility', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
@@ -224,7 +228,7 @@ layout = html.Div([
             html.P(["""Refers to specific lighting involved by the installation."""],
                 style={'marginTop': '-2rem'}), 
             html.Details([
-                html.Summary('Spotlights'),
+                html.Summary('Static Lights'),
                 html.P('Spotlights or similar structures are used to emit static rays of light.')
             ]),
             html.Details([
@@ -232,7 +236,7 @@ layout = html.Div([
                 html.P('The lighting involved by the installation is dynamic and typically reacts to the user.')
             ]),
             html.Details([
-                html.Summary('No Lights'),
+                html.Summary('No Lighting'),
                 html.P('There is no specific lighting involved by the installation.')
             ])  
         ]),
@@ -438,7 +442,7 @@ layout = html.Div([
             ]),
             html.Details([
                 html.Summary('Directivity'),
-                html.P('Relates to the directionnal nature of the sound source(s).'),
+                html.P('Relates to the directional nature of the sound source(s).'),
                 html.Details([
                     html.Summary('Directive'),
                     html.P("""Relates for instance on parametric loudspeakers and beamforming. More rarely, 
@@ -462,7 +466,7 @@ layout = html.Div([
                 html.A(href='https://mitpress.mit.edu/books/understanding-art-sound-organization#:~:text=The%20art%20of%20sound%20organization%2C%20also%20known%20as%20electroacoustic%20music,%2C%20synthesized%2C%20and%20processed%20sounds.&text=He%20proposes%20a%20%E2%80%9Csound%2Dbased,as%20art%20and%20pop%20music.',
                     children='(Landy 2007)', target='_blank')]),
                 html.Details([
-                    html.Summary("""Automated"""),
+                    html.Summary("""Automated Spatialization"""),
                     html.P(["""Refers to automated spatialization systems, in which some or all aspects of the way sonic material
                     is presented spatially are automated. """,
                     html.A(href='https://mitpress.mit.edu/books/understanding-art-sound-organization#:~:text=The%20art%20of%20sound%20organization%2C%20also%20known%20as%20electroacoustic%20music,%2C%20synthesized%2C%20and%20processed%20sounds.&text=He%20proposes%20a%20%E2%80%9Csound%2Dbased,as%20art%20and%20pop%20music.',
