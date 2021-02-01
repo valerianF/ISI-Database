@@ -145,8 +145,9 @@ layout_main = html.Div([
                 {'label': 'Subject Area', 'value': 'FI'}
                 ],
             value='AI', # Initial Sunburst: Artistic Intention
-            className='radiobutton-group'
-            )
+            className='radiobutton-group',
+            ),
+            html.Span(className='checkmark'),
     ]),
 
     html.P(style={'paddingBottom': '0.5cm'}),  

@@ -84,10 +84,21 @@ summary::-webkit-details-marker {
 /* Radio buttons styling */
 
 .radiobutton-group > label {
-    padding: .25em .5em;
+    padding: .15em .5em;
     cursor: pointer;
-    margin-right: -1px;
+    margin-right: -1px auto;
     color: rgb(31, 31, 31);
     display: inline-block;
-    font-size: 20px
+    font-size: 25px;
 }
+
+.radiobutton-group input {
+    position: relative;
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+  }
+
+  .radiobutton-group:hover input {
+    background-color: rgb(104, 12, 12);
+  }
