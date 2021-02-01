@@ -99,6 +99,3 @@ summary::-webkit-details-marker {
     width: 18px;
   }
 
-  .radiobutton-group:hover input {
-    background-color: rgb(104, 12, 12);
-  }
