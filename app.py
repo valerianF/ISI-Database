@@ -273,7 +273,8 @@ def update_figure(input_value):
             # insidetextorientation='radial',
             marker = marker
         ))
-    fig.update_layout(margin = dict(t=20, l=20, r=0, b=0))
+    fig.update_layout(margin = dict(t=20, l=20, r=0, b=0),
+                    font = dict(family='FontNormal'))   
 
     # changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
     # if 'snap-button' in changed_id:
