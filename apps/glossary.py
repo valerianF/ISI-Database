@@ -185,7 +185,7 @@ layout = html.Div([
                     html.P('Recorded sounds that suggest or at least don\'t hide the source to which they belong.')
                 ]),
                 html.Details([
-                    html.Summary('Pre-existing Materials'),
+                    html.Summary('Pre-existing Material'),
                     html.P(["""Named samples in Landy\'s Framework. Sound Materials that existed before the creation of the
                         installation and where created in a different context."""])
                 ]),
@@ -359,7 +359,7 @@ layout = html.Div([
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
                     children='(Birnbaum et al. 2005)', target='_blank')]),
             html.Details([
-                html.Summary('Sonic'),
+                html.Summary('Auditory'),
                 html.P('Emission of sound.'),
             ]),
             html.Details([

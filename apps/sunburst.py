@@ -66,7 +66,7 @@ class appObj:
              "Both", "Non<br>Visible", "Non-Sonic<br>Elements", "Visual<br>interface", "Sonic<br>Elements",
              "Pathway", "No Specific<br>Path", "Sweet<br>Spot", "Ephemeral", 
              "Semi-Permanent", "Permanent", "Abstract", "Referential", "Local<br>Recordings", "Infrasounds",  
-             "Pre-existing<br>Materials", "Sonification", "Feedback<br>Generated", "Auto-Generated", 
+             "Pre-existing<br>Material", "Sonification", "Feedback<br>Generated", "Auto-Generated", 
              "Noise<br>Cancellation", "Site's Acoustics<br>Involved", "No<br>Lighting", "Static Lights", "Dynamic",
             "Expressive", "Informational", "Didactic", "Therapeutic"]
             self.subs = ["SD_Mat", "SD_Pro", "LS_Dyn"]
@@ -101,7 +101,7 @@ class appObj:
             self.subs = ["IT_Use", "IT_Ada"]
             self.labels = ["Interaction", "Inter-Actors", "Input Degrees<br>Of Freedom", "Output Degrees<br>Of Freedom",
               "Feedback<br>Type", "Musical<br>Control", "Interaction<br>Type", "User<br>Interaction", "Adaptive", "Many", "Few", "One Actor", "Countless", "None",
-              "One Degree", "Two Degrees", "Three or<br>More Degrees", "One ", "Two", "Three or<br>More", "Visual", "Haptic", "Sonic",
+              "One Degree", "Two Degrees", "Three or<br>More Degrees", "One ", "Two", "Three or<br>More", "Visual", "Haptic", "Auditory",
               "Heat", "Taste", "Smell", "Process", "Note-Level", "Timbral", "Global<br>Activity", "Network", "Embodied",
               "Visitor's<br>Motion", "Visitor's<br>Sounds", "Eyes'<br>Movements", "Facial<br>Expression", "Brain<br>Activity",
               "Natural<br>Elements"]       
