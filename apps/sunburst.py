@@ -96,11 +96,11 @@ class appObj:
               "Speakers", "Electronic", "Mechanical", "Resonant", "Musical<br>Instrument"]
             
         elif self.name == 'Interaction':
-            self.IDs = ["IN", "IA", "IDof", "ODof", "FT", "MC", "IT"]
-            self.parents = ["", "IN", "IN", "IN", "IN", "IN", "IN"]
-            self.subs = []
+            self.IDs = ["IN", "IA", "IDof", "ODof", "FT", "MC", "IT", "IT_Use", "IT_Ada"]
+            self.parents = ["", "IN", "IN", "IN", "IN", "IN", "IN", "IT", "IT"]
+            self.subs = ["IT_Use", "IT_Ada"]
             self.labels = ["Interaction", "Inter-Actors", "Input Degrees<br>Of Freedom", "Output Degrees<br>Of Freedom",
-              "Feedback<br>Type", "Musical<br>Control", "Interaction<br>Type", "Many", "Few", "One Actor", "None",
+              "Feedback<br>Type", "Musical<br>Control", "Interaction<br>Type", "User<br>Interaction", "Adaptive", "Many", "Few", "One Actor", "None",
               "One Degree", "Two Degrees", "Three or<br>More Degrees", "One ", "Two", "Three or<br>More", "Visual", "Haptic", "Sonic",
               "Heat", "Taste", "Smell", "Process", "Note-Level", "Timbral", "Global<br>Activity", "Network", "Embodied",
               "Visitor's<br>Motion", "Visitor's<br>Sounds", "Eyes'<br>Movements", "Facial<br>Expression", "Brain<br>Activity",

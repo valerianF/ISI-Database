@@ -299,45 +299,53 @@ layout = html.Div([
                 html.A(href='https://www.researchgate.net/publication/308305196_ENGAGEMENT_AND_INTERACTION_IN_PARTICIPATORY_SOUND_ART',
                     children='(Goudarzi and Gioti 2016)', target='_blank')]),
             html.Details([
-                html.Summary('Embodied'),
-                html.P(['Possesses a physical embodiment or tangible interface for interaction. ',
-                html.A(href='https://www.researchgate.net/publication/308305196_ENGAGEMENT_AND_INTERACTION_IN_PARTICIPATORY_SOUND_ART',
-                    children='(Goudarzi and Gioti 2016)', target='_blank')]),
+                html.Summary('User Interaction'),
+                html.P([""" The installation interacts with visitor(s)."""]),
+                html.Details([
+                    html.Summary('Embodied'),
+                    html.P(['Possesses a physical embodiment or tangible interface for interaction. ',
+                    html.A(href='https://www.researchgate.net/publication/308305196_ENGAGEMENT_AND_INTERACTION_IN_PARTICIPATORY_SOUND_ART',
+                        children='(Goudarzi and Gioti 2016)', target='_blank')]),
+                ]),
+                html.Details([
+                    html.Summary('Visitor\'s Motion'),
+                    html.P('The input for interaction is the visitor\'s or part of its body\'s motion.')
+                ]),
+                html.Details([
+                    html.Summary('Visitor\'s Sounds'),
+                    html.P('The input for interaction are the sounds emitted or that arise from the visitor.')
+                ]),
+                html.Details([
+                    html.Summary('Network'),
+                    html.P("""The installation queries information coming from visitor via contactless digital networks (GSM, Bluetooth, GPS, Internet).""")
+                ]),
+                html.Details([
+                    html.Summary('Global Activity'),
+                    html.P("""The installation records information from the surrounding human activity such as crowd
+                    frequentation or roadway traffic.""")
+                ]),
+                html.Details([
+                    html.Summary('Facial Expression'),
+                    html.P("""The installation tracks facial expressions from the visitor(s) such as a smile.""")
+                ]),
+                html.Details([
+                    html.Summary('Eye\'s Movement'),
+                    html.P("""The installation tracks the visitor(s)\'s eye\'s movement by measuring the point of gaze
+                    or the position of the eyes relative to the head.""")
+                ]),
+                html.Details([
+                    html.Summary('Brain Activity'),
+                    html.P("""The installation tracks the visitor(s)\'s brain activity, for instance through Electroencephalography.""")
+                ]),
             ]),
             html.Details([
-                html.Summary('Visitor\'s Motion'),
-                html.P('The input for interaction is the visitor\'s or part of its body\'s motion.')
-            ]),
-            html.Details([
-                html.Summary('Visitor\'s Sounds'),
-                html.P('The input for interaction are the sounds emitted or that arise from the visitor.')
-            ]),
-            html.Details([
-                html.Summary('Network'),
-                html.P("""The installation queries information coming from visitor via contactless digital networks (GSM, Bluetooth, GPS, Internet).""")
-            ]),
-            html.Details([
-                html.Summary('Nature and Environment'),
-                html.P("""The installation queries information from the natural realm, for instance through a form of biomimetics or
-                through meteorological information.""")
-            ]),
-            html.Details([
-                html.Summary('Global Activity'),
-                html.P("""The installation records information from the surrounding human activity such as crowd
-                frequentation or roadway traffic.""")
-            ]),
-            html.Details([
-                html.Summary('Facial Expression'),
-                html.P("""The installation tracks facial expressions from the visitor(s) such as a smile.""")
-            ]),
-            html.Details([
-                html.Summary('Eye\'s Movement'),
-                html.P("""The installation tracks the visitor(s)\'s eye\'s movement by measuring the point of gaze
-                or the position of the eyes relative to the head.""")
-            ]),
-            html.Details([
-                html.Summary('Brain Activity'),
-                html.P("""The installation tracks the visitor(s)\'s brain activity, for instance through Electroencephalography.""")
+                html.Summary('Adaptive'),
+                html.P(""" The installation does not interact with humans but reacts to its surrounding environment"""),
+                html.Details([
+                   html.Summary('Nature and Environment'),
+                    html.P("""The installation queries information from the natural realm, for instance through a form of biomimetics or
+                    through meteorological information.""")
+                ]),
             ]),
         ]),
         html.Details([
