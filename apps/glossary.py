@@ -185,15 +185,6 @@ layout = html.Div([
                     html.P('Recorded sounds that suggest or at least don\'t hide the source to which they belong.')
                 ]),
                 html.Details([
-                    html.Summary('Sonification'),
-                    html.P('Refers to a mapping process for representation of non-sonic data through sound.')
-                ]),
-                html.Details([
-                    html.Summary('Feedback Generated'),
-                    html.P(['Artificial generation of acoustic feedback through a combination of microphones and loudspeakers. ',
-                    html.A(href='https://www.bloomsbury.com/uk/between-air-and-electricity-9781501327605/', children='(Eck 2013)', target='_blank')])
-                ]),
-                html.Details([
                     html.Summary('Pre-existing Materials'),
                     html.P(["""Named samples in Landy\'s Framework. Sound Materials that existed before the creation of the
                         installation and where created in a different context."""])
@@ -205,23 +196,39 @@ layout = html.Div([
                     html.A(href='https://doi.org/10.1017/S1355771809000089', children='(Tittel 2009)', target='_blank')])
                 ]),
                 html.Details([
+                    html.Summary('Infrasounds'),
+                    html.P(["""Sound materials from whitch frequency content is below the auditory threshold."""])
+                ]),
+            ]),
+            html.Details([
+                html.Summary('Process'),
+                html.P(["""Specific process involved to generate sound content. It is also
+                inspired from Landy\'s framework.""",
+                html.A(href='https://mitpress.mit.edu/books/understanding-art-sound-organization#:~:text=The%20art%20of%20sound%20organization%2C%20also%20known%20as%20electroacoustic%20music,%2C%20synthesized%2C%20and%20processed%20sounds.&text=He%20proposes%20a%20%E2%80%9Csound%2Dbased,as%20art%20and%20pop%20music.',
+                    children='(Landy 2007)', target='_blank')]),
+                html.Details([
+                    html.Summary('Sonification'),
+                    html.P('Refers to a mapping process for representation of non-sonic data through sound.')
+                ]),
+                html.Details([
+                    html.Summary('Feedback Generated'),
+                    html.P(['Artificial generation of acoustic feedback through a combination of microphones and loudspeakers. ',
+                    html.A(href='https://www.bloomsbury.com/uk/between-air-and-electricity-9781501327605/', children='(Eck 2013)', target='_blank')])
+                ]),
+                html.Details([
                     html.Summary('Auto-generated'),
                     html.P(["""Sound materials are emitted in the absence of interaction. In other words, the installation
                         can generate sounds autonomously."""])
                 ]),
                 html.Details([
-                    html.Summary('Infrasounds'),
-                    html.P(["""Sound materials from whitch frequency content is below the auditory threshold."""])
-                ])
+                    html.Summary('Noise Cancellation'),
+                    html.P("""Specific use of noise cancellation technology.""")
+                ]),
             ]),
             html.Details([
                 html.Summary('Site\'s Acoustics Involved'),
-                html.P('Acoustic properties of the space surrounding the installation are explicitely used.')
+                html.P("""Acoustic properties of the space surrounding the installation are explicitely exploited."""),
             ]),
-            html.Details([
-                html.Summary('Noise Cancellation'),
-                html.P("""Specific use of noise cancellation technology.""")
-            ])
         ]),
         html.Details([
             html.Summary('Lighting Design', style={'fontSize': 25, 'fontFamily': 'FontBold', 'paddingBottom':'2rem'}),

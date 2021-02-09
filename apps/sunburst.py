@@ -65,8 +65,8 @@ class appObj:
              "School", "Prototype", "Transportation", "Care<br>Center", "Adults", "Children",
              "Both", "Non<br>Visible", "Non-Sonic<br>Elements", "Visual<br>interface", "Sonic<br>Elements",
              "Pathway", "No Specific<br>Path", "Sweet<br>Spot", "Ephemeral", 
-             "Semi-Permanent", "Permanent", "Abstract", "Referential", "Sonification", "Local<br>Recordings", 
-             "Pre-existing<br>Materials", "Feedback<br>Generated", "Auto-Generative", "Infrasounds",
+             "Semi-Permanent", "Permanent", "Abstract", "Referential", "Local<br>Recordings", "Infrasounds",  
+             "Pre-existing<br>Materials", "Sonification", "Feedback<br>Generated", "Auto-Generated", 
              "Noise<br>Cancellation", "Site's Acoustics<br>Involved", "No<br>Lighting", "Static Lights", "Dynamic",
             "Expressive", "Informational", "Didactic", "Therapeutic"]
             self.subs = ["SD_Mat", "SD_Pro", "LS_Dyn"]
@@ -100,7 +100,7 @@ class appObj:
             self.parents = ["", "IN", "IN", "IN", "IN", "IN", "IN"]
             self.subs = []
             self.labels = ["Interaction", "Inter-Actors", "Input Degrees<br>Of Freedom", "Output Degrees<br>Of Freedom",
-              "Feedback<br>Type", "Musical<br>Control", "Interaction<br>Type", "Many", "Several", "One Actor", "None",
+              "Feedback<br>Type", "Musical<br>Control", "Interaction<br>Type", "Many", "Few", "One Actor", "None",
               "One Degree", "Two Degrees", "Three or<br>More Degrees", "One ", "Two", "Three or<br>More", "Visual", "Haptic", "Sonic",
               "Heat", "Taste", "Smell", "Process", "Note-Level", "Timbral", "Global<br>Activity", "Network", "Embodied",
               "Visitor's<br>Motion", "Visitor's<br>Sounds", "Eyes'<br>Movements", "Facial<br>Expression", "Brain<br>Activity",
