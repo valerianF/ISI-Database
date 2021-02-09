@@ -57,11 +57,11 @@ class appObj:
         """
         
         if self.name == 'Artistic Intention':
-            self.IDs = ["AI", "CO", "AU", "IV", "LS", "LP", "SD", "LI", "RS", "SD_Mat", "LS_Dyn"]
-            self.parents = ["", "AI", "AI", "AI", "AI", "AI", "AI", "AI", "AI", "SD", "LS"]
+            self.IDs = ["AI", "CO", "AU", "IV", "LS", "LP", "SD", "LI", "RS", "SD_Mat", "SD_Pro", "LS_Dyn"]
+            self.parents = ["", "AI", "AI", "AI", "AI", "AI", "AI", "AI", "AI", "SD", "SD", "LS"]
             self.labels = ["Artistic<br>Intention", "Context", "Audience", "Intervention<br>Visibility",
              "Visitor\'s<br>Position", "Lifespan", "Sound<br>Design", "Lighting<br>Design",
-             "Role of<br>Sound", "Materials", "Dynamic", "Exhibition", "Outdoor", "Indoor",
+             "Role of<br>Sound", "Materials", "Process", "Dynamic", "Exhibition", "Outdoor", "Indoor",
              "School", "Prototype", "Transportation", "Care<br>Center", "Adults", "Children",
              "Both", "Non<br>Visible", "Non-Sonic<br>Elements", "Visual<br>interface", "Sonic<br>Elements",
              "Pathway", "No Specific<br>Path", "Sweet<br>Spot", "Ephemeral", 
@@ -69,7 +69,7 @@ class appObj:
              "Pre-existing<br>Materials", "Feedback<br>Generated", "Auto-Generative", "Infrasounds",
              "Noise<br>Cancellation", "Site's Acoustics<br>Involved", "No<br>Lighting", "Static Lights", "Dynamic",
             "Expressive", "Informational", "Didactic", "Therapeutic"]
-            self.subs = ["SD_Mat", "LS_Dyn"]
+            self.subs = ["SD_Mat", "SD_Pro", "LS_Dyn"]
             
         elif self.name == 'System Design':
             self.IDs = ["SyD", "TS", "SP", "SG", "TS_Ele", "TS_Mec", "TS_Ide", "TS_Mic", "TS_Ima",
