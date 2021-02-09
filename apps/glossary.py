@@ -287,9 +287,14 @@ layout = html.Div([
                 html.P('More than ten people can simultaneously interact with the installation.')
             ]),
             html.Details([
+                html.Summary('Countless'),
+                html.P(""" Installations in which the number of people that can interact with the installation is countless:
+                it is very difficult if not impossible to determine the exact number of inter-actors.""")
+            ]),
+            html.Details([
                 html.Summary('None'),
-                html.P("""The installation does not require an user for the interaction. In some cases, concerns 
-                installations in which the number of people that can interact with the installation is countless.""")
+                html.P("""The installation does not require a user but rather adapts its content with inputs from other kinds of systems.
+                Typically, the installation is adaptive and reacts to its surrounding environment. """)
             ]),
         ]),
         html.Details([
