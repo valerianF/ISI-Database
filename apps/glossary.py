@@ -575,8 +575,8 @@ layout = html.Div([
                 ])
             ]),
             html.Details([
-                html.Summary('Mechanical Sensors'),
-                html.P('Measures mechanical force such as pressure or acceleration.'),
+                html.Summary('Force and Pressure Sensors'),
+                html.P('Measures mechanical forces such as pressure or acceleration.'),
                 html.Details([
                     html.Summary('Accelerometer, Gyroscope'),
                     html.P('Measures proper acceleration or anglar velocity, relative to the sensor\'s position')

@@ -79,7 +79,7 @@ class appObj:
             self.subs = ["TS_Ele", "TS_Mec", "TS_Ide", "TS_Mic", "TS_Ima", "TS_Bio", "TS_Con", "TS_Det", 
             "TS_Env", "SP_Num", "SP_Hea", "SP_Pnt", "SP_Cnt", "SP_Dir", "SG_Obj"]
             self.labels = ["System<br>Design", "Type of<br>Input Device", "Spatialization", "Sound<br>Generation",
-              "Electric,<br>Magnetic Sensors", "Mechanical<br>Sensors", "Identification", "Microphones",
+              "Electric,<br>Magnetic Sensors", "Force and<br>Pressure Sensors", "Identification", "Microphones",
               "Image<br>Sensors", "Bio-signals<br>Sensors", "Controllers", "Detectors", "Environment",
               "Number of<br>Sources", "Headphones", "Diffusion<br>Orientation", "Control",
               "Directivity", "Other<br>Sound<br>Sources", 
