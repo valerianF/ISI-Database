@@ -227,7 +227,7 @@ layout = html.Div([
             ]),
             html.Details([
                 html.Summary('Site\'s Acoustics Involved'),
-                html.P("""Acoustic properties of the space surrounding the installation are explicitely exploited."""),
+                html.P("""Acoustic properties of the space surrounding the installation are explicitly exploited."""),
             ]),
         ]),
         html.Details([
@@ -540,7 +540,7 @@ layout = html.Div([
                 html.Details([
                     html.Summary('Mechanical'),
                     html.P("""Sources that emit sound through contact of different materials such as friction, while not
-                    explicitely relying on acoustic resonances. """)
+                    explicitly relying on acoustic resonances. """)
                 ])
             ])
         ]),

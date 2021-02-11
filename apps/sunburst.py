@@ -67,7 +67,7 @@ class appObj:
              "Pathway", "No Specific<br>Path", "Sweet<br>Spot", "Ephemeral", 
              "Semi-Permanent", "Permanent", "Abstract", "Referential", "Local<br>Recordings", "Infrasounds",  
              "Pre-existing<br>Material", "Sonification", "Feedback<br>Generated", "Auto-Generated", 
-             "Noise<br>Cancellation", "Site's Acoustics<br>Involved", "No<br>Lighting", "Static Lights", "Dynamic",
+             "Noise<br>Cancellation", "Site's Acoustics<br>Involved", "No<br>Lighting", "Static Lights", "Dynamic ",
             "Expressive", "Informational", "Didactic", "Therapeutic"]
             self.subs = ["SD_Mat", "SD_Pro", "LS_Dyn"]
             
@@ -91,8 +91,8 @@ class appObj:
               "Fingerprint<br>Sensor", "Eletromyograph", "Electroencephalograph", "Remote Motion<br>Tracker",
               "Novint<br>Falcon", "Game<br>Controller", "Touch-Sensitive<br>Device", "Mouse and<br>Keyboard", 
               "Pressure<br>Pad", "Proximity<br>Sensor", "Light<br>Sensor", "Heat<br>Sensor", "Wind<br>Sensor", "Seismograph", 
-              "One Source", "Two Sources", "Multiple<br>Sources", "Stereo", "Towards the<br>Same Point",
-              "Towards<br>Different Points", "Evolving", "Channel-Based", "Automated<br>Spatialization", "Directive", "Non<br>Directive",
+              "One   ", "Two   ", "Multiple<br>Sources", "Stereo", "Towards the<br>Same Point",
+              "Towards<br>Different Points", "Dynamic  ", "Channel-Based", "Automated<br>Spatialization", "Directive", "Non<br>Directive",
               "Speakers", "Electronic", "Mechanical", "Resonant", "Musical<br>Instrument"]
             
         elif self.name == 'Interaction':
@@ -100,8 +100,8 @@ class appObj:
             self.parents = ["", "IN", "IN", "IN", "IN", "IN", "IN", "IT", "IT"]
             self.subs = ["IT_Use", "IT_Ada"]
             self.labels = ["Interaction", "Inter-Actors", "Input Degrees<br>Of Freedom", "Output Degrees<br>Of Freedom",
-              "Feedback<br>Type", "Musical<br>Control", "Interaction<br>Type", "User<br>Interaction", "Adaptive", "Many", "Few", "One Actor", "Countless", "None",
-              "One Degree", "Two Degrees", "Three or<br>More Degrees", "One ", "Two", "Three or<br>More", "Visual", "Haptic", "Auditory",
+              "Feedback<br>Type", "Musical<br>Control", "Interaction<br>Type", "User<br>Interaction", "Adaptive", "Many", "Few", "One", "Countless", "None",
+              "One  ", "Two ", "Three or<br>More ", "One ", "Two", "Three or<br>More", "Visual", "Haptic", "Auditory",
               "Heat", "Taste", "Smell", "Process", "Note-Level", "Timbral", "Global<br>Activity", "Network", "Embodied",
               "Visitor's<br>Motion", "Visitor's<br>Sounds", "Eyes'<br>Movements", "Facial<br>Expression", "Brain<br>Activity",
               "Natural<br>Elements"]       

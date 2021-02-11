@@ -42,9 +42,9 @@ SD.initiate_arrays()
 IN.initiate_arrays()
 FI.initiate_arrays()
 
-labellist = AI.labels[11:] + IN.labels[7:] + SD.labels[18:] + FI.labels[13:]
-IDlist = AI.df['ids'][11:].tolist() + IN.df['ids'][7:].tolist() + SD.df['ids'][18:].tolist() + FI.labels[13:]
-parentlist = AI.parentslabels[11:] + IN.parentslabels[7:] + SD.parentslabels[18:] + FI.parents[13:]
+labellist = AI.labels[12:] + IN.labels[7:] + SD.labels[18:] + FI.labels[13:]
+IDlist = AI.df['ids'][12:].tolist() + IN.df['ids'][7:].tolist() + SD.df['ids'][18:].tolist() + FI.labels[13:]
+parentlist = AI.parentslabels[12:] + IN.parentslabels[7:] + SD.parentslabels[18:] + FI.parents[13:]
 
 """ Import external CSS style sheet. 
 Note than CSS files in /asset subfolder are automaticaly imported.
