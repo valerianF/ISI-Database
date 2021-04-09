@@ -66,8 +66,8 @@ class appObj:
              "Both", "Non<br>Visible", "Non-Sonic<br>Elements", "Visual<br>interface", "Sonic<br>Elements",
              "Pathway", "No Specific<br>Path", "Sweet<br>Spot", "Ephemeral", 
              "Semi-Permanent", "Permanent", "Abstract", "Referential", "Local<br>Recordings", "Infrasounds",  
-             "Pre-existing<br>Material", "Sonification", "Feedback<br>Generated", "Auto-Generated", 
-             "Noise<br>Cancellation", "Site's Acoustics<br>Involved", "No<br>Lighting", "Static Lights", "Dynamic ",
+             "Pre-existing<br>Materials", "Sonification", "Feedback<br>Generated", "Auto-Generated", 
+             "Noise<br>Cancellation", "Site's Acoustics<br>Involved", "No<br>Lighting", "Static Lights", "Dynamic",
             "Expressive", "Informational", "Didactic", "Therapeutic"]
             self.subs = ["SD_Mat", "SD_Pro", "LS_Dyn"]
             
@@ -79,7 +79,7 @@ class appObj:
             self.subs = ["TS_Ele", "TS_Mec", "TS_Ide", "TS_Mic", "TS_Ima", "TS_Bio", "TS_Con", "TS_Det", 
             "TS_Env", "SP_Num", "SP_Hea", "SP_Pnt", "SP_Cnt", "SP_Dir", "SG_Obj"]
             self.labels = ["System<br>Design", "Type of<br>Input Device", "Spatialization", "Sound<br>Generation",
-              "Electric,<br>Magnetic Sensors", "Force and<br>Pressure Sensors", "Identification", "Microphones",
+              "Electric,<br>Magnetic Sensors", "Mechanical<br>Sensors", "Identification", "Microphones",
               "Image<br>Sensors", "Bio-signals<br>Sensors", "Controllers", "Detectors", "Environment",
               "Number of<br>Sources", "Headphones", "Diffusion<br>Orientation", "Control",
               "Directivity", "Other<br>Sound<br>Sources", 
@@ -91,8 +91,8 @@ class appObj:
               "Fingerprint<br>Sensor", "Eletromyograph", "Electroencephalograph", "Remote Motion<br>Tracker",
               "Novint<br>Falcon", "Game<br>Controller", "Touch-Sensitive<br>Device", "Mouse and<br>Keyboard", 
               "Pressure<br>Pad", "Proximity<br>Sensor", "Light<br>Sensor", "Heat<br>Sensor", "Wind<br>Sensor", "Seismograph", 
-              "One   ", "Two   ", "Multiple<br>Sources", "Stereo", "Towards the<br>Same Point",
-              "Towards<br>Different Points", "Dynamic  ", "Channel-Based", "Automated<br>Spatialization", "Directive", "Non<br>Directive",
+              "One Source", "Two Sources", "Multiple<br>Sources", "Stereo", "Towards the<br>Same Point",
+              "Towards<br>Different Points", "Evolving", "Channel-Based", "Automated<br>Spatialization", "Directive", "Non<br>Directive",
               "Speakers", "Electronic", "Mechanical", "Resonant", "Musical<br>Instrument"]
             
         elif self.name == 'Interaction':
@@ -100,8 +100,8 @@ class appObj:
             self.parents = ["", "IN", "IN", "IN", "IN", "IN", "IN", "IT", "IT"]
             self.subs = ["IT_Use", "IT_Ada"]
             self.labels = ["Interaction", "Inter-Actors", "Input Degrees<br>Of Freedom", "Output Degrees<br>Of Freedom",
-              "Feedback<br>Type", "Musical<br>Control", "Interaction<br>Type", "User<br>Interaction", "Adaptive", "Many", "Few", "One", "Countless", "None",
-              "One  ", "Two ", "Three or<br>More ", "One ", "Two", "Three or<br>More", "Visual", "Haptic", "Auditory",
+              "Feedback<br>Type", "Musical<br>Control", "Interaction<br>Type", "User<br>Interaction", "Adaptive", "Many", "Few", "One Actor", "None",
+              "One Degree", "Two Degrees", "Three or<br>More Degrees", "One ", "Two", "Three or<br>More", "Visual", "Haptic", "Sonic",
               "Heat", "Taste", "Smell", "Process", "Note-Level", "Timbral", "Global<br>Activity", "Network", "Embodied",
               "Visitor's<br>Motion", "Visitor's<br>Sounds", "Eyes'<br>Movements", "Facial<br>Expression", "Brain<br>Activity",
               "Natural<br>Elements"]       
