@@ -185,7 +185,7 @@ layout = html.Div([
                     html.P('Recorded sounds that suggest or at least don\'t hide the source to which they belong.')
                 ]),
                 html.Details([
-                    html.Summary('Pre-existing Materials'),
+                    html.Summary('Pre-existing Material'),
                     html.P(["""Named samples in Landy\'s Framework. Sound Materials that existed before the creation of the
                         installation and where created in a different context."""])
                 ]),
@@ -227,7 +227,7 @@ layout = html.Div([
             ]),
             html.Details([
                 html.Summary('Site\'s Acoustics Involved'),
-                html.P("""Acoustic properties of the space surrounding the installation are explicitely exploited."""),
+                html.P("""Acoustic properties of the space surrounding the installation are explicitly exploited."""),
             ]),
         ]),
         html.Details([
@@ -287,9 +287,14 @@ layout = html.Div([
                 html.P('More than ten people can simultaneously interact with the installation.')
             ]),
             html.Details([
+                html.Summary('Countless'),
+                html.P(""" Installations in which the number of people that can interact with the installation is countless:
+                it is very difficult if not impossible to determine the exact number of inter-actors.""")
+            ]),
+            html.Details([
                 html.Summary('None'),
-                html.P("""The installation does not require an user for the interaction. In some cases, concerns 
-                installations in which the number of people that can interact with the installation is countless.""")
+                html.P("""The installation does not require a user but rather adapts its content with inputs from other kinds of systems.
+                Typically, the installation is adaptive and reacts to its surrounding environment. """)
             ]),
         ]),
         html.Details([
@@ -354,7 +359,7 @@ layout = html.Div([
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
                     children='(Birnbaum et al. 2005)', target='_blank')]),
             html.Details([
-                html.Summary('Sonic'),
+                html.Summary('Auditory'),
                 html.P('Emission of sound.'),
             ]),
             html.Details([
@@ -535,7 +540,7 @@ layout = html.Div([
                 html.Details([
                     html.Summary('Mechanical'),
                     html.P("""Sources that emit sound through contact of different materials such as friction, while not
-                    explicitely relying on acoustic resonances. """)
+                    explicitly relying on acoustic resonances. """)
                 ])
             ])
         ]),
@@ -570,8 +575,8 @@ layout = html.Div([
                 ])
             ]),
             html.Details([
-                html.Summary('Mechanical Sensors'),
-                html.P('Measures mechanical force such as pressure or acceleration.'),
+                html.Summary('Force and Pressure Sensors'),
+                html.P('Measures mechanical forces such as pressure or acceleration.'),
                 html.Details([
                     html.Summary('Accelerometer, Gyroscope'),
                     html.P('Measures proper acceleration or anglar velocity, relative to the sensor\'s position')
