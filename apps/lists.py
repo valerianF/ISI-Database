@@ -1,7 +1,6 @@
 import os, re
 import pandas as pd
-import dash_html_components as html
-import dash_core_components as dcc
+from dash import dcc, html
 
 data = pd.read_csv(os.path.join(os.getcwd(), 'data', 'installationsList.csv'))
 
@@ -46,10 +45,15 @@ layout = html.Div([
 
     html.H5(str(len(data)) + ' installations are currently reviewed'),
 
-    dcc.Link('Navigate to main page', href='/'),
+    dcc.Link('Main page', href='/'),
 
-    dcc.Link('Navigate to glossary', 
+    dcc.Link('Glossary', 
         href='/glossary',
+        style={'paddingLeft': '0.5cm'}
+    ),
+
+    dcc.Link('Network visualization', 
+        href='/network',
         style={'paddingLeft': '0.5cm'}
     ),
 

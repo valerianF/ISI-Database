@@ -99,3 +99,22 @@ summary::-webkit-details-marker {
     width: 18px;
   }
 
+/* Legend positioning and colors */
+
+.legend { list-style: none; }
+.legend li { float: left; margin-right: 10px; }
+.legend span { border: 1px solid #ccc; float: left; width: 32px; height: 4px; margin: 8px; }
+/* your colors */
+.legend .red { background-color: red; }
+.legend .blue { background-color: blue; }
+.legend .green { background-color: green; }
+.legend .magenta { background-color: magenta; }
+.legend .black { background-color: black; }
+.legend .brown { background-color: brown; }
+.legend .cyan { background-color: cyan; }
+.legend .darkolivegreen { background-color: darkoliveGreen; }
+.legend .dimgray { background-color: dimgray; }
+.legend .indigo { background-color: indigo; }
+.legend .saddlebrown { background-color: saddlebrown; }
+.legend .darkorange { background-color: darkorange; }
+

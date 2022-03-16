@@ -2,29 +2,18 @@ import os, re
 import dash
 import pandas as pd
 import numpy as np
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc, html
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 
-from apps import glossary, lists
+from apps import glossary, lists, network
 from apps.lists import doi_to_url
 from apps.sunburst import appObj
+from apps.network import netObj
 
 """
 After downloading this repository, run this file.
-For an offline check, run plot(fig).
 Components required: python and the following librairies: dash, pandas and plotly
-Next steps: 
-
-- Improve tags (relate them to their parents)
-- Visually organise tags according to their associated category
-- Filter the graph in function of the filters or at least some filters 
-  (e.g. what the plot would look like for outdoor applications only?)
-- Add a tab (or a radio element) that retrieve the associated tags for a given installation
-- Add a tab with a Venn Diagram showing all potential relation between categories
-- World map indicating the location of each installation
-- Export local functions to external file (too many rows in the app)
 """
 
 """ Accessing the csv located in repo, importing it to a pandas dataframe."""
@@ -42,6 +31,7 @@ SD.initiate_arrays()
 IN.initiate_arrays()
 FI.initiate_arrays()
 
+""" Setting lists. Hard to automatize..."""
 labellist = AI.labels[12:] + IN.labels[7:] + SD.labels[18:] + FI.labels[13:]
 IDlist = AI.df['ids'][12:].tolist() + IN.df['ids'][7:].tolist() + SD.df['ids'][18:].tolist() + FI.labels[13:]
 parentlist = AI.parentslabels[12:] + IN.parentslabels[7:] + SD.parentslabels[18:] + FI.parents[13:]
@@ -130,7 +120,11 @@ layout_main = html.Div([
 
     html.H5(str(len(data)) + ' installations are currently reviewed. All the terms below are explained in the glossary.'),
 
-    dcc.Link('Navigate to glossary', href='/glossary'),
+    dcc.Link('Network visualization', href='/network'),
+    
+    dcc.Link('Glossary', 
+        href='/glossary',
+        style={'paddingLeft': '0.5cm'}),
 
     dcc.Link('List of installations', 
         href='/lists',
@@ -227,6 +221,8 @@ def display_page(pathname):
         return glossary.layout
     if pathname == '/lists':
         return lists.layout
+    if pathname == '/network':
+        return network.layout
     else:
         return layout_main
 
@@ -360,7 +356,7 @@ def display_list(clickData, values, plotType):
                     [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
                     + rows
                     )
-                ]   
+                ]  
 
    
 """ Run the app. """

@@ -1,7 +1,6 @@
 import os
 import pandas as pd
-import dash_html_components as html
-import dash_core_components as dcc
+from dash import dcc, html
 
 
 # Glossary page layout
@@ -11,7 +10,12 @@ layout = html.Div([
         Categories with no associated reference are inferred from the database's installations.""",
         style={'maxWidth': '800px'}),
 
-    dcc.Link('Navigate to main page', href='/'),
+    dcc.Link('Main page', href='/'),
+
+    dcc.Link('Network visualization', 
+        href='/network',
+        style={'paddingLeft': '0.5cm'}
+    ),
 
     dcc.Link('List of installations', 
         href='/lists',
