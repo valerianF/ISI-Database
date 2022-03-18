@@ -8,7 +8,7 @@ Flask==2.0.3
 Flask-Compress==1.11
 future==0.18.2
 gunicorn==20.0.4
-itsdangerous==2.1.1
+itsdangerous==2.0.1
 numpy==1.22.3
 pandas==1.4.1
 plotly==5.6.0
