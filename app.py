@@ -5,7 +5,7 @@ import numpy as np
 from dash import dcc, html, Input, Output
 import plotly.graph_objects as go
 
-from apps import glossary, lists
+from apps import glossary, lists, submit
 from apps.lists import doi_to_url
 from apps.sunburst import appObj
 
@@ -119,6 +119,23 @@ app.layout = html.Div([
 
     html.H1('Interactive Sound Installations Database'),
 
+    dcc.Link('Home', href='/'),
+
+    dcc.Link('Glossary', 
+        href='/glossary',
+        style={'paddingLeft': '0.5cm'}
+    ),
+
+    dcc.Link('List of installations', 
+        href='/lists',
+        style={'paddingLeft': '0.5cm'}
+    ),
+
+    # dcc.Link('Submit', 
+    #     href='/submit',
+    #     style={'paddingLeft': '0.5cm'}
+    # ),
+
     html.Div(id='page-content'),
 
     html.P(['Designed by ',
@@ -149,13 +166,6 @@ app.layout = html.Div([
 layout_main = html.Div([
 
     html.H5(str(len(data)) + ' installations are currently reviewed. All the terms below are explained in the glossary.'),
-
-    dcc.Link('Navigate to glossary', href='/glossary'),
-
-    dcc.Link('List of installations', 
-        href='/lists',
-        style={'paddingLeft': '0.5cm'}
-    ),
 
     html.P(style={'paddingBottom': '0.5cm'}),  
             
@@ -225,6 +235,8 @@ def display_page(pathname):
         return glossary.layout
     if pathname == '/lists':
         return lists.layout
+    if pathname == '/submit':
+        return submit.layout
     else:
         return layout_main
 

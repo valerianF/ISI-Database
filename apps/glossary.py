@@ -10,14 +10,6 @@ layout = html.Div([
         Categories with no associated reference are inferred from the database's installations.""",
         style={'maxWidth': '800px'}),
 
-    dcc.Link('Navigate to main page', href='/'),
-
-    dcc.Link('List of installations', 
-        href='/lists',
-        style={'paddingLeft': '0.5cm'}
-    ),
-
-
     html.P(style={'paddingBottom': '0.5cm'}),  
 
     # ARTISTIC INTENTION

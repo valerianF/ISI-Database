@@ -45,13 +45,6 @@ layout = html.Div([
 
     html.H5(str(len(data)) + ' installations are currently reviewed'),
 
-    dcc.Link('Navigate to main page', href='/'),
-
-    dcc.Link('Navigate to glossary', 
-        href='/glossary',
-        style={'paddingLeft': '0.5cm'}
-    ),
-
     html.P(style={'paddingBottom': '0.5cm'}),
 
     html.Table(
