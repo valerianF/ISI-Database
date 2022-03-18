@@ -105,16 +105,16 @@ summary::-webkit-details-marker {
 .legend li { float: left; margin-right: 10px; }
 .legend span { border: 1px solid #ccc; float: left; width: 32px; height: 4px; margin: 8px; }
 /* your colors */
-.legend .red { background-color: red; }
-.legend .blue { background-color: blue; }
-.legend .green { background-color: green; }
-.legend .magenta { background-color: magenta; }
-.legend .black { background-color: black; }
-.legend .brown { background-color: brown; }
-.legend .cyan { background-color: cyan; }
-.legend .darkolivegreen { background-color: darkoliveGreen; }
-.legend .dimgray { background-color: dimgray; }
-.legend .indigo { background-color: indigo; }
-.legend .saddlebrown { background-color: saddlebrown; }
+.legend .red { background-color: #CC2936; }
+.legend .blue { background-color: #388697; }
+.legend .green { background-color: #44CF6C; }
+.legend .magenta { background-color: #32A287; }
+.legend .black { background-color: #6C464E; }
+.legend .brown { background-color: #8CA0D7; }
+.legend .cyan { background-color: #A14DA0; }
+.legend .darkolivegreen { background-color: #9D79BC; }
+.legend .dimgray { background-color: #7E1F86; }
+.legend .indigo { background-color: #91C4F2; }
+.legend .saddlebrown { background-color: #08415C; }
 .legend .darkorange { background-color: darkorange; }
 

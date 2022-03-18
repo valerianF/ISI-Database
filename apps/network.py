@@ -68,10 +68,12 @@ class netObj:
         parents_f = []
         self.colors = ['red', 'blue', 'green','magenta', 'cyan', 'indigo', 'saddlebrown', 'darkorange',
             'darkolivegreen', 'dimgray', 'black']
+        self.colorshex = ['#CC2936', '#388697', '#44CF6C', '#32A287', '#6C464E', 
+            '#8CA0D7', '#A14DA0', '#9D79BC', '#7E1F86', '#91C4F2', '#08415C']
         self.elements = []
         self.stylesheet = []
         shared_parents = []
-        # compound_parents = []
+        compound_parents = []
         nodes_ind = []
         self.multi_cats = ["TS"] #Categories for which we only want to assess sub-category
 
@@ -126,9 +128,9 @@ class netObj:
                                     shared_parents.append(p_i)
 
         # Determine which category to set as a compound
-        # for parent in self.parents:
-        #     if shared_parents.count(parent) > 5:
-        #         compound_parents.append(parent)
+        for parent in self.parents:
+            if shared_parents.count(parent) > 5:
+                compound_parents.append(parent)
   
         # Add nodes
         for i in nodes_ind:
@@ -201,11 +203,11 @@ class netObj:
         self.stylesheet.append(dict(
             selector = 'node',
             style = {
+                'width': '8',
+                'height': '8',
                 'label': 'data(label)',
-                'border-width': '3',
-                'border-style': 'solid',
-                'border-color': 'black',
-                'color': 'black',
+                'border-opacity': '0',
+                'background-color': 'black',
                 'text-background-color': 'white',
                 'text-background-opacity': '0.8',
                 'text-backgroun-shape': 'round-rectangle',
@@ -237,7 +239,7 @@ class netObj:
                         self.stylesheet.append(dict(
                             selector = "node.no_siblings_" + self.colors[self.parents.index(self.elements[i]['data']['parent'][j])],
                             style = {
-                                'background-color': self.colors[self.parents.index(self.elements[i]['data']['parent'][j])]
+                                'background-color': self.colorshex[self.parents.index(self.elements[i]['data']['parent'][j])]
                             }
                         ))
             except KeyError:
@@ -247,7 +249,8 @@ class netObj:
             self.stylesheet.append(dict(
                 selector = 'edge.' + self.colors[self.parents.index(parent)],
                 style = {
-                    'line-color': self.colors[self.parents.index(parent)]
+                    'line-color': self.colorshex[self.parents.index(parent)],
+                    'width': '1'
                 }
             ))
 
@@ -315,8 +318,6 @@ class netObj:
 
 """ Application Layout """
 layout = html.Div([
-
-    html.H2('Interactive Sound Installations Database | Network Visualization'),
 
     dcc.Link('Main page', href='/'),
 
