@@ -1,5 +1,7 @@
 /* Import local fonts */
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
 @font-face {
     font-family: 'FontHeader';
     src: url("fonts/Montserrat-ExtraLight.otf") format("opentype");
@@ -19,12 +21,21 @@
 /* Headers and body styling */
 
 body {
-    font-family: 'FontNormal';
+    font-family: 'Roboto';
+    font-weight: 300;
     margin: 30px 75px 75px 75px; 
     color: rgb(31, 31, 31);
 }
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'FontHeader';
+h1 {
+    font-family: 'Roboto';
+    font-weight: 300;
+    color: #383838;
+    line-height: 2px;
+    font-size: 30pt;
+}
+h2, h3, h4, h5, h6 {
+    font-family: 'Roboto';
+    font-weight: 400;
     color: #383838
 }
 
@@ -98,4 +109,46 @@ summary::-webkit-details-marker {
     height: 18px;
     width: 18px;
   }
+
+/* Banner properties */
+div.banner {
+    height: 100%; 
+    position: fixed; 
+    left: 0;
+    width: 220 px;
+    z-index: 1;
+    top: 0;
+    padding: 50px 50px 50px 30px;
+    box-sizing: border-box;
+    background-color: rgb(243, 243, 243);
+}
+
+/* Banner link */
+.banner_link{
+    font-family: 'Roboto';
+    font-weight: 500;
+    color: #8E8E8E;
+    letter-spacing: 0.08em;
+}
+
+.banner_link:link{
+    text-decoration: None;
+}
+.banner_link:hover{
+    text-decoration: None;
+    color: #131313;
+}
+.banner_link:visited{
+    text-decoration: None;
+}
+.banner_link:active{
+    text-decoration: None;
+}
+
+/* Main page */
+div.page_content {
+    margin-left: 250px;
+    padding: 0px 10px;
+}
+
 

@@ -112,54 +112,62 @@ def make_list(values, plotType):
 
 """ Application layout."""
 # Index layout
-app.layout = html.Div([
+app.layout = html.Div(className="app_layout",
+    children=[
 
     # represents the url bar, doesn't render anything
     dcc.Location(id='url', refresh=False),
 
-    html.H1('Interactive Sound Installations Database'),
+    html.Div(className="banner", 
+        children=[
 
-    dcc.Link('Home', href='/'),
-
-    dcc.Link('Glossary', 
-        href='/glossary',
-        style={'paddingLeft': '0.5cm'}
-    ),
-
-    dcc.Link('List of installations', 
-        href='/lists',
-        style={'paddingLeft': '0.5cm'}
-    ),
-
-    # dcc.Link('Submit', 
-    #     href='/submit',
-    #     style={'paddingLeft': '0.5cm'}
-    # ),
-
-    html.Div(id='page-content'),
-
-    html.P(['Designed by ',
-        html.A(href='https://www.mcgill.ca/music/valerian-fraisse',
-            children='Valérian Fraisse', target='_blank'),
-        ' with the support of ',
-        html.A(href='https://www.mcgill.ca/sis/people/faculty/guastavino',
-            children='Catherine Guastavino', target='_blank'),
-        ' and ',
-        html.A(href='https://www.mcgill.ca/music/marcelo-m-wanderley',
-            children='Marcelo Wanderley', target='_blank'),
-        '.',
+        html.H1("Interactive"),
         html.Br(),
-        'The source code is available on ',
-        html.A(href='https://github.com/valerianF/ISI-Database',
-            children='GitHub', target='_blank'),
-        '.'], style={'fontSize': '12px'}),
+        html.H1("Sound"),
+        html.Br(),
+        html.H1("Installations"),
+        html.Br(),
+        html.H1("Database"),
 
-    html.P(['This work is licensed under a ',
-        html.A(rel='license', href='http://creativecommons.org/licenses/by-nc-sa/4.0/',
-            children='Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License',
-            target='_blank'),
-        '.'], style={'fontSize': '12px'})
+        html.P(style={'paddingBottom': '1cm'}), 
 
+        dcc.Link('HOME', href='/', className='banner_link'),
+        html.P(style={'paddingBottom': '0.5cm'}),  
+        dcc.Link('GLOSSARY', href='/glossary', className='banner_link'),
+        html.P(style={'paddingBottom': '0.5cm'}),  
+        dcc.Link('LIST OF INSTALLATIONS', href='/lists',className='banner_link'),
+        # dcc.Link('Submit', 
+        #     href='/submit',
+        #     style={'paddingLeft': '0.5cm'}
+        # ),
+    ]),
+
+    html.Div(id='page-content', className='page_content'),
+
+    html.Div(className="footer", 
+        children=[
+        html.P(['Designed by ',
+            html.A(href='https://www.mcgill.ca/music/valerian-fraisse',
+                children='Valérian Fraisse', target='_blank'),
+            ' with the support of ',
+            html.A(href='https://www.mcgill.ca/sis/people/faculty/guastavino',
+                children='Catherine Guastavino', target='_blank'),
+            ' and ',
+            html.A(href='https://www.mcgill.ca/music/marcelo-m-wanderley',
+                children='Marcelo Wanderley', target='_blank'),
+            '.',
+            html.Br(),
+            'The source code is available on ',
+            html.A(href='https://github.com/valerianF/ISI-Database',
+                children='GitHub', target='_blank'),
+            '.'], style={'fontSize': '12px'}),
+
+        html.P(['This work is licensed under a ',
+            html.A(rel='license', href='http://creativecommons.org/licenses/by-nc-sa/4.0/',
+                children='Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License',
+                target='_blank'),
+            '.'], style={'fontSize': '12px'})
+    ])
 ])
 
 # Main page layout
@@ -211,7 +219,7 @@ layout_main = html.Div([
 
     html.P(style={'paddingBottom': '0.5cm'}),  
 
-    html.Div(id='list_inst'),
+    html.Div(id='list_inst', className='list_inst'),
 
     html.P(style={'paddingBottom': '2cm'})
 ])
@@ -288,7 +296,7 @@ def update_figure(input_value):
             marker = marker
         ))
     fig.update_layout(margin=dict(t=20, l=20, r=20, b=20),
-                    font=dict(family='FontNormal'))   
+                    font=dict(family='Roboto'))   
 
     # changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
     # if 'snap-button' in changed_id:
