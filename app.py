@@ -281,7 +281,8 @@ def update_figure(input_value):
             parents=dframe['parents'],
             branchvalues='total',
             values=dframe['values'],
-            hovertemplate='<b>%{label} </b> <br>Elements concerned: %{value}<br>',
+            # hovertemplate='<b>%{label} </b> <br>Elements concerned: %{value}<br>',
+            hoverinfo = 'skip',
             maxdepth=3,
             name = '',
             marker = marker
