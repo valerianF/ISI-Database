@@ -173,55 +173,65 @@ app.layout = html.Div(className="app_layout",
 # Main page layout
 layout_main = html.Div([
 
-    html.H5(str(len(data)) + ' installations are currently reviewed. All the terms below are explained in the glossary.'),
+    # html.H5(str(len(data)) + ' installations are currently reviewed. All the terms below are explained in the glossary.'),
 
-    html.P(style={'paddingBottom': '0.5cm'}),  
+    # html.P(style={'paddingBottom': '0.5cm'}),  
             
-    html.Div([
-        dcc.RadioItems(
-            id="select_plot",
-            options=[
-                {'label': 'Artistic Intention', 'value': 'AI'},
-                {'label': 'Interaction', 'value': 'IN'},
-                {'label': 'System Design', 'value': 'SD'},
-                {'label': 'Subject Area', 'value': 'FI'}
-                ],
-            value='AI', # Initial Sunburst: Artistic Intention
-            className='radiobutton-group',
+    html.Div(className="page_left", 
+    children=[
+
+        dcc.Graph(id='sunburst'),
+
+        html.P(style={'paddingBottom': '0.5cm'}),  
+                
+        html.Div(className='radio_buttons',
+            children=[
+                dcc.RadioItems(
+                    id="select_plot",
+                    options=[
+                        {'label': 'Artistic Intention', 'value': 'AI'},
+                        {'label': 'Interaction', 'value': 'IN'},
+                        {'label': 'System Design', 'value': 'SD'}
+                        # {'label': 'Subject Area', 'value': 'FI'}
+                        ],
+                    value='AI', # Initial Sunburst: Artistic Intention
+                    className='radiobutton-group',
+                    ),
+                    html.Span(className='checkmark'),
+        ]),
+
+        html.P(style={'paddingBottom': '1cm'}), 
+
+    ]),    
+
+    html.Div(className='page_right',
+    children=[
+
+        html.Div([
+            dcc.Dropdown(
+                id='dropdown_cat',
+                options=[
+                    {
+                    'label': re.sub('<br>', ' ', parentlist[i]) + ' | ' + re.sub('<br>', ' ', labellist[i]),
+                    'value': labellist[i]
+                    } for i in range(0, len(labellist))
+                    ],
+                multi=True, # Makes in sort that several categories can be selected
+                placeholder="Select one or more categories",
+                style={
+                        'height': '400%',
+                        'width' : '400px'
+                        }
             ),
-            html.Span(className='checkmark'),
-    ]),
+            # html.Button('Take a Snapshot', id='snap-button', n_clicks=0, style={'marginLeft': '30px'}),
+        ], style={'display': 'flex'}),
 
-    html.P(style={'paddingBottom': '0.5cm'}),  
-            
-    dcc.Graph(id='sunburst'),
+        html.P(style={'paddingBottom': '0.5cm'}),  
 
-    html.P(style={'paddingBottom': '1cm'}),     
+        html.Div(id='list_inst', className='list_inst'),
 
-    html.Div([
-        dcc.Dropdown(
-            id='dropdown_cat',
-            options = [
-                {
-                'label': re.sub('<br>', ' ', parentlist[i]) + ' | ' + re.sub('<br>', ' ', labellist[i]),
-                'value': labellist[i]
-                } for i in range(0, len(labellist))
-                ],
-            multi=True, # Makes in sort that several categories can be selected
-            placeholder="Select one or more categories",
-            style={
-                    'height': '200%',
-                    'width' : '500px'
-                    }
-        ),
-        # html.Button('Take a Snapshot', id='snap-button', n_clicks=0, style={'marginLeft': '30px'}),
-    ], style={'display': 'flex'}),
-
-    html.P(style={'paddingBottom': '0.5cm'}),  
-
-    html.Div(id='list_inst', className='list_inst'),
-
-    html.P(style={'paddingBottom': '2cm'})
+        html.P(style={'paddingBottom': '2cm'}),
+    ])
 ])
 
 """ Callback functions."""  
@@ -295,8 +305,11 @@ def update_figure(input_value):
             name = '',
             marker = marker
         ))
-    fig.update_layout(margin=dict(t=20, l=20, r=20, b=20),
-                    font=dict(family='Roboto'))   
+    fig.update_layout(margin=dict(t=0, l=0, r=0, b=0),
+                    font=dict(family='Roboto'),
+                    autosize=False,
+                    width=500,
+                    height=500)   
 
     # changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
     # if 'snap-button' in changed_id:

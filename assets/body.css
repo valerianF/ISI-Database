@@ -100,7 +100,7 @@ summary::-webkit-details-marker {
     margin-right: -1px auto;
     color: rgb(31, 31, 31);
     display: inline-block;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .radiobutton-group input {
@@ -145,9 +145,19 @@ div.banner {
     text-decoration: None;
 }
 
-/* Main page */
+/* Page layout */
 div.page_content {
-    margin-left: 250px;
+    margin-left: 300px;
+    margin-top: 80px
+}
+
+div.page_left {
+    float: left;
+    width: 600px;
+}
+
+div.footer {
+    margin-left: 300px;
     padding: 0px 10px;
 }
 
