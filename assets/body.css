@@ -23,17 +23,23 @@
 body {
     font-family: 'Roboto';
     font-weight: 300;
-    margin: 30px 75px 75px 75px; 
+    margin: 30px 50px 80px 80px; 
     color: rgb(31, 31, 31);
+    font-size: 12;
 }
 h1 {
     font-family: 'Roboto';
     font-weight: 300;
     color: #383838;
-    line-height: 2px;
-    font-size: 30pt;
+    font-size: 34pt;
 }
-h2, h3, h4, h5, h6 {
+h2, h3, h4, h5 {
+    font-family: 'Roboto';
+    font-weight: 400;
+    color: #383838
+}
+
+h6 {
     font-family: 'Roboto';
     font-weight: 400;
     color: #383838
@@ -111,15 +117,13 @@ summary::-webkit-details-marker {
   }
 
 /* Banner properties */
-div.banner {
+.banner {
     height: 100%; 
-    position: fixed; 
+    position: fixed;
     left: 0;
-    width: 220 px;
-    z-index: 1;
+    width: 14%;
     top: 0;
-    padding: 50px 50px 50px 30px;
-    box-sizing: border-box;
+    padding: 0px 50px 50px 30px;
     background-color: rgb(243, 243, 243);
 }
 
@@ -127,8 +131,10 @@ div.banner {
 .banner_link{
     font-family: 'Roboto';
     font-weight: 500;
+    font-size: 11pt;
     color: #8E8E8E;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.15em;
+    line-height: 2.5em;
 }
 
 .banner_link:link{
@@ -148,17 +154,90 @@ div.banner {
 /* Page layout */
 div.page_content {
     margin-left: 300px;
-    margin-top: 80px
+    margin-top: 100px;
+    margin-right: 40px;
+    background-color: #8d8d8d;
+}
+
+div.page_columns{
+    display: flex;
 }
 
 div.page_left {
-    float: left;
-    width: 600px;
+    width: 60%;
+    background-color: coral;
+    order: 1;
 }
+
+div.page_right {
+    width: 40%;
+    background-color: rgb(197, 43, 43);
+    order: 2;
+}
+
+/* .choose_text {
+    padding-left: 70px;
+    position: absolute;
+    bottom: 100px;
+} */
+
+/* Dropdown styling */
+
+.dropdown_container {
+    padding-left : 70px;
+    height: 100px;
+}
+
+#dropdown_cat .Select-control {
+    height: 60px;
+    background-color: #661d1d;
+    border-radius: 0px;
+    border: 0.6mm solid #ccc;
+}
+
+#dropdown_cat .Select-placeholder {
+    line-height: 55px;
+    padding-left: 20px;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 10pt;
+}
+
+#dropdown_cat .Select--multi .Select-value {
+    background-color: #ff4444;
+    color: #fff;
+    height: 40px;
+    margin-top: 8px;
+    border-radius: 0px;
+  }
+
+#dropdown_cat .Select--multi .Select-value-label {
+    padding: 0px 10px 0px 10px;
+    line-height: 38px;
+    font-weight: 500;
+    font-size: 8pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+#dropdown_cat .Select--multi .Select-input {
+    height: 50px;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+
+#dropdown_cat .Select-menu-outer {
+    color:rgb(236, 236, 236);
+    background-color: #8E8E8E;
+}
+
+#dropdown_cat .VirtualizedSelectFocusedOption {
+    background-color: #444444;
+  }
 
 div.footer {
-    margin-left: 300px;
+    margin-left: 0px;
     padding: 0px 10px;
+    background-color: darkgoldenrod;
 }
-
 

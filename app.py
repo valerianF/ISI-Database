@@ -48,12 +48,10 @@ parentlist = AI.parentslabels[12:] + IN.parentslabels[7:] + SD.parentslabels[18:
 Note than CSS files in /asset subfolder are automaticaly imported.
 
 """
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 """ Initiate the dash application """
 app = dash.Dash(__name__, 
     suppress_callback_exceptions=True,
-    external_stylesheets=external_stylesheets,
     title='ISI Database',
     update_title='Loading...')
 server = app.server
@@ -121,20 +119,14 @@ app.layout = html.Div(className="app_layout",
     html.Div(className="banner", 
         children=[
 
-        html.H1("Interactive"),
-        html.Br(),
-        html.H1("Sound"),
-        html.Br(),
-        html.H1("Installations"),
-        html.Br(),
-        html.H1("Database"),
+        html.H1(className='banner_header', children=["Interactive Sound Installation Database"]),
 
         html.P(style={'paddingBottom': '1cm'}), 
 
         dcc.Link('HOME', href='/', className='banner_link'),
-        html.P(style={'paddingBottom': '0.5cm'}),  
+        html.P(), 
         dcc.Link('GLOSSARY', href='/glossary', className='banner_link'),
-        html.P(style={'paddingBottom': '0.5cm'}),  
+        html.P(), 
         dcc.Link('LIST OF INSTALLATIONS', href='/lists',className='banner_link'),
         # dcc.Link('Submit', 
         #     href='/submit',
@@ -142,31 +134,35 @@ app.layout = html.Div(className="app_layout",
         # ),
     ]),
 
-    html.Div(id='page-content', className='page_content'),
+    html.Div(className='page_content',
+    children=[
 
-    html.Div(className="footer", 
-        children=[
-        html.P(['Designed by ',
-            html.A(href='https://www.mcgill.ca/music/valerian-fraisse',
-                children='Valérian Fraisse', target='_blank'),
-            ' with the support of ',
-            html.A(href='https://www.mcgill.ca/sis/people/faculty/guastavino',
-                children='Catherine Guastavino', target='_blank'),
-            ' and ',
-            html.A(href='https://www.mcgill.ca/music/marcelo-m-wanderley',
-                children='Marcelo Wanderley', target='_blank'),
-            '.',
-            html.Br(),
-            'The source code is available on ',
-            html.A(href='https://github.com/valerianF/ISI-Database',
-                children='GitHub', target='_blank'),
-            '.'], style={'fontSize': '12px'}),
+        html.Div(id='page_content'),
 
-        html.P(['This work is licensed under a ',
-            html.A(rel='license', href='http://creativecommons.org/licenses/by-nc-sa/4.0/',
-                children='Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License',
-                target='_blank'),
-            '.'], style={'fontSize': '12px'})
+        html.Div(className="footer", 
+            children=[
+            html.P(['Designed by ',
+                html.A(href='https://www.mcgill.ca/music/valerian-fraisse',
+                    children='Valérian Fraisse', target='_blank'),
+                ' with the support of ',
+                html.A(href='https://www.mcgill.ca/sis/people/faculty/guastavino',
+                    children='Catherine Guastavino', target='_blank'),
+                ' and ',
+                html.A(href='https://www.mcgill.ca/music/marcelo-m-wanderley',
+                    children='Marcelo Wanderley', target='_blank'),
+                '.',
+                html.Br(),
+                'The source code is available on ',
+                html.A(href='https://github.com/valerianF/ISI-Database',
+                    children='GitHub', target='_blank'),
+                '.'], style={'fontSize': '12px'}),
+
+            html.P(['This work is licensed under a ',
+                html.A(rel='license', href='http://creativecommons.org/licenses/by-nc-sa/4.0/',
+                    children='Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License',
+                    target='_blank'),
+                '.'], style={'fontSize': '12px'})
+        ])
     ])
 ])
 
@@ -177,67 +173,79 @@ layout_main = html.Div([
 
     # html.P(style={'paddingBottom': '0.5cm'}),  
             
-    html.Div(className="page_left", 
-    children=[
+    html.Div(className="page_columns",
+    children = [
+        html.Div(className="page_left", 
+        children=[
 
-        dcc.Graph(id='sunburst'),
+            dcc.Graph(id='sunburst'),
 
-        html.P(style={'paddingBottom': '0.5cm'}),  
-                
-        html.Div(className='radio_buttons',
+            html.P(style={'paddingBottom': '0.5cm'}),  
+                    
+            html.Div(className='radio_buttons',
+                children=[
+                    dcc.RadioItems(
+                        id="select_plot",
+                        options=[
+                            {'label': 'Artistic Intention', 'value': 'AI'},
+                            {'label': 'Interaction', 'value': 'IN'},
+                            {'label': 'System Design', 'value': 'SD'}
+                            # {'label': 'Subject Area', 'value': 'FI'}
+                            ],
+                        value='AI', # Initial Sunburst: Artistic Intention
+                        className='radiobutton-group',
+                        ),
+            ]),
+
+            html.P(style={'paddingBottom': '1cm'}), 
+
+        ]),    
+
+        html.Div(className='page_right',
+        children=[
+
+            html.Div(className='instruction_text', 
+            children = [html.H6(
+                children=['Select a sub-category by clicking on the diagram or choose it from the dropdown menu to get a list of the corresponding installations.'],
+                style={
+                    'fontSize' : '14pt',
+                    'paddingLeft' : '70px',
+                    'lineHeight' : '25pt' 
+                }
+                )]
+            ),
+
+            html.Div(className='dropdown_container',
             children=[
-                dcc.RadioItems(
-                    id="select_plot",
+                dcc.Dropdown(
+                    id='dropdown_cat',
                     options=[
-                        {'label': 'Artistic Intention', 'value': 'AI'},
-                        {'label': 'Interaction', 'value': 'IN'},
-                        {'label': 'System Design', 'value': 'SD'}
-                        # {'label': 'Subject Area', 'value': 'FI'}
+                        {
+                        'label': re.sub('<br>', ' ', parentlist[i]) + ' | ' + re.sub('<br>', ' ', labellist[i]),
+                        'value': labellist[i]
+                        } for i in range(0, len(labellist))
                         ],
-                    value='AI', # Initial Sunburst: Artistic Intention
-                    className='radiobutton-group',
-                    ),
-                    html.Span(className='checkmark'),
+                    multi=True, # Makes in sort that several categories can be selected
+                    placeholder="Select one or more categories",
+                )
+            ]),
+
+            # html.Div(className='choose_text', id='choose_text'),
         ]),
 
-        html.P(style={'paddingBottom': '1cm'}), 
+    ]),
 
-    ]),    
+    html.P(style={'paddingBottom': '0.5cm'}),  
 
-    html.Div(className='page_right',
-    children=[
+    html.Div(id='list_inst', className='list_inst'),
 
-        html.Div([
-            dcc.Dropdown(
-                id='dropdown_cat',
-                options=[
-                    {
-                    'label': re.sub('<br>', ' ', parentlist[i]) + ' | ' + re.sub('<br>', ' ', labellist[i]),
-                    'value': labellist[i]
-                    } for i in range(0, len(labellist))
-                    ],
-                multi=True, # Makes in sort that several categories can be selected
-                placeholder="Select one or more categories",
-                style={
-                        'height': '400%',
-                        'width' : '400px'
-                        }
-            ),
-            # html.Button('Take a Snapshot', id='snap-button', n_clicks=0, style={'marginLeft': '30px'}),
-        ], style={'display': 'flex'}),
-
-        html.P(style={'paddingBottom': '0.5cm'}),  
-
-        html.Div(id='list_inst', className='list_inst'),
-
-        html.P(style={'paddingBottom': '2cm'}),
-    ])
+    html.P(style={'paddingBottom': '2cm'}),
 ])
 
 """ Callback functions."""  
 
 # Index callbacks
-@app.callback(Output('page-content', 'children'),
+@app.callback(Output('page_content', 'children'),
                 [Input('url', 'pathname')])
 def display_page(pathname):
     """ Updates page content in function of chosen url.
@@ -290,7 +298,8 @@ def update_figure(input_value):
     if input_value != 'FI':
         marker = dict(
         colors = np.log(dframe['values']),
-        colorscale = colorscale
+        colorscale = colorscale,
+        line = dict(color='white', width=1.2)
         )
     fig = go.Figure()
     fig.add_trace(go.Sunburst(
@@ -306,10 +315,14 @@ def update_figure(input_value):
             marker = marker
         ))
     fig.update_layout(margin=dict(t=0, l=0, r=0, b=0),
-                    font=dict(family='Roboto'),
-                    autosize=False,
-                    width=500,
-                    height=500)   
+                    font=dict(family='Roboto',
+                    size=16),
+                    autosize=True,
+                    height=700,
+                    activeshape=dict(fillcolor='black'),
+                    paper_bgcolor='red',
+                    plot_bgcolor='white',
+                    newshape_line_width=10)   
 
     # changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
     # if 'snap-button' in changed_id:
@@ -344,7 +357,7 @@ def display_list(clickData, values, plotType):
 
     if values is None or values == []:
         if clickData is None or (len(clickData['points'][0]['id']) <= 6 and plotType != 'FI') or clickData['points'][0]['id'] in parentlist:    
-            return  [html.H6('Click on a sub-category or choose it from the dropdown menu to get a list of the corresponding installations.')] 
+            return
         else:
             values = [clickData['points'][0]['label']]
             parent = clickData['points'][0]['parent']
@@ -366,7 +379,7 @@ def display_list(clickData, values, plotType):
             rows = make_list(values, plotType)
 
     if rows == []:
-        return 'No installation belongs to all those categories.'
+        return 'No installation belongs to all those categories.', []
     
 
     for i in range(0, len(parents)):
@@ -374,25 +387,24 @@ def display_list(clickData, values, plotType):
             + re.sub('<br>', ' ', values[i])])
     
     if len(values) > 1:
-        return  [
-            html.H5('Chosen tags: '),
-            html.H3([str_values[i][0] + ' ― ' for i in range(0, len(str_values)-1)] + [str_values[-1][0]]),
-            html.H5(str(len(rows)) + ' results'),
+        # return  [
+        #     html.H5('Chosen tags: '),
+        #     html.H3([str_values[i][0] + ' ― ' for i in range(0, len(str_values)-1)] + [str_values[-1][0]])
+        #     ],
+        return [html.H5(str(len(rows)) + ' results'),
             html.Table(
                     [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
                     + rows
-                    )
-                ]
+                )]
     elif len(values) == 1:
-        return  [
-            html.H5('Chosen tag: '),
-            html.H3([value[0] for value in str_values]),
-            html.H6(str(len(rows)) + ' results'),
+        # return  [
+        #     html.H5('Chosen tag: '),
+        #     html.H3([value[0] for value in str_values])
+        return [html.H6(str(len(rows)) + ' results'),
             html.Table(
                     [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
                     + rows
-                    )
-                ]   
+                )]   
 
    
 """ Run the app. """
