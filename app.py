@@ -119,9 +119,7 @@ app.layout = html.Div(className="app_layout",
     html.Div(className="banner", 
         children=[
 
-        html.H1(className='banner_header', children=["Interactive Sound Installation Database"]),
-
-        html.P(style={'paddingBottom': '1cm'}), 
+        html.H1(className='banner_header', children=["Interactive Sound Installations Database"]),
 
         dcc.Link('HOME', href='/', className='banner_link'),
         html.P(), 
@@ -155,7 +153,7 @@ app.layout = html.Div(className="app_layout",
                 'The source code is available on ',
                 html.A(href='https://github.com/valerianF/ISI-Database',
                     children='GitHub', target='_blank'),
-                '.'], style={'fontSize': '12px'}),
+                '.'], style={'fontSize': '12px', 'marginTop': '0px'}),
 
             html.P(['This work is licensed under a ',
                 html.A(rel='license', href='http://creativecommons.org/licenses/by-nc-sa/4.0/',
@@ -179,8 +177,6 @@ layout_main = html.Div([
         children=[
 
             dcc.Graph(id='sunburst'),
-
-            html.P(style={'paddingBottom': '0.5cm'}),  
                     
             html.Div(className='radio_buttons',
                 children=[
@@ -195,9 +191,7 @@ layout_main = html.Div([
                         value='AI', # Initial Sunburst: Artistic Intention
                         className='radiobutton-group',
                         ),
-            ]),
-
-            html.P(style={'paddingBottom': '1cm'}), 
+            ])
 
         ]),    
 
@@ -233,13 +227,9 @@ layout_main = html.Div([
             # html.Div(className='choose_text', id='choose_text'),
         ]),
 
-    ]),
+    ]), 
 
-    html.P(style={'paddingBottom': '0.5cm'}),  
-
-    html.Div(id='list_inst', className='list_inst'),
-
-    html.P(style={'paddingBottom': '2cm'}),
+    html.Div(id='list_inst', className='list_inst')
 ])
 
 """ Callback functions."""  
@@ -318,7 +308,7 @@ def update_figure(input_value):
                     font=dict(family='Roboto',
                     size=16),
                     autosize=True,
-                    height=700,
+                    height=550,
                     activeshape=dict(fillcolor='black'),
                     paper_bgcolor='red',
                     plot_bgcolor='white',
