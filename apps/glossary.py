@@ -6,6 +6,22 @@ from dash import html, dcc
 # Glossary page layout
 layout = html.Div([
 
+    html.Div(className="banner", 
+        children=[
+
+        html.H1(className='banner_header', children=["Interactive Sound Installations Database"]),
+
+        dcc.Link('HOME', href='/', className='banner_link', id='focus_link'),
+        html.P(), 
+        dcc.Link('GLOSSARY', href='/glossary', className='banner_link_fixed'),
+        html.P(), 
+        dcc.Link('LIST OF INSTALLATIONS', href='/lists', className='banner_link'),
+        # dcc.Link('Submit', 
+        #     href='/submit',
+        #     style={'paddingLeft': '0.5cm'}
+        # ),
+    ]), 
+
     html.H5("""Glossary. Click on a theme to display the associated terms and their definition.
         Categories with no associated reference are inferred from the database's installations.""",
         style={'maxWidth': '800px'}),

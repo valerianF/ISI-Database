@@ -43,6 +43,22 @@ rows = make_list()
 # Lists page layout
 layout = html.Div([
 
+    html.Div(className="banner", 
+        children=[
+
+        html.H1(className='banner_header', children=["Interactive Sound Installations Database"]),
+
+        dcc.Link('HOME', href='/', className='banner_link'),
+        html.P(), 
+        dcc.Link('GLOSSARY', href='/glossary', className='banner_link'),
+        html.P(), 
+        dcc.Link('LIST OF INSTALLATIONS', href='/lists', className='banner_link_fixed'),
+        # dcc.Link('Submit', 
+        #     href='/submit',
+        #     style={'paddingLeft': '0.5cm'}
+        # ),
+    ]), 
+
     html.H5(str(len(data)) + ' installations are currently reviewed'),
 
     html.P(style={'paddingBottom': '0.5cm'}),
