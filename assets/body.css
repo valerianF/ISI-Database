@@ -35,13 +35,13 @@ body {
     font-weight: 300;
     padding: 0 0 0 0;
     margin: 0 0 0 0;
-    font-size: 12;
 }
 h1 {
     font-family: 'Roboto';
     font-weight: 300;
     color: #383838;
     font-size: 34pt;
+    word-wrap: break-word;
 }
 h2, h3, h4, h5 {
     font-family: 'Roboto';
@@ -67,6 +67,17 @@ h6 {
       opacity: 1;
     }
   }
+
+summary {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    outline: 0;
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+    font-family: 'FontHeader';
+    padding-left: 50px;
+}
 
 details {
     font-family: 'FontNormal';
@@ -96,16 +107,6 @@ details > summary::before {
     color: rgb(34, 34, 34);
 }
   
-summary {
-    list-style: none;
-    cursor: pointer;
-    display: block;
-    outline: 0;
-    font-size: 2.5rem;
-    line-height: 3.5rem;
-    font-family: 'FontHeader';
-}
-  
 summary::-webkit-details-marker {
     display: none;
 }
@@ -116,9 +117,9 @@ summary::-webkit-details-marker {
     position: fixed;
     z-index: 3;
     left: 0;
-    width: 300px;
+    width: 20vw;
     top: 0;
-    padding: 0px 50px 50px 30px;
+    padding: 0px 10px 50px 30px;
     background-color: #FFFFFF;
 }
 
@@ -144,7 +145,7 @@ summary::-webkit-details-marker {
     line-height: 2.6em;
     text-decoration: None;
     position: relative;
-    border-bottom: 2px solid black;
+    border-bottom: 0.4vh solid black;
 }
 
 .banner_link_fixed:hover,
@@ -175,10 +176,10 @@ transition-delay: 0s;
 .banner_link::after {
 content: '';
 position: absolute;
-top: 17px;
+top: 1.25em;
 left: 0;
 width: 100%;
-height: 2px;
+height: 0.3vh;
 transform: scale3d(0, 1, 1);
 transform-origin: center left;
 transition: transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -189,25 +190,37 @@ background: #222;
 transition-delay: 0.2s;
 }
 
-/* Page layout */
-/* div.page_content {
-    z-index: 1;
-    position: absolute;
-    height: 100vh;
-    padding-left: 300px;
-    padding-top: 10vh;
-    padding-right: 40px;
-    background-color: var(--main_page_color);
-} */
-
+/* Pages layout */
 div.page_columns{
     display: flex;
+    padding-top: 8vh;
+    padding-right: 40px; 
+    padding-left: 20vw;
 }
 
 div.page_left {
     width: 60%;
     background-color: rgba(0, 0, 0, 0);
-    order: 1;
+}
+
+div.page_lists {
+    position: absolute;
+    background: #F6F6F6;
+    padding-top: 40px;
+    width: 80vw;
+    left: 20vw;
+    top: -2vh;
+}
+
+div.page_glossary {
+    position: relative;
+    background: #F6F6F6;
+    width: 80vw;
+    left: 20vw;
+    padding-top: 20px;
+    padding-right: 80px;
+    padding-left: 80px;
+    min-height: 100vh;
 }
 
 /* Radio buttons styling */
@@ -216,11 +229,12 @@ div.radio_buttons {
     background-color: rgba(0, 0, 0, 0);
     font-family: Roboto;
     font-weight: 500;
+    text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    position: inherit;
+    padding-left: 40px;
     padding-top: 3vh;
-    padding-left: 140px;
+    margin-bottom: 40px; 
 }
 
 .radiobutton-group > label {
@@ -274,7 +288,6 @@ input[type="radio"]:checked::before {
 div.page_right {
     width: 40%;
     background-color: rgba(0, 0, 0, 0);
-    order: 2;
 }
 
 /* .choose_text {
@@ -349,7 +362,7 @@ div.page_right {
     z-index: 2;
     top: 93vh;
     right: 0px;
-    left: 300px;
+    left: 20vw;
     background-color: #F6F6F6;
 }
 
@@ -360,6 +373,16 @@ div.page_right {
     padding-bottom: 40px;
     padding-left: 40px;
     padding-right: 40px;
+}
+
+.n_results_page {
+    font-size: 60pt;
+    font-family: Roboto;
+    font-weight: 100;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
 }
 
 /* Table */

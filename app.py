@@ -2,7 +2,7 @@ import os, re
 import dash
 import pandas as pd
 import numpy as np
-from dash import dcc, html, Input, Output
+from dash import dcc, html, Input, Output, State
 import plotly.graph_objects as go
 
 from apps import glossary, lists, submit
@@ -119,13 +119,10 @@ app.layout = html.Div(className="app_layout",
 
     html.Div(className='page_content', id='page_content',
         style={
-            'backgroundColor' : '#701745',
+            'backgroundColor' : '#2A313B',
             'zIndex': '1',
             'position' : 'absolute',
-            'height' : '100vh',
-            'paddingLeft' : '300px',
-            'paddingTop' : '10vh',
-            'paddingRight' : '40px',
+            'height' : '100vh'
         }),
 
     # html.Div(className="footer", 
@@ -266,8 +263,8 @@ def display_page(pathname):
 
 # Main page callbacks
 @app.callback([Output("sunburst", "figure"),
-    Output("page_content", 'style')], [Input("select_plot", "value")])
-            #   Input('snap-button', 'n_clicks')])
+    Output("page_content", 'style')], 
+    Input("select_plot", "value"))
 def update_figure(input_value):
     """ Updates the sunburst chart in function of the radio button selected.
     If the snapshot html button is triggered (currently deactivated), saves a svg plot of the corresponding dimension.
@@ -279,6 +276,7 @@ def update_figure(input_value):
     n_clicks : int
         Number of clicks for the snapshot html button.
     """
+    
     if input_value == 'AI':
         dframe = AI.df
         colorscale = 'Burg'
@@ -314,7 +312,7 @@ def update_figure(input_value):
             name = '',
             marker = marker
         ))
-    fig.update_layout(margin=dict(t=0, l=0, r=0, b=0),
+    fig.update_layout(margin=dict(t=0, l=50, r=0, b=0),
                     font=dict(family='Roboto',
                     size=16),
                     autosize=True,
@@ -323,22 +321,12 @@ def update_figure(input_value):
                     paper_bgcolor='rgba(0, 0, 0, 0)',
                     plot_bgcolor='white',
                     newshape_line_width=10)   
-
-    # changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
-    # if 'snap-button' in changed_id:
-    #     im_name = 'snapshot_' + input_value + '.svg'
-    #     if not os.path.exists("snapshots"):
-    #         os.mkdir("snapshots")
-    #     fig.write_image(os.path.join('snapshots', im_name))
-
+      
     style = {
             'background' : bg_color,
             'zIndex': '1',
             'position' : 'absolute',
-            'height' : '100vh',
-            'paddingLeft' : '300px',
-            'paddingTop' : '10vh',
-            'paddingRight' : '40px'
+            'height' : '100vh'
         }
 
     return fig, style

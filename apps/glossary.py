@@ -16,15 +16,10 @@ layout = html.Div([
         dcc.Link('GLOSSARY', href='/glossary', className='banner_link_fixed'),
         html.P(), 
         dcc.Link('LIST OF INSTALLATIONS', href='/lists', className='banner_link'),
-        # dcc.Link('Submit', 
-        #     href='/submit',
-        #     style={'paddingLeft': '0.5cm'}
-        # ),
     ]), 
 
-    html.H5("""Glossary. Click on a theme to display the associated terms and their definition.
-        Categories with no associated reference are inferred from the database's installations.""",
-        style={'maxWidth': '800px'}),
+    html.Div(className="page_glossary",
+    children =[
 
     html.P(style={'paddingBottom': '0.5cm'}),  
 
@@ -35,7 +30,6 @@ layout = html.Div([
                 'fontSize': 46,
                 'fontFamily': 'FontBold', 
                 'paddingBottom' : '3rem',
-                'borderTop': '1px solid grey',
                 'paddingTop': '2rem'
                 }
         ),
@@ -254,7 +248,7 @@ layout = html.Div([
                 html.P('There is no specific lighting involved by the installation.')
             ])  
         ]),
-    ], style={'maxWidth' : '800px'}),
+    ]),
 
     # INTERACTION
     html.Details([
@@ -418,7 +412,7 @@ layout = html.Div([
                     children='(Birnbaum et al. 2005)', target='_blank')],
                 style={'marginTop': '-2rem'})
         ]),
-    ], style = {'maxWidth': '800px'}),
+    ]),
 
     # SYSTEM DESIGN
     html.Details([
@@ -736,7 +730,8 @@ layout = html.Div([
                 ])
             ])
         ])
-    ], style = {'maxWidth': '800px'}),
+    ]),
 
-    html.P(style={'paddingBottom': '2cm'})
+    ]),
+
 ])
