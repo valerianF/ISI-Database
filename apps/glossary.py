@@ -25,21 +25,14 @@ layout = html.Div([
 
     # ARTISTIC INTENTION
     html.Details([
-        html.Summary('Artistic Intention', 
-            style={
-                'fontSize': 46,
-                'fontFamily': 'FontBold', 
-                'paddingBottom' : '3rem',
-                'paddingTop': '2rem'
-                }
-        ),
+        html.Summary('Artistic Intention', className = 'summary_theme'),
         html.P(["""Relates to all the considerations and contextual aspects that are taken prior to
                 the design process. It is the most conceptual theme and concerns the top-level reflections that occurs
                 before implementation. From a protagonist metaphor, this aspect would relate to the Designer. """,
                 html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='(le Prado and Natkin 2014)', target='_blank')],
                 style={'marginTop': '-2rem'}),
         html.Details([
-            html.Summary('Context', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Context', className = 'summary_category'),
             html.P("""Information about the overall type of space in which the installation is built. 
                       Induced from the various contexts surrounding the corpus’ installations."""),
             html.Details([
@@ -72,7 +65,7 @@ layout = html.Div([
             ]),
         ]),
         html.Details([
-            html.Summary('Audience', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Audience', className = 'summary_category'),
             html.P("""Type of audience targeted by the installation. Induced from the corpus."""),
             html.Details([
                 html.Summary('Adults'),
@@ -89,7 +82,7 @@ layout = html.Div([
             ]),
         ]),
         html.Details([
-            html.Summary('Lifespan', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Lifespan', className = 'summary_category'),
             html.P(["""Duration in which the installation was or is planned to remain
             active. It is a common approach to categorize sounding artwork, since it is determinant for
             the design process. """,
@@ -108,7 +101,7 @@ layout = html.Div([
             ])      
         ]),
         html.Details([
-            html.Summary('Role of Sound', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Role of Sound', className = 'summary_category'),
             html.P(["""Inspired from Pressing's categories for sound roles in electronic media. """,
             html.A(href='https://doi.org/10.1162/pres.1997.6.4.482', children='(Pressing 1997)', target='_blank')]), 
             html.Details([
@@ -129,7 +122,7 @@ layout = html.Div([
             ])      
         ]),
         html.Details([
-            html.Summary('Visitor\'s Position', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Visitor\'s Position', className = 'summary_category'),
             html.P(["""Concerns the visitor's potential motion around or inside the installation."""]), 
             html.Details([
                 html.Summary('Sweet Spot'),
@@ -149,7 +142,7 @@ layout = html.Div([
  
         ]),
         html.Details([
-            html.Summary('Intervention Visibility', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Intervention Visibility', className = 'summary_category'),
             html.P(["""Gives detail about what can or can't be seen from an installation."""]), 
             html.Details([
                 html.Summary('Sonic Elements'),
@@ -170,7 +163,7 @@ layout = html.Div([
             ]) 
         ]),
         html.Details([
-            html.Summary('Sound Design Approach', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Sound Design Approach', className = 'summary_category'),
             html.P(["""Materials and technics used for sound design."""]), 
             html.Details([
                 html.Summary('Materials'),
@@ -232,9 +225,8 @@ layout = html.Div([
             ]),
         ]),
         html.Details([
-            html.Summary('Lighting Design', style={'fontSize': 25, 'fontFamily': 'FontBold', 'paddingBottom':'2rem'}),
-            html.P(["""Refers to specific lighting involved by the installation."""],
-                style={'marginTop': '-2rem'}), 
+            html.Summary('Lighting Design', className = 'summary_category'),
+            html.P(["""Refers to specific lighting involved by the installation."""]),
             html.Details([
                 html.Summary('Static Lights'),
                 html.P('Spotlights or similar structures are used to emit static rays of light.')
@@ -252,15 +244,7 @@ layout = html.Div([
 
     # INTERACTION
     html.Details([
-        html.Summary('Interaction', 
-            style={
-                'fontSize': 46,
-                'fontFamily': 'FontBold', 
-                'paddingBottom' : '3rem',
-                'borderTop': '1px solid grey',
-                'paddingTop': '2rem'
-                }
-        ),
+        html.Summary('Interaction', className = 'summary_theme'),
         html.P(["""Aims at characterizing the mutual relation between the interactor - being a visitor, 
             a user, or the surrounding environment - and the installation. It is associated to the in-between reflections
             between the foremost intentions and the ultimate technical implementations and would relate to the interactor.""",
@@ -269,7 +253,7 @@ layout = html.Div([
                 html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='le Prado and Natkin 2014)', target='_blank')],
                 style={'marginTop': '-2rem'}),
         html.Details([
-            html.Summary('Inter-Actors', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Inter-Actors', className = 'summary_category'),
             html.P(["""Number of people simultaneously involved in the musical interaction. """,
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
                     children='(Birnbaum et al. 2005, ', target='_blank'), 
@@ -299,7 +283,7 @@ layout = html.Div([
             ]),
         ]),
         html.Details([
-            html.Summary('Interaction Type', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Interaction Type', className = 'summary_category'),
             html.P(["""Also named Type of Control, it refers to the specific nature of the relation between
                 the interactor and the installation. """,
                 html.A(href='https://www.researchgate.net/publication/308305196_ENGAGEMENT_AND_INTERACTION_IN_PARTICIPATORY_SOUND_ART',
@@ -355,7 +339,7 @@ layout = html.Div([
             ]),
         ]),
         html.Details([
-            html.Summary('Feedback Type', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Feedback Type', className = 'summary_category'),
             html.P(["""Refers to the output modalities regardless of the type output device, also called Feedback Modalities. """,
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
                     children='(Birnbaum et al. 2005)', target='_blank')]),
@@ -386,7 +370,7 @@ layout = html.Div([
             ])
         ]),
         html.Details([
-            html.Summary('Musical Control', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Musical Control', className = 'summary_category'),
             html.P(["""Indicates the level of control a visitor exerts over the resulting musical output of the system. """,
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
                     children='(Birnbaum et al. 2005)', target='_blank')]),
@@ -405,33 +389,24 @@ layout = html.Div([
             ])
         ]),
         html.Details([
-            html.Summary('Input/Output Degrees of Freedom', style={'fontSize': 25, 'fontFamily': 'FontBold', 'paddingBottom':'2rem'}),
+            html.Summary('Input/Output Degrees of Freedom', className = 'summary_category'),
             html.P(["""Refers to the number of input and output modalities available to the user or visitor. It does 
             not represent the number of input and output controls as in birnbaum's dimension space. """,
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
-                    children='(Birnbaum et al. 2005)', target='_blank')],
-                style={'marginTop': '-2rem'})
+                    children='(Birnbaum et al. 2005)', target='_blank')]),
         ]),
     ]),
 
     # SYSTEM DESIGN
     html.Details([
-        html.Summary('System Design', 
-            style={
-                'fontSize': 46,
-                'fontFamily': 'FontBold', 
-                'paddingBottom' : '3rem',
-                'borderTop': '1px solid grey',
-                'paddingTop': '2rem'
-                }
-        ),
+        html.Summary('System Design', className = 'summary_theme'),
         html.P(["""Concerns the practical realization of the installation, from its components to its diffusion parameters.
             It emphasizes on the practical realization of artistic intentions as well as interaction design, and
             would relate to the System. """,
             html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='(le Prado and Natkin 2014)', target='_blank')],
                 style={'marginTop': '-2rem'}),
         html.Details([
-            html.Summary('Spatialization', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Spatialization', className = 'summary_category'),
             html.P(["""Refers to the number of sources used, their spatial disposition as well as their diffusion and 
             control parameters that are used to create a spatial musical experience for users or visitors. """,
                 html.A(href='https://mitpress.mit.edu/books/understanding-art-sound-organization#:~:text=The%20art%20of%20sound%20organization%2C%20also%20known%20as%20electroacoustic%20music,%2C%20synthesized%2C%20and%20processed%20sounds.&text=He%20proposes%20a%20%E2%80%9Csound%2Dbased,as%20art%20and%20pop%20music.',
@@ -501,7 +476,7 @@ layout = html.Div([
             ])
         ]),
         html.Details([
-            html.Summary('Sound Generation', style={'fontSize': 25, 'fontFamily': 'FontBold'}),
+            html.Summary('Sound Generation', className = 'summary_category'),
             html.P("""Concerns the nature of the installation's sound-emitting devices. Note that a given installation
             can use multiple sources that rely on differing generation techniques. """),
             html.Details([
@@ -546,7 +521,7 @@ layout = html.Div([
             ])
         ]),
         html.Details([
-            html.Summary('Type of Input Device', style={'fontSize': 25, 'fontFamily': 'FontBold', 'paddingBottom':'2rem'}),
+            html.Summary('Type of Input Device', className = 'summary_category'),
             html.P(["""Describes the kind of device that receives information that is processed for 
             interaction. It can consist in a sensor or in a device containing several sensors. A classification
             is provided among the nature of the measurand along White's classification scheme for basic sensors, and 

@@ -168,10 +168,7 @@ layout_main = html.Div([
         dcc.Link('GLOSSARY', href='/glossary', className='banner_link'),
         html.P(), 
         dcc.Link('LIST OF INSTALLATIONS', href='/lists', className='banner_link'),
-        # dcc.Link('Submit', 
-        #     href='/submit',
-        #     style={'paddingLeft': '0.5cm'}
-        # ),
+        dcc.Link('SUBMIT INSTALLATION', href='/submit', className='banner_button'),
     ]), 
             
     html.Div(className="page_columns",

@@ -79,6 +79,22 @@ summary {
     padding-left: 50px;
 }
 
+.summary_theme {
+    font-size: 46;
+    font-family: Roboto;
+    font-weight: 300;
+    padding-bottom : 3rem;
+padding-top: 2rem;
+}
+
+.summary_category {
+font-size: 46;
+font-family: Roboto;
+font-weight: 100;
+padding-bottom : 3rem;
+padding-top: 2rem;   
+}
+
 details {
     font-family: 'FontNormal';
 }
@@ -117,7 +133,7 @@ summary::-webkit-details-marker {
     position: fixed;
     z-index: 3;
     left: 0;
-    width: 20vw;
+    width: 300px;
     top: 0;
     padding: 0px 10px 50px 30px;
     background-color: #FFFFFF;
@@ -190,12 +206,38 @@ background: #222;
 transition-delay: 0.2s;
 }
 
+/* Banner button */
+.banner_button {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 10pt;
+    color: #ffffff;
+    letter-spacing: 0.15em;
+    line-height: 2.6em;
+    text-decoration: None;
+    position: absolute;
+    bottom: 4vh;
+    left: 40px;
+    padding: 10px 20px 10px 20px;
+    background-color: #2A313B;
+    }
+
+.banner_button:hover {
+    color: #ffffff;
+    background-color: #545d68;
+    }
+
+.banner_button:active {
+    color: #ffffff;
+    background-color: #18191b;
+    }
+
 /* Pages layout */
 div.page_columns{
     display: flex;
     padding-top: 8vh;
     padding-right: 40px; 
-    padding-left: 20vw;
+    padding-left: 300px;
 }
 
 div.page_left {
