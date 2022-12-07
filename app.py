@@ -322,6 +322,7 @@ def update_figure(input_value):
     style = {
             'background' : bg_color,
             'zIndex': '1',
+            'minHeight' : '870px',
             'position' : 'absolute',
             'height' : '100vh'
         }

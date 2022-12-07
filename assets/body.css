@@ -216,7 +216,7 @@ transition-delay: 0.2s;
     line-height: 2.6em;
     text-decoration: None;
     position: absolute;
-    bottom: 4vh;
+    bottom: 40px;
     left: 40px;
     padding: 10px 20px 10px 20px;
     background-color: #2A313B;
@@ -235,7 +235,7 @@ transition-delay: 0.2s;
 /* Pages layout */
 div.page_columns{
     display: flex;
-    padding-top: 8vh;
+    padding-top: 100px;
     padding-right: 40px; 
     padding-left: 300px;
 }
@@ -250,7 +250,7 @@ div.page_lists {
     background: #F6F6F6;
     padding-top: 40px;
     width: 80vw;
-    left: 20vw;
+    left: 380px;
     top: -2vh;
 }
 
@@ -402,7 +402,7 @@ div.page_right {
 .list_inst{
     position: relative;
     z-index: 2;
-    top: 100px;
+    top: 60px;
     left: 300px;
     background-color: #F6F6F6;
 }
