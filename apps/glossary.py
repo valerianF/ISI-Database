@@ -12,9 +12,9 @@ layout = html.Div([
         html.H1(className='banner_header', children=["Interactive Sound Installations Database"]),
 
         dcc.Link('HOME', href='/', className='banner_link', id='focus_link'),
-        html.P(), 
+        html.P(style={'paddingBottom': '0.5cm'}), 
         dcc.Link('GLOSSARY', href='/glossary', className='banner_link_fixed'),
-        html.P(), 
+        html.P(style={'paddingBottom': '0.5cm'}), 
         dcc.Link('LIST OF INSTALLATIONS', href='/lists', className='banner_link'),
     ]), 
 
@@ -25,7 +25,7 @@ layout = html.Div([
 
     # ARTISTIC INTENTION
     html.Details([
-        html.Summary('Artistic Intention', className = 'summary_theme', style={'color': '#701745'}),
+        html.Summary('Artistic Intention', className = 'summary_theme', style={'color': '#9C2457'}),
         html.P(["""Relates to all the considerations and contextual aspects that are taken prior to
                 the design process. It is the most conceptual theme and concerns the top-level reflections that occurs
                 before implementation. From a protagonist metaphor, this aspect would relate to the Designer. """,
@@ -244,7 +244,7 @@ layout = html.Div([
 
     # INTERACTION
     html.Details([
-        html.Summary('Interaction', className = 'summary_theme', style={'color': '#06306B'}),
+        html.Summary('Interaction', className = 'summary_theme', style={'color': '#1852A4'}),
         html.P(["""Aims at characterizing the mutual relation between the interactor - being a visitor, 
             a user, or the surrounding environment - and the installation. It is associated to the in-between reflections
             between the foremost intentions and the ultimate technical implementations and would relate to the interactor.""",
@@ -389,7 +389,7 @@ layout = html.Div([
             ])
         ]),
         html.Details([
-            html.Summary('Input/Output Degrees of Freedom', className = 'summary_category'),
+            html.Summary('Input/Output DoF', className = 'summary_category'),
             html.P(["""Refers to the number of input and output modalities available to the user or visitor. It does 
             not represent the number of input and output controls as in birnbaum's dimension space. """,
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
@@ -399,7 +399,7 @@ layout = html.Div([
 
     # SYSTEM DESIGN
     html.Details([
-        html.Summary('System Design', className = 'summary_theme', style={'color': '#00421A'}),
+        html.Summary('System Design', className = 'summary_theme', style={'color': '#026027'}),
         html.P(["""Concerns the practical realization of the installation, from its components to its diffusion parameters.
             It emphasizes on the practical realization of artistic intentions as well as interaction design, and
             would relate to the System. """,

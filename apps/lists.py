@@ -50,9 +50,9 @@ layout = html.Div([
         html.H1(className='banner_header', children=["Interactive Sound Installations Database"]),
 
         dcc.Link('HOME', href='/', className='banner_link'),
-        html.P(), 
+        html.P(style={'paddingBottom': '0.5cm'}), 
         dcc.Link('GLOSSARY', href='/glossary', className='banner_link'),
-        html.P(), 
+        html.P(style={'paddingBottom': '0.5cm'}), 
         dcc.Link('LIST OF INSTALLATIONS', href='/lists', className='banner_link_fixed'),
     ]), 
 

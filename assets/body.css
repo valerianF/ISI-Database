@@ -39,7 +39,7 @@ body {
 h1 {
     font-family: 'Roboto';
     font-weight: 300;
-    color: #383838;
+    color: #000000;
     font-size: 34pt;
     word-wrap: break-word;
 }
@@ -113,12 +113,14 @@ padding-bottom: 1rem;
 
 details {
     font-family: Roboto;
-    font-weight: 500;
+    font-weight: 400;
+    line-height: 1.5rem;
     padding-top: 0.5rem;  
+    max-width: 750px;
 }
 
 details[open] > summary::before {
-    font-family: "FontNormal";
+    font-family: Roboto;
     transform: rotate(45deg);
 }
 
@@ -131,7 +133,7 @@ details > summary::before {
     position: relative;
     will-change: transform;
     transition: transform 300ms ease;
-    font-family: "FontNormal";
+    font-family: Roboto;
     font-size: 3.1rem;
     content: "+";
     left: -1rem;
@@ -147,7 +149,7 @@ summary::-webkit-details-marker {
 
 /* Banner button */
 .credits {
-    font-family: 'Roboto';
+    font-family: Roboto;
     font-weight: 500;
     font-size: 10pt;
     color: #000000;
@@ -198,25 +200,27 @@ summary::-webkit-details-marker {
     font-family: 'Roboto';
     font-weight: 500;
     font-size: 10pt;
-    color: #222;
+    color: #8E8E8E;
     letter-spacing: 0.15em;
     line-height: 2.6em;
     text-decoration: None;
     position: relative;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #8E8E8E;
 }
 
 .banner_link_fixed:hover,
-.banner_link_fixed:focus {
-color: #222;
+.banner_link_fixed:focus,
+.banner_link_fixed:visited {
+color: #8E8E8E;
 }
 
 
 /* Underline animation */
 
 .banner_link:hover,
-.banner_link:focus {
-color: #222;
+.banner_link:focus,
+.banner_link:visited {
+color: #8E8E8E;
 }
 
 .banner_link::after,
@@ -244,7 +248,7 @@ transition: transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .banner_link::before {
-background: #222;
+background: #8E8E8E;
 transition-delay: 0.2s;
 }
 
@@ -291,20 +295,19 @@ div.page_lists {
     position: absolute;
     background: #F6F6F6;
     padding-top: 40px;
-    width: 80vw;
-    left: 300px;
+    width: 100vw;
+    padding-left: 300px;
     top: -2vh;
 }
 
 div.page_glossary {
     position: relative;
     background: #F6F6F6;
-    width: 80vw;
-    left: 300px;
+    width: 100vw;
     padding-top: 20px;
     padding-bottom: 3cm;
     padding-right: 80px;
-    padding-left: 30px;
+    padding-left: 330px;
     min-height: 100vh;
 }
 
