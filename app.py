@@ -2,7 +2,7 @@ import os, re
 import dash
 import pandas as pd
 import numpy as np
-from dash import dcc, html, Input, Output
+from dash import dcc, html, Input, Output, State
 import plotly.graph_objects as go
 
 from apps import glossary, lists, submit
@@ -40,20 +40,18 @@ SD.initiate_arrays()
 IN.initiate_arrays()
 FI.initiate_arrays()
 
-labellist = AI.labels[12:] + IN.labels[7:] + SD.labels[18:] + FI.labels[13:]
-IDlist = AI.df['ids'][12:].tolist() + IN.df['ids'][7:].tolist() + SD.df['ids'][18:].tolist() + FI.labels[13:]
-parentlist = AI.parentslabels[12:] + IN.parentslabels[7:] + SD.parentslabels[18:] + FI.parents[13:]
+labellist = AI.labels[12:] + IN.labels[7:] + SD.labels[18:] #+ FI.labels[13:]
+IDlist = AI.df['ids'][12:].tolist() + IN.df['ids'][7:].tolist() + SD.df['ids'][18:].tolist() #+ FI.labels[13:]
+parentlist = AI.parentslabels[12:] + IN.parentslabels[7:] + SD.parentslabels[18:] #+ FI.parents[13:]
 
 """ Import external CSS style sheet. 
 Note than CSS files in /asset subfolder are automaticaly imported.
 
 """
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 """ Initiate the dash application """
 app = dash.Dash(__name__, 
     suppress_callback_exceptions=True,
-    external_stylesheets=external_stylesheets,
     title='ISI Database',
     update_title='Loading...')
 server = app.server
@@ -100,10 +98,11 @@ def make_list(values, plotType):
 
         if 0 not in verif:              
             row = []
-            for col2 in data.columns[[1, 2, 6, 5, 3]]:
+            for col2 in data.columns[[3, 2, 6, 5]]:
                 value = data.iloc[i][col2]
                 if col2 == 'Hyperlink':
-                    cell = html.Td(html.A(href=doi_to_url(value), children='Click Here', target='_blank'))                    
+                    cell = html.Td(html.A(href=doi_to_url(value), children=data.iloc[i][1], target='_blank',
+                    className='link_list'))                    
                 else:
                     cell = html.Td(value)
                 row.append(cell)
@@ -112,114 +111,108 @@ def make_list(values, plotType):
 
 """ Application layout."""
 # Index layout
-app.layout = html.Div([
+app.layout = html.Div(className="app_layout",
+    children=[
 
     # represents the url bar, doesn't render anything
     dcc.Location(id='url', refresh=False),
 
-    html.H1('Interactive Sound Installations Database'),
-
-    dcc.Link('Home', href='/'),
-
-    dcc.Link('Glossary', 
-        href='/glossary',
-        style={'paddingLeft': '0.5cm'}
-    ),
-
-    dcc.Link('List of installations', 
-        href='/lists',
-        style={'paddingLeft': '0.5cm'}
-    ),
-
-    # dcc.Link('Submit', 
-    #     href='/submit',
-    #     style={'paddingLeft': '0.5cm'}
-    # ),
-
-    html.Div(id='page-content'),
-
-    html.P(['Designed by ',
-        html.A(href='https://www.mcgill.ca/music/valerian-fraisse',
-            children='Valérian Fraisse', target='_blank'),
-        ' with the support of ',
-        html.A(href='https://www.mcgill.ca/sis/people/faculty/guastavino',
-            children='Catherine Guastavino', target='_blank'),
-        ' and ',
-        html.A(href='https://www.mcgill.ca/music/marcelo-m-wanderley',
-            children='Marcelo Wanderley', target='_blank'),
-        '.',
-        html.Br(),
-        'The source code is available on ',
-        html.A(href='https://github.com/valerianF/ISI-Database',
-            children='GitHub', target='_blank'),
-        '.'], style={'fontSize': '12px'}),
-
-    html.P(['This work is licensed under a ',
-        html.A(rel='license', href='http://creativecommons.org/licenses/by-nc-sa/4.0/',
-            children='Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License',
-            target='_blank'),
-        '.'], style={'fontSize': '12px'})
+    html.Div(className='page_content', id='page_content',
+        style={
+            'backgroundColor' : '#2A313B',
+            'zIndex': '1',
+            'position' : 'absolute',
+            'height' : '100vh'
+        }),
 
 ])
 
 # Main page layout
 layout_main = html.Div([
 
-    html.H5(str(len(data)) + ' installations are currently reviewed. All the terms below are explained in the glossary.'),
+    # html.H5(str(len(data)) + ' installations are currently reviewed. All the terms below are explained in the glossary.'),
 
-    html.P(style={'paddingBottom': '0.5cm'}),  
+    # html.P(style={'paddingBottom': '0.5cm'}), 
+
+    html.Div(className="banner", 
+        children=[
+
+        html.H1(className='banner_header', children=["Interactive Sound Installations Database"]),
+
+        dcc.Link('HOME', href='/', className='banner_link_fixed', id='focus_link'),
+        html.P(), 
+        dcc.Link('GLOSSARY', href='/glossary', className='banner_link'),
+        html.P(), 
+        dcc.Link('LIST OF INSTALLATIONS', href='/lists', className='banner_link'),
+#        dcc.Link('SUBMIT INSTALLATION', href='/submit', className='banner_button'),
+    ]), 
             
-    html.Div([
-        dcc.RadioItems(
-            id="select_plot",
-            options=[
-                {'label': 'Artistic Intention', 'value': 'AI'},
-                {'label': 'Interaction', 'value': 'IN'},
-                {'label': 'System Design', 'value': 'SD'},
-                {'label': 'Subject Area', 'value': 'FI'}
-                ],
-            value='AI', # Initial Sunburst: Artistic Intention
-            className='radiobutton-group',
+    html.Div(className="page_columns",
+    children = [
+        html.Div(className="page_left", 
+        children=[
+
+            dcc.Graph(id='sunburst'),
+                    
+            html.Div(className='radio_buttons',
+                children=[
+                    dcc.RadioItems(
+                        id="select_plot",
+                        options=[
+                            {'label': 'Artistic Intention', 'value': 'AI'},
+                            {'label': 'Interaction', 'value': 'IN'},
+                            {'label': 'System Design', 'value': 'SD'}
+                            # {'label': 'Subject Area', 'value': 'FI'}
+                            ],
+                        value='AI', # Initial Sunburst: Artistic Intention
+                        className='radiobutton-group',
+                        ),
+            ])
+
+        ]),    
+
+        html.Div(className='page_right',
+        children=[
+
+            html.Div(className='instruction_text', 
+            children = [html.H6(
+                children=['Select a sub-category by clicking on the diagram or choose it from the dropdown menu to get a list of the corresponding installations.'],
+                style={
+                    'fontSize' : '14pt',
+                    'paddingLeft' : '70px',
+                    'lineHeight' : '25pt' 
+                }
+                )]
             ),
-            html.Span(className='checkmark'),
+
+            html.Div(className='dropdown_container',
+            children=[
+                dcc.Dropdown(
+                    id='dropdown_cat',
+                    options=[
+                        {
+                        'label': re.sub('<br>', ' ', parentlist[i]) + ' | ' + re.sub('<br>', ' ', labellist[i]),
+                        'value': labellist[i]
+                        } for i in range(0, len(labellist))
+                        ],
+                    multi=True, # Makes in sort that several categories can be selected
+                    placeholder="Select one or more categories",
+                    searchable=False
+                )
+            ]),
+
+            # html.Div(className='choose_text', id='choose_text'),
+        ]),  
     ]),
 
-    html.P(style={'paddingBottom': '0.5cm'}),  
-            
-    dcc.Graph(id='sunburst'),
+    html.Div(id='list_inst', className='list_inst'),
 
-    html.P(style={'paddingBottom': '1cm'}),     
-
-    html.Div([
-        dcc.Dropdown(
-            id='dropdown_cat',
-            options = [
-                {
-                'label': re.sub('<br>', ' ', parentlist[i]) + ' | ' + re.sub('<br>', ' ', labellist[i]),
-                'value': labellist[i]
-                } for i in range(0, len(labellist))
-                ],
-            multi=True, # Makes in sort that several categories can be selected
-            placeholder="Select one or more categories",
-            style={
-                    'height': '200%',
-                    'width' : '500px'
-                    }
-        ),
-        # html.Button('Take a Snapshot', id='snap-button', n_clicks=0, style={'marginLeft': '30px'}),
-    ], style={'display': 'flex'}),
-
-    html.P(style={'paddingBottom': '0.5cm'}),  
-
-    html.Div(id='list_inst'),
-
-    html.P(style={'paddingBottom': '2cm'})
 ])
 
 """ Callback functions."""  
 
 # Index callbacks
-@app.callback(Output('page-content', 'children'),
+@app.callback(Output('page_content', 'children'),
                 [Input('url', 'pathname')])
 def display_page(pathname):
     """ Updates page content in function of chosen url.
@@ -242,9 +235,9 @@ def display_page(pathname):
 
 
 # Main page callbacks
-@app.callback(Output("sunburst", "figure"), 
-              [Input("select_plot", "value")])
-            #   Input('snap-button', 'n_clicks')])
+@app.callback([Output("sunburst", "figure"),
+    Output("page_content", 'style')], 
+    Input("select_plot", "value"))
 def update_figure(input_value):
     """ Updates the sunburst chart in function of the radio button selected.
     If the snapshot html button is triggered (currently deactivated), saves a svg plot of the corresponding dimension.
@@ -256,23 +249,28 @@ def update_figure(input_value):
     n_clicks : int
         Number of clicks for the snapshot html button.
     """
+    
     if input_value == 'AI':
         dframe = AI.df
         colorscale = 'Burg'
+        bg_color = 'linear-gradient(0deg, rgba(156,36,87,1) 0%, rgba(112,23,69,1) 100%)'
     elif input_value == 'SD':
         dframe = SD.df
         colorscale = 'Greens'
+        bg_color = 'linear-gradient(0deg, rgba(0,96,39,1) 0%, rgba(0,66,26,1) 100%)'
     elif input_value == 'IN':
         dframe = IN.df
         colorscale = 'Blues'
-    elif input_value == 'FI':
-        dframe = FI.df
-        colorscale = 'GnBu_r'
-        marker = None
+        bg_color = 'linear-gradient(0deg, rgba(24,82,164,1) 0%, rgba(6,48,107,1) 100%)'
+    # elif input_value == 'FI':
+    #     dframe = FI.df
+    #     colorscale = 'GnBu_r'
+    #     marker = None
     if input_value != 'FI':
         marker = dict(
         colors = np.log(dframe['values']),
-        colorscale = colorscale
+        colorscale = colorscale,
+        line = dict(color='white', width=1.2)
         )
     fig = go.Figure()
     fig.add_trace(go.Sunburst(
@@ -287,17 +285,25 @@ def update_figure(input_value):
             name = '',
             marker = marker
         ))
-    fig.update_layout(margin=dict(t=20, l=20, r=20, b=20),
-                    font=dict(family='FontNormal'))   
+    fig.update_layout(margin=dict(t=0, l=50, r=0, b=0),
+                    font=dict(family='Roboto',
+                    size=16),
+                    autosize=True,
+                    height=600,
+                    activeshape=dict(fillcolor='black'),
+                    paper_bgcolor='rgba(0, 0, 0, 0)',
+                    plot_bgcolor='white',
+                    newshape_line_width=10)   
+      
+    style = {
+            'background' : bg_color,
+            'zIndex': '1',
+            'minHeight' : '870px',
+            'position' : 'absolute',
+            'height' : '100vh'
+        }
 
-    # changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
-    # if 'snap-button' in changed_id:
-    #     im_name = 'snapshot_' + input_value + '.svg'
-    #     if not os.path.exists("snapshots"):
-    #         os.mkdir("snapshots")
-    #     fig.write_image(os.path.join('snapshots', im_name))
-
-    return fig
+    return fig, style
 
 @app.callback(
     Output('list_inst', 'children'),
@@ -323,7 +329,7 @@ def display_list(clickData, values, plotType):
 
     if values is None or values == []:
         if clickData is None or (len(clickData['points'][0]['id']) <= 6 and plotType != 'FI') or clickData['points'][0]['id'] in parentlist:    
-            return  [html.H6('Click on a sub-category or choose it from the dropdown menu to get a list of the corresponding installations.')] 
+            return
         else:
             values = [clickData['points'][0]['label']]
             parent = clickData['points'][0]['parent']
@@ -345,7 +351,7 @@ def display_list(clickData, values, plotType):
             rows = make_list(values, plotType)
 
     if rows == []:
-        return 'No installation belongs to all those categories.'
+        output_list = html.Div([html.P(className='n_results', children=[str(len(rows)) + ' results'])])
     
 
     for i in range(0, len(parents)):
@@ -353,25 +359,48 @@ def display_list(clickData, values, plotType):
             + re.sub('<br>', ' ', values[i])])
     
     if len(values) > 1:
-        return  [
-            html.H5('Chosen tags: '),
-            html.H3([str_values[i][0] + ' ― ' for i in range(0, len(str_values)-1)] + [str_values[-1][0]]),
-            html.H5(str(len(rows)) + ' results'),
-            html.Table(
-                    [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
+        output_list = html.Div([html.P(className='n_results', children=[str(len(rows)) + ' results']), html.Table(
+                    [html.Th(col) for col in ['Name', 'Creator(s)', 'Year', 'Source']]
                     + rows
-                    )
-                ]
+                )])
     elif len(values) == 1:
-        return  [
-            html.H5('Chosen tag: '),
-            html.H3([value[0] for value in str_values]),
-            html.H6(str(len(rows)) + ' results'),
-            html.Table(
-                    [html.Th(col) for col in data.columns[[1, 2, 6, 5, 3]]]
+        output_list = html.Div([html.P(className='n_results', children=[str(len(rows)) + ' results']), html.Table(
+                    [html.Th(col) for col in ['Name', 'Creator(s)', 'Year', 'Source']]
                     + rows
-                    )
-                ]   
+                )])
+    
+    return output_list, html.Div([
+
+        html.P(style={'paddingBottom': '2cm'}),
+
+        html.P(className='credits', children = 
+        ['✍ Created by ',
+                html.A(href='https://www.mcgill.ca/music/valerian-fraisse',
+                    children='Valérian Fraisse', target='_blank', className='link_credits'),
+                ' with the support of ',
+                html.A(href='https://www.mcgill.ca/sis/people/faculty/guastavino',
+                    children='Catherine Guastavino', target='_blank', className='link_credits'),
+                ' and ',
+                html.A(href='https://www.mcgill.ca/music/marcelo-m-wanderley',
+                    children='Marcelo Wanderley', target='_blank', className='link_credits'),
+                '. Designed by ',
+                html.A(href='http://camillemagnan.com/',
+                    children='Camille Magnan', target='_blank', className='link_credits'),
+                '.'
+        ]),
+
+            html.P(style={
+                'color': '#AEAEAE',
+                'paddingBottom': '1cm',
+                'paddingLeft': '1cm',
+                'fontWeight': '500',
+                'fontSize': '10pt'
+            }, 
+            children = [
+            'This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.'
+        ]),
+
+    ])
 
    
 """ Run the app. """

@@ -1,5 +1,7 @@
 /* Import local fonts */
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
 @font-face {
     font-family: 'FontHeader';
     src: url("fonts/Montserrat-ExtraLight.otf") format("opentype");
@@ -16,16 +18,57 @@
     src: url("fonts/Montserrat-Regular.otf") format("opentype");
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 /* Headers and body styling */
 
-body {
-    font-family: 'FontNormal';
-    margin: 30px 75px 75px 75px; 
-    color: rgb(31, 31, 31);
+p {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
 }
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'FontHeader';
+body {
+    font-family: 'Roboto';
+    font-weight: 300;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+h1 {
+    font-family: 'Roboto';
+    font-weight: 300;
+    color: #383838;
+    font-size: 34pt;
+    word-wrap: break-word;
+}
+h2, h3, h4, h5 {
+    font-family: 'Roboto';
+    font-weight: 400;
     color: #383838
+}
+
+h6 {
+    font-family: 'Roboto';
+    font-weight: 400;
+    color: #ffffff;
+    margin-block-start: 0em;
+    margin-block-end: 2em;
+}
+
+a {
+    text-decoration: underline;
+    position: relative;
+    color: inherit;
+}
+
+a:visited {
+    color:rgb(0, 0, 0);
+}
+
+a:hover {
+    color: #8E8E8E;
 }
 
 /* Details and summary styling */
@@ -39,8 +82,39 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 
+summary {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    outline: 0;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    font-family: Roboto;
+    font-weight: 300;
+    padding-left: 50px;
+    padding-bottom: 0.5rem;
+}
+
+.summary_theme {
+    font-size: 60pt;
+    font-family: Roboto;
+    font-weight: 400;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.summary_category {
+font-size: 40pt;
+font-family: Roboto;
+font-weight: 300;
+padding-top: 1rem;
+padding-bottom: 1rem;     
+}
+
 details {
-    font-family: 'FontNormal';
+    font-family: Roboto;
+    font-weight: 500;
+    padding-top: 0.5rem;  
 }
 
 details[open] > summary::before {
@@ -67,35 +141,423 @@ details > summary::before {
     color: rgb(34, 34, 34);
 }
   
-summary {
-    list-style: none;
-    cursor: pointer;
-    display: block;
-    outline: 0;
-    font-size: 2.5rem;
-    line-height: 3.5rem;
-    font-family: 'FontHeader';
-}
-  
 summary::-webkit-details-marker {
     display: none;
 }
- 
+
+/* Banner button */
+.credits {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 10pt;
+    color: #000000;
+    line-height: 2.6em;
+    padding: 0.5cm 0cm 0cm 1cm;
+    }
+
+.link_credits {
+    text-decoration: underline;
+    position: relative;
+    color: inherit;
+}
+
+.link_credits:visited {
+    color:rgb(0, 0, 0);
+}
+
+.link_credits:hover {
+    color: #8E8E8E;
+}
+
+/* Banner properties */
+.banner {
+    height: 100%; 
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    width: 300px;
+    top: 0;
+    padding: 0px 10px 50px 30px;
+    background-color: #FFFFFF;
+}
+
+/* Banner link */
+.banner_link {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 10pt;
+    color: #8E8E8E;
+    letter-spacing: 0.15em;
+    line-height: 2.6em;
+    text-decoration: None;
+    position: relative;
+    transition: color 0.2s;
+    }
+
+.banner_link_fixed {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 10pt;
+    color: #222;
+    letter-spacing: 0.15em;
+    line-height: 2.6em;
+    text-decoration: None;
+    position: relative;
+    border-bottom: 2px solid black;
+}
+
+.banner_link_fixed:hover,
+.banner_link_fixed:focus {
+color: #222;
+}
+
+
+/* Underline animation */
+
+.banner_link:hover,
+.banner_link:focus {
+color: #222;
+}
+
+.banner_link::after,
+.banner_link::before {
+transform: scale3d(1, 1, 1);
+}
+
+.banner_link:hover::before,
+.banner_link:focus::before {
+transform: scale3d(1, 1, 1);
+transition-delay: 0s;
+}
+
+.banner_link::before,
+.banner_link::after {
+content: '';
+position: absolute;
+top: 1.25em;
+left: 0;
+width: 100%;
+height: 2px;
+transform: scale3d(0, 1, 1);
+transform-origin: center left;
+transition: transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.banner_link::before {
+background: #222;
+transition-delay: 0.2s;
+}
+
+/* Banner button */
+.banner_button {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 10pt;
+    color: #ffffff;
+    letter-spacing: 0.15em;
+    line-height: 2.6em;
+    text-decoration: None;
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    padding: 10px 20px 10px 20px;
+    background-color: #2A313B;
+    }
+
+.banner_button:hover {
+    color: #ffffff;
+    background-color: #545d68;
+    }
+
+.banner_button:active {
+    color: #ffffff;
+    background-color: #18191b;
+    }
+
+/* Pages layout */
+div.page_columns{
+    display: flex;
+    padding-top: 100px;
+    padding-right: 40px; 
+    padding-left: 300px;
+}
+
+div.page_left {
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+div.page_lists {
+    position: absolute;
+    background: #F6F6F6;
+    padding-top: 40px;
+    width: 80vw;
+    left: 300px;
+    top: -2vh;
+}
+
+div.page_glossary {
+    position: relative;
+    background: #F6F6F6;
+    width: 80vw;
+    left: 300px;
+    padding-top: 20px;
+    padding-bottom: 3cm;
+    padding-right: 80px;
+    padding-left: 30px;
+    min-height: 100vh;
+}
+
 /* Radio buttons styling */
 
+div.radio_buttons {
+    background-color: rgba(0, 0, 0, 0);
+    font-family: Roboto;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-left: 40px;
+    padding-top: 3vh;
+    margin-bottom: 40px; 
+}
+
 .radiobutton-group > label {
-    padding: .15em .5em;
     cursor: pointer;
-    margin-right: -1px auto;
-    color: rgb(31, 31, 31);
     display: inline-block;
-    font-size: 25px;
+    margin-right: 15px;
+    line-height: 40px;
+    color: rgb(255, 255, 255);
+    font-size: 10pt;
 }
 
 .radiobutton-group input {
-    position: relative;
     cursor: pointer;
-    height: 18px;
-    width: 18px;
   }
 
+input[type="radio"] {
+    appearance: none;
+    background-color: inherit;
+    margin: 0 5px 0 0;
+    font: inherit;
+    color: currentColor;
+    width: 0.8em;
+    height: 0.8em;
+    border: 0.15em solid white;
+    border-radius: 50%;
+    display: inline-block;
+    transform: translateY(1.2em);
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%; 
+    transform: scale(0) translate(-0.075em, -1.275em);
+    transition: 200ms transform ease-in-out;
+    box-shadow: inset 1em 1em white;
+    display: inherit;
+    transform-origin: 0.275em -0.9em 0em;
+  }
+
+input[type="radio"]:checked::before {
+    transform: scale(1)  translate(-0.075em, -1.275em);
+    display: inherit;   
+}
+
+.form-control + .form-control {
+    margin-top: 1em;
+}
+
+div.page_right {
+    width: 40%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* .choose_text {
+    padding-left: 70px;
+    position: absolute;
+    bottom: 100px;
+} */
+
+/* Dropdown styling */
+
+.dropdown_container {
+    padding-left : 70px;
+    height: 100px;
+}
+
+#dropdown_cat .Select-control {
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0px;
+    padding-top: 4px;
+    padding-bottom: 8px;
+    border: 0.6mm solid #ccc;
+}
+
+#dropdown_cat .Select-placeholder {
+    line-height: 46px;
+    padding-left: 20px;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 9pt;
+}
+
+#dropdown_cat .Select--multi .Select-value {
+    background-color: rgba(0,0,0,0);
+    color: rgb(255, 255, 255);
+    height: 35px;
+    margin-top: 4px;
+    border-radius: 2px;
+    border: solid 1px white;
+  }
+
+#dropdown_cat .Select--multi .Select-value-label {
+    padding: 0px 10px 0px 10px;
+    line-height: 34px;
+    font-weight: 500;
+    font-size: 9pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+#dropdown_cat .Select--multi .Select-input {
+    height: 30px;
+    padding-top: 4px;
+    padding-left: 10px;
+  }
+
+#dropdown_cat .Select-menu-outer {
+    color:rgb(255, 255, 255);
+    font-size: 9pt;
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#dropdown_cat .VirtualizedSelectFocusedOption {
+    background-color: #444444;
+  }
+
+/* Results styling */
+
+.list_inst{
+    position: relative;
+    z-index: 2;
+    top: 60px;
+    left: 300px;
+    background-color: #F6F6F6;
+}
+
+.n_results {
+    font-size: 92pt;
+    font-family: Roboto;
+    font-weight: 100;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.n_results_page {
+    font-size: 60pt;
+    font-family: Roboto;
+    font-weight: 100;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
+}
+
+/* Table */
+
+th {
+    height: 30px;
+    font-weight: 500;
+    font-style: normal;
+    color:rgb(77, 77, 77);
+}
+
+td, tr {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+table, th, td, tr {
+    height: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 40px;
+    text-align: left;
+    border: None;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    font-size: 9pt;
+}
+
+td {
+    height: 80px;
+}
+
+tr:nth-child(even) {
+    background-color: #F6F6F6;
+}
+
+tr:nth-child(odd) {
+    background-color: #EBEBEB;
+}
+
+tr:hover {
+    background-color: #585858;
+    color: #FFFFFF;
+}
+
+.link_list {
+    text-decoration: None;
+    position: relative;
+    color: inherit;
+}
+
+.link_list:visited {
+    color:rgb(0, 0, 0);
+}
+
+.link_list:hover,
+.link_list:focus {
+    color: inherit;
+}
+
+.link_list::after,
+.link_list::before {
+transform: scale3d(1, 1, 1);
+}
+
+.link_list:hover::before,
+.link_list:focus::before {
+transform: scale3d(1, 1, 1);
+transition-delay: 0s;
+}
+
+.link_list::before,
+.link_list::after {
+content: '';
+position: absolute;
+bottom: -2pt;
+left: 0;
+width: 100%;
+height: 2px;
+transform: scale3d(0, 1, 1);
+transform-origin: center left;
+transition: transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.link_list::before {
+background: rgb(255, 255, 255);
+transition-delay: 0.2s;
+}
+
+.footer {
+    margin: 0 0 0 0px;
+    padding: 0px 10px;
+    background-color: darkgoldenrod;
+}
