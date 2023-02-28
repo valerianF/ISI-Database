@@ -125,30 +125,6 @@ app.layout = html.Div(className="app_layout",
             'height' : '100vh'
         }),
 
-    # html.Div(className="footer", 
-    #     children=[
-    #     html.P(['Designed by ',
-    #         html.A(href='https://www.mcgill.ca/music/valerian-fraisse',
-    #             children='Valérian Fraisse', target='_blank'),
-    #         ' with the support of ',
-    #         html.A(href='https://www.mcgill.ca/sis/people/faculty/guastavino',
-    #             children='Catherine Guastavino', target='_blank'),
-    #         ' and ',
-    #         html.A(href='https://www.mcgill.ca/music/marcelo-m-wanderley',
-    #             children='Marcelo Wanderley', target='_blank'),
-    #         '.',
-    #         html.Br(),
-    #         'The source code is available on ',
-    #         html.A(href='https://github.com/valerianF/ISI-Database',
-    #             children='GitHub', target='_blank'),
-    #         '.'], style={'fontSize': '12px', 'marginTop': '0px'}),
-
-    #     html.P(['This work is licensed under a ',
-    #         html.A(rel='license', href='http://creativecommons.org/licenses/by-nc-sa/4.0/',
-    #             children='Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License',
-    #             target='_blank'),
-    #         '.'], style={'fontSize': '12px'})
-    # ])
 ])
 
 # Main page layout
@@ -168,7 +144,7 @@ layout_main = html.Div([
         dcc.Link('GLOSSARY', href='/glossary', className='banner_link'),
         html.P(), 
         dcc.Link('LIST OF INSTALLATIONS', href='/lists', className='banner_link'),
-        dcc.Link('SUBMIT INSTALLATION', href='/submit', className='banner_button'),
+#        dcc.Link('SUBMIT INSTALLATION', href='/submit', className='banner_button'),
     ]), 
             
     html.Div(className="page_columns",
@@ -375,7 +351,7 @@ def display_list(clickData, values, plotType):
             rows = make_list(values, plotType)
 
     if rows == []:
-        return [html.P(className='n_results', children=[str(len(rows)) + ' results'])]
+        output_list = html.Div([html.P(className='n_results', children=[str(len(rows)) + ' results'])])
     
 
     for i in range(0, len(parents)):
@@ -383,22 +359,48 @@ def display_list(clickData, values, plotType):
             + re.sub('<br>', ' ', values[i])])
     
     if len(values) > 1:
-        # return  [
-        #     html.H5('Chosen tags: '),
-        #     html.H3([str_values[i][0] + ' ― ' for i in range(0, len(str_values)-1)] + [str_values[-1][0]])
-        #     ],
-        return [html.P(className='n_results', children=[str(len(rows)) + ' results']), html.Table(
+        output_list = html.Div([html.P(className='n_results', children=[str(len(rows)) + ' results']), html.Table(
                     [html.Th(col) for col in ['Name', 'Creator(s)', 'Year', 'Source']]
                     + rows
-                )]
+                )])
     elif len(values) == 1:
-        # return  [
-        #     html.H5('Chosen tag: '),
-        #     html.H3([value[0] for value in str_values])
-        return [html.P(className='n_results', children=[str(len(rows)) + ' results']), html.Table(
+        output_list = html.Div([html.P(className='n_results', children=[str(len(rows)) + ' results']), html.Table(
                     [html.Th(col) for col in ['Name', 'Creator(s)', 'Year', 'Source']]
                     + rows
-                )] 
+                )])
+    
+    return output_list, html.Div([
+
+        html.P(style={'paddingBottom': '2cm'}),
+
+        html.P(className='credits', children = 
+        ['✍ Created by ',
+                html.A(href='https://www.mcgill.ca/music/valerian-fraisse',
+                    children='Valérian Fraisse', target='_blank', className='link_credits'),
+                ' with the support of ',
+                html.A(href='https://www.mcgill.ca/sis/people/faculty/guastavino',
+                    children='Catherine Guastavino', target='_blank', className='link_credits'),
+                ' and ',
+                html.A(href='https://www.mcgill.ca/music/marcelo-m-wanderley',
+                    children='Marcelo Wanderley', target='_blank', className='link_credits'),
+                '. Designed by ',
+                html.A(href='http://camillemagnan.com/',
+                    children='Camille Magnan', target='_blank', className='link_credits'),
+                '.'
+        ]),
+
+            html.P(style={
+                'color': '#AEAEAE',
+                'paddingBottom': '1cm',
+                'paddingLeft': '1cm',
+                'fontWeight': '500',
+                'fontSize': '10pt'
+            }, 
+            children = [
+            'This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.'
+        ]),
+
+    ])
 
    
 """ Run the app. """

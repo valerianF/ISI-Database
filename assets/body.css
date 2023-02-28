@@ -57,6 +57,20 @@ h6 {
     margin-block-end: 2em;
 }
 
+a {
+    text-decoration: underline;
+    position: relative;
+    color: inherit;
+}
+
+a:visited {
+    color:rgb(0, 0, 0);
+}
+
+a:hover {
+    color: #8E8E8E;
+}
+
 /* Details and summary styling */
 
 @keyframes slideDown {
@@ -74,29 +88,33 @@ summary {
     display: block;
     outline: 0;
     font-size: 2.5rem;
-    line-height: 3.5rem;
-    font-family: 'FontHeader';
+    line-height: 2.5rem;
+    font-family: Roboto;
+    font-weight: 300;
     padding-left: 50px;
+    padding-bottom: 0.5rem;
 }
 
 .summary_theme {
-    font-size: 46;
+    font-size: 60pt;
     font-family: Roboto;
-    font-weight: 300;
-    padding-bottom : 3rem;
-padding-top: 2rem;
+    font-weight: 400;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .summary_category {
-font-size: 46;
+font-size: 40pt;
 font-family: Roboto;
-font-weight: 100;
-padding-bottom : 3rem;
-padding-top: 2rem;   
+font-weight: 300;
+padding-top: 1rem;
+padding-bottom: 1rem;     
 }
 
 details {
-    font-family: 'FontNormal';
+    font-family: Roboto;
+    font-weight: 500;
+    padding-top: 0.5rem;  
 }
 
 details[open] > summary::before {
@@ -125,6 +143,30 @@ details > summary::before {
   
 summary::-webkit-details-marker {
     display: none;
+}
+
+/* Banner button */
+.credits {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 10pt;
+    color: #000000;
+    line-height: 2.6em;
+    padding: 0.5cm 0cm 0cm 1cm;
+    }
+
+.link_credits {
+    text-decoration: underline;
+    position: relative;
+    color: inherit;
+}
+
+.link_credits:visited {
+    color:rgb(0, 0, 0);
+}
+
+.link_credits:hover {
+    color: #8E8E8E;
 }
 
 /* Banner properties */
@@ -250,7 +292,7 @@ div.page_lists {
     background: #F6F6F6;
     padding-top: 40px;
     width: 80vw;
-    left: 380px;
+    left: 300px;
     top: -2vh;
 }
 
@@ -258,10 +300,11 @@ div.page_glossary {
     position: relative;
     background: #F6F6F6;
     width: 80vw;
-    left: 20vw;
+    left: 300px;
     padding-top: 20px;
+    padding-bottom: 3cm;
     padding-right: 80px;
-    padding-left: 80px;
+    padding-left: 30px;
     min-height: 100vh;
 }
 

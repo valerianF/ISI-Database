@@ -65,6 +65,34 @@ layout = html.Div([
             + rows
     ),
 
-    html.P(style={'paddingBottom': '2cm'})
+    html.P(style={'paddingBottom': '2cm'}),
+
+    html.P(className='credits', children = 
+    ['✍ Created by ',
+            html.A(href='https://www.mcgill.ca/music/valerian-fraisse',
+                children='Valérian Fraisse', target='_blank', className='link_credits'),
+            ' with the support of ',
+            html.A(href='https://www.mcgill.ca/sis/people/faculty/guastavino',
+                children='Catherine Guastavino', target='_blank', className='link_credits'),
+            ' and ',
+            html.A(href='https://www.mcgill.ca/music/marcelo-m-wanderley',
+                children='Marcelo Wanderley', target='_blank', className='link_credits'),
+            '. Designed by ',
+            html.A(href='http://camillemagnan.com/',
+                children='Camille Magnan', target='_blank', className='link_credits'),
+            '.'
+    ]),
+
+        html.P(style={
+            'color': '#AEAEAE',
+            'paddingBottom': '1cm',
+            'paddingLeft': '1cm',
+            'fontWeight': '500',
+            'fontSize': '10pt'
+        }, 
+        children = [
+        'This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.'
+    ]),
+
     ]),
 ])

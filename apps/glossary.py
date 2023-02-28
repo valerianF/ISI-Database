@@ -21,16 +21,16 @@ layout = html.Div([
     html.Div(className="page_glossary",
     children =[
 
-    html.P(style={'paddingBottom': '0.5cm'}),  
+    html.P(style={'paddingBottom': '2cm'}),  
 
     # ARTISTIC INTENTION
     html.Details([
-        html.Summary('Artistic Intention', className = 'summary_theme'),
+        html.Summary('Artistic Intention', className = 'summary_theme', style={'color': '#701745'}),
         html.P(["""Relates to all the considerations and contextual aspects that are taken prior to
                 the design process. It is the most conceptual theme and concerns the top-level reflections that occurs
                 before implementation. From a protagonist metaphor, this aspect would relate to the Designer. """,
                 html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='(le Prado and Natkin 2014)', target='_blank')],
-                style={'marginTop': '-2rem'}),
+                style={'marginTop': '0rem'}),
         html.Details([
             html.Summary('Context', className = 'summary_category'),
             html.P("""Information about the overall type of space in which the installation is built. 
@@ -244,14 +244,14 @@ layout = html.Div([
 
     # INTERACTION
     html.Details([
-        html.Summary('Interaction', className = 'summary_theme'),
+        html.Summary('Interaction', className = 'summary_theme', style={'color': '#06306B'}),
         html.P(["""Aims at characterizing the mutual relation between the interactor - being a visitor, 
             a user, or the surrounding environment - and the installation. It is associated to the in-between reflections
             between the foremost intentions and the ultimate technical implementations and would relate to the interactor.""",
                 html.A(href='https://www.researchgate.net/publication/248128301_Towards_a_Dimension_Space_for_Musical_Devices',
                     children='(Birnbaum et al. 2005, ', target='_blank'),
                 html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='le Prado and Natkin 2014)', target='_blank')],
-                style={'marginTop': '-2rem'}),
+                style={'marginTop': '0rem'}),
         html.Details([
             html.Summary('Inter-Actors', className = 'summary_category'),
             html.P(["""Number of people simultaneously involved in the musical interaction. """,
@@ -399,12 +399,12 @@ layout = html.Div([
 
     # SYSTEM DESIGN
     html.Details([
-        html.Summary('System Design', className = 'summary_theme'),
+        html.Summary('System Design', className = 'summary_theme', style={'color': '#00421A'}),
         html.P(["""Concerns the practical realization of the installation, from its components to its diffusion parameters.
             It emphasizes on the practical realization of artistic intentions as well as interaction design, and
             would relate to the System. """,
             html.A(href='https://hal.archives-ouvertes.fr/hal-01126429', children='(le Prado and Natkin 2014)', target='_blank')],
-                style={'marginTop': '-2rem'}),
+                style={'marginTop': '0rem'}),
         html.Details([
             html.Summary('Spatialization', className = 'summary_category'),
             html.P(["""Refers to the number of sources used, their spatial disposition as well as their diffusion and 
@@ -529,7 +529,7 @@ layout = html.Div([
             rely on basic sensors such as capacitance sensors. However, for those types of input devices, only the 
             entire built-in device is accounted for, regardless of the sensors it is constitued from. """,
             html.A(href='https://doi.org/10.1109/T-UFFC.1987.26922', children='(White 1987)', target='_blank')],
-                style={'marginTop': '-2rem'}),
+                style={'marginTop': '0rem'}),
             html.Details([
                 html.Summary('Electric, Magnetic Sensors'),
                 html.P('Measures either eletric or magnetic information. '),
@@ -707,6 +707,39 @@ layout = html.Div([
         ])
     ]),
 
-    ]),
+    html.P(style={'paddingBottom': '2cm'}),
 
+    html.Div(style = {
+        'position': 'absolute',
+        'bottom': '0'
+    }, children = [
+
+        html.P(className='credits', children = 
+            ['✍ Created by ',
+                    html.A(href='https://www.mcgill.ca/music/valerian-fraisse',
+                        children='Valérian Fraisse', target='_blank', className='link_credits'),
+                    ' with the support of ',
+                    html.A(href='https://www.mcgill.ca/sis/people/faculty/guastavino',
+                        children='Catherine Guastavino', target='_blank', className='link_credits'),
+                    ' and ',
+                    html.A(href='https://www.mcgill.ca/music/marcelo-m-wanderley',
+                        children='Marcelo Wanderley', target='_blank', className='link_credits'),
+                    '. Designed by ',
+                    html.A(href='http://camillemagnan.com/',
+                        children='Camille Magnan', target='_blank', className='link_credits'),
+                    '.'
+            ]),
+
+            html.P(style={
+                'color': '#AEAEAE',
+                'paddingBottom': '1cm',
+                'paddingLeft': '1cm',
+                'fontWeight': '500',
+                'fontSize': '10pt'
+            }, 
+            children = [
+            'This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.'
+        ]),
+
+    ])]),
 ])
