@@ -157,55 +157,55 @@ const SUNBURST = {
       "Therapeutic"
     ],
     "values": [
-      1829.0,
-      234.0,
-      194.0,
-      325.0,
-      196.0,
-      193.0,
-      300.0,
-      176.0,
-      211.0,
-      242.0,
-      48.0,
-      109.0,
-      93.0,
-      32.0,
+      2117.0,
+      269.0,
+      226.0,
+      375.0,
+      226.0,
+      213.0,
+      354.0,
+      206.0,
+      248.0,
+      283.0,
+      60.0,
+      134.0,
+      112.0,
+      39.0,
       17.0,
-      4.0,
-      83.0,
+      5.0,
+      90.0,
       2.0,
       3.0,
       79.0,
-      11.0,
-      104.0,
       14.0,
-      141.0,
-      98.0,
-      72.0,
-      14.0,
-      95.0,
+      133.0,
+      15.0,
+      159.0,
+      114.0,
       87.0,
-      155.0,
-      22.0,
+      15.0,
+      119.0,
+      92.0,
+      174.0,
+      23.0,
       16.0,
-      78.0,
-      113.0,
-      31.0,
+      91.0,
+      131.0,
+      38.0,
       1.0,
-      19.0,
-      27.0,
-      3.0,
-      17.0,
-      1.0,
-      10.0,
-      123.0,
-      19.0,
-      34.0,
-      180.0,
-      13.0,
-      13.0,
-      5.0
+      22.0,
+      32.0,
+      5.0,
+      21.0,
+      2.0,
+      11.0,
+      138.0,
+      24.0,
+      44.0,
+      209.0,
+      18.0,
+      15.0,
+      6.0
     ]
   },
   "SD": {
@@ -259,6 +259,8 @@ const SUNBURST = {
       "TS_Env_Heat",
       "TS_Env_Wind",
       "TS_Env_Sism",
+      "TS_Env_CO2",
+      "TS_Env_Rain",
       "SP_Num_One",
       "SP_Num_Two",
       "SP_Num_Mult",
@@ -272,9 +274,7 @@ const SUNBURST = {
       "SP_Dir_Omni",
       "SG_Speakers",
       "SG_Obj_Elec",
-      "SG_Obj_Mecha",
-      "SG_Obj_Reso",
-      "SG_Musical"
+      "SG_Obj_Mecha"
     ],
     "parents": [
       "",
@@ -326,6 +326,8 @@ const SUNBURST = {
       "TS_Env",
       "TS_Env",
       "TS_Env",
+      "TS_Env",
+      "TS_Env",
       "SP_Num",
       "SP_Num",
       "SP_Num",
@@ -339,9 +341,7 @@ const SUNBURST = {
       "SP_Dir",
       "SG",
       "SG_Obj",
-      "SG_Obj",
-      "SG_Obj",
-      "SG"
+      "SG_Obj"
     ],
     "labels": [
       "System<br>Design",
@@ -411,71 +411,71 @@ const SUNBURST = {
       "Musical<br>Instrument"
     ],
     "values": [
-      990.0,
-      226.0,
-      542.0,
-      222.0,
-      7.0,
-      15.0,
+      1134.0,
+      268.0,
+      610.0,
+      256.0,
+      12.0,
+      18.0,
       5.0,
-      53.0,
-      68.0,
-      3.0,
-      27.0,
-      24.0,
-      8.0,
-      133.0,
-      18.0,
-      138.0,
-      110.0,
-      143.0,
-      44.0,
-      16.0,
-      2.0,
-      1.0,
+      62.0,
+      72.0,
       4.0,
-      7.0,
-      1.0,
-      1.0,
-      4.0,
-      2.0,
-      3.0,
-      1.0,
-      1.0,
-      10.0,
-      43.0,
-      40.0,
-      28.0,
-      1.0,
-      1.0,
-      1.0,
-      5.0,
-      1.0,
-      2.0,
-      15.0,
-      4.0,
-      6.0,
-      18.0,
-      4.0,
-      2.0,
-      1.0,
-      1.0,
-      25.0,
-      28.0,
-      80.0,
-      18.0,
-      77.0,
-      47.0,
+      29.0,
+      33.0,
       14.0,
-      63.0,
-      47.0,
-      10.0,
-      133.0,
-      168.0,
-      17.0,
+      152.0,
+      21.0,
+      151.0,
+      126.0,
+      160.0,
+      48.0,
+      19.0,
+      2.0,
+      3.0,
+      7.0,
       9.0,
+      2.0,
+      1.0,
+      4.0,
+      2.0,
+      3.0,
+      1.0,
+      1.0,
+      12.0,
+      50.0,
+      43.0,
+      29.0,
+      1.0,
+      1.0,
+      2.0,
+      5.0,
+      1.0,
+      2.0,
+      17.0,
+      4.0,
+      10.0,
+      23.0,
+      6.0,
+      3.0,
+      2.0,
+      1.0,
+      1.0,
+      1.0,
+      29.0,
+      31.0,
+      92.0,
+      21.0,
+      83.0,
+      51.0,
+      17.0,
+      78.0,
+      48.0,
+      10.0,
+      150.0,
+      197.0,
       18.0,
-      10.0
+      11.0
     ]
   },
   "IN": {
@@ -600,49 +600,80 @@ const SUNBURST = {
       "Natural<br>Elements"
     ],
     "values": [
-      1359.0,
-      228.0,
-      191.0,
-      192.0,
-      318.0,
-      184.0,
-      246.0,
-      234.0,
-      12.0,
-      39.0,
-      72.0,
-      98.0,
-      6.0,
-      13.0,
-      161.0,
-      26.0,
-      4.0,
-      82.0,
-      101.0,
-      9.0,
+      1576.0,
+      260.0,
+      223.0,
+      224.0,
+      362.0,
+      220.0,
+      287.0,
+      271.0,
+      16.0,
+      41.0,
+      88.0,
       108.0,
-      21.0,
-      186.0,
-      1.0,
-      1.0,
-      1.0,
-      157.0,
-      13.0,
-      14.0,
+      7.0,
+      16.0,
+      187.0,
+      32.0,
+      4.0,
+      103.0,
+      112.0,
       9.0,
-      14.0,
-      94.0,
-      74.0,
-      35.0,
+      120.0,
+      22.0,
+      217.0,
+      1.0,
+      1.0,
+      1.0,
+      177.0,
+      23.0,
+      20.0,
+      9.0,
+      16.0,
+      111.0,
+      83.0,
+      43.0,
       1.0,
       6.0,
-      1.0,
-      12.0
+      2.0,
+      16.0
     ]
   }
 };
 
 const INSTALLATIONS = [
+  {
+    "name": "\"01101110\"",
+    "creators": "Alexandros Kontogeorgakopoulos, Odysseas Klissouras",
+    "hyperlink": "https://onecontinuouslab.net/wp-content/uploads/2020/08/01101110_An-Audiovisual-Installation-Based-on-the-Cellular-Automaton-Rule-110_Kontogeorgakopoulos-Klissouras_SMC2020.pdf",
+    "year": "2020",
+    "publication": "Proceedings of the Sound and Music Computing Conference",
+    "fieldParts": [],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_Visual_Int": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Abs": 1,
+    "SD_Pro_Son": 1,
+    "LI_Dynamic": 1,
+    "RS_Expr": 1,
+    "IA_Many": 1,
+    "IDof_One": 1,
+    "ODof_Several": 1,
+    "FT_Visu": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Motion": 1,
+    "TS_Env_Light": 1,
+    "SP_Num_Mult": 1,
+    "SP_Pnt_Diff": 1,
+    "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1
+  },
   {
     "name": "\"KODAMA\"",
     "creators": "Hisako Kroiden Yamakawa",
@@ -712,7 +743,7 @@ const INSTALLATIONS = [
     "IT_Use_Facial": 1,
     "TS_Ima_Came": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "[self.]",
@@ -819,7 +850,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "A Museum Installation - No Name",
@@ -1116,7 +1147,7 @@ const INSTALLATIONS = [
     "SP_Pnt_Diff": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "ambiStar",
@@ -1185,7 +1216,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Art Machine: MindCatcher",
@@ -1221,7 +1252,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "As Wave impels a Wave / Come un'Onda premuta da un'Onda",
@@ -1374,7 +1405,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Augmented Glass",
@@ -1504,7 +1535,74 @@ const INSTALLATIONS = [
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
+  },
+  {
+    "name": "Bathing in Lightness ",
+    "creators": "Simon Stimbers, Angela Brennecke",
+    "hyperlink": "https://doi.org/10.1145/3404983.3410421",
+    "year": "2019",
+    "publication": "ACM International Conference Proceeding Series",
+    "fieldParts": [
+      "Artificial<br>Intelligence",
+      "Computer<br>Networks<br>and<br>Communications",
+      "Computer<br>Vision<br>and<br>Pattern<br>Recognition",
+      "Human-computer<br>Interaction",
+      "Software"
+    ],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_Visual_Int": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Abs": 1,
+    "SD_Pro_Gen": 1,
+    "LI_Dynamic": 1,
+    "RS_Expr": 1,
+    "IA_OneA": 1,
+    "IDof_One": 1,
+    "ODof_Several": 1,
+    "FT_Visu": 1,
+    "FT_Sonic": 1,
+    "MC_Timbral": 1,
+    "IT_Use_Motion": 1,
+    "TS_Ima_Motion": 1,
+    "SP_Num_Two": 1,
+    "SP_Hea_Stereo": 1,
+    "SP_Pnt_Same": 1,
+    "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1
+  },
+  {
+    "name": "Biotope",
+    "creators": "Jean-Luc Hervé",
+    "hyperlink": "https://doi.org/10.1017/S135577182100042X",
+    "year": "2019",
+    "publication": "Organised Sound",
+    "fieldParts": [
+      "Music",
+      "Computer<br>Science<br>Applications"
+    ],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_None": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Abs": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Motion": 1,
+    "TS_Det_Proximity": 1,
+    "SP_Num_Mult": 1,
+    "SP_Pnt_Diff": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1
   },
   {
     "name": "Blue Moon",
@@ -1540,7 +1638,7 @@ const INSTALLATIONS = [
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
     "SG_Obj_Reso": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "BrainWaves",
@@ -1678,8 +1776,8 @@ const INSTALLATIONS = [
     "IT_Use_Motion": 1,
     "TS_Ima_Motion": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1,
-    "UE_Study": 1
+    "UX_InfObs": 1,
+    "UX_Study": 1
   },
   {
     "name": "Cafe Topo-Phonie",
@@ -1779,6 +1877,44 @@ const INSTALLATIONS = [
     "SG_Obj_Elec": 1
   },
   {
+    "name": "Cloud Harps (Atmosphéries)",
+    "creators": "Anne Despond, Vincent Cusson, Nicolas Reeves ",
+    "hyperlink": "https://doi.org/10.1145/3478384.3478422",
+    "year": "1997 - 2021",
+    "publication": "ACM International Conference Proceeding Series",
+    "fieldParts": [
+      "Artificial<br>Intelligence",
+      "Computer<br>Networks<br>and<br>Communications",
+      "Computer<br>Vision<br>and<br>Pattern<br>Recognition",
+      "Human-computer<br>Interaction",
+      "Software"
+    ],
+    "CO_Exhibition": 1,
+    "CO_Outdoor": 1,
+    "IV_NonSonic": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Abs": 1,
+    "SD_Pro_Son": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "IA_None": 1,
+    "IDof_Several": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Note": 1,
+    "MC_Timbral": 1,
+    "IT_Ada_Natural": 1,
+    "TS_Mec_PressSens": 1,
+    "TS_Det_Proximity": 1,
+    "TS_Env_Light": 1,
+    "TS_Env_Heat": 1,
+    "TS_Env_Wind": 1,
+    "TS_Env_CO2": 1,
+    "TS_Env_Rain": 1,
+    "SG_Speakers": 1
+  },
+  {
     "name": "Coat Hanger Exhibition / Surfaces and Cavities",
     "creators": "Ros Bandt",
     "hyperlink": "https://doi.org/10.1080/07494460600761021",
@@ -1811,6 +1947,36 @@ const INSTALLATIONS = [
     "SP_Dir_Omni": 1,
     "SG_Obj_Elec": 1,
     "SG_Obj_Mecha": 1
+  },
+  {
+    "name": "Collision ",
+    "creators": "Jimmy Eadie",
+    "hyperlink": "https://doi.org/10.1007/978-3-030-73426-8_5",
+    "year": "2018",
+    "publication": "Lecture Notes of the Institute for Computer Sciences, Social-Informatics and Telecommunications Engineering, LNICST",
+    "fieldParts": [
+      "Computer<br>Networks<br>and<br>Communications"
+    ],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_NoSpec": 1,
+    "SD_Mat_Ref": 1,
+    "SD_Pro_Gen": 1,
+    "LI_Spot": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Embodied": 1,
+    "SP_Num_Mult": 1,
+    "SP_Pnt_Same": 1,
+    "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1
   },
   {
     "name": "Cross-Pollination",
@@ -1881,7 +2047,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Directive": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "data listening space",
@@ -1915,7 +2081,7 @@ const INSTALLATIONS = [
     "SP_Hea_Stereo": 1,
     "SP_Cnt_Algo": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Deceptive Cadence",
@@ -1944,7 +2110,7 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Ima_Came": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "DELEM",
@@ -2169,7 +2335,7 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1,
+    "UX_InfObs": 1,
     "Cross_Reference": 1
   },
   {
@@ -2229,6 +2395,38 @@ const INSTALLATIONS = [
     "FT_Visu": 1,
     "IT_Use_VisiSounds": 1,
     "TS_Mic_Micr": 1
+  },
+  {
+    "name": "EEG data (no name)",
+    "creators": "Chien-Tung Lin, R.P.C. Janaka Rajapakse, Yoshimasa Tokuyama",
+    "hyperlink": "https://doi.org/10.2991/jrnal.k.210713.010",
+    "year": "2021",
+    "publication": "Journal of Robotics, Networking and Artificial Life",
+    "fieldParts": [
+      "Artificial<br>Intelligence",
+      "Computer<br>Networks<br>and<br>Communications"
+    ],
+    "CO_Prototype": 1,
+    "AU_Both": 1,
+    "IV_Visual_Int": 1,
+    "LS_SweetSpot": 1,
+    "SD_Mat_Ref": 1,
+    "SD_Pro_Gen": 1,
+    "LI_Dynamic": 1,
+    "RS_Expr": 1,
+    "RS_Therapeutic": 1,
+    "IA_OneA": 1,
+    "IDof_One": 1,
+    "ODof_Several": 1,
+    "FT_Visu": 1,
+    "FT_Sonic": 1,
+    "MC_Timbral": 1,
+    "IT_Use_Brain": 1,
+    "TS_Bio_EEG": 1,
+    "SP_Hea_Stereo": 1,
+    "SP_Cnt_Channel": 1,
+    "SG_Speakers": 1,
+    "UX_Study": 1
   },
   {
     "name": "Eidola",
@@ -2428,7 +2626,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Algo": 1,
     "SG_Speakers": 1,
     "SG_Obj_Elec": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Fear Division",
@@ -2490,6 +2688,63 @@ const INSTALLATIONS = [
     "SP_Dir_Omni": 1,
     "SG_Obj_Reso": 1,
     "SG_Musical": 1
+  },
+  {
+    "name": "Final Whale Sound",
+    "creators": "Jiahe Liu",
+    "hyperlink": "https://iopscience.iop.org/article/10.1088/1742-6596/1827/1/012116/pdf",
+    "year": "2021",
+    "publication": "Journal of Physics : Conference Series",
+    "fieldParts": [
+      "Physics<br>and<br>Astronomy<br>(miscellaneous)"
+    ],
+    "CO_Prototype": 1,
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "IV_Visual_Int": 1,
+    "LS_SweetSpot": 1,
+    "SD_Mat_Ref": 1,
+    "SD_Mat_Local": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "IA_OneA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Visu": 1,
+    "FT_Sonic": 1,
+    "IT_Use_Embodied": 1,
+    "IT_Use_VisiSounds": 1,
+    "TS_Mic_Micr": 1,
+    "TS_Det_PressurePad": 1,
+    "SP_Num_One": 1,
+    "SP_Pnt_Same": 1,
+    "SP_Cnt_Channel": 1,
+    "SG_Speakers": 1
+  },
+  {
+    "name": "Five Cereals",
+    "creators": "Yuning Fan",
+    "hyperlink": "https://doi.org/10.1109/ICBAIE52039.2021.9389899",
+    "year": "2021",
+    "publication": "IEEE International Conference on Big Data, Artificial Intelligence and Internet of Things Engineering",
+    "fieldParts": [],
+    "CO_Prototype": 1,
+    "AU_Child": 1,
+    "IV_NonSonic": 1,
+    "IV_Visual_Int": 1,
+    "LS_SweetSpot": 1,
+    "SD_Mat_Ref": 1,
+    "LI_Dynamic": 1,
+    "RS_Didactic": 1,
+    "IA_OneA": 1,
+    "IDof_One": 1,
+    "ODof_Several": 1,
+    "FT_Visu": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Embodied": 1,
+    "TS_Det_PressurePad": 1,
+    "SG_Speakers": 1
   },
   {
     "name": "Fleischwolf",
@@ -2555,7 +2810,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "From snow [to space to movement] to sound",
@@ -2586,7 +2841,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Grainstick",
@@ -2658,6 +2913,40 @@ const INSTALLATIONS = [
     "SG_Obj_Mecha": 1
   },
   {
+    "name": "Guqin Culture (no name)",
+    "creators": "Danni Shen, Herui Guo, Linghui Yu, Jie Ying, Jie Shen, Shuchen Ying, Defu Bao, Ying Wang",
+    "hyperlink": "https://doi.org/10.3390/su14042356",
+    "year": "2022",
+    "publication": "Sustainability",
+    "fieldParts": [
+      "Energy<br>Engineering<br>and<br>Power<br>Technology",
+      "Renwalble<br>Energy,<br>Sustainability<br>and<br>the<br>Environment",
+      "Environmental<br>Science<br>(miscellaneous)",
+      "Management,<br>Monitoring,<br>Policy<br>and<br>Law",
+      "Geography,<br>Planning<br>and<br>Development"
+    ],
+    "CO_Outdoor": 1,
+    "CO_Prototype": 1,
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "LS_SweetSpot": 1,
+    "SD_Mat_Ref": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "IA_OneA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Note": 1,
+    "IT_Use_Embodied": 1,
+    "TS_Det_Proximity": 1,
+    "SP_Num_One": 1,
+    "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1,
+    "UX_Study": 1
+  },
+  {
     "name": "Haptically Enhanced Painting - No Name",
     "creators": "Hoang Le, Rui Loureiro, Florian Dussopt et al. ",
     "hyperlink": "https://doi.org/10.1109/ICORR.2013.6650468",
@@ -2687,7 +2976,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Harmonic Bridges",
@@ -2722,7 +3011,7 @@ const INSTALLATIONS = [
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
     "SG_Obj_Reso": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Heterogenesis",
@@ -2990,7 +3279,7 @@ const INSTALLATIONS = [
     "TS_Con_Touch": 1,
     "SP_Hea_Stereo": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Interactive Light Studio - No Name",
@@ -3031,7 +3320,7 @@ const INSTALLATIONS = [
     "SG_Speakers": 1,
     "SG_Obj_Reso": 1,
     "SG_Musical": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Interactive multi-touch tabletop - No Name",
@@ -3060,7 +3349,7 @@ const INSTALLATIONS = [
     "SP_Num_One": 1,
     "SP_Cnt_Channel": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Interactive Sound Installation - No Name",
@@ -3131,7 +3420,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Interactive Work - No Name",
@@ -3196,7 +3485,7 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Con_Remote": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Keys to your Music",
@@ -3231,6 +3520,34 @@ const INSTALLATIONS = [
     "SG_Musical": 1
   },
   {
+    "name": "Lazy Eyes",
+    "creators": "Aleksandra Stodulska",
+    "hyperlink": "https://doi.org/10.1080/08949468.2021.1851577",
+    "year": "2016",
+    "publication": "Visual Anthropology",
+    "fieldParts": [
+      "Anthropology",
+      "Cultural<br>Studies"
+    ],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_Visual_Int": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Ref": 1,
+    "SD_Pro_Gen": 1,
+    "LI_Dynamic": 1,
+    "RS_Didactic": 1,
+    "IA_OneA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Visu": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Motion": 1,
+    "SG_Speakers": 1
+  },
+  {
     "name": "Lichtgestalt",
     "creators": "Cumhur Erkut and Jonas Fehr",
     "hyperlink": "https://doi.org/10.1007/978-3-319-55834-9_5",
@@ -3257,7 +3574,7 @@ const INSTALLATIONS = [
     "IT_Use_Motion": 1,
     "TS_Ima_Motion": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Lightforest",
@@ -3490,7 +3807,7 @@ const INSTALLATIONS = [
     "TS_Mic_Micr": 1,
     "SP_Num_One": 1,
     "SG_Musical": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Memory Map",
@@ -3528,6 +3845,32 @@ const INSTALLATIONS = [
     "SG_Speakers": 1
   },
   {
+    "name": "Messages from the Horizon ",
+    "creators": "Faisal Abdu'Allah, Mark-David Hosale, Maryam Ladoni, Jim Madsen",
+    "hyperlink": "https://doi.org/10.48550/arXiv.1908.09054",
+    "year": "2019",
+    "publication": "International Cosmic Ray Conference",
+    "fieldParts": [],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "IV_Visual_Int": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Abs": 1,
+    "SD_Pro_Son": 1,
+    "LI_Dynamic": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_One": 1,
+    "ODof_Several": 1,
+    "FT_Visu": 1,
+    "FT_Sonic": 1,
+    "IT_Use_Embodied": 1,
+    "TS_Con_Touch": 1,
+    "SG_Speakers": 1
+  },
+  {
     "name": "Meta-Diva",
     "creators": "Nigel Helyer",
     "hyperlink": "https://doi.org/10.1017/s1355771805000774",
@@ -3556,6 +3899,39 @@ const INSTALLATIONS = [
     "SP_Num_Mult": 1,
     "SP_Pnt_Diff": 1,
     "SP_Pnt_Dyna": 1,
+    "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1
+  },
+  {
+    "name": "Microbial Sonorities",
+    "creators": "Carlos Castellanos, Bello Bello, Hyeryeong Lee, Mungyu Lee, Yoo Seok Lee, In Seop Chang",
+    "hyperlink": "https://doi.org/10.1007/978-3-030-37731-1_12",
+    "year": "2016",
+    "publication": "Lecture Notes in Computer Science",
+    "fieldParts": [
+      "Computer<br>Science<br>(miscellaneous)",
+      "Theoretical<br>Computer<br>Science"
+    ],
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "IV_Visual_Int": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_NoSpec": 1,
+    "SD_Mat_Abs": 1,
+    "SD_Pro_Son": 1,
+    "LI_Spot": 1,
+    "RS_Expr": 1,
+    "IA_None": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Note": 1,
+    "MC_Timbral": 1,
+    "IT_Ada_Natural": 1,
+    "TS_Ele_Volt": 1,
+    "SP_Num_Mult": 1,
+    "SP_Pnt_Same": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1
@@ -3595,7 +3971,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Music Within",
@@ -3628,7 +4004,7 @@ const INSTALLATIONS = [
     "TS_Det_PressurePad": 1,
     "SP_Hea_Stereo": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Musikiosk",
@@ -3664,7 +4040,41 @@ const INSTALLATIONS = [
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
+  },
+  {
+    "name": "Myxomatosound ",
+    "creators": "Mikel Arce",
+    "hyperlink": "https://doi.org/10.1145/3471391.3471417",
+    "year": "2021",
+    "publication": "ACM International Conference Proceeding Series",
+    "fieldParts": [
+      "Artificial<br>Intelligence",
+      "Computer<br>Networks<br>and<br>Communications",
+      "Computer<br>Vision<br>and<br>Pattern<br>Recognition",
+      "Human-computer<br>Interaction",
+      "Software"
+    ],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Ref": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Note": 1,
+    "IT_Use_Embodied": 1,
+    "TS_Mec_Acce": 1,
+    "SP_Num_Mult": 1,
+    "SP_Pnt_Dyna": 1,
+    "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1
   },
   {
     "name": "Networked Robotic System - No Name",
@@ -3773,7 +4183,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Oh!m1gas: biomimetic stridulation environment",
@@ -3842,7 +4252,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Oracle",
@@ -3875,6 +4285,41 @@ const INSTALLATIONS = [
     "TS_Ima_Came": 1,
     "SP_Num_Two": 1,
     "SP_Pnt_Same": 1,
+    "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1
+  },
+  {
+    "name": "O-Tu-Kapua (What Clouds See)",
+    "creators": "Guy Coulson, Susan Jowsey, Marcus Williams, Gustavo Olivares",
+    "hyperlink": "https://doi.org/10.1162/leon_a_01789",
+    "year": "2021",
+    "publication": "showing trends at di",
+    "fieldParts": [
+      "Music",
+      "Visual<br>Arts<br>and<br>Performing<br>Arts",
+      "Computer<br>Science<br>Applications",
+      "Engineering<br>(miscellaneous)"
+    ],
+    "CO_Exhibition": 1,
+    "AU_Child": 1,
+    "IV_NonSonic": 1,
+    "IV_Visual_Int": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Ref": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_One": 1,
+    "ODof_Several": 1,
+    "FT_Visu": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Network": 1,
+    "TS_Server": 1,
+    "TS_Con_Touch": 1,
+    "SP_Num_Mult": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1
@@ -3914,6 +4359,44 @@ const INSTALLATIONS = [
     "TS_Ima_Motion": 1,
     "SP_Pnt_Same": 1,
     "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1
+  },
+  {
+    "name": "Parlamento en el tiempo",
+    "creators": "Enrique Hurtado, Mikel Arce, Josu Rekalde",
+    "hyperlink": "https://doi.org/10.1145/3471391.3471417",
+    "year": "2016",
+    "publication": "ACM International Conference Proceeding Series",
+    "fieldParts": [
+      "Artificial<br>Intelligence",
+      "Computer<br>Networks<br>and<br>Communications",
+      "Computer<br>Vision<br>and<br>Pattern<br>Recognition",
+      "Human-computer<br>Interaction",
+      "Software"
+    ],
+    "CO_Outdoor": 1,
+    "AU_Both": 1,
+    "IV_Visual_Int": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Ref": 1,
+    "SD_Mat_Local": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "RS_Info": 1,
+    "IA_OneA": 1,
+    "IDof_Several": 1,
+    "ODof_Several": 1,
+    "FT_Visu": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Motion": 1,
+    "IT_Use_VisiSounds": 1,
+    "TS_Mic_Micr": 1,
+    "TS_Ima_Came": 1,
+    "SP_Num_One": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1
   },
@@ -3986,6 +4469,42 @@ const INSTALLATIONS = [
     "SG_Speakers": 1
   },
   {
+    "name": "PlantConnect ",
+    "creators": "Carlos Castellanos, Bello Bello, Hyeryeong Lee, Mungyu Lee, Yoo Seok Lee, In Seop Chang",
+    "hyperlink": "https://doi.org/10.1007/978-3-030-37731-1_12",
+    "year": "2019",
+    "publication": "Lecture Notes in Computer Science",
+    "fieldParts": [
+      "Computer<br>Science<br>(miscellaneous)",
+      "Theoretical<br>Computer<br>Science"
+    ],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "IV_Visual_Int": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_NoSpec": 1,
+    "SD_Mat_Abs": 1,
+    "SD_Pro_Son": 1,
+    "LI_Dynamic": 1,
+    "RS_Expr": 1,
+    "IA_None": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Note": 1,
+    "MC_Timbral": 1,
+    "IT_Use_VisiSounds": 1,
+    "IT_Ada_Natural": 1,
+    "TS_Ele_Volt": 1,
+    "TS_Ima_Came": 1,
+    "SP_Num_Mult": 1,
+    "SP_Pnt_Dyna": 1,
+    "SP_Cnt_Algo": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1
+  },
+  {
     "name": "Pleasure Garden",
     "creators": "Joseph Browning",
     "hyperlink": "https://doi.org/10.1017/rma.2020.10",
@@ -4046,6 +4565,33 @@ const INSTALLATIONS = [
     "SG_Speakers": 1
   },
   {
+    "name": "Poly",
+    "creators": "Benjamin Matuszewski",
+    "hyperlink": "https://doi.org/10.1017/S135577182100042X",
+    "year": "2020",
+    "publication": "Organised Sound",
+    "fieldParts": [
+      "Music",
+      "Computer<br>Science<br>Applications"
+    ],
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_NoSpec": 1,
+    "SD_Mat_Ref": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Note": 1,
+    "IT_Use_Embodied": 1,
+    "SP_Num_Mult": 1,
+    "SG_Obj_Mecha": 1,
+    "SG_Obj_Reso": 1
+  },
+  {
     "name": "Polymetros",
     "creators": "Ben Bengler and Nick Bryan-Kinns",
     "hyperlink": "https://doi.org/10.1145/2466627.2466633",
@@ -4077,7 +4623,7 @@ const INSTALLATIONS = [
     "SP_Dir_Directive": 1,
     "SG_Speakers": 1,
     "SG_Musical": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Public conducts / Condotte pubbliche",
@@ -4115,7 +4661,7 @@ const INSTALLATIONS = [
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
     "SG_Obj_Reso": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Publicly Displayed Interactive Installation - No Name",
@@ -4150,7 +4696,7 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Quinine",
@@ -4279,7 +4825,7 @@ const INSTALLATIONS = [
     "SP_Pnt_Diff": 1,
     "SP_Cnt_Algo": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Red Light Spotters",
@@ -4417,6 +4963,32 @@ const INSTALLATIONS = [
     "SG_Speakers": 1
   },
   {
+    "name": "Sand Scope",
+    "creators": "Lyn Chao-ling Chen",
+    "hyperlink": "https://doi.org/10.1145/3474085.3478543",
+    "year": "2021",
+    "publication": "ACM International Conference on Multimedia",
+    "fieldParts": [],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_Visual_Int": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Local": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_Several": 1,
+    "ODof_Several": 1,
+    "FT_Visu": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Motion": 1,
+    "IT_Use_VisiSounds": 1,
+    "TS_Mic_Micr": 1,
+    "TS_Ima_Came": 1,
+    "SG_Speakers": 1
+  },
+  {
     "name": "Seeing Aural",
     "creators": "Yi-Ching Huang",
     "hyperlink": "https://doi.org/10.1145/2540930.2555198",
@@ -4541,7 +5113,7 @@ const INSTALLATIONS = [
     "IT_Use_Motion": 1,
     "TS_Ima_Came": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Shadowgraphs",
@@ -4568,7 +5140,7 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "SP_Hea_Stereo": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Skyhooks",
@@ -4602,7 +5174,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Sneaky Time",
@@ -4899,7 +5471,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Sound Installation - No Name",
@@ -4930,7 +5502,7 @@ const INSTALLATIONS = [
     "TS_Con_Touch": 1,
     "SP_Hea_Stereo": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Sound of Colour",
@@ -4962,7 +5534,37 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Ima_Came": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
+  },
+  {
+    "name": "Sound of Space",
+    "creators": "Eleni Economidou, Bart Hengeveld, Moritz Kubesch, Alina Krischkowsky, Martin Murer, Manfred Tscheligi",
+    "hyperlink": "https://doi.org/10.1145/3461778.3462070",
+    "year": "2021",
+    "publication": "ACM Designing Interactive Systems Confere",
+    "fieldParts": [],
+    "CO_Exhibition": 1,
+    "CO_School": 1,
+    "AU_Child": 1,
+    "AU_Both": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Temp": 1,
+    "SD_Mat_Abs": 1,
+    "SD_Mat_Ref": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Motion": 1,
+    "TS_Ele_Capa": 1,
+    "SP_Num_One": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1,
+    "SG_Obj_Elec": 1
   },
   {
     "name": "Sound Planet",
@@ -5060,7 +5662,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "SoundPlay",
@@ -5173,7 +5775,44 @@ const INSTALLATIONS = [
     "SP_Cnt_Algo": 1,
     "SP_Dir_Directive": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
+  },
+  {
+    "name": "Speaker Sculptures ",
+    "creators": "Benoît Maubrey",
+    "hyperlink": "https://doi.org/10.1017/S1355771822000085",
+    "year": "2019",
+    "publication": "Organised Sound",
+    "fieldParts": [
+      "Music",
+      "Computer<br>Science<br>Applications"
+    ],
+    "CO_Outdoor": 1,
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Local": 1,
+    "SD_Mat_Pre": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "RS_Info": 1,
+    "IA_Many": 1,
+    "IDof_Several": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Network": 1,
+    "IT_Use_VisiSounds": 1,
+    "TS_Server": 1,
+    "TS_Mic_Micr": 1,
+    "SP_Num_Mult": 1,
+    "SP_Pnt_Diff": 1,
+    "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1,
+    "UX_InfObs": 1
   },
   {
     "name": "SpherAleas",
@@ -5247,7 +5886,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Spiral",
@@ -5314,6 +5953,42 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1
+  },
+  {
+    "name": "Squidback ",
+    "creators": "Gianluca Elia, Dan Overholt",
+    "hyperlink": "https://users.sussex.ac.uk/~ck84/pdf/squidback.pdf",
+    "year": "2021",
+    "publication": "Sound and Music Computing Conferences",
+    "fieldParts": [],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Abs": 1,
+    "SD_Mat_Local": 1,
+    "SD_Pro_Feed": 1,
+    "SD_Pro_Cancel": 1,
+    "SD_SiteAcou": 1,
+    "LI_Spot": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Motion": 1,
+    "IT_Use_VisiSounds": 1,
+    "TS_Server": 1,
+    "TS_Mic_Micr": 1,
+    "SP_Num_Mult": 1,
+    "SP_Pnt_Diff": 1,
+    "SP_Pnt_Dyna": 1,
+    "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1,
+    "UX_InfObs": 1
   },
   {
     "name": "State Dependency ",
@@ -5415,7 +6090,7 @@ const INSTALLATIONS = [
     "TS_Bio_EMGs": 1,
     "SP_Hea_Stereo": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Stocheia",
@@ -5476,7 +6151,7 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Con_Touch": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Straw-like User Interface",
@@ -5546,6 +6221,64 @@ const INSTALLATIONS = [
     "SP_Pnt_Dyna": 1,
     "SP_Cnt_Algo": 1,
     "SP_Dir_Directive": 1,
+    "SG_Speakers": 1
+  },
+  {
+    "name": "Study in three phases",
+    "creators": "Claudio Panariello",
+    "hyperlink": "https://doi.org/10.1162/lmj_a_01089",
+    "year": "2020",
+    "publication": "Leonardo Music Journal",
+    "fieldParts": [
+      "Music",
+      "Computer<br>Science<br>Apllications",
+      "Engineering<br>(miscellaneous)"
+    ],
+    "CO_Outdoor": 1,
+    "AU_Both": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_Path": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Ref": 1,
+    "SD_Mat_Local": 1,
+    "SD_Pro_Feed": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "IA_Countles": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_VisiSounds": 1,
+    "IT_Ada_Natural": 1,
+    "TS_Mic_Micr": 1,
+    "SG_Obj_Mecha": 1
+  },
+  {
+    "name": "Stymphalian Birds ",
+    "creators": "Audrey Briot, Cedric Honnet, Paul Strohmeier",
+    "hyperlink": "https://doi.org/10.1145/3393914.3395840",
+    "year": "2020",
+    "publication": "ACM Designing Interactive Systems Conference",
+    "fieldParts": [
+      "Computer<br>Networks<br>and<br>Communications",
+      "Human-Computer<br>Interaction"
+    ],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Ref": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "MC_Note": 1,
+    "IT_Use_Embodied": 1,
+    "TS_Ele_Capa": 1,
     "SG_Speakers": 1
   },
   {
@@ -5658,7 +6391,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Syren",
@@ -5793,7 +6526,7 @@ const INSTALLATIONS = [
     "TS_Ima_Motion": 1,
     "SP_Hea_Stereo": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Tea Four Two",
@@ -6021,7 +6754,7 @@ const INSTALLATIONS = [
     "TS_Server": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "The Light Orchard",
@@ -6051,6 +6784,40 @@ const INSTALLATIONS = [
     "TS_Ele_Capa": 1,
     "TS_Mic_Micr": 1,
     "TS_Det_Proximity": 1
+  },
+  {
+    "name": "The Listen ",
+    "creators": "Xinyu Zhou ",
+    "hyperlink": "https://dio.org/10.1088/1742-6596/1827/1/012183",
+    "year": "2021",
+    "publication": "Journal of Physics : Conference Series",
+    "fieldParts": [
+      "Physics<br>and<br>Astronomy<br>(miscellaneous)"
+    ],
+    "CO_Outdoor": 1,
+    "CO_Prototype": 1,
+    "AU_Both": 1,
+    "IV_Visual_Int": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_NoSpec": 1,
+    "SD_Mat_Ref": 1,
+    "LI_Dynamic": 1,
+    "RS_Expr": 1,
+    "RS_Info": 1,
+    "IA_FewA": 1,
+    "IDof_Several": 1,
+    "ODof_Several": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Embodied": 1,
+    "IT_Use_Motion": 1,
+    "TS_Mec_Acce": 1,
+    "TS_Mic_Micr": 1,
+    "TS_Det_Proximity": 1,
+    "SP_Num_Mult": 1,
+    "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1
   },
   {
     "name": "The Listening Walker",
@@ -6180,7 +6947,7 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "The Memory Machine",
@@ -6249,7 +7016,7 @@ const INSTALLATIONS = [
     "TS_Mic_Micr": 1,
     "TS_Ima_Came": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "The Organ Pipe",
@@ -6282,6 +7049,32 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Obj_Reso": 1
+  },
+  {
+    "name": "The Plants",
+    "creators": "Playable Streets",
+    "hyperlink": "https://doi.org/10.1145/3397481.3450691",
+    "year": "2021",
+    "publication": "International Conference on Intelligent User Interfaces",
+    "fieldParts": [
+      "Computer<br>Networks<br>and<br>Communications",
+      "Electronic,<br>Optical<br>and<br>Magnetic<br>Materials",
+      "Atomic<br>and<br>Molecular<br>Physics,<br>and<br>Optics"
+    ],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Embodied": 1,
+    "SG_Speakers": 1,
+    "UX_Study": 1
   },
   {
     "name": "The Pulse of the Earth",
@@ -6407,6 +7200,66 @@ const INSTALLATIONS = [
     "SG_Speakers": 1
   },
   {
+    "name": "The Sound of Textile",
+    "creators": "Sara Mlakar, Thomas Preindl, Andreas Pointner, Mira Alida Haberfellner, Rainer Danner, Roland Aigner, and Michael Haller.",
+    "hyperlink": "https://doi.org/10.1145/3483529.3483742",
+    "year": "2021",
+    "publication": "ACM International Conference Proceeding Series",
+    "fieldParts": [
+      "Artificial<br>Intelligence",
+      "Computer<br>Networks<br>and<br>Communications",
+      "Computer<br>Vision<br>and<br>Pattern<br>Recognition",
+      "Human-Computer<br>Interaction",
+      "Software"
+    ],
+    "CO_Prototype": 1,
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "SD_Mat_Abs": 1,
+    "SD_Mat_Ref": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "IA_OneA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Note": 1,
+    "IT_Use_Embodied": 1,
+    "TS_Ele_Capa": 1,
+    "SG_Speakers": 1
+  },
+  {
+    "name": "The Soundomat ",
+    "creators": "Astrid K. Graungaard, August E. Enghoff, Johanne L. Fogsgaard, Laura K. Schmidt, and Marc D. Hansen",
+    "hyperlink": "https://doi.org/10.1007/978-3-030-60703-6_48",
+    "year": "2020",
+    "publication": "Communications in Computer and Information Science",
+    "fieldParts": [
+      "Computer<br>Science",
+      "Mathematics"
+    ],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Ref": 1,
+    "SD_Mat_Local": 1,
+    "LI_Dynamic": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_Several": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "MC_Note": 1,
+    "MC_Timbral": 1,
+    "IT_Use_Embodied": 1,
+    "TS_Mic_Piezo": 1,
+    "SG_Speakers": 1,
+    "UX_Study": 1
+  },
+  {
     "name": "The Voice Harvester",
     "creators": "Nicholas True, Fredrik Nilbrink, Nigel Papworth et al.",
     "hyperlink": "https://doi.org/10.1145/2468356.2479595",
@@ -6437,6 +7290,41 @@ const INSTALLATIONS = [
     "TS_Mic_Micr": 1,
     "SP_Num_Mult": 1,
     "SP_Pnt_Same": 1,
+    "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1
+  },
+  {
+    "name": "Think silently, act with noise",
+    "creators": "Enrique Hurtado, Mikel Arce, Josu Rekalde",
+    "hyperlink": "https://doi.org/10.1145/3471391.3471417",
+    "year": "2013",
+    "publication": "ACM International Conference Proceeding Series",
+    "fieldParts": [
+      "Artificial<br>Intelligence",
+      "Computer<br>Networks<br>and<br>Communications",
+      "Computer<br>Vision<br>and<br>Pattern<br>Recognition",
+      "Human-computer<br>Interaction",
+      "Software"
+    ],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "IV_Visual_Int": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Abs": 1,
+    "LI_None": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_One": 1,
+    "ODof_Several": 1,
+    "FT_Haptic": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Embodied": 1,
+    "TS_Mic_Piezo": 1,
+    "SP_Num_Two": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1
@@ -6543,6 +7431,34 @@ const INSTALLATIONS = [
     "SG_Speakers": 1
   },
   {
+    "name": "Tinnitus Studies",
+    "creators": "Hui Ye",
+    "hyperlink": "https://doi.org/10.1080/08949468.2021.1851577",
+    "year": "2017",
+    "publication": "Visual Anthropology",
+    "fieldParts": [
+      "Anthropology",
+      "Cultural<br>Studies"
+    ],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "LS_Dyn_NoSpec": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Abs": 1,
+    "LI_Spot": 1,
+    "RS_Expr": 1,
+    "IA_FewA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Embodied": 1,
+    "TS_Det_PressurePad": 1,
+    "SP_Hea_Stereo": 1,
+    "SG_Speakers": 1
+  },
+  {
     "name": "Traffic Mantra",
     "creators": "Bruce Odland and Sam Auinger",
     "hyperlink": "https://doi.org/10.1162/lmj.2009.19.63",
@@ -6576,7 +7492,7 @@ const INSTALLATIONS = [
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
     "SG_Obj_Reso": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Train Constellations",
@@ -6669,7 +7585,39 @@ const INSTALLATIONS = [
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
+  },
+  {
+    "name": "Txalaparta ipurtargi",
+    "creators": "Enrique Hurtado, Mikel Arce, Josu Rekalde",
+    "hyperlink": "https://doi.org/10.1145/3471391.3471417",
+    "year": "2019",
+    "publication": "ACM International Conference Proceeding Series",
+    "fieldParts": [
+      "Artificial<br>Intelligence",
+      "Computer<br>Networks<br>and<br>Communications",
+      "Computer<br>Vision<br>and<br>Pattern<br>Recognition",
+      "Human-computer<br>Interaction",
+      "Software"
+    ],
+    "CO_Outdoor": 1,
+    "AU_Both": 1,
+    "IV_Visual_Int": 1,
+    "IV_SonicEl": 1,
+    "LS_SweetSpot": 1,
+    "LP_Ephemeral": 1,
+    "SD_Mat_Ref": 1,
+    "LI_Dynamic": 1,
+    "RS_Expr": 1,
+    "IA_OneA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Visu": 1,
+    "MC_Note": 1,
+    "IT_Use_Embodied": 1,
+    "IT_Use_VisiSounds": 1,
+    "TS_Det_PressurePad": 1,
+    "SG_Musical": 1
   },
   {
     "name": "Variations",
@@ -6737,6 +7685,41 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Obj_Elec": 1
+  },
+  {
+    "name": "Virtual Garden ",
+    "creators": "Vasileios K. Bouzas ",
+    "hyperlink": "https://doi.org/10.1145/3483529.3483739",
+    "year": "2021",
+    "publication": "ACM International Conference Proceeding Series",
+    "fieldParts": [
+      "Artificial<br>Intelligence",
+      "Computer<br>Networks<br>and<br>Communications",
+      "Computer<br>Vision<br>and<br>Pattern<br>Recognition",
+      "Human-Computer<br>Interaction",
+      "Software"
+    ],
+    "CO_Prototype": 1,
+    "AU_Both": 1,
+    "IV_Visual_Int": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_NoSpec": 1,
+    "SD_Mat_Pre": 1,
+    "LI_None": 1,
+    "RS_Info": 1,
+    "IA_OneA": 1,
+    "IDof_One": 1,
+    "ODof_Several": 1,
+    "FT_Visu": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Embodied": 1,
+    "TS_Det_Proximity": 1,
+    "SP_Num_Two": 1,
+    "SP_Pnt_Same": 1,
+    "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1
   },
   {
     "name": "Visual Melodies",
@@ -6810,7 +7793,7 @@ const INSTALLATIONS = [
     "SP_Pnt_Dyna": 1,
     "SP_Dir_Directive": 1,
     "SG_Speakers": 1,
-    "UE_InfObs": 1
+    "UX_InfObs": 1
   },
   {
     "name": "Voice Networks",
@@ -6885,7 +7868,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   },
   {
     "name": "Waves of Remembrance",
@@ -7117,6 +8100,38 @@ const INSTALLATIONS = [
     "SG_Speakers": 1
   },
   {
+    "name": "Wow&Flutter",
+    "creators": "Jimmy Eadie",
+    "hyperlink": "https://doi.org/10.1007/978-3-030-73426-8_5",
+    "year": "2017",
+    "publication": "Lecture Notes of the Institute for Computer Sciences, Social-Informatics and Telecommunications Engineering, LNICST",
+    "fieldParts": [
+      "Computer<br>Networks<br>and<br>Communications"
+    ],
+    "CO_Exhibition": 1,
+    "AU_Both": 1,
+    "IV_NonSonic": 1,
+    "IV_SonicEl": 1,
+    "LS_Dyn_NoSpec": 1,
+    "SD_Mat_Abs": 1,
+    "SD_Mat_Ref": 1,
+    "SD_Mat_Pre": 1,
+    "LI_Spot": 1,
+    "RS_Expr": 1,
+    "RS_Info": 1,
+    "IA_FewA": 1,
+    "IDof_One": 1,
+    "ODof_One": 1,
+    "FT_Sonic": 1,
+    "MC_Process": 1,
+    "IT_Use_Embodied": 1,
+    "SP_Num_Mult": 1,
+    "SP_Pnt_Same": 1,
+    "SP_Cnt_Channel": 1,
+    "SP_Dir_Omni": 1,
+    "SG_Speakers": 1
+  },
+  {
     "name": "Zwischenraume",
     "creators": "Georgios Marentakis, David Pirro and Raphael Kapeller",
     "hyperlink": "https://quod.lib.umich.edu/cache//b/b/p/bbp2372.2014.043/bbp2372.2014.043.pdf#page=1;zoom=75",
@@ -7152,7 +8167,7 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UE_Study": 1
+    "UX_Study": 1
   }
 ];
 
@@ -7653,84 +8668,84 @@ const DROPDOWN_OPTIONS = [
     "id": "TS_Env_Sism"
   },
   {
-    "label": "Spatialization | One   ",
+    "label": "Type of Input Device | One   ",
     "value": "One   ",
-    "id": "SP_Num_One"
+    "id": "TS_Env_CO2"
   },
   {
-    "label": "Spatialization | Two   ",
+    "label": "Type of Input Device | Two   ",
     "value": "Two   ",
-    "id": "SP_Num_Two"
+    "id": "TS_Env_Rain"
   },
   {
     "label": "Spatialization | Multiple Sources",
     "value": "Multiple<br>Sources",
-    "id": "SP_Num_Mult"
+    "id": "SP_Num_One"
   },
   {
     "label": "Spatialization | Stereo",
     "value": "Stereo",
-    "id": "SP_Hea_Stereo"
+    "id": "SP_Num_Two"
   },
   {
     "label": "Spatialization | Towards the Same Point",
     "value": "Towards the<br>Same Point",
-    "id": "SP_Pnt_Same"
+    "id": "SP_Num_Mult"
   },
   {
     "label": "Spatialization | Towards Different Points",
     "value": "Towards<br>Different Points",
-    "id": "SP_Pnt_Diff"
+    "id": "SP_Hea_Stereo"
   },
   {
     "label": "Spatialization | Dynamic  ",
     "value": "Dynamic  ",
-    "id": "SP_Pnt_Dyna"
+    "id": "SP_Pnt_Same"
   },
   {
     "label": "Spatialization | Channel-Based",
     "value": "Channel-Based",
-    "id": "SP_Cnt_Channel"
+    "id": "SP_Pnt_Diff"
   },
   {
     "label": "Spatialization | Automated Spatialization",
     "value": "Automated<br>Spatialization",
-    "id": "SP_Cnt_Algo"
+    "id": "SP_Pnt_Dyna"
   },
   {
     "label": "Spatialization | Directive",
     "value": "Directive",
-    "id": "SP_Dir_Directive"
+    "id": "SP_Cnt_Channel"
   },
   {
     "label": "Spatialization | Non Directive",
     "value": "Non<br>Directive",
-    "id": "SP_Dir_Omni"
+    "id": "SP_Cnt_Algo"
   },
   {
-    "label": "Sound Generation | Speakers",
+    "label": "Spatialization | Speakers",
     "value": "Speakers",
-    "id": "SG_Speakers"
+    "id": "SP_Dir_Directive"
   },
   {
-    "label": "Sound Generation | Electronic",
+    "label": "Spatialization | Electronic",
     "value": "Electronic",
-    "id": "SG_Obj_Elec"
+    "id": "SP_Dir_Omni"
   },
   {
     "label": "Sound Generation | Mechanical",
     "value": "Mechanical",
-    "id": "SG_Obj_Mecha"
+    "id": "SG_Speakers"
   },
   {
     "label": "Sound Generation | Resonant",
     "value": "Resonant",
-    "id": "SG_Obj_Reso"
+    "id": "SG_Obj_Elec"
   },
   {
     "label": "Sound Generation | Musical Instrument",
     "value": "Musical<br>Instrument",
-    "id": "SG_Musical"
+    "id": "SG_Obj_Mecha"
   }
 ];
 
@@ -7952,6 +8967,8 @@ const ID_LIST = [
   "TS_Env_Heat",
   "TS_Env_Wind",
   "TS_Env_Sism",
+  "TS_Env_CO2",
+  "TS_Env_Rain",
   "SP_Num_One",
   "SP_Num_Two",
   "SP_Num_Mult",
@@ -7965,9 +8982,7 @@ const ID_LIST = [
   "SP_Dir_Omni",
   "SG_Speakers",
   "SG_Obj_Elec",
-  "SG_Obj_Mecha",
-  "SG_Obj_Reso",
-  "SG_Musical"
+  "SG_Obj_Mecha"
 ];
 
 const PARENT_LIST = [
@@ -8070,6 +9085,8 @@ const PARENT_LIST = [
   "Type of<br>Input Device",
   "Type of<br>Input Device",
   "Type of<br>Input Device",
+  "Type of<br>Input Device",
+  "Type of<br>Input Device",
   "Spatialization",
   "Spatialization",
   "Spatialization",
@@ -8081,8 +9098,6 @@ const PARENT_LIST = [
   "Spatialization",
   "Spatialization",
   "Spatialization",
-  "Sound<br>Generation",
-  "Sound<br>Generation",
   "Sound<br>Generation",
   "Sound<br>Generation",
   "Sound<br>Generation"
