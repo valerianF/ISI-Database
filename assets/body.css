@@ -71,6 +71,59 @@ a:hover {
     color: #8E8E8E;
 }
 
+/* Utility spacers — replaces inline style="padding-bottom:..." */
+.spacer-sm { padding-bottom: 0.5cm; }
+.spacer-lg { padding-bottom: 2cm; }
+
+/* License line below credits */
+.license_text {
+    color: #AEAEAE;
+    padding-bottom: 1cm;
+    padding-left: 1cm;
+    font-weight: 500;
+    font-size: 10pt;
+}
+
+/* Glossary theme colors */
+.summary_ai { color: #9C2457; }
+.summary_in { color: #1852A4; }
+.summary_sd { color: #026027; }
+
+/* Credits shown on home page before any category is selected (dark gradient bg) */
+.credits_home {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 10pt;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8em;
+    padding: 0.5cm 0cm 0cm 1cm;
+    position: absolute;
+    bottom: 0.5cm;
+    left: 300px;
+}
+
+.credits_home a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: underline;
+}
+
+.credits_home a:hover {
+    color: rgba(255,255,255,0.85);
+}
+
+.credits_home_license {
+    color: rgba(255,255,255,0.35);
+    font-size: 9pt;
+    padding-top: 0.01cm;
+}
+
+/* Override Plotly's default Open Sans with Roboto 300 inside the sunburst */
+#sunburst svg text,
+#sunburst .slicetext {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300 !important;
+}
+
 /* Details and summary styling */
 
 @keyframes slideDown {
@@ -278,6 +331,13 @@ transition-delay: 0.2s;
     background-color: #18191b;
     }
 
+/* Main page content wrapper */
+#page_content {
+    position: relative;
+    min-height: 100vh;
+    z-index: 1;
+}
+
 /* Pages layout */
 div.page_columns{
     display: flex;
@@ -384,64 +444,96 @@ div.page_right {
     bottom: 100px;
 } */
 
-/* Dropdown styling */
+/* Dropdown styling — Tom Select overrides */
 
 .dropdown_container {
     padding-left : 70px;
     height: 100px;
 }
 
-#dropdown_cat .Select-control {
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0);
-    border-radius: 0px;
-    padding-top: 4px;
-    padding-bottom: 8px;
-    border: 0.6mm solid #ccc;
+.dropdown_container .ts-wrapper {
+    min-width: 0;
 }
 
-#dropdown_cat .Select-placeholder {
-    line-height: 46px;
-    padding-left: 20px;
+.dropdown_container .ts-control {
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+    border: 0.6mm solid #ccc;
+    min-height: 50px;
+    padding: 6px 8px;
+    box-shadow: none;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.dropdown_container .ts-control input {
+    color: white;
     font-family: Roboto;
     font-weight: 500;
     font-size: 9pt;
+    flex-basis: 100%;
+    min-width: 200px;
 }
 
-#dropdown_cat .Select--multi .Select-value {
-    background-color: rgba(0,0,0,0);
-    color: rgb(255, 255, 255);
-    height: 35px;
-    margin-top: 4px;
-    border-radius: 2px;
-    border: solid 1px white;
-  }
-
-#dropdown_cat .Select--multi .Select-value-label {
-    padding: 0px 10px 0px 10px;
-    line-height: 34px;
+.dropdown_container .ts-wrapper.multi .ts-control > div.item,
+.dropdown_container .ts-control .item {
+    background-color: rgba(0, 0, 0, 0) !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    color: rgb(255, 255, 255) !important;
+    border: 1px solid white !important;
+    border-radius: 2px !important;
+    height: auto;
+    min-height: 30px;
+    line-height: 1.4;
+    padding: 6px 8px;
     font-weight: 500;
     font-size: 9pt;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-  }
-
-#dropdown_cat .Select--multi .Select-input {
-    height: 30px;
-    padding-top: 4px;
-    padding-left: 10px;
-  }
-
-#dropdown_cat .Select-menu-outer {
-    color:rgb(255, 255, 255);
-    font-size: 9pt;
-    font-weight: 500;
-    background-color: rgba(0, 0, 0, 0);
+    margin: 2px 3px 2px 0;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
-#dropdown_cat .VirtualizedSelectFocusedOption {
+.dropdown_container .ts-control .item .remove,
+.dropdown_container .ts-wrapper.multi .ts-control > div.item .remove {
+    color: rgba(255,255,255,0.7) !important;
+    border-left: 1px solid rgba(255,255,255,0.35) !important;
+    padding: 0 5px;
+    margin-left: 4px;
+    background: none !important;
+}
+
+.dropdown_container .ts-control .item .remove:hover {
+    background-color: rgba(255,255,255,0.15) !important;
+    color: white !important;
+}
+
+.dropdown_container .ts-dropdown {
+    background-color: rgba(42, 49, 59, 0.97);
+    border: 1px solid #555;
+    color: rgb(255, 255, 255);
+    font-size: 9pt;
+    font-weight: 500;
+}
+
+.dropdown_container .ts-dropdown .option {
+    color: white;
+    padding: 8px 12px;
+}
+
+.dropdown_container .ts-dropdown .option.active,
+.dropdown_container .ts-dropdown .option:hover {
     background-color: #444444;
-  }
+    color: white;
+}
+
+.dropdown_container .ts-dropdown .option.selected {
+    background-color: rgba(255,255,255,0.1);
+}
 
 /* Results styling */
 
@@ -451,6 +543,9 @@ div.page_right {
     top: 60px;
     left: 300px;
     background-color: #F6F6F6;
+    width: calc(100vw - 300px);
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .n_results {
@@ -474,11 +569,29 @@ div.page_right {
 
 /* Table */
 
+table {
+    width: 100%;
+    table-layout: auto;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    font-size: 9pt;
+}
+
 th {
     height: 30px;
     font-weight: 500;
     font-style: normal;
     color:rgb(77, 77, 77);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 40px;
+    padding-right: 0;
+    text-align: left;
+    border: None;
+}
+
+th:last-child {
+    padding-right: 40px;
 }
 
 td, tr {
@@ -486,20 +599,22 @@ td, tr {
     font-weight: 500;
 }
 
-table, th, td, tr {
-    height: 40px;
+td {
+    height: auto;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 40px;
+    padding-right: 0;
     text-align: left;
     border: None;
-    border-spacing: 0px;
-    border-collapse: collapse;
-    font-size: 9pt;
+    min-height: 50px;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
-td {
-    height: 80px;
+td:last-child {
+    padding-right: 40px;
 }
 
 tr:nth-child(even) {
