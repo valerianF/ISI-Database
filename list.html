@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'none'">
+  <title>List of Installations — ISI Database</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap">
+  <link rel="stylesheet" href="assets/body.css">
+</head>
+<body>
+
+  <div class="banner">
+    <h1 class="banner_header">Interactive Sound Installations Database</h1>
+    <a href="home.html" class="banner_link">HOME</a>
+    <p class="spacer-sm"></p>
+    <a href="glossary.html" class="banner_link">GLOSSARY</a>
+    <p class="spacer-sm"></p>
+    <a href="list.html" class="banner_link_fixed">LIST OF INSTALLATIONS</a>
+  </div>
+
+  <div class="page_lists">
+    <p class="spacer-sm"></p>
+    <div id="installations-table"></div>
+
+    <!-- Credits injected by app.js -->
+    <div id="credits-container"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
