@@ -738,7 +738,7 @@ transition-delay: 0.2s;
 }
 
 #network-legend {
-    padding: 14px 0 0 0;
+    padding: 14px 0 40px 0;
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
@@ -777,6 +777,7 @@ transition-delay: 0.2s;
     font-size: 22pt;
     padding-left: 0;
     padding-right: 0;
+    padding-top: 20px;
     padding-bottom: 0px;
     margin: 0;
     font-family: 'Roboto';
