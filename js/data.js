@@ -274,7 +274,9 @@ const SUNBURST = {
       "SP_Dir_Omni",
       "SG_Speakers",
       "SG_Obj_Elec",
-      "SG_Obj_Mecha"
+      "SG_Obj_Mecha",
+      "SG_Obj_Reso",
+      "SG_Musical"
     ],
     "parents": [
       "",
@@ -341,7 +343,9 @@ const SUNBURST = {
       "SP_Dir",
       "SG",
       "SG_Obj",
-      "SG_Obj"
+      "SG_Obj",
+      "SG_Obj",
+      "SG"
     ],
     "labels": [
       "System<br>Design",
@@ -393,6 +397,8 @@ const SUNBURST = {
       "Heat<br>Sensor",
       "Wind<br>Sensor",
       "Seismograph",
+      "CO2<br>Sensor",
+      "Rain<br>Sensor",
       "One   ",
       "Two   ",
       "Multiple<br>Sources",
@@ -475,6 +481,8 @@ const SUNBURST = {
       150.0,
       197.0,
       18.0,
+      11.0,
+      19.0,
       11.0
     ]
   },
@@ -8358,16 +8366,6 @@ const DROPDOWN_OPTIONS = [
     "id": "RS_Therapeutic"
   },
   {
-    "label": "User Interaction | User Interaction",
-    "value": "User<br>Interaction",
-    "id": "IT_Use"
-  },
-  {
-    "label": "Adaptive | Adaptive",
-    "value": "Adaptive",
-    "id": "IT_Ada"
-  },
-  {
     "label": "Inter-Actors | Many",
     "value": "Many",
     "id": "IA_Many"
@@ -8511,11 +8509,6 @@ const DROPDOWN_OPTIONS = [
     "label": "Interaction Type | Natural Elements",
     "value": "Natural<br>Elements",
     "id": "IT_Ada_Natural"
-  },
-  {
-    "label": "Other Sound Sources | Other Sound Sources",
-    "value": "Other<br>Sound<br>Sources",
-    "id": "SG_Obj"
   },
   {
     "label": "Type of Input Device | Server-Client",
@@ -8668,84 +8661,94 @@ const DROPDOWN_OPTIONS = [
     "id": "TS_Env_Sism"
   },
   {
-    "label": "Type of Input Device | One   ",
-    "value": "One   ",
+    "label": "Type of Input Device | CO2 Sensor",
+    "value": "CO2<br>Sensor",
     "id": "TS_Env_CO2"
   },
   {
-    "label": "Type of Input Device | Two   ",
-    "value": "Two   ",
+    "label": "Type of Input Device | Rain Sensor",
+    "value": "Rain<br>Sensor",
     "id": "TS_Env_Rain"
+  },
+  {
+    "label": "Spatialization | One   ",
+    "value": "One   ",
+    "id": "SP_Num_One"
+  },
+  {
+    "label": "Spatialization | Two   ",
+    "value": "Two   ",
+    "id": "SP_Num_Two"
   },
   {
     "label": "Spatialization | Multiple Sources",
     "value": "Multiple<br>Sources",
-    "id": "SP_Num_One"
+    "id": "SP_Num_Mult"
   },
   {
     "label": "Spatialization | Stereo",
     "value": "Stereo",
-    "id": "SP_Num_Two"
+    "id": "SP_Hea_Stereo"
   },
   {
     "label": "Spatialization | Towards the Same Point",
     "value": "Towards the<br>Same Point",
-    "id": "SP_Num_Mult"
+    "id": "SP_Pnt_Same"
   },
   {
     "label": "Spatialization | Towards Different Points",
     "value": "Towards<br>Different Points",
-    "id": "SP_Hea_Stereo"
+    "id": "SP_Pnt_Diff"
   },
   {
     "label": "Spatialization | Dynamic  ",
     "value": "Dynamic  ",
-    "id": "SP_Pnt_Same"
+    "id": "SP_Pnt_Dyna"
   },
   {
     "label": "Spatialization | Channel-Based",
     "value": "Channel-Based",
-    "id": "SP_Pnt_Diff"
+    "id": "SP_Cnt_Channel"
   },
   {
     "label": "Spatialization | Automated Spatialization",
     "value": "Automated<br>Spatialization",
-    "id": "SP_Pnt_Dyna"
+    "id": "SP_Cnt_Algo"
   },
   {
     "label": "Spatialization | Directive",
     "value": "Directive",
-    "id": "SP_Cnt_Channel"
+    "id": "SP_Dir_Directive"
   },
   {
     "label": "Spatialization | Non Directive",
     "value": "Non<br>Directive",
-    "id": "SP_Cnt_Algo"
-  },
-  {
-    "label": "Spatialization | Speakers",
-    "value": "Speakers",
-    "id": "SP_Dir_Directive"
-  },
-  {
-    "label": "Spatialization | Electronic",
-    "value": "Electronic",
     "id": "SP_Dir_Omni"
+  },
+  {
+    "label": "Sound Generation | Speakers",
+    "value": "Speakers",
+    "id": "SG_Speakers"
+  },
+  {
+    "label": "Sound Generation | Electronic",
+    "value": "Electronic",
+    "id": "SG_Obj_Elec"
   },
   {
     "label": "Sound Generation | Mechanical",
     "value": "Mechanical",
-    "id": "SG_Speakers"
+    "id": "SG_Obj_Mecha"
   },
   {
     "label": "Sound Generation | Resonant",
     "value": "Resonant",
-    "id": "SG_Obj_Elec"
+    "id": "SG_Obj_Reso"
   },
   {
     "label": "Sound Generation | Musical Instrument",
     "value": "Musical<br>Instrument",
-    "id": "SG_Obj_Mecha"
+    "id": "SG_Musical"
   }
 ];
 
@@ -8787,8 +8790,6 @@ const LABEL_LIST = [
   "Informational",
   "Didactic",
   "Therapeutic",
-  "User<br>Interaction",
-  "Adaptive",
   "Many",
   "Few",
   "One",
@@ -8818,7 +8819,6 @@ const LABEL_LIST = [
   "Facial<br>Expression",
   "Brain<br>Activity",
   "Natural<br>Elements",
-  "Other<br>Sound<br>Sources",
   "Server-Client",
   "Cartridge,<br>Tape Reader",
   "Voltage<br>Sensor",
@@ -8849,6 +8849,8 @@ const LABEL_LIST = [
   "Heat<br>Sensor",
   "Wind<br>Sensor",
   "Seismograph",
+  "CO2<br>Sensor",
+  "Rain<br>Sensor",
   "One   ",
   "Two   ",
   "Multiple<br>Sources",
@@ -8905,8 +8907,6 @@ const ID_LIST = [
   "RS_Info",
   "RS_Didactic",
   "RS_Therapeutic",
-  "IT_Use",
-  "IT_Ada",
   "IA_Many",
   "IA_FewA",
   "IA_OneA",
@@ -8936,7 +8936,6 @@ const ID_LIST = [
   "IT_Use_Facial",
   "IT_Use_Brain",
   "IT_Ada_Natural",
-  "SG_Obj",
   "TS_Server",
   "TS_Ele_Cartrige",
   "TS_Ele_Volt",
@@ -8982,7 +8981,9 @@ const ID_LIST = [
   "SP_Dir_Omni",
   "SG_Speakers",
   "SG_Obj_Elec",
-  "SG_Obj_Mecha"
+  "SG_Obj_Mecha",
+  "SG_Obj_Reso",
+  "SG_Musical"
 ];
 
 const PARENT_LIST = [
@@ -9023,8 +9024,6 @@ const PARENT_LIST = [
   "Role of<br>Sound",
   "Role of<br>Sound",
   "Role of<br>Sound",
-  "User<br>Interaction",
-  "Adaptive",
   "Inter-Actors",
   "Inter-Actors",
   "Inter-Actors",
@@ -9054,7 +9053,6 @@ const PARENT_LIST = [
   "Interaction<br>Type",
   "Interaction<br>Type",
   "Interaction<br>Type",
-  "Other<br>Sound<br>Sources",
   "Type of<br>Input Device",
   "Type of<br>Input Device",
   "Type of<br>Input Device",
@@ -9098,6 +9096,8 @@ const PARENT_LIST = [
   "Spatialization",
   "Spatialization",
   "Spatialization",
+  "Sound<br>Generation",
+  "Sound<br>Generation",
   "Sound<br>Generation",
   "Sound<br>Generation",
   "Sound<br>Generation"

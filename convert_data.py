@@ -53,7 +53,7 @@ HIERARCHIES = {
               "Piezoelectric<br>Sensor", "Microphone", "Camera", "Motion<br>Sensing<br>Device",
               "Fingerprint<br>Sensor", "Eletromyograph", "Electroencephalograph", "Remote Motion<br>Tracker",
               "Novint<br>Falcon", "Game<br>Controller", "Touch-Sensitive<br>Device", "Mouse and<br>Keyboard", 
-              "Pressure<br>Pad", "Proximity<br>Sensor", "Light<br>Sensor", "Heat<br>Sensor", "Wind<br>Sensor", "Seismograph", 
+              "Pressure<br>Pad", "Proximity<br>Sensor", "Light<br>Sensor", "Heat<br>Sensor", "Wind<br>Sensor", "Seismograph", "CO2<br>Sensor", "Rain<br>Sensor",
               "One   ", "Two   ", "Multiple<br>Sources", "Stereo", "Towards the<br>Same Point",
               "Towards<br>Different Points", "Dynamic  ", "Channel-Based", "Automated<br>Spatialization", "Directive", "Non<br>Directive",
               "Speakers", "Electronic", "Mechanical", "Resonant", "Musical<br>Instrument"],
@@ -138,25 +138,25 @@ for key, h in HIERARCHIES.items():
     sunburst[key] = df_dict
     parentslabels_map[key] = plabels
 
-# ── Build dropdown arrays (replicates app.py lines 43-45) ────────────────────
-# Offsets match the original: AI[12:], IN[7:], SD[18:]
+# ── Build dropdown arrays (compute offsets automatically from hierarchy) ──────
+# Offsets = number of non-leaf nodes; leaf nodes start at index offset for each hierarchy
 AI_h = HIERARCHIES['AI']
 IN_h = HIERARCHIES['IN']
 SD_h = HIERARCHIES['SD']
 
-AI_n = len(AI_h['ids'])   # 12
-IN_n = len(IN_h['ids'])   # 9  (offset 7 → leaf start at index 7)
-SD_n = len(SD_h['ids'])   # 19 (offset 18 → leaf start at index 18)
+AI_offset = len(AI_h['ids'])
+IN_offset = len(IN_h['ids'])
+SD_offset = len(SD_h['ids'])
 
-labellist  = (sunburst['AI']['labels'][12:]
-            + sunburst['IN']['labels'][7:]
-            + sunburst['SD']['labels'][18:])
-IDlist     = (sunburst['AI']['ids'][12:]
-            + sunburst['IN']['ids'][7:]
-            + sunburst['SD']['ids'][18:])
-parentlist = (parentslabels_map['AI'][12:]
-            + parentslabels_map['IN'][7:]
-            + parentslabels_map['SD'][18:])
+labellist  = (sunburst['AI']['labels'][AI_offset:]
+            + sunburst['IN']['labels'][IN_offset:]
+            + sunburst['SD']['labels'][SD_offset:])
+IDlist     = (sunburst['AI']['ids'][AI_offset:]
+            + sunburst['IN']['ids'][IN_offset:]
+            + sunburst['SD']['ids'][SD_offset:])
+parentlist = (parentslabels_map['AI'][AI_offset:]
+            + parentslabels_map['IN'][IN_offset:]
+            + parentslabels_map['SD'][SD_offset:])
 
 def clean_br(s):
     return re.sub('<br>', ' ', str(s))
