@@ -168,6 +168,27 @@ dropdown_options = [
     for i in range(len(labellist))
 ]
 
+# ── Build link options for network visualization ───────────────────────────────
+# Intermediate parent node IDs that can be used as edge-coloring categories.
+# Mirrors app.py: AI[1:non_subs], IN[1:non_subs], SD[1:-1] then filter.
+_multi_prefix = ("TS_", "LS_", "SD_")
+_exclude_ids  = {'IT', 'SP', 'IDof', 'ODof'}
+
+_n_AI_ns = len(AI_h['ids']) - len(AI_h['subs'])   # non-sub node count for AI
+_n_IN_ns = len(IN_h['ids']) - len(IN_h['subs'])   # non-sub node count for IN
+
+_raw_link_pairs = (
+    list(zip(AI_h['ids'][1:_n_AI_ns], AI_h['labels'][1:_n_AI_ns]))
+  + list(zip(IN_h['ids'][1:_n_IN_ns], IN_h['labels'][1:_n_IN_ns]))
+  + list(zip(SD_h['ids'][1:-1],       SD_h['labels'][1:-1]))        # exclude root & SG_Obj
+)
+
+link_options = [
+    {'label': clean_br(label), 'value': id_}
+    for id_, label in _raw_link_pairs
+    if id_ not in _exclude_ids and not id_.startswith(_multi_prefix)
+]
+
 # ── Build installations array ─────────────────────────────────────────────────
 def safe(val):
     s = str(val)
@@ -216,7 +237,8 @@ out = (
     "const DROPDOWN_OPTIONS = " + jsdump(dropdown_options)  + ";\n\n"
     "const LABEL_LIST = "       + jsdump(labellist)         + ";\n\n"
     "const ID_LIST = "          + jsdump(IDlist)            + ";\n\n"
-    "const PARENT_LIST = "      + jsdump(parentlist)        + ";\n"
+    "const PARENT_LIST = "      + jsdump(parentlist)        + ";\n\n"
+    "const LINK_OPTIONS = "     + jsdump(link_options)      + ";\n"
 )
 
 outpath = os.path.join(js_dir, 'data.js')

@@ -554,7 +554,7 @@ div.page_right {
 }
 
 .n_results_page {
-    font-size: 60pt;
+    font-size: 92pt;
     font-family: Roboto;
     font-weight: 100;
     padding-bottom: 40px;
@@ -674,4 +674,205 @@ transition-delay: 0.2s;
     margin: 0 0 0 0px;
     padding: 0px 10px;
     background-color: darkgoldenrod;
+}
+
+/* ── Network page ─────────────────────────────────────────────────────────── */
+
+.page_network_bg {
+    background: #F6F6F6;
+    min-height: 100vh;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 3cm;
+    padding-right: 80px;
+    padding-left: 60px;
+}
+
+#cy {
+    width: 100%;
+    height: 580px;
+    background-color: transparent;
+    border-radius: 2px;
+}
+
+.network-message {
+    color: #666666;
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 12pt;
+    padding: 40px 0 20px 0;
+    min-height: 30px;
+}
+
+.network-bottom {
+    width: fit-content;
+    min-width: 0;
+    margin-top: 20px;
+}
+
+#node-detail {
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    padding: 15px 20px;
+    margin: 0 0 0 0;
+    width: 100%;
+    display: none;
+}
+
+.detail-name {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 10pt;
+    color: #222222;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+}
+
+.detail-field {
+    font-family: Roboto;
+    font-size: 9pt;
+    color: #555555;
+    margin-bottom: 4px;
+    line-height: 1.5em;
+}
+
+#network-legend {
+    padding: 14px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    color: #444444;
+    font-family: Roboto;
+    font-size: 9pt;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.legend-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+/* ── Network page main section ─────────────────────────────────────────────── */
+
+.network-main-section {
+    position: relative;
+    padding-left: 300px;
+    padding-right: 40px;
+    padding-top: 100px;
+}
+
+.network-legend-title {
+    font-size: 22pt;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0px;
+    margin: 0;
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
+.network-instructions {
+    color: #333333;
+}
+
+.network-instructions h6 {
+    font-size: 14pt;
+    padding-left: 0;
+    line-height: 25pt;
+    color: #333333;
+}
+
+/* ── Network controls section ──────────────────────────────────────────────── */
+
+#network-controls {
+    background-color: #F6F6F6;
+    padding: 0px;
+    margin-top: 20px;
+    display: flex;
+    gap: 40px;
+    justify-content: flex-start;
+}
+
+.network-control-group {
+    flex: 0 1 auto;
+    min-width: 350px;
+}
+
+.network-control-label {
+    color: #888888;
+    font-size: 9pt;
+    font-family: Roboto;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    display: block;
+}
+
+#network-controls .dropdown_container {
+    margin: 0;
+    height: auto;
+    padding: 0;
+}
+
+#network-controls .ts-wrapper {
+    border-color: #cccccc;
+}
+
+#network-controls .ts-control {
+    background-color: #ffffff;
+    color: #333333;
+    border-color: #cccccc;
+}
+
+#network-controls .ts-control input {
+    color: #333333;
+}
+
+#network-controls .dropdown_container .ts-wrapper.multi .ts-control > div.item,
+#network-controls .dropdown_container .ts-control .item {
+    background-color: #cccccc !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    color: #333333 !important;
+    border-color: #aaaaaa !important;
+}
+
+#network-controls .dropdown_container .ts-control .item .remove,
+#network-controls .dropdown_container .ts-wrapper.multi .ts-control > div.item .remove {
+    color: #555555 !important;
+    border-left: 1px solid #aaaaaa !important;
+    background: none !important;
+}
+
+#network-controls .dropdown_container .ts-control .item .remove:hover {
+    background-color: rgba(0,0,0,0.1) !important;
+    color: #222222 !important;
+}
+
+#network-controls .ts-dropdown {
+    background-color: #ffffff;
+    border-color: #cccccc;
+    color: #333333;
+}
+
+#network-controls .ts-dropdown .option {
+    color: #333333;
+}
+
+#network-controls .ts-dropdown .option.active,
+#network-controls .ts-dropdown .option:hover {
+    background-color: #e8e8e8;
 }
