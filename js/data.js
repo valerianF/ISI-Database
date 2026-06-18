@@ -1853,7 +1853,7 @@ const INSTALLATIONS = [
     "name": "Chinese Whispers",
     "creators": "Iain Mott and Mark Raszewski",
     "hyperlink": "https://doi.org/10.1017/s1355771805000774",
-    "year": "2004-2005",
+    "year": "2004 - 2005",
     "publication": "Organised Sound",
     "fieldParts": [
       "Music",
@@ -6405,7 +6405,7 @@ const INSTALLATIONS = [
     "name": "Syren",
     "creators": "Nigel Helyer, Daniel Woo and Francesca Veronesi",
     "hyperlink": "https://doi.org/10.1109/MMUL.2009.38",
-    "year": "2004-2006",
+    "year": "2004 - 2006",
     "publication": "IEEE International Conference on Multimedia",
     "fieldParts": [
       "Computer<br>Networks<br>and<br>Communications",
@@ -9101,4 +9101,79 @@ const PARENT_LIST = [
   "Sound<br>Generation",
   "Sound<br>Generation",
   "Sound<br>Generation"
+];
+
+const LINK_OPTIONS = [
+  {
+    "label": "Context",
+    "value": "CO"
+  },
+  {
+    "label": "Audience",
+    "value": "AU"
+  },
+  {
+    "label": "Intervention Visibility",
+    "value": "IV"
+  },
+  {
+    "label": "Visitor's Position",
+    "value": "LS"
+  },
+  {
+    "label": "Lifespan",
+    "value": "LP"
+  },
+  {
+    "label": "Sound Design",
+    "value": "SD"
+  },
+  {
+    "label": "Lighting Design",
+    "value": "LI"
+  },
+  {
+    "label": "Role of Sound",
+    "value": "RS"
+  },
+  {
+    "label": "Inter-Actors",
+    "value": "IA"
+  },
+  {
+    "label": "Feedback Type",
+    "value": "FT"
+  },
+  {
+    "label": "Musical Control",
+    "value": "MC"
+  },
+  {
+    "label": "Type of Input Device",
+    "value": "TS"
+  },
+  {
+    "label": "Sound Generation",
+    "value": "SG"
+  },
+  {
+    "label": "Number of Sources",
+    "value": "SP_Num"
+  },
+  {
+    "label": "Headphones",
+    "value": "SP_Hea"
+  },
+  {
+    "label": "Diffusion Orientation",
+    "value": "SP_Pnt"
+  },
+  {
+    "label": "Control",
+    "value": "SP_Cnt"
+  },
+  {
+    "label": "Directivity",
+    "value": "SP_Dir"
+  }
 ];
