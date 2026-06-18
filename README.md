@@ -1,19 +1,8 @@
 # Dynamic visualization of Interactive Sound Installations 
 
-This python script creates a web app powered by Dash and Plotly. 
-It is a dynamic Sunburst visualisation of results from a literature review on Interactive Sound Installations. 
+This webpage presents a dynamic Sunburst visualisation of results from the following literature review on Interactive Sound Installations: 
 
-## To run the app as a standalone
-
-You need the following up-to-date python libraries: 
-- dash
-- pandas
-- plotly 
-- numpy
-
-Then run app.py. 
-
-Then visit the local host http://127.0.0.1:8050/.
+Fraisse, V.; Wanderley, M.M.; Guastavino, C. Comprehensive Framework for Describing Interactive Sound Installations: Highlighting Trends through a Systematic Review. Multimodal Technol. Interact. 2021, 5, 19. https://doi.org/10.3390/mti5040019.
 
 ## License
 
