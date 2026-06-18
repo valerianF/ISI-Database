@@ -107,6 +107,56 @@ function makeRow(inst) {
   return tr;
 }
 
+// Shared credit data
+const CREDIT_PARTS = [
+  ['✍ Created by ', null],
+  ['Valérian Fraisse',    'https://www.cirmmt.org/fr/members/valerian-fraisse'],
+  [' with the support of ', null],
+  ['Catherine Guastavino', 'https://www.mcgill.ca/sis/people/faculty/guastavino'],
+  [' and ', null],
+  ['Marcelo Wanderley',   'https://www.mcgill.ca/music/marcelo-m-wanderley'],
+  [' with contributions from ', null],
+  ['Clémentine Berger',      'https://github.com/ClementineBerger'],
+  ['. Designed by ', null],
+  ['Camille Magnan',      'http://camillemagnan.com/'],
+  ['.', null]
+];
+const LICENSE_TEXT = 'This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.';
+
+function buildCreditsLinks(className = 'link_credits') {
+  const p = document.createElement('p');
+  CREDIT_PARTS.forEach(([text, href]) => {
+    if (href) {
+      const a = document.createElement('a');
+      a.href = href;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.className = className;
+      a.textContent = text;
+      p.appendChild(a);
+    } else {
+      p.appendChild(document.createTextNode(text));
+    }
+  });
+  return p;
+}
+
+function buildCreditsHome() {
+  const div = document.createElement('div');
+  div.className = 'credits_home';
+
+  const creditsP = buildCreditsLinks('link_credits');
+  creditsP.style.margin = '0';
+  div.appendChild(creditsP);
+
+  const licenseP = document.createElement('p');
+  licenseP.className = 'credits_home_license';
+  licenseP.textContent = LICENSE_TEXT;
+  div.appendChild(licenseP);
+
+  return div;
+}
+
 function buildCredits() {
   const div = document.createElement('div');
 
@@ -114,43 +164,29 @@ function buildCredits() {
   spacer.style.paddingBottom = '2cm';
   div.appendChild(spacer);
 
-  const credits = document.createElement('p');
+  const credits = buildCreditsLinks('link_credits');
   credits.className = 'credits';
-
-  const parts = [
-    ['✍ Created by ', null],
-    ['Valérian Fraisse',    'https://www.mcgill.ca/music/valerian-fraisse'],
-    [' with the support of ', null],
-    ['Catherine Guastavino', 'https://www.mcgill.ca/sis/people/faculty/guastavino'],
-    [' and ', null],
-    ['Marcelo Wanderley',   'https://www.mcgill.ca/music/marcelo-m-wanderley'],
-    ['. Designed by ', null],
-    ['Camille Magnan',      'http://camillemagnan.com/'],
-    ['.', null]
-  ];
-  parts.forEach(([text, href]) => {
-    if (href) {
-      const a = document.createElement('a');
-      a.href = href;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      a.className = 'link_credits';
-      a.textContent = text;
-      credits.appendChild(a);
-    } else {
-      credits.appendChild(document.createTextNode(text));
-    }
-  });
   div.appendChild(credits);
 
   const license = document.createElement('p');
-  license.style.cssText =
-    'color:#AEAEAE;padding-bottom:1cm;padding-left:1cm;font-weight:500;font-size:10pt';
-  license.textContent =
-    'This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.';
+  license.className = 'license_text';
+  license.textContent = LICENSE_TEXT;
   div.appendChild(license);
 
   return div;
+}
+
+function initCredits() {
+  const homeContainer = document.querySelector('.credits_home');
+  if (homeContainer && homeContainer.children.length === 0) {
+    const credits = buildCreditsHome();
+    homeContainer.parentElement.replaceChild(credits, homeContainer);
+  }
+
+  const creditsContainer = document.getElementById('credits-container');
+  if (creditsContainer) {
+    creditsContainer.appendChild(buildCredits());
+  }
 }
 
 // ─── Results rendering ────────────────────────────────────────────────────────
@@ -352,6 +388,7 @@ function initMainPage() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+  initCredits();
   if (document.getElementById('sunburst')) initMainPage();
   if (document.getElementById('installations-table')) renderInstallationsTable();
 });

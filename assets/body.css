@@ -95,7 +95,7 @@ a:hover {
     font-weight: 400;
     font-size: 10pt;
     color: rgba(255,255,255,0.55);
-    line-height: 1.8em;
+    line-height: 1.5em;
     padding: 0.5cm 0cm 0cm 1cm;
     position: absolute;
     bottom: 0.5cm;
@@ -206,7 +206,7 @@ summary::-webkit-details-marker {
     font-weight: 500;
     font-size: 10pt;
     color: #000000;
-    line-height: 2.6em;
+    line-height: 1.5em;
     padding: 0.5cm 0cm 0cm 1cm;
     }
 
@@ -214,10 +214,6 @@ summary::-webkit-details-marker {
     text-decoration: underline;
     position: relative;
     color: inherit;
-}
-
-.link_credits:visited {
-    color:rgb(0, 0, 0);
 }
 
 .link_credits:hover {
