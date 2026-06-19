@@ -127,11 +127,13 @@ const CREDIT_PARTS = [
   ['Catherine Guastavino', 'https://www.mcgill.ca/sis/people/faculty/guastavino'],
   [' and ', null],
   ['Marcelo Wanderley',   'https://www.mcgill.ca/music/marcelo-m-wanderley'],
-  [' with contributions from ', null],
+  [' and contributions from ', null],
   ['Clémentine Berger',      'https://github.com/ClementineBerger'],
-  ['. Designed by ', null],
+  ['.\nDesigned by ', null],
   ['Camille Magnan',      'http://camillemagnan.com/'],
-  ['.', null]
+  ['. Please read ', null],
+  ['this paper',      'https://doi.org/10.3390/mti5040019'],
+  [' for more information on the project.',      null],
 ];
 const LICENSE_TEXT = 'This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.';
 
@@ -147,7 +149,10 @@ function buildCreditsLinks(className = 'link_credits') {
       a.textContent = text;
       p.appendChild(a);
     } else {
-      p.appendChild(document.createTextNode(text));
+      text.split('\n').forEach((part, i) => {
+        if (i > 0) p.appendChild(document.createElement('br'));
+        if (part) p.appendChild(document.createTextNode(part));
+      });
     }
   });
   return p;
