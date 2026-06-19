@@ -8,7 +8,7 @@ const NODE_COLORS = [
 ];
 const MAX_PARENTS = 11;
 const MAX_NODES   = 80;
-const METADATA_KEYS = new Set(['name', 'creators', 'hyperlink', 'year', 'publication', 'fieldParts']);
+const METADATA_KEYS = new Set(['name', 'creators', 'hyperlink', 'year', 'publication', 'fieldParts', 'naFields']);
 
 // ─── State ─────────────────────────────────────────────────────────────────────
 let cyInstance          = null;
@@ -17,9 +17,32 @@ let linkTomSelect       = null;
 let networkFilterLabels = [];
 let networkLinkIDs      = [];
 
+// ─── Theme helpers ─────────────────────────────────────────────────────────────
+// THEME_DROPDOWN_COLORS and themeOfId are defined in app.js (loaded first)
+
+function themeOfLinkID(id) {
+  if (/^(IA|FT|MC)/.test(id)) return 'IN';
+  if (/^(TS|SG|SP)/.test(id)) return 'SD';
+  return 'AI';
+}
+
+const THEME_NAMES = {
+  AI: 'Artistic Intention',
+  IN: 'Interaction',
+  SD: 'System Design'
+};
+
 // ─── Helpers ───────────────────────────────────────────────────────────────────
 function binaryKeys(inst) {
   return Object.keys(inst).filter(k => !METADATA_KEYS.has(k));
+}
+
+// Returns true if the installation has assessable data for the given linkID.
+// Returns false when all matching columns are NA (data not collected).
+function hasValidDataForLink(inst, linkID) {
+  if (binaryKeys(inst).some(k => k.includes(linkID))) return true;
+  const naFields = inst.naFields || [];
+  return !naFields.some(k => k.includes(linkID));
 }
 
 // Attempt to find a readable label for a parent group ID.
@@ -80,9 +103,10 @@ function buildElements(filterLabels, linkIDs) {
     return idx !== -1 ? ID_LIST[idx] : null;
   }).filter(Boolean);
 
-  // Filter installations
+  // Filter installations — also exclude any with NA data for the link categories
   const filtered = INSTALLATIONS.filter(inst =>
-    filterColIDs.every(id => inst[id] === 1)
+    filterColIDs.every(id => inst[id] === 1) &&
+    linkIDs.every(linkID => hasValidDataForLink(inst, linkID))
   );
 
   if (filtered.length === 0) return { error: 'No installations match the selected filter categories.' };
@@ -99,12 +123,21 @@ function buildElements(filterLabels, linkIDs) {
   parentsArray.forEach((p, i) => { colorOf[p] = NODE_COLORS[i]; });
 
   // Evaluate which parent groups each installation belongs to
-  const instParents = filtered.map(inst => evaluateParents(inst, parents));
+  // then discard installations with no data at all (all-zeros for all link categories)
+  const allInstParents = filtered.map(inst => evaluateParents(inst, parents));
+  const validPairs = filtered
+    .map((inst, i) => ({ inst, p: allInstParents[i] }))
+    .filter(({ p }) => p.size > 0);
+
+  if (validPairs.length === 0) return { error: 'None of the filtered installations have data for the selected link categories.' };
+
+  const withData = validPairs.map(({ inst }) => inst);
+  const instParents = validPairs.map(({ p }) => p);
 
   // Determine shared_parents: parent groups shared by at least 2 installations
   const sharedParents = new Set();
-  for (let i = 0; i < filtered.length; i++) {
-    for (let j = i + 1; j < filtered.length; j++) {
+  for (let i = 0; i < withData.length; i++) {
+    for (let j = i + 1; j < withData.length; j++) {
       for (const p of instParents[i]) {
         if (instParents[j].has(p)) sharedParents.add(p);
       }
@@ -112,7 +145,7 @@ function buildElements(filterLabels, linkIDs) {
   }
 
   // Build nodes; color isolated ones (all parents unshared) like the original
-  const nodes = filtered.map((inst, i) => {
+  const nodes = withData.map((inst, i) => {
     const nodeParents = instParents[i];
     let nodeColor = '#c0c0c0';
     // Node gets colored if it has a parent that is NOT in sharedParents
@@ -131,18 +164,18 @@ function buildElements(filterLabels, linkIDs) {
   // Build edges: multiple per pair for each shared parent, with bezier offsets
   // (mirrors the n_p counter in network.py's edge loop)
   const edges = [];
-  for (let i = 0; i < filtered.length; i++) {
-    for (let j = i + 1; j < filtered.length; j++) {
+  for (let i = 0; i < withData.length; i++) {
+    for (let j = i + 1; j < withData.length; j++) {
       let edgeCount = 0;
       for (const p of instParents[i]) {
         if (!instParents[j].has(p)) continue;
-        const edgeId = `${filtered[i].name}\0${filtered[j].name}\0${edgeCount}`;
+        const edgeId = `${withData[i].name}\0${withData[j].name}\0${edgeCount}`;
         edges.push({
           group: 'edges',
           data: {
             id: edgeId,
-            source: filtered[i].name,
-            target: filtered[j].name,
+            source: withData[i].name,
+            target: withData[j].name,
             color: colorOf[p]
           },
           classes: `par${edgeCount}`
@@ -301,22 +334,43 @@ function renderNetwork() {
     if (evt.target === cyInstance) clearDetail();
   });
 
-  const title = networkLinkIDs
-    .map(id => { const opt = LINK_OPTIONS.find(o => o.value === id); return opt ? opt.label : id; })
-    .join(' | ');
-  renderLegend(result.parentsArray, result.colorOf, title);
+  // Group link IDs by parent theme and build "Theme | Cat1 | Cat2 | ..." title
+  const themeGroups = {};
+  networkLinkIDs.forEach(id => {
+    const theme = themeOfLinkID(id);
+    if (!themeGroups[theme]) themeGroups[theme] = [];
+    const opt = LINK_OPTIONS.find(o => o.value === id);
+    themeGroups[theme].push(opt ? opt.label : id);
+  });
+  const titleParts = [];
+  Object.entries(themeGroups).forEach(([theme, cats]) => {
+    titleParts.push(THEME_NAMES[theme]);
+    cats.forEach(c => titleParts.push(c));
+  });
+  renderLegend(result.parentsArray, result.colorOf, themeGroups);
 }
 
 function hideCy() {
   const cy = document.getElementById('cy');
   if (cy) cy.style.visibility = 'hidden';
-  renderLegend([], {}, '');
+  renderLegend([], {}, {});
 }
 
 // ─── Legend ────────────────────────────────────────────────────────────────────
-function renderLegend(parentsArray, colorOf, title) {
+// themeGroups: { AI: ['Category'], SD: ['Cat1', 'Cat2'] } — used for title with colored dots
+function renderLegend(parentsArray, colorOf, themeGroups) {
   const titleEl = document.getElementById('network-legend-title');
-  if (titleEl) titleEl.textContent = title || '';
+  if (titleEl) {
+    while (titleEl.firstChild) titleEl.removeChild(titleEl.firstChild);
+    Object.entries(themeGroups).forEach(([theme, cats], i) => {
+      if (i > 0) titleEl.appendChild(document.createTextNode('  '));
+      const dot = document.createElement('span');
+      dot.className = 'legend-dot legend-dot-title';
+      dot.style.backgroundColor = THEME_DROPDOWN_COLORS[theme] || '#888';
+      titleEl.appendChild(dot);
+      titleEl.appendChild(document.createTextNode(' ' + THEME_NAMES[theme] + ' | ' + cats));
+    });
+  }
 
   const legend = document.getElementById('network-legend');
   if (!legend) return;
@@ -326,10 +380,10 @@ function renderLegend(parentsArray, colorOf, title) {
   parentsArray.forEach(p => {
     const item = document.createElement('span');
     item.className = 'legend-item';
-    const dot = document.createElement('span');
-    dot.className = 'legend-dot';
-    dot.style.backgroundColor = colorOf[p];
-    item.appendChild(dot);
+    const bar = document.createElement('span');
+    bar.className = 'legend-bar';
+    bar.style.backgroundColor = colorOf[p];
+    item.appendChild(bar);
     item.appendChild(document.createTextNode(parentLabel(p)));
     legend.appendChild(item);
   });
@@ -398,6 +452,7 @@ function initDropdowns() {
     const o = document.createElement('option');
     o.value = opt.value;
     o.textContent = opt.label;
+    o.setAttribute('data-theme', themeOfLinkID(opt.value));
     linkSelect.appendChild(o);
   });
 
@@ -410,15 +465,27 @@ function initDropdowns() {
     plugins: ['remove_button'],
     placeholder: 'Select link categories',
     maxItems: null,
+    maxOptions: false,
     closeAfterSelect: false,
     onChange(values) {
       networkLinkIDs = values;
       localStorage.setItem('network_linkIDs', JSON.stringify(values));
       renderNetwork();
+    },
+    render: {
+      option: function (data, escape) {
+        const color = THEME_DROPDOWN_COLORS[data.theme] || '#888';
+        return `<div class="option" style="border-left:6px solid ${color};padding-left:10px">${escape(data.text)}</div>`;
+      },
+      item: function (data, escape) {
+        const color = THEME_DROPDOWN_COLORS[data.theme] || '#888';
+        return `<div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${color};margin-right:5px;vertical-align:middle;flex-shrink:0"></span>${escape(data.text)}</div>`;
+      }
     }
   });
 
-  const savedLinkIDs = JSON.parse(localStorage.getItem('network_linkIDs') || '[]');
+  const rawLinkIDs = localStorage.getItem('network_linkIDs');
+  const savedLinkIDs = rawLinkIDs !== null ? JSON.parse(rawLinkIDs) : ['TS'];
   if (savedLinkIDs.length) {
     linkTomSelect.setValue(savedLinkIDs, true);
     networkLinkIDs = savedLinkIDs;
@@ -444,6 +511,7 @@ function initDropdowns() {
     const o = document.createElement('option');
     o.value = opt.value;
     o.textContent = opt.label;
+    o.setAttribute('data-theme', themeOfId(opt.id));
     filterSelect.appendChild(o);
   });
 
@@ -456,15 +524,27 @@ function initDropdowns() {
     plugins: ['remove_button'],
     placeholder: 'Filter installations',
     maxItems: null,
+    maxOptions: false,
     closeAfterSelect: false,
     onChange(values) {
       networkFilterLabels = values;
       localStorage.setItem('network_filterLabels', JSON.stringify(values));
       renderNetwork();
+    },
+    render: {
+      option: function (data, escape) {
+        const color = THEME_DROPDOWN_COLORS[data.theme] || '#888';
+        return `<div class="option" style="border-left:6px solid ${color};padding-left:10px">${escape(data.text)}</div>`;
+      },
+      item: function (data, escape) {
+        const color = THEME_DROPDOWN_COLORS[data.theme] || '#888';
+        return `<div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${color};margin-right:5px;vertical-align:middle;flex-shrink:0"></span>${escape(data.text)}</div>`;
+      }
     }
   });
 
-  const savedFilterLabels = JSON.parse(localStorage.getItem('network_filterLabels') || '[]');
+  const rawFilterLabels = localStorage.getItem('network_filterLabels');
+  const savedFilterLabels = rawFilterLabels !== null ? JSON.parse(rawFilterLabels) : ['Semi-Permanent'];
   if (savedFilterLabels.length) {
     filterTomSelect.setValue(savedFilterLabels, true);
     networkFilterLabels = savedFilterLabels;

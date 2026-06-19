@@ -8,6 +8,17 @@ let sunburstEventsAttached = false;
 let networkReady = false;
 
 // ─── Theme maps ───────────────────────────────────────────────────────────────
+
+// Lighter (midpoint) versions of glossary theme colors, for dropdown coloring
+const THEME_DROPDOWN_COLORS = { AI: '#C95E7B', IN: '#8BBFDD', SD: '#6FBA72' };
+
+// Returns 'AI', 'IN', or 'SD' for a DROPDOWN_OPTIONS id (e.g. "CO_Exhibition")
+function themeOfId(id) {
+  if (/^(IA|IDof|ODof|FT|MC|IT)/.test(id)) return 'IN';
+  if (/^(TS|SP|SG)/.test(id)) return 'SD';
+  return 'AI';
+}
+
 const BG_COLORS = {
   AI: 'linear-gradient(0deg, rgba(156,36,87,1) 0%, rgba(112,23,69,1) 100%)',
   IN: 'linear-gradient(0deg, rgba(24,82,164,1) 0%, rgba(6,48,107,1) 100%)',
@@ -111,7 +122,7 @@ function makeRow(inst) {
 // Shared credit data
 const CREDIT_PARTS = [
   ['✍ Created by ', null],
-  ['Valérian Fraisse',    'https://www.cirmmt.org/fr/members/valerian-fraisse'],
+  ['Valérian Fraisse',    'https://github.com/valerianF/ISI-Database'],
   [' with the support of ', null],
   ['Catherine Guastavino', 'https://www.mcgill.ca/sis/people/faculty/guastavino'],
   [' and ', null],
@@ -145,35 +156,22 @@ function buildCreditsLinks(className = 'link_credits') {
 function buildCreditsHome() {
   const div = document.createElement('div');
   div.className = 'credits_home';
-
-  const creditsP = buildCreditsLinks('link_credits');
-  creditsP.style.margin = '0';
-  div.appendChild(creditsP);
-
+  div.appendChild(buildCreditsLinks('link_credits'));
   const licenseP = document.createElement('p');
-  licenseP.className = 'credits_home_license';
+  licenseP.className = 'license_text';
   licenseP.textContent = LICENSE_TEXT;
   div.appendChild(licenseP);
-
   return div;
 }
 
 function buildCredits() {
   const div = document.createElement('div');
-
-  const spacer = document.createElement('p');
-  spacer.style.paddingBottom = '2cm';
-  div.appendChild(spacer);
-
-  const credits = buildCreditsLinks('link_credits');
-  credits.className = 'credits';
-  div.appendChild(credits);
-
+  div.className = 'credits_block';
+  div.appendChild(buildCreditsLinks('link_credits'));
   const license = document.createElement('p');
   license.className = 'license_text';
   license.textContent = LICENSE_TEXT;
   div.appendChild(license);
-
   return div;
 }
 
@@ -337,6 +335,7 @@ function initDropdown() {
     const option = document.createElement('option');
     option.value = opt.value;
     option.textContent = opt.label;
+    option.setAttribute('data-theme', themeOfId(opt.id));
     select.appendChild(option);
   });
 
@@ -344,12 +343,23 @@ function initDropdown() {
     plugins: ['remove_button'],
     placeholder: 'Select one or more categories',
     maxItems: null,
+    maxOptions: false,
     closeAfterSelect: false,
     onChange(values) {
       // Validate every value from the dropdown — fixes vuln #2
       selectedLabels = values.filter(v => validateLabel(v));
       localStorage.setItem('selectedLabels', JSON.stringify(selectedLabels));
       renderResults();
+    },
+    render: {
+      option: function (data, escape) {
+        const color = THEME_DROPDOWN_COLORS[data.theme] || 'white';
+        return `<div class="option" style="border-left:6px solid ${color};padding-left:10px">${escape(data.text)}</div>`;
+      },
+      item: function (data, escape) {
+        const color = THEME_DROPDOWN_COLORS[data.theme] || 'white';
+        return `<div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${color};margin-right:5px;vertical-align:middle;flex-shrink:0"></span>${escape(data.text)}</div>`;
+      }
     }
   });
 

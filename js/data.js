@@ -680,7 +680,12 @@ const INSTALLATIONS = [
     "SP_Pnt_Diff": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "Subject Area",
+      "Field",
+      "Source"
+    ]
   },
   {
     "name": "\"KODAMA\"",
@@ -751,7 +756,22 @@ const INSTALLATIONS = [
     "IT_Use_Facial": 1,
     "TS_Ima_Came": 1,
     "SG_Speakers": 1,
-    "UX_InfObs": 1
+    "UX_InfObs": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "[self.]",
@@ -1155,7 +1175,11 @@ const INSTALLATIONS = [
     "SP_Pnt_Diff": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "ambiStar",
@@ -1260,7 +1284,11 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref"
+    ]
   },
   {
     "name": "As Wave impels a Wave / Come un'Onda premuta da un'Onda",
@@ -1511,7 +1539,19 @@ const INSTALLATIONS = [
     "MC_Process": 1,
     "IT_Use_Motion": 1,
     "TS_Det_Proximity": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Bai",
@@ -1713,7 +1753,19 @@ const INSTALLATIONS = [
     "TS_Ima_Came": 1,
     "SP_Pnt_Same": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref",
+      "MC_Process",
+      "MC_Note",
+      "MC_Timbral",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "building_space_with_words",
@@ -1785,7 +1837,23 @@ const INSTALLATIONS = [
     "TS_Ima_Motion": 1,
     "SG_Speakers": 1,
     "UX_InfObs": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref",
+      "SD_Mat_Pre",
+      "SD_Pro_Son",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Cafe Topo-Phonie",
@@ -1818,7 +1886,12 @@ const INSTALLATIONS = [
     "SP_Num_Mult": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna"
+    ]
   },
   {
     "name": "Catch Your Breath",
@@ -1847,7 +1920,22 @@ const INSTALLATIONS = [
     "MC_Process": 1,
     "IT_Use_Embodied": 1,
     "TS_Ima_Came": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Chinese Whispers",
@@ -1882,7 +1970,12 @@ const INSTALLATIONS = [
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "SG_Obj_Elec": 1
+    "SG_Obj_Elec": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult"
+    ]
   },
   {
     "name": "Cloud Harps (Atmosphéries)",
@@ -1920,7 +2013,21 @@ const INSTALLATIONS = [
     "TS_Env_Wind": 1,
     "TS_Env_CO2": 1,
     "TS_Env_Rain": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Coat Hanger Exhibition / Surfaces and Cavities",
@@ -1984,7 +2091,12 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi"
+    ]
   },
   {
     "name": "Cross-Pollination",
@@ -2118,7 +2230,19 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Ima_Came": 1,
     "SG_Speakers": 1,
-    "UX_InfObs": 1
+    "UX_InfObs": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "DELEM",
@@ -2150,7 +2274,17 @@ const INSTALLATIONS = [
     "IT_Use_Motion": 1,
     "TS_Ima_Came": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "Dictation",
@@ -2215,7 +2349,19 @@ const INSTALLATIONS = [
     "MC_Process": 1,
     "IT_Use_Embodied": 1,
     "TS_Bio_Finger": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Dip in the Wave",
@@ -2243,7 +2389,21 @@ const INSTALLATIONS = [
     "FT_Sonic": 1,
     "MC_Process": 1,
     "IT_Use_Embodied": 1,
-    "TS_Ima_Came": 1
+    "TS_Ima_Came": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni",
+      "SG_Speakers"
+    ]
   },
   {
     "name": "Disturbed System",
@@ -2402,7 +2562,13 @@ const INSTALLATIONS = [
     "ODof_One": 1,
     "FT_Visu": 1,
     "IT_Use_VisiSounds": 1,
-    "TS_Mic_Micr": 1
+    "TS_Mic_Micr": 1,
+    "naFields": [
+      "RS_Expr",
+      "RS_Info",
+      "RS_Didactic",
+      "RS_Therapeutic"
+    ]
   },
   {
     "name": "EEG data (no name)",
@@ -2434,7 +2600,12 @@ const INSTALLATIONS = [
     "SP_Hea_Stereo": 1,
     "SP_Cnt_Channel": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi"
+    ]
   },
   {
     "name": "Eidola",
@@ -2467,7 +2638,11 @@ const INSTALLATIONS = [
     "SP_Hea_Stereo": 1,
     "SP_Pnt_Same": 1,
     "SP_Cnt_Algo": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref"
+    ]
   },
   {
     "name": "Ekkomaten",
@@ -2497,7 +2672,15 @@ const INSTALLATIONS = [
     "TS_Mec_Torque": 1,
     "SP_Hea_Stereo": 1,
     "SP_Cnt_Algo": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna"
+    ]
   },
   {
     "name": "El bosque y las sombras",
@@ -2571,7 +2754,13 @@ const INSTALLATIONS = [
     "TS_Ima_Came": 1,
     "SP_Pnt_Same": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "etherSound",
@@ -2599,7 +2788,19 @@ const INSTALLATIONS = [
     "TS_Server": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "SG_Obj_Mecha": 1
+    "SG_Obj_Mecha": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref",
+      "SD_Mat_Pre",
+      "SD_Pro_Son",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Cnt_Channel"
+    ]
   },
   {
     "name": "Experimental Sound Installation - No Name",
@@ -2664,7 +2865,39 @@ const INSTALLATIONS = [
     "FT_Sonic": 1,
     "MC_Process": 1,
     "IT_Use_Embodied": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "TS_Server",
+      "TS_Ele_Capa",
+      "TS_Mec_Acce",
+      "TS_Mec_Torque",
+      "TS_Mec_Potent",
+      "TS_Ide_RFID",
+      "TS_Mic_Piezo",
+      "TS_Mic_Micr",
+      "TS_Ima_Came",
+      "TS_Ima_Motion",
+      "TS_Bio_Finger",
+      "TS_Bio_EMGs",
+      "TS_Con_Remote",
+      "TS_Con_Touch",
+      "TS_Con_Mouse",
+      "TS_Det_PressurePad",
+      "TS_Det_Proximity",
+      "TS_Env_Light",
+      "TS_Env_Heat",
+      "TS_Env_Wind",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Federation Bell",
@@ -2727,7 +2960,13 @@ const INSTALLATIONS = [
     "SP_Num_One": 1,
     "SP_Pnt_Same": 1,
     "SP_Cnt_Channel": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi"
+    ]
   },
   {
     "name": "Five Cereals",
@@ -2752,7 +2991,26 @@ const INSTALLATIONS = [
     "MC_Process": 1,
     "IT_Use_Embodied": 1,
     "TS_Det_PressurePad": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni",
+      "Subject Area",
+      "Field"
+    ]
   },
   {
     "name": "Fleischwolf",
@@ -2849,7 +3107,12 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UX_InfObs": 1
+    "UX_InfObs": 1,
+    "naFields": [
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna"
+    ]
   },
   {
     "name": "Grainstick",
@@ -2918,7 +3181,15 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Ima_Motion": 1,
     "SG_Speakers": 1,
-    "SG_Obj_Mecha": 1
+    "SG_Obj_Mecha": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna"
+    ]
   },
   {
     "name": "Guqin Culture (no name)",
@@ -2952,7 +3223,13 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi"
+    ]
   },
   {
     "name": "Haptically Enhanced Painting - No Name",
@@ -2984,7 +3261,11 @@ const INSTALLATIONS = [
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref"
+    ]
   },
   {
     "name": "Harmonic Bridges",
@@ -3159,7 +3440,19 @@ const INSTALLATIONS = [
     "MC_Process": 1,
     "TS_Ima_Came": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "Iamascope",
@@ -3219,7 +3512,19 @@ const INSTALLATIONS = [
     "IT_Use_Motion": 1,
     "TS_Ima_Came": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "Interactions",
@@ -3328,7 +3633,12 @@ const INSTALLATIONS = [
     "SG_Speakers": 1,
     "SG_Obj_Reso": 1,
     "SG_Musical": 1,
-    "UX_InfObs": 1
+    "UX_InfObs": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult"
+    ]
   },
   {
     "name": "Interactive multi-touch tabletop - No Name",
@@ -3428,7 +3738,12 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UX_InfObs": 1
+    "UX_InfObs": 1,
+    "naFields": [
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi"
+    ]
   },
   {
     "name": "Interactive Work - No Name",
@@ -3461,7 +3776,20 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "IT_Use_Motion": 1,
     "TS_Ima_Came": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "InterAntartica",
@@ -3493,7 +3821,19 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Con_Remote": 1,
     "SG_Speakers": 1,
-    "UX_InfObs": 1
+    "UX_InfObs": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Keys to your Music",
@@ -3525,7 +3865,11 @@ const INSTALLATIONS = [
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
     "SG_Obj_Reso": 1,
-    "SG_Musical": 1
+    "SG_Musical": 1,
+    "naFields": [
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff"
+    ]
   },
   {
     "name": "Lazy Eyes",
@@ -3553,7 +3897,53 @@ const INSTALLATIONS = [
     "FT_Sonic": 1,
     "MC_Process": 1,
     "IT_Use_Motion": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "TS_Server",
+      "TS_Ele_Cartrige",
+      "TS_Ele_Volt",
+      "TS_Ele_Capa",
+      "TS_Mec_Acce",
+      "TS_Mec_PressSens",
+      "TS_Mec_Bend",
+      "TS_Mec_Torque",
+      "TS_Mec_Potent",
+      "TS_Ide_RFID",
+      "TS_Ide_BarCode",
+      "TS_Ide_Coin",
+      "TS_Mic_Piezo",
+      "TS_Mic_Micr",
+      "TS_Ima_Came",
+      "TS_Ima_Motion",
+      "TS_Bio_Finger",
+      "TS_Bio_EMGs",
+      "TS_Bio_EEG",
+      "TS_Con_Remote",
+      "TS_Con_Novint",
+      "TS_Con_Game",
+      "TS_Con_Touch",
+      "TS_Con_Mouse",
+      "TS_Det_PressurePad",
+      "TS_Det_Proximity",
+      "TS_Env_Light",
+      "TS_Env_Heat",
+      "TS_Env_Wind",
+      "TS_Env_Sism",
+      "TS_Env_CO2",
+      "TS_Env_Rain",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Lichtgestalt",
@@ -3582,7 +3972,19 @@ const INSTALLATIONS = [
     "IT_Use_Motion": 1,
     "TS_Ima_Motion": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Lightforest",
@@ -3616,7 +4018,19 @@ const INSTALLATIONS = [
     "TS_Det_PressurePad": 1,
     "TS_Env_Light": 1,
     "TS_Env_Heat": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Lighting and Sound Installation - No Name",
@@ -3647,7 +4061,39 @@ const INSTALLATIONS = [
     "FT_Sonic": 1,
     "MC_Process": 1,
     "IT_Use_Motion": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "TS_Server",
+      "TS_Ele_Capa",
+      "TS_Mec_Acce",
+      "TS_Mec_Torque",
+      "TS_Mec_Potent",
+      "TS_Ide_RFID",
+      "TS_Mic_Piezo",
+      "TS_Mic_Micr",
+      "TS_Ima_Came",
+      "TS_Ima_Motion",
+      "TS_Bio_Finger",
+      "TS_Bio_EMGs",
+      "TS_Con_Remote",
+      "TS_Con_Touch",
+      "TS_Con_Mouse",
+      "TS_Det_PressurePad",
+      "TS_Det_Proximity",
+      "TS_Env_Light",
+      "TS_Env_Heat",
+      "TS_Env_Wind",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Listen Lisboa",
@@ -3850,7 +4296,12 @@ const INSTALLATIONS = [
     "SP_Pnt_Diff": 1,
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "LI_None",
+      "LI_Spot",
+      "LI_Dynamic"
+    ]
   },
   {
     "name": "Messages from the Horizon ",
@@ -3876,7 +4327,23 @@ const INSTALLATIONS = [
     "FT_Sonic": 1,
     "IT_Use_Embodied": 1,
     "TS_Con_Touch": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni",
+      "Subject Area",
+      "Field"
+    ]
   },
   {
     "name": "Meta-Diva",
@@ -3942,7 +4409,12 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi"
+    ]
   },
   {
     "name": "Multimedia Installation - No Name",
@@ -4012,7 +4484,15 @@ const INSTALLATIONS = [
     "TS_Det_PressurePad": 1,
     "SP_Hea_Stereo": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna"
+    ]
   },
   {
     "name": "Musikiosk",
@@ -4225,7 +4705,11 @@ const INSTALLATIONS = [
     "SP_Num_One": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "SG_Obj_Elec": 1
+    "SG_Obj_Elec": 1,
+    "naFields": [
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff"
+    ]
   },
   {
     "name": "OperaBooth",
@@ -4330,7 +4814,13 @@ const INSTALLATIONS = [
     "SP_Num_Mult": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna"
+    ]
   },
   {
     "name": "P.S.': Hearing of your Heartstring",
@@ -4368,7 +4858,12 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult"
+    ]
   },
   {
     "name": "Parlamento en el tiempo",
@@ -4439,7 +4934,11 @@ const INSTALLATIONS = [
     "SP_Num_Mult": 1,
     "SP_Pnt_Same": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "PHASE",
@@ -4474,7 +4973,42 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "LI_None",
+      "LI_Spot",
+      "LI_Dynamic",
+      "TS_Server",
+      "TS_Ele_Volt",
+      "TS_Ele_Capa",
+      "TS_Mec_Acce",
+      "TS_Mec_PressSens",
+      "TS_Mec_Bend",
+      "TS_Mec_Torque",
+      "TS_Mec_Potent",
+      "TS_Ide_RFID",
+      "TS_Ide_Coin",
+      "TS_Mic_Piezo",
+      "TS_Mic_Micr",
+      "TS_Ima_Came",
+      "TS_Ima_Motion",
+      "TS_Bio_Finger",
+      "TS_Bio_EMGs",
+      "TS_Bio_EEG",
+      "TS_Con_Remote",
+      "TS_Con_Novint",
+      "TS_Con_Game",
+      "TS_Con_Touch",
+      "TS_Con_Mouse",
+      "TS_Det_PressurePad",
+      "TS_Det_Proximity",
+      "TS_Env_Light",
+      "TS_Env_Heat",
+      "TS_Env_Wind",
+      "TS_Env_Sism",
+      "TS_Env_CO2",
+      "TS_Env_Rain"
+    ]
   },
   {
     "name": "PlantConnect ",
@@ -4510,7 +5044,12 @@ const INSTALLATIONS = [
     "SP_Pnt_Dyna": 1,
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi"
+    ]
   },
   {
     "name": "Pleasure Garden",
@@ -4570,7 +5109,11 @@ const INSTALLATIONS = [
     "SP_Num_Mult": 1,
     "SP_Pnt_Same": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref"
+    ]
   },
   {
     "name": "Poly",
@@ -4597,7 +5140,20 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "SP_Num_Mult": 1,
     "SG_Obj_Mecha": 1,
-    "SG_Obj_Reso": 1
+    "SG_Obj_Reso": 1,
+    "naFields": [
+      "CO_Exhibition",
+      "CO_Outdoor",
+      "CO_Indoor",
+      "CO_School",
+      "CO_Prototype",
+      "CO_Trans",
+      "CO_Care",
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi",
+      "TS_Server"
+    ]
   },
   {
     "name": "Polymetros",
@@ -4733,7 +5289,17 @@ const INSTALLATIONS = [
     "IT_Use_Motion": 1,
     "TS_Det_Proximity": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "Random Access",
@@ -4864,7 +5430,19 @@ const INSTALLATIONS = [
     "FT_Sonic": 1,
     "IT_Use_Activity": 1,
     "TS_Ima_Came": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Reeds",
@@ -4968,7 +5546,40 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "LI_None",
+      "LI_Spot",
+      "LI_Dynamic",
+      "IA_Many",
+      "IA_FewA",
+      "IA_OneA",
+      "IA_None",
+      "MC_Process",
+      "MC_Note",
+      "MC_Timbral",
+      "TS_Server",
+      "TS_Ele_Capa",
+      "TS_Mec_Acce",
+      "TS_Mec_Torque",
+      "TS_Mec_Potent",
+      "TS_Ide_RFID",
+      "TS_Mic_Piezo",
+      "TS_Mic_Micr",
+      "TS_Ima_Came",
+      "TS_Ima_Motion",
+      "TS_Bio_Finger",
+      "TS_Bio_EMGs",
+      "TS_Con_Remote",
+      "TS_Con_Touch",
+      "TS_Con_Mouse",
+      "TS_Det_PressurePad",
+      "TS_Det_Proximity",
+      "TS_Env_Light",
+      "TS_Env_Heat",
+      "TS_Env_Wind"
+    ]
   },
   {
     "name": "Sand Scope",
@@ -4994,7 +5605,23 @@ const INSTALLATIONS = [
     "IT_Use_VisiSounds": 1,
     "TS_Mic_Micr": 1,
     "TS_Ima_Came": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni",
+      "Subject Area",
+      "Field"
+    ]
   },
   {
     "name": "Seeing Aural",
@@ -5019,7 +5646,21 @@ const INSTALLATIONS = [
     "FT_Sonic": 1,
     "MC_Process": 1,
     "IT_Use_EyeTrack": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Selfhood",
@@ -5121,7 +5762,20 @@ const INSTALLATIONS = [
     "IT_Use_Motion": 1,
     "TS_Ima_Came": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Shadowgraphs",
@@ -5148,7 +5802,11 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "SP_Hea_Stereo": 1,
     "SG_Speakers": 1,
-    "UX_InfObs": 1
+    "UX_InfObs": 1,
+    "naFields": [
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff"
+    ]
   },
   {
     "name": "Skyhooks",
@@ -5246,7 +5904,17 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Ide_RFID": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "Sonic City ",
@@ -5279,7 +5947,17 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Con_Touch": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "Sonic Onyx",
@@ -5380,7 +6058,13 @@ const INSTALLATIONS = [
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
     "SG_Obj_Reso": 1,
-    "Cross_Reference": 1
+    "Cross_Reference": 1,
+    "naFields": [
+      "Subject Area",
+      "Field",
+      "Type",
+      "Source"
+    ]
   },
   {
     "name": "Sound Forest / Ljudskogen",
@@ -5448,7 +6132,12 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "LI_None",
+      "LI_Spot",
+      "LI_Dynamic"
+    ]
   },
   {
     "name": "Sound Happening",
@@ -5479,7 +6168,12 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult"
+    ]
   },
   {
     "name": "Sound Installation - No Name",
@@ -5542,7 +6236,19 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Ima_Came": 1,
     "SG_Speakers": 1,
-    "UX_InfObs": 1
+    "UX_InfObs": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Sound of Space",
@@ -5572,7 +6278,12 @@ const INSTALLATIONS = [
     "SP_Num_One": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "SG_Obj_Elec": 1
+    "SG_Obj_Elec": 1,
+    "naFields": [
+      "Subject Area",
+      "Field",
+      "Source"
+    ]
   },
   {
     "name": "Sound Planet",
@@ -5604,7 +6315,14 @@ const INSTALLATIONS = [
     "SP_Pnt_Diff": 1,
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult"
+    ]
   },
   {
     "name": "Soundanism",
@@ -5694,7 +6412,28 @@ const INSTALLATIONS = [
     "MC_Process": 1,
     "IT_Use_Motion": 1,
     "TS_Ima_Motion": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "IV_None",
+      "IV_NonSonic",
+      "IV_Visual_Int",
+      "IV_SonicEl",
+      "SD_Mat_Abs",
+      "SD_Mat_Ref",
+      "LI_None",
+      "LI_Spot",
+      "LI_Dynamic",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Sounds of Infinity",
@@ -5718,7 +6457,20 @@ const INSTALLATIONS = [
     "ODof_One": 1,
     "FT_Visu": 1,
     "IT_Use_VisiSounds": 1,
-    "TS_Mic_Micr": 1
+    "TS_Mic_Micr": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "SoundTableTennis",
@@ -5894,7 +6646,12 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UX_InfObs": 1
+    "UX_InfObs": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult"
+    ]
   },
   {
     "name": "Spiral",
@@ -5960,7 +6717,14 @@ const INSTALLATIONS = [
     "SP_Num_Mult": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "LI_None",
+      "LI_Spot",
+      "LI_Dynamic",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff"
+    ]
   },
   {
     "name": "Squidback ",
@@ -5996,7 +6760,12 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UX_InfObs": 1
+    "UX_InfObs": 1,
+    "naFields": [
+      "Subject Area",
+      "Field",
+      "Source"
+    ]
   },
   {
     "name": "State Dependency ",
@@ -6029,7 +6798,11 @@ const INSTALLATIONS = [
     "SP_Num_Mult": 1,
     "SP_Pnt_Same": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "States of Diffusion",
@@ -6130,7 +6903,11 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref"
+    ]
   },
   {
     "name": "StoryWall",
@@ -6159,7 +6936,32 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Con_Touch": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref",
+      "SD_Mat_Local",
+      "SD_Mat_Infra",
+      "SD_Mat_Pre",
+      "SD_Pro_Son",
+      "SD_Pro_Feed",
+      "SD_Pro_Gen",
+      "SD_SiteAcou",
+      "RS_Expr",
+      "RS_Info",
+      "RS_Didactic",
+      "RS_Therapeutic",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Straw-like User Interface",
@@ -6192,7 +6994,11 @@ const INSTALLATIONS = [
     "SP_Num_One": 1,
     "SP_Dir_Directive": 1,
     "SG_Speakers": 1,
-    "Cross_Reference": 1
+    "Cross_Reference": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref"
+    ]
   },
   {
     "name": "Streets",
@@ -6287,7 +7093,24 @@ const INSTALLATIONS = [
     "MC_Note": 1,
     "IT_Use_Embodied": 1,
     "TS_Ele_Capa": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "LS_Dyn_Path",
+      "LS_Dyn_NoSpec",
+      "LS_SweetSpot",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Surrsound",
@@ -6564,7 +7387,19 @@ const INSTALLATIONS = [
     "SP_Num_Two": 1,
     "SP_Pnt_Same": 1,
     "SP_Cnt_Channel": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "CO_Exhibition",
+      "CO_Outdoor",
+      "CO_Indoor",
+      "CO_School",
+      "CO_Prototype",
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "The Cube",
@@ -6635,7 +7470,11 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Cnt_Algo": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref"
+    ]
   },
   {
     "name": "The Harp of Light",
@@ -6667,7 +7506,17 @@ const INSTALLATIONS = [
     "TS_Det_Proximity": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "SG_Musical": 1
+    "SG_Musical": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "The Icebreaker",
@@ -6728,7 +7577,17 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Ide_BarCode": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "The Intelligent Street",
@@ -6762,7 +7621,18 @@ const INSTALLATIONS = [
     "TS_Server": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "The Light Orchard",
@@ -6825,7 +7695,12 @@ const INSTALLATIONS = [
     "SP_Num_Mult": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi"
+    ]
   },
   {
     "name": "The Listening Walker",
@@ -6920,7 +7795,20 @@ const INSTALLATIONS = [
     "IT_Use_Motion": 1,
     "TS_Mic_Piezo": 1,
     "TS_Ima_Motion": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "The Magic Room",
@@ -6955,7 +7843,15 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref",
+      "SD_Mat_Pre",
+      "SD_Pro_Son",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "The Memory Machine",
@@ -7024,7 +7920,19 @@ const INSTALLATIONS = [
     "TS_Mic_Micr": 1,
     "TS_Ima_Came": 1,
     "SG_Speakers": 1,
-    "UX_InfObs": 1
+    "UX_InfObs": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "The Organ Pipe",
@@ -7082,7 +7990,56 @@ const INSTALLATIONS = [
     "MC_Process": 1,
     "IT_Use_Embodied": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "SD_Mat_Abs",
+      "SD_Mat_Ref",
+      "SD_Mat_Pre",
+      "TS_Server",
+      "TS_Ele_Cartrige",
+      "TS_Ele_Volt",
+      "TS_Ele_Capa",
+      "TS_Mec_Acce",
+      "TS_Mec_PressSens",
+      "TS_Mec_Bend",
+      "TS_Mec_Torque",
+      "TS_Mec_Potent",
+      "TS_Ide_RFID",
+      "TS_Ide_BarCode",
+      "TS_Ide_Coin",
+      "TS_Mic_Piezo",
+      "TS_Mic_Micr",
+      "TS_Ima_Came",
+      "TS_Ima_Motion",
+      "TS_Bio_Finger",
+      "TS_Bio_EMGs",
+      "TS_Bio_EEG",
+      "TS_Con_Remote",
+      "TS_Con_Novint",
+      "TS_Con_Game",
+      "TS_Con_Touch",
+      "TS_Con_Mouse",
+      "TS_Det_PressurePad",
+      "TS_Det_Proximity",
+      "TS_Env_Light",
+      "TS_Env_Heat",
+      "TS_Env_Wind",
+      "TS_Env_Sism",
+      "TS_Env_CO2",
+      "TS_Env_Rain",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "The Pulse of the Earth",
@@ -7112,7 +8069,12 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "LI_None",
+      "LI_Spot",
+      "LI_Dynamic"
+    ]
   },
   {
     "name": "The reality helmet",
@@ -7234,7 +8196,24 @@ const INSTALLATIONS = [
     "MC_Note": 1,
     "IT_Use_Embodied": 1,
     "TS_Ele_Capa": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "The Soundomat ",
@@ -7265,7 +8244,20 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Mic_Piezo": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "The Voice Harvester",
@@ -7300,7 +8292,11 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SD_Mat_Abs",
+      "SD_Mat_Ref"
+    ]
   },
   {
     "name": "Think silently, act with noise",
@@ -7335,7 +8331,13 @@ const INSTALLATIONS = [
     "SP_Num_Two": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "IV_SonicEl",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna"
+    ]
   },
   {
     "name": "Tilt",
@@ -7366,7 +8368,32 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "TS_Server",
+      "TS_Ele_Capa",
+      "TS_Mec_Acce",
+      "TS_Mec_Bend",
+      "TS_Mec_Torque",
+      "TS_Mec_Potent",
+      "TS_Ide_RFID",
+      "TS_Mic_Piezo",
+      "TS_Mic_Micr",
+      "TS_Ima_Came",
+      "TS_Ima_Motion",
+      "TS_Bio_Finger",
+      "TS_Bio_EMGs",
+      "TS_Con_Remote",
+      "TS_Con_Novint",
+      "TS_Con_Game",
+      "TS_Con_Touch",
+      "TS_Con_Mouse",
+      "TS_Det_PressurePad",
+      "TS_Det_Proximity",
+      "TS_Env_Light",
+      "TS_Env_Heat",
+      "TS_Env_Wind"
+    ]
   },
   {
     "name": "Timbre of the Tones",
@@ -7558,7 +8585,22 @@ const INSTALLATIONS = [
     "MC_Process": 1,
     "IT_Use_Motion": 1,
     "TS_Ima_Came": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "LI_None",
+      "LI_Spot",
+      "LI_Dynamic",
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo",
+      "SP_Dir_Directive",
+      "SP_Dir_Omni"
+    ]
   },
   {
     "name": "Tunnel Divisions",
@@ -7727,7 +8769,12 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi"
+    ]
   },
   {
     "name": "Visual Melodies",
@@ -7876,7 +8923,11 @@ const INSTALLATIONS = [
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
     "SG_Speakers": 1,
-    "UX_Study": 1
+    "UX_Study": 1,
+    "naFields": [
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff"
+    ]
   },
   {
     "name": "Waves of Remembrance",
@@ -7942,7 +8993,13 @@ const INSTALLATIONS = [
     "TS_Mic_Micr": 1,
     "SP_Pnt_Same": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "Will.0.W1sp",
@@ -7978,7 +9035,17 @@ const INSTALLATIONS = [
     "TS_Ima_Came": 1,
     "TS_Ima_Motion": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "Wind and Water / Vind dog Vand",
@@ -8003,7 +9070,29 @@ const INSTALLATIONS = [
     "FT_Sonic": 1,
     "MC_Process": 1,
     "IT_Use_Motion": 1,
-    "SG_Obj_Reso": 1
+    "SG_Obj_Reso": 1,
+    "naFields": [
+      "TS_Server",
+      "TS_Ele_Capa",
+      "TS_Mec_Acce",
+      "TS_Mec_Torque",
+      "TS_Mec_Potent",
+      "TS_Ide_RFID",
+      "TS_Mic_Piezo",
+      "TS_Mic_Micr",
+      "TS_Ima_Came",
+      "TS_Ima_Motion",
+      "TS_Bio_Finger",
+      "TS_Bio_EMGs",
+      "TS_Con_Remote",
+      "TS_Con_Touch",
+      "TS_Con_Mouse",
+      "TS_Det_PressurePad",
+      "TS_Det_Proximity",
+      "TS_Env_Light",
+      "TS_Env_Heat",
+      "TS_Env_Wind"
+    ]
   },
   {
     "name": "Windows of the World",
@@ -8105,7 +9194,18 @@ const INSTALLATIONS = [
     "IT_Use_Embodied": 1,
     "TS_Ele_Volt": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "SP_Num_One",
+      "SP_Num_Two",
+      "SP_Num_Mult",
+      "SP_Hea_Stereo",
+      "SP_Pnt_Same",
+      "SP_Pnt_Diff",
+      "SP_Pnt_Dyna",
+      "SP_Cnt_Channel",
+      "SP_Cnt_Algo"
+    ]
   },
   {
     "name": "Wow&Flutter",
@@ -8137,7 +9237,12 @@ const INSTALLATIONS = [
     "SP_Pnt_Same": 1,
     "SP_Cnt_Channel": 1,
     "SP_Dir_Omni": 1,
-    "SG_Speakers": 1
+    "SG_Speakers": 1,
+    "naFields": [
+      "LP_Ephemeral",
+      "LP_Temp",
+      "LP_Semi"
+    ]
   },
   {
     "name": "Zwischenraume",

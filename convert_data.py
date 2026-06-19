@@ -213,13 +213,18 @@ for i in range(len(data)):
         'publication': safe(row.iloc[5]),
         'fieldParts':  fieldParts,
     }
+    na_fields = []
     for col in data.columns[7:]:
         try:
             val = row[col]
             if pd.notna(val) and float(val) == 1.0:
                 inst[col] = 1
+            elif pd.isna(val):
+                na_fields.append(col)
         except (ValueError, TypeError):
             pass
+    if na_fields:
+        inst['naFields'] = na_fields
     installations.append(inst)
 
 # ── Write js/data.js ─────────────────────────────────────────────────────────
