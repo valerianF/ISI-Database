@@ -10266,10 +10266,6 @@ const LINK_OPTIONS = [
     "value": "SP_Num"
   },
   {
-    "label": "Headphones",
-    "value": "SP_Hea"
-  },
-  {
     "label": "Diffusion Orientation",
     "value": "SP_Pnt"
   },

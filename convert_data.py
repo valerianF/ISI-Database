@@ -172,7 +172,7 @@ dropdown_options = [
 # Intermediate parent node IDs that can be used as edge-coloring categories.
 # Mirrors app.py: AI[1:non_subs], IN[1:non_subs], SD[1:-1] then filter.
 _multi_prefix = ("TS_", "LS_", "SD_")
-_exclude_ids  = {'IT', 'SP', 'IDof', 'ODof'}
+_exclude_ids  = {'IT', 'SP', 'IDof', 'ODof', 'SP_Hea'}  # SP_Hea has only one sub-option (Stereo)
 
 _n_AI_ns = len(AI_h['ids']) - len(AI_h['subs'])   # non-sub node count for AI
 _n_IN_ns = len(IN_h['ids']) - len(IN_h['subs'])   # non-sub node count for IN

@@ -63,16 +63,25 @@ function parentLabel(parentID) {
 
 // Replicate init_parents(): for each link category, find which parent groups
 // are actually present among the filtered installations.
-// "TS" uses first-6-chars grouping (TS_Ele, TS_Mic, …); all others use the
-// full column name as the group key.
+// "TS" groups columns by their 6-char intermediate sub-group (TS_Ele, TS_Mic…)
+// EXCEPT for direct TS children like TS_Server which have no sub-group.
 function buildParents(linkIDs, filteredInsts) {
   const parents = new Set();
+  // 6-char TS intermediate nodes (e.g. TS_Ele, TS_Mic) from the sunburst hierarchy
+  const tsSubgroups = new Set(
+    SUNBURST['SD'].ids.filter(id => id.startsWith('TS_') && id.length === 6)
+  );
   for (const linkID of linkIDs) {
     const isTS = (linkID === 'TS');
     for (const inst of filteredInsts) {
       for (const col of binaryKeys(inst)) {
         if (col.includes(linkID)) {
-          parents.add(isTS ? col.substring(0, 6) : col);
+          if (isTS) {
+            const prefix = col.substring(0, 6);
+            parents.add(tsSubgroups.has(prefix) ? prefix : col);
+          } else {
+            parents.add(col);
+          }
         }
       }
     }
