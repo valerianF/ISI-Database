@@ -18,16 +18,6 @@ let networkFilterLabels = [];
 let networkLinkIDs      = [];
 
 // ─── Helpers ───────────────────────────────────────────────────────────────────
-function sanitizeUrl(raw) {
-  const s = (raw || '').trim();
-  if (!s) return null;
-  if (/^10\./i.test(s))        return 'https://doi.org/' + s;
-  if (/^doi:\s*/i.test(s))     return 'https://doi.org/' + s.replace(/^doi:\s*/i, '').trim();
-  if (/^DOI:\s*/i.test(s))     return 'https://doi.org/' + s.replace(/^DOI:\s*/i, '').trim();
-  if (/^https?:\/\//i.test(s)) return s;
-  return null;
-}
-
 function binaryKeys(inst) {
   return Object.keys(inst).filter(k => !METADATA_KEYS.has(k));
 }
@@ -481,13 +471,11 @@ function initDropdowns() {
   }
 }
 
-// ─── Init ──────────────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', function () {
+// ─── Init (called by app.js after DOM is ready) ────────────────────────────────
+function initNetworkPage() {
   initDropdowns();
-  if (networkLinkIDs.length > 0) {
-    renderNetwork();
-  } else {
+  if (networkLinkIDs.length === 0) {
     setMessage('Select at least one link category to build the network.');
     hideCy();
   }
-});
+}

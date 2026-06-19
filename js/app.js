@@ -5,6 +5,7 @@ let currentPlotType = 'AI';
 let tomSelectInstance = null;
 let selectedLabels = [];
 let sunburstEventsAttached = false;
+let networkReady = false;
 
 // ─── Theme maps ───────────────────────────────────────────────────────────────
 const BG_COLORS = {
@@ -189,11 +190,19 @@ function initCredits() {
   }
 }
 
+// ─── Credits home visibility ──────────────────────────────────────────────────
+function syncCreditsHome() {
+  const el = document.querySelector('.credits_home');
+  if (!el) return;
+  el.style.display = selectedLabels.length > 0 ? 'none' : '';
+}
+
 // ─── Results rendering ────────────────────────────────────────────────────────
 function renderResults() {
   const container = document.getElementById('list_inst');
   if (!container) return;
   container.innerHTML = '';
+  syncCreditsHome();
 
   if (!selectedLabels.length) return;
 
@@ -374,6 +383,63 @@ function initRadioButtons() {
   });
 }
 
+// ─── Chart view switcher ──────────────────────────────────────────────────────
+function applyNetworkLayout() {
+  const pageContent = document.getElementById('page_content');
+  const sunburstSection = document.getElementById('sunburst-section');
+  const networkSection = document.getElementById('network-section');
+  const listInst = document.getElementById('list_inst');
+  const creditsHome = document.querySelector('.credits_home');
+
+  if (sunburstSection) sunburstSection.style.display = 'none';
+  if (listInst) listInst.style.display = 'none';
+  if (creditsHome) creditsHome.style.display = 'none';
+  if (networkSection) networkSection.style.display = '';
+  if (pageContent) {
+    pageContent.classList.add('network-active');
+    pageContent.style.background = '#F6F6F6';
+  }
+}
+
+function applySunburstLayout() {
+  const pageContent = document.getElementById('page_content');
+  const sunburstSection = document.getElementById('sunburst-section');
+  const networkSection = document.getElementById('network-section');
+  const listInst = document.getElementById('list_inst');
+  const creditsHome = document.querySelector('.credits_home');
+
+  if (networkSection) networkSection.style.display = 'none';
+  if (sunburstSection) sunburstSection.style.display = '';
+  if (listInst) listInst.style.display = '';
+  if (pageContent) pageContent.classList.remove('network-active');
+  updateBackground(currentPlotType);
+  syncCreditsHome();
+}
+
+function initChartSwitcher() {
+  if (!document.getElementById('network-section')) return;
+
+  const savedView = localStorage.getItem('chartView') || 'sunburst';
+  const viewRadio = document.getElementById('view-' + savedView);
+  if (viewRadio) viewRadio.checked = true;
+  if (savedView === 'network') applyNetworkLayout();
+
+  document.querySelectorAll('input[name="chart_view"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+      localStorage.setItem('chartView', this.value);
+      if (this.value === 'network') {
+        applyNetworkLayout();
+        if (!networkReady && typeof renderNetwork === 'function') {
+          networkReady = true;
+          renderNetwork();
+        }
+      } else {
+        applySunburstLayout();
+      }
+    });
+  });
+}
+
 // ─── Entry points ─────────────────────────────────────────────────────────────
 function initMainPage() {
   const savedPlotType = localStorage.getItem('selectedPlotType');
@@ -385,10 +451,20 @@ function initMainPage() {
   updateBackground(currentPlotType);
   initDropdown();
   initRadioButtons();
+  initChartSwitcher();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   initCredits();
-  if (document.getElementById('sunburst')) initMainPage();
+  if (document.getElementById('sunburst')) {
+    initMainPage();
+    if (typeof initNetworkPage === 'function') {
+      initNetworkPage();
+      if (localStorage.getItem('chartView') === 'network') {
+        networkReady = true;
+        if (typeof renderNetwork === 'function') renderNetwork();
+      }
+    }
+  }
   if (document.getElementById('installations-table')) renderInstallationsTable();
 });

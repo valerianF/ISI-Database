@@ -92,14 +92,15 @@ a:hover {
 /* Credits shown on home page before any category is selected (dark gradient bg) */
 .credits_home {
     font-family: Roboto;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 10pt;
     color: rgba(255,255,255,0.55);
     line-height: 1.5em;
-    padding: 0.5cm 0cm 0cm 1cm;
-    position: absolute;
+    padding: 0.5cm 0 0 1cm;
+    position: fixed;
     bottom: 0.5cm;
     left: 300px;
+    z-index: 2;
 }
 
 .credits_home a {
@@ -113,8 +114,7 @@ a:hover {
 
 .credits_home_license {
     color: rgba(255,255,255,0.35);
-    font-size: 9pt;
-    padding-top: 0.01cm;
+    font-size: 10pt;
 }
 
 /* Override Plotly's default Open Sans with Roboto 300 inside the sunburst */
@@ -200,15 +200,14 @@ summary::-webkit-details-marker {
     display: none;
 }
 
-/* Banner button */
 .credits {
     font-family: Roboto;
     font-weight: 500;
     font-size: 10pt;
     color: #000000;
     line-height: 1.5em;
-    padding: 0.5cm 0cm 0cm 1cm;
-    }
+    padding: 0.5cm 0 0 1cm;
+}
 
 .link_credits {
     text-decoration: underline;
@@ -357,14 +356,26 @@ div.page_lists {
 }
 
 div.page_glossary {
-    position: relative;
+    display: flex;
+    flex-direction: column;
     background: #F6F6F6;
     width: 100vw;
     padding-top: 20px;
-    padding-bottom: 3cm;
-    padding-right: 80px;
+    padding-bottom: 1cm;
+    padding-right: 40px;
     padding-left: 330px;
     min-height: 100vh;
+}
+
+/* Push credits to the bottom of the glossary page */
+.page_glossary #credits-container {
+    margin-top: auto;
+    padding-top: 1cm;
+}
+
+/* Remove the table-spacer injected by buildCredits() */
+.page_glossary #credits-container > div > p:first-child {
+    padding-bottom: 0 !important;
 }
 
 /* Radio buttons styling */
@@ -674,6 +685,118 @@ transition-delay: 0.2s;
     margin: 0 0 0 0px;
     padding: 0px 10px;
     background-color: darkgoldenrod;
+}
+
+/* Remove the table-spacer injected by buildCredits() — not needed on the network view */
+#network-section #credits-container > div > p:first-child {
+  padding-bottom: 0 !important;
+}
+
+/* ── Chart view switcher ─────────────────────────────────────────────────── */
+
+.chart-view-switcher {
+  position: relative;
+  z-index: 2;
+  /* Mirrors .page_columns: same padding so the inner col aligns with .page_left */
+  display: flex;
+  padding-left: 300px;
+  padding-right: 40px;
+  padding-top: 30px;
+}
+
+/* Mirrors .page_left + .radio_buttons: 60% wide, centered content */
+.chart-view-switcher-col {
+  width: 60%;
+  padding-left: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.chart-view-switcher input[type="radio"] {
+  display: none;
+}
+
+.chart-view-switcher label {
+  cursor: pointer;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 10pt;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  padding-bottom: 5px;
+  position: relative;
+  transition: color 0.2s;
+}
+
+/* Hover underline — same animation technique as .banner_link */
+.chart-view-switcher label::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale3d(0, 1, 1);
+  transform-origin: center left;
+  transition: transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: 0.2s;
+}
+
+.chart-view-switcher label:hover::before {
+  transform: scale3d(1, 1, 1);
+  transition-delay: 0s;
+}
+
+/* Always-visible underline for the active tab */
+.chart-view-switcher label::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 1);
+  transform: scale3d(0, 1, 1);
+  transform-origin: center left;
+  transition: transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.chart-view-switcher input[type="radio"]:checked + label {
+  color: rgba(255, 255, 255, 1);
+}
+
+.chart-view-switcher input[type="radio"]:checked + label::after {
+  transform: scale3d(1, 1, 1);
+}
+
+/* When network view is active, page background is light */
+#page_content.network-active .chart-view-switcher label {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+#page_content.network-active .chart-view-switcher label::before {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+#page_content.network-active .chart-view-switcher label::after {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+#page_content.network-active .chart-view-switcher input[type="radio"]:checked + label {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Reduce top padding on home page sections to account for the switcher */
+#sunburst-section {
+  padding-top: 60px;
+}
+
+#network-section {
+  padding-top: 20px;
+  padding-left: 340px;
 }
 
 /* ── Network page ─────────────────────────────────────────────────────────── */
