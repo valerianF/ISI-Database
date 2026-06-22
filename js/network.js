@@ -156,7 +156,7 @@ function buildElements(filterLabels, linkIDs) {
   // Build nodes; color isolated ones (all parents unshared) like the original
   const nodes = withData.map((inst, i) => {
     const nodeParents = instParents[i];
-    let nodeColor = '#c0c0c0';
+    let nodeColor = '#adadad';
     // Node gets colored if it has a parent that is NOT in sharedParents
     for (const p of nodeParents) {
       if (!sharedParents.has(p)) {
@@ -242,20 +242,19 @@ function renderNetwork() {
           'background-color': 'data(nodeColor)',
           'label': 'data(label)',
           'font-family': 'Roboto, sans-serif',
-          'font-size': 30,
+          'font-size': 40,
           'font-weight': 300,
-          'width': 80,
-          'height': 80,
+          'width': 60,
+          'height': 60,
           'border-width': 0,
-          'border-color': '#888888',
           'text-wrap': 'wrap',
           'text-max-width': 300,
-          'color': '#222222'
+          'color': '#000000'
         }
       },
       {
         selector: 'node:selected',
-        style: { 'border-color': '#000000', 'border-width': 5 }
+        style: { 'border-color': '#0c0c0c', 'border-width': 8 }
       },
       {
         selector: 'edge',
@@ -296,7 +295,7 @@ function renderNetwork() {
       },
       {
         selector: 'node.highlighted',
-        style: { 'opacity': 1, 'border-color': '#444444', 'border-width': 2.5 }
+        style: { 'opacity': 1, 'border-color': '#0c0c0c', 'border-width': 2.5 }
       },
       {
         selector: 'edge.highlighted',

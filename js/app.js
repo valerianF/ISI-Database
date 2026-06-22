@@ -43,6 +43,8 @@ const COLOR_SCALE_SD = [
   [1, '#00441B']
 ];
 
+const GREY_BG = 'linear-gradient(0deg, #f6f6f6 0%, #dadada 100%)';
+
 const COLOR_SCALES   = { AI: COLOR_SCALE_AI,  IN: COLOR_SCALE_IN, SD: COLOR_SCALE_SD };
 // Blues and Greens are defined light→dark in Plotly.js; Burg is dark→light.
 // reversescale flips Blues/Greens so that high log values map to the dark end.
@@ -412,7 +414,7 @@ function applyNetworkLayout() {
   if (networkSection) networkSection.style.display = '';
   if (pageContent) {
     pageContent.classList.add('network-active');
-    pageContent.style.background = '#F6F6F6';
+    pageContent.style.background = GREY_BG;
   }
 }
 
