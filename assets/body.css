@@ -560,7 +560,7 @@ div.page_right {
     top: 60px;
     left: 300px;
     background-color: #F6F6F6;
-    width: calc(100vw - 300px);
+    width: calc(100% - 300px);
     box-sizing: border-box;
     overflow-x: hidden;
 }
@@ -921,8 +921,7 @@ transition-delay: 0.2s;
 }
 
 .network-bottom {
-    width: fit-content;
-    min-width: 0;
+    width: 60%;
     margin-top: 20px;
     padding-left: 1cm;
 }
@@ -1052,6 +1051,18 @@ transition-delay: 0.2s;
     color: #333333;
 }
 
+/* ── Mobile nav stubs (elements injected by initMobileNav in app.js) ─────────
+   On desktop the wrapper disappears from the box model so existing banner
+   layout is unchanged; the toggle button is simply hidden.                    */
+
+.banner-nav {
+  display: block; /* links stay in flow; replaced by a flex drawer on mobile */
+}
+
+.nav-toggle {
+  display: none;
+}
+
 /* ── Network controls section ──────────────────────────────────────────────── */
 
 #network-controls {
@@ -1131,4 +1142,320 @@ transition-delay: 0.2s;
 #network-controls .ts-dropdown .option.active,
 #network-controls .ts-dropdown .option:hover {
     background-color: #e8e8e8;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOBILE  ≤ 850 px
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 850px) {
+
+  /* Slide-down animation for the nav drawer */
+  @keyframes navSlideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Prevent horizontal overflow ─────────────────────────────────────────── */
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* ── Banner → fixed top bar ──────────────────────────────────────────────── */
+
+  .banner {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 16px;
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  /* Slightly larger title for readability */
+  .banner h1,
+  .banner_header {
+    font-size: 12pt;
+    font-weight: 500;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #222222;
+    line-height: 1.3;
+  }
+
+  /* Nav wrapper becomes a slide-down drawer */
+  .banner-nav {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    padding: 20px 24px 28px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+    gap: 4px;
+  }
+
+  .banner.nav-open .banner-nav {
+    display: flex;
+    animation: navSlideDown 0.2s ease-out forwards;
+  }
+
+  /* Spacers are replaced by flexbox gap in the drawer */
+  .banner-nav .spacer-sm {
+    display: none;
+  }
+
+  /* Bigger tap targets for nav links inside the drawer */
+  .banner-nav .banner_link,
+  .banner-nav .banner_link_fixed {
+    line-height: 2.8em;
+    font-size: 11pt;
+  }
+
+  /* Hamburger button */
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 12px;
+    flex-shrink: 0;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #8e8e8e;
+    border-radius: 1px;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  /* Animate to ✕ when the drawer is open */
+  .banner.nav-open .nav-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .banner.nav-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .banner.nav-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ── Page-content top offset (banner is now 60 px tall) ─────────────────── */
+
+  #page_content {
+    padding-top: 60px;
+  }
+
+  /* Must use div. prefix to beat base rule specificity (div.page_glossary) */
+  div.page_glossary {
+    padding-top: 80px;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  /* Must use div. prefix to beat base rule specificity (div.page_lists) */
+  div.page_lists {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding-top: 60px;
+    padding-left: 0;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  /* ── Remove 300 px left offsets ──────────────────────────────────────────── */
+
+  div.page_columns {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+  }
+
+  #sunburst-section {
+    padding-top: 0;
+  }
+
+  .chart-view-switcher {
+    padding-left: 16px;
+    padding-top: 20px;
+  }
+
+  .chart-view-switcher-col {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  #network-section {
+    padding-left: 0;
+    padding-top: 0;
+  }
+
+  .network-main-section {
+    padding-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+  }
+
+  .list_inst {
+    left: 0;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Fixed credits are intrusive on mobile — let users scroll to the bottom */
+  .credits_home {
+    display: none;
+  }
+
+  /* Remove the 1cm left indent so credits align with page content */
+  .credits_block {
+    padding-left: 16px;
+  }
+
+  /* ── Two columns → single column ─────────────────────────────────────────── */
+
+  div.page_columns,
+  .network-columns {
+    flex-direction: column;
+  }
+
+  div.page_left,
+  div.page_right {
+    width: 100%;
+  }
+
+  /* ── Sunburst right column ───────────────────────────────────────────────── */
+
+  /* Override the inline padding-left:70px on the instruction h6 */
+  .page_right .instruction_text h6 {
+    padding-left: 16px !important;
+    font-size: 13pt !important;
+    line-height: 22pt !important;
+  }
+
+  .dropdown_container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  div.radio_buttons {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  /* ── Network section ─────────────────────────────────────────────────────── */
+
+  .network-columns .page_right {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 24px;
+  }
+
+  .network-message {
+    padding-top: 8px;
+  }
+
+  /* Override the desktop 60% width; legend is full-width when stacked */
+  .network-bottom {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  #cy {
+    height: 55vh;
+  }
+
+  /* ── Glossary ────────────────────────────────────────────────────────────── */
+
+  .summary_theme {
+    font-size: 36pt;
+  }
+
+  .summary_category {
+    font-size: 24pt;
+  }
+
+  summary {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    padding-left: 36px;
+  }
+
+  details[open] summary ~ * {
+    padding-left: 1.5rem;
+  }
+
+  details {
+    max-width: 100%;
+  }
+
+  /* ── Results count ───────────────────────────────────────────────────────── */
+
+  .n_results,
+  .n_results_page {
+    font-size: 52pt;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Restore legend title to normal size — overrides the .n_results 52pt above */
+  .network-legend-title {
+    font-size: 12pt;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* ── Table ───────────────────────────────────────────────────────────────── */
+
+  th,
+  td {
+    padding-left: 16px;
+  }
+
+  th:last-child,
+  td:last-child {
+    padding-right: 16px;
+  }
+
+  /* ── Network controls dropdowns (full width on mobile) ───────────────────── */
+
+  #network-controls .dropdown_container {
+    padding: 0;
+  }
+
+  /* ── Network mobile reorder: page_right and node-detail become direct
+     children of #network-section after JS reorder in applyMobileNetworkOrder ── */
+
+  #network-section > .page_right {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24px 16px 0;
+  }
+
+  #network-section > #node-detail {
+    margin: 16px 16px 0;
+    width: auto;
+  }
+
 }

@@ -280,8 +280,9 @@ function renderSunburst(type) {
     }
   };
 
+  const isMobile = window.matchMedia('(max-width: 850px)').matches;
   const layout = {
-    margin: { t: 0, l: 50, r: 0, b: 0 },
+    margin: isMobile ? { t: 0, l: 10, r: 10, b: 0 } : { t: 0, l: 50, r: 0, b: 0 },
     font: { family: 'Roboto', size: 16, weight: 300 },
     autosize: true,
     height: 600,
@@ -401,6 +402,23 @@ function initRadioButtons() {
 }
 
 // ─── Chart view switcher ──────────────────────────────────────────────────────
+// On mobile, reorder the network section children so the layout reads:
+// graph → selected installation → legend → instructions + controls → credits.
+// This runs once and is a no-op on subsequent calls or on desktop.
+function applyMobileNetworkOrder() {
+  if (window.innerWidth > 850) return;
+  const section = document.getElementById('network-section');
+  if (!section) return;
+  const nodeDetail = document.getElementById('node-detail');
+  const networkBottom = section.querySelector('.network-bottom');
+  const pageRight = section.querySelector('.network-columns .page_right');
+  const creditsContainer = section.querySelector('#credits-container');
+  if (!nodeDetail || !networkBottom || !pageRight || !creditsContainer) return;
+  if (nodeDetail.parentElement === section) return; // already reordered
+  section.insertBefore(nodeDetail, networkBottom);       // node-detail before legend
+  section.insertBefore(pageRight, creditsContainer);     // controls after legend
+}
+
 function applyNetworkLayout() {
   const pageContent = document.getElementById('page_content');
   const sunburstSection = document.getElementById('sunburst-section');
@@ -416,6 +434,7 @@ function applyNetworkLayout() {
     pageContent.classList.add('network-active');
     pageContent.style.background = GREY_BG;
   }
+  applyMobileNetworkOrder();
 }
 
 function applySunburstLayout() {
@@ -457,6 +476,45 @@ function initChartSwitcher() {
   });
 }
 
+// ─── Mobile navigation ────────────────────────────────────────────────────────
+function initMobileNav() {
+  const banner = document.querySelector('.banner');
+  if (!banner) return;
+
+  const h1 = banner.querySelector('h1');
+
+  // Wrap every child except the h1 in a <nav class="banner-nav"> drawer.
+  // On desktop, display:contents makes it invisible to the box model.
+  const nav = document.createElement('nav');
+  nav.className = 'banner-nav';
+  Array.from(banner.children)
+    .filter(el => el !== h1)
+    .forEach(el => nav.appendChild(el));
+  banner.appendChild(nav);
+
+  // Three-line hamburger button (hidden on desktop via CSS)
+  const btn = document.createElement('button');
+  btn.className = 'nav-toggle';
+  btn.setAttribute('aria-label', 'Toggle navigation');
+  btn.setAttribute('aria-expanded', 'false');
+  for (let i = 0; i < 3; i++) btn.appendChild(document.createElement('span'));
+  banner.appendChild(btn);
+
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    const open = banner.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+
+  // Close drawer on any click outside the banner
+  document.addEventListener('click', function () {
+    if (banner.classList.contains('nav-open')) {
+      banner.classList.remove('nav-open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
 // ─── Entry points ─────────────────────────────────────────────────────────────
 function initMainPage() {
   const savedPlotType = localStorage.getItem('selectedPlotType');
@@ -472,6 +530,7 @@ function initMainPage() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+  initMobileNav();
   initCredits();
   if (document.getElementById('sunburst')) {
     initMainPage();
