@@ -156,7 +156,7 @@ function buildElements(filterLabels, linkIDs) {
   // Build nodes; color isolated ones (all parents unshared) like the original
   const nodes = withData.map((inst, i) => {
     const nodeParents = instParents[i];
-    let nodeColor = '#adadad';
+    let nodeColor = '#aaaaaa';
     // Node gets colored if it has a parent that is NOT in sharedParents
     for (const p of nodeParents) {
       if (!sharedParents.has(p)) {
@@ -234,6 +234,7 @@ function renderNetwork() {
 
   cyInstance = cytoscape({
     container: cyEl,
+    userZoomingEnabled: false,
     elements: [...nodes, ...edges],
     style: [
       {
@@ -403,6 +404,11 @@ function showDetail(inst) {
   if (!panel) return;
   while (panel.firstChild) panel.removeChild(panel.firstChild);
 
+  const header = document.createElement('span');
+  header.className = 'detail-header';
+  header.textContent = 'Selected installation';
+  panel.appendChild(header);
+
   const nameP = document.createElement('p');
   nameP.className = 'detail-name';
   const url = sanitizeUrl(inst.hyperlink);
@@ -566,4 +572,12 @@ function initNetworkPage() {
     setMessage('Select at least one link category to build the network.');
     hideCy();
   }
+
+  const ZOOM_STEP = 0.25;
+  document.getElementById('cy-zoom-in').addEventListener('click', () => {
+    if (cyInstance) cyInstance.zoom({ level: cyInstance.zoom() * (1 + ZOOM_STEP), renderedPosition: { x: cyInstance.width() / 2, y: cyInstance.height() / 2 } });
+  });
+  document.getElementById('cy-zoom-out').addEventListener('click', () => {
+    if (cyInstance) cyInstance.zoom({ level: cyInstance.zoom() * (1 - ZOOM_STEP), renderedPosition: { x: cyInstance.width() / 2, y: cyInstance.height() / 2 } });
+  });
 }

@@ -867,11 +867,48 @@ transition-delay: 0.2s;
     padding-left: 60px;
 }
 
+.cy-container {
+    position: relative;
+}
+
 #cy {
     width: 100%;
-    height: 62vh;
+    height: 70vh;
     background-color: transparent;
     border-radius: 2px;
+}
+
+.cy-zoom-controls {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cy-zoom-btn {
+    width: 32px;
+    height: 32px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #444444;
+    cursor: pointer;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    transition: background 0.15s, color 0.15s;
+}
+
+.cy-zoom-btn:hover {
+    background: #f0f0f0;
+    color: #111111;
 }
 
 .network-message {
@@ -879,24 +916,36 @@ transition-delay: 0.2s;
     font-family: Roboto;
     font-weight: 300;
     font-size: 12pt;
-    padding: 40px 0 20px 40px;
+    padding: 0 0 20px 0;
     min-height: 30px;
 }
 
 .network-bottom {
     width: fit-content;
     min-width: 0;
-    margin-top: 0px;
-    padding-left: 40px;
+    margin-top: 20px;
+    padding-left: 1cm;
 }
 
 #node-detail {
     background: #ffffff;
-    border: 1px solid #dddddd;
-    padding: 0px 20px;
-    margin: 0 0 0 0;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    padding: 12px 16px 14px;
+    margin: 24px 0 0 0;
     width: 100%;
     display: none;
+}
+
+.detail-header {
+    color: #888888;
+    font-size: 9pt;
+    font-family: Roboto;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .detail-name {
@@ -965,15 +1014,31 @@ transition-delay: 0.2s;
     padding-top: 100px;
 }
 
+/* Two-column layout mirroring the sunburst page: graph left, controls right.
+   Left padding (300px) is provided by #network-section. */
+.network-columns {
+    display: flex;
+    padding-top: 40px;
+}
+
+/* Indent the right-column content like the sunburst page_right (70px) while
+   keeping the column at 40% total width. */
+.network-columns .page_right {
+    box-sizing: border-box;
+    padding-left: 70px;
+}
+
 .network-legend-title {
-    font-size: 22pt;
+    font-size: 12pt;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     padding-left: 0;
     padding-right: 0;
     padding-top: 20px;
     padding-bottom: 0px;
     margin: 0;
     font-family: 'Roboto';
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .network-instructions {
@@ -993,12 +1058,11 @@ transition-delay: 0.2s;
     padding: 0px;
     margin-top: 20px;
     display: flex;
-    gap: 40px;
-    justify-content: flex-start;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .network-control-group {
-    flex: 1 1 0;
     min-width: 0;
 }
 

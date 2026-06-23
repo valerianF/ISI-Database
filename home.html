@@ -86,21 +86,37 @@
 
     <!-- Network section -->
     <div id="network-section" class="network-main-section" style="display:none">
-      <p id="network-message" class="network-message"></p>
-      <div id="cy"></div>
-      <div class="network-bottom">
-        <div id="node-detail"></div>
-        <p id="network-legend-title" class="n_results network-legend-title"></p>
-        <div id="network-legend"></div>
-        <div id="network-controls"></div>
-        <p class="spacer-sm"></p>
-        <div class="network-instructions">
-          <h6>
-            Select categories to link installations in the network. Use the filter to
-            restrict which installations appear.
-          </h6>
+      <div class="network-columns">
+        <div class="page_left">
+          <p id="network-message" class="network-message"></p>
+          <div class="cy-container">
+            <div id="cy"></div>
+            <div class="cy-zoom-controls">
+              <button id="cy-zoom-in" class="cy-zoom-btn" aria-label="Zoom in">+</button>
+              <button id="cy-zoom-out" class="cy-zoom-btn" aria-label="Zoom out">−</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="page_right">
+          <div class="network-instructions">
+            <h6>
+              Select categories to link installations in the network. Use the filter to
+              restrict which installations appear.
+            </h6>
+          </div>
+
+          <div id="network-controls"></div>
+
+          <div id="node-detail"></div>
         </div>
       </div>
+
+      <div class="network-bottom">
+        <p id="network-legend-title" class="n_results network-legend-title"></p>
+        <div id="network-legend"></div>
+      </div>
+
       <div id="credits-container"></div>
     </div>
 
